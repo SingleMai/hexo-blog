@@ -1,0 +1,1050 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="性能优化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在Udacity网站优化课程中学到的知识">
+<meta name="keywords" content="性能优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站性能优化">
+<meta property="og:url" content="SingleMai.github.io/2017/03/15/技术/性能优化/Web-performance/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="在Udacity网站优化课程中学到的知识">
+<meta property="og:updated_time" content="2017-04-29T09:25:39.021Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网站性能优化">
+<meta name="twitter:description" content="在Udacity网站优化课程中学到的知识">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/03/15/技术/性能优化/Web-performance/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 网站性能优化 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/03/15/技术/性能优化/Web-performance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                网站性能优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T10:32:44+08:00">
+                2017-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站性能优化/" itemprop="url" rel="index">
+                    <span itemprop="name">网站性能优化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/03/15/技术/性能优化/Web-performance/" class="leancloud_visitors" data-flag-title="网站性能优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在Udacity网站优化课程中学到的知识<br><a id="more"></a></p>
+<h1 id="网站性能优化"><a href="#网站性能优化" class="headerlink" title="网站性能优化"></a>网站性能优化</h1><ol>
+<li>Google 的 <a href="https://developers.google.com/speed/pagespeed/insights/?url=www.baidu.com&amp;tab=desktop" target="_blank" rel="external">PageSpeed Insights</a> 会分析页面，并给出如何加快加载速度的相应建议。</li>
+</ol>
+<h2 id="关键渲染路径"><a href="#关键渲染路径" class="headerlink" title="关键渲染路径"></a>关键渲染路径</h2><ol>
+<li>浏览器进行的一系列步骤，进而将html、js等文件转换在屏幕上呈现像素内容。</li>
+<li><strong>优化关键渲染路径就是指最大限度缩短执行以下第 1 步至第 5 步耗费的总时间。</strong></li>
+<li>步骤的总结<ol>
+<li>得到HTML文件，开始构建<code>DOM</code>,但是<code>DOM</code>的构建并不是马上完成的。</li>
+<li>所以同步的，在<code>&lt;head&gt;</code>发现<code>css</code>和<code>JavaSctipt</code>链接，发送请求。</li>
+<li>由于在获得CSSOM之前，我们没有办法利用样式表，所以要尽快创建。</li>
+<li>在CSSOM创建完毕后，将会禁用JS所以要马上运行并在结束后继续完成DOM的构建。</li>
+<li>CSSOM→Render Tree→Layout→Paint</li>
+</ol>
+</li>
+<li>原则：先衡量再优化。</li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool?utm_source=dcc&amp;utm_medium=redirect&amp;utm_campaign=2016q3#saving-and-loading-recordings" target="_blank" rel="external">如何使用 Timeline 工具</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">id1(DOM) --&gt; id3(CSSOM)</div><div class="line">id1 --&gt; id2(Javescript)</div><div class="line">id2 --&gt; id1</div><div class="line">id2 --&gt; id3</div><div class="line">id3 --&gt;id4(Render Tree)</div><div class="line">id4 --&gt;id5(Layout)</div><div class="line">id5 --&gt;id6(Paint)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="DOM的产生"><a href="#DOM的产生" class="headerlink" title="DOM的产生"></a><code>DOM</code>的产生</h3><p>浏览器接受到<code>HTML</code>的响应请求，开始解析<code>HTML</code>文档。将字节转换为字符转换为令牌（StartTag &amp; EndTag）再转换为树的节点。其中，令牌和结点是交叉进行的。一组令牌的产生就可以同步进行结点产生操作。</p>
+<ul>
+<li>节点包含了HTML元素的所有相关信息。</li>
+<li>StartTag与EndTag 之间可能还会有结点（子结点）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">id1(HTML response)--&gt;id2(字节)</div><div class="line">id2 --&gt; id3(字符)</div><div class="line">id3 --&gt; id4(令牌)</div><div class="line">id4 --&gt; id5(结点)</div><div class="line">id5 --&gt; id6(DomTree)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="CSSOM的产生"><a href="#CSSOM的产生" class="headerlink" title="CSSOM的产生"></a><code>CSSOM</code>的产生</h3><p><code>CSSOM</code>的产生方式与HTML的产生方式差不多。有几个小点有所区别。</p>
+<ul>
+<li>CSS判断结点的方式不是<code>&lt;&gt;</code>而是内置的一套结点方式。然后根据用户重写的部分，重置一系列的属性。也就是说，<code>CSSOM</code>一定程度上和层叠规则相关。</li>
+<li>所以这也就导致了它不能了<code>DOM</code>一样，利用一部分的令牌提前生成结点，而必须等到所有令牌产生完毕才可以生成。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">id1(link到CSS样式表)--&gt;id2(字节)</div><div class="line">id2 --&gt; id3(字符)</div><div class="line">id3 --&gt; id4(令牌)</div><div class="line">id4 --&gt; id5(结点)</div><div class="line">id5 --&gt; id6(CSSOM)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Render-Tree"><a href="#Render-Tree" class="headerlink" title="Render Tree"></a><code>Render Tree</code></h3><ol>
+<li>从 DOM 树的根节点开始遍历每个可见节点。<ul>
+<li>某些节点不可见（例如脚本标记、元标记等），因为它们不会体现在渲染输出中，所以会被忽略。</li>
+<li>某些节点通过 CSS 隐藏，因此在渲染树中也会被忽略，例如，上例中的<code>&lt;span&gt;</code>节点—不会出现在渲染树中，—因为有一个显式规则在该节点上设置了<code>display: none</code>属性。</li>
+</ul>
+</li>
+<li>对于每个可见节点，为其找到适配的 CSSOM 规则并应用它们。</li>
+<li>发射可见节点，连同其内容和计算的样式。<br><em>注：简单提一句，请注意 <code>visibility: hidden</code> 与 <code>display: none</code> 是不一样的。前者隐藏元素，但元素仍占据着布局空间（即将其渲染成一个空框），而后者 (<code>display: none</code>) 将元素从渲染树中完全移除，元素既不可见，也不是布局的组成部分。</em></li>
+</ol>
+<p><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction" target="_blank" rel="external">渲染树构建、布局及绘制</a></p>
+<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a><code>Layout</code></h3><p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</code>这条语句就是将浏览器的布局窗口的宽度设置为设备的屏幕宽度。如果没有这条语句，浏览器会自动设置为980px；</p>
+<ol>
+<li>为弄清每个对象在网页上的确切大小和位置，浏览器从渲染树的根节点开始进行遍历。布局流程的输出是一个“盒模型”，它会精确地捕获每个元素在视口内的确切位置和尺寸：所有相对测量值都转换为屏幕上的绝对像素。</li>
+</ol>
+<h3 id="Paint"><a href="#Paint" class="headerlink" title="Paint"></a><code>Paint</code></h3><p>最后，既然我们知道了哪些节点可见、它们的计算样式以及几何信息，我们终于可以将这些信息传递给最后一个阶段：将渲染树中的每个节点转换成屏幕上的实际像素。这一步通常称为“绘制”或“栅格化”。<br><em>注意：绘制也有不用的时间。单色的绘制最为简单，相反阴影的绘制花费时间却要大得多</em></p>
+<h2 id="优化关键渲染路径"><a href="#优化关键渲染路径" class="headerlink" title="优化关键渲染路径"></a>优化关键渲染路径</h2><ul>
+<li>三个可变因素<ul>
+<li>关键资源的数量。（优化css、js）</li>
+<li>关键路径长度。（http请求次数）</li>
+<li>关键字节的数量。（文件大小）</li>
+</ul>
+</li>
+<li>优化常规步骤<ul>
+<li>对关键路径进行分析和特性描述：资源数、字节数、长度。</li>
+<li>最大限度减少关键资源的数量：删除它们，延迟它们的下载，将它们标记为异步等。</li>
+<li>优化关键字节数以缩短下载时间（往返次数）。</li>
+<li>优化其余关键资源的加载顺序：您需要尽早下载所有关键资产，以缩短关键路径长度。</li>
+</ul>
+</li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp#performance-patterns" target="_blank" rel="external">查看关键渲染路径性能模式</a></li>
+<li><a href="https://hpbn.co/" target="_blank" rel="external"> Ilya 的著作 高性能浏览器联网</a></li>
+<li><p><a href="https://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/" target="_blank" rel="external">浏览器预加载程序如何加快页面加载速度</a><a href="https://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/" target="_blank" rel="external">https://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/</a></p>
+<h3 id="优化DOM"><a href="#优化DOM" class="headerlink" title="优化DOM"></a>优化DOM</h3><ol>
+<li>尽快地将HTML流式传输给客户端，使浏览器可以开始构建DOM。</li>
+<li>去除注释</li>
+<li>利用GZIP压缩文件</li>
+<li>确保浏览器缓存了这些文件<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching" target="_blank" rel="external">http缓存</a><br><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer#minification-preprocessing--context-specific-optimizations" target="_blank" rel="external">详情</a><h3 id="优化CSS"><a href="#优化CSS" class="headerlink" title="优化CSS"></a>优化CSS</h3>除了和优化DOM出不多的优化方法外，还需设置取消阻塞渲染。默认情况下，CSS 被视为阻塞渲染的资源，这意味着浏览器将不会渲染任何已处理的内容，直至 CSSOM 构建完毕。请务必精简您的 CSS，尽快提供它，并利用媒体类型和查询来解除对渲染的阻塞。或者内嵌css</li>
+</ol>
+<p><strong>HTML 和 CSS 都是阻塞渲染的资源。</strong> HTML 显然是必需的，因为如果没有 DOM，我们就没有可渲染的内容，但 CSS的必要性可能就不太明显。例如一些对于响应式用户界面专用设置的css在不符合情况下就没有必要进行阻塞渲染。将这些内容转移到另外文件可以使阻塞渲染的css文件内容更少，下载速度更短。</p>
+<ul>
+<li>常用的媒体查询取消阻塞渲染。<code>media =&quot;print/(min-width: 40em)/orientation:portrait&quot;</code><br><em>请注意“阻塞渲染”仅是指浏览器是否需要暂停网页的首次渲染，直至该资源准备就绪。无论哪一种情况，浏览器仍会下载 CSS 资产，只不过不阻塞渲染的资源优先级较低罢了。</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="优化JavaSctipt"><a href="#优化JavaSctipt" class="headerlink" title="优化JavaSctipt"></a>优化JavaSctipt</h3><ol>
+<li>详情看<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript" target="_blank" rel="external">使用 JavaScript 添加交互</a></li>
+<li>每一次执行到Js脚本，浏览器的解析就会停止，直到脚本运行完毕。脚本的运行可以影响HTML也可以影响CSS，这在修改CSS样式的时候很可能会造成大量的延迟。因为要修改CSS、可是CSS在CSSOM没完成前不能工作，而CSSOM在DOM没完成前不能工作。这又导致脚本将延迟执行。大量的关系依赖，会严重影响性能。也就是CSS会阻止脚本的执行。所以优化CSS显得很重要。</li>
+<li><code>async</code>属性，在头部可以让JavaScript不停止解析器的进行。但是不能内嵌在html使用。内嵌的JavaScript始终会让CSS阻止</li>
+<li>添加事件监听在页面解析完，发出Onload指令时，再进行操作。</li>
+<li>此外，你还可以向脚本标记添加 defer 属性，告诉解析程序脚本应该等到文档加载后执行。<a href="https://hacks.mozilla.org/2009/06/defer/" target="_blank" rel="external">详细了解 defer 属性</a><ul>
+<li>阻止（Blocking）: <script src="anExteralScript.js"></script></li>
+<li>内联（Inline）: <script>document.write(“this is an inline script”)</script></li>
+<li>异步（Async）: <script async src="anExternalScript.js"></script></li>
+</ul>
+</li>
+</ol>
+<h1 id="浏览器渲染优化"><a href="#浏览器渲染优化" class="headerlink" title="浏览器渲染优化"></a>浏览器渲染优化</h1><ol>
+<li>帧<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">id1(JavaScript或CSS动画或API)--&gt;id2(style)</div><div class="line">id2 --&gt; id3(Layout)</div><div class="line">id3 --&gt; id4(Paint)</div><div class="line">id4 --&gt; id5(composite)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>不同的操作会不同地影响帧的部分。<ul>
+<li>通过CSS或JavaScript对外观做出了变化，那么浏览器必须重新计算受影响的样式。如果修改的是布局元素，那么则需要重新布局。然后重新绘制修改的部分，再合成。</li>
+<li>如果只修改样式，外观。那么则不需要重新布局</li>
+<li>只需要JS-&gt;style-&gt;composite合成——浏览器将网页的单个图层合并到一起。</li>
+<li>如果是float布局，那么页面的缩放可能会影响只出现Layout-&gt;paint-&gt;composite</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><a href="https://csstriggers.com/" target="_blank" rel="external">csstrigers.com</a></li>
+</ol>
+<h2 id="App生命周期"><a href="#App生命周期" class="headerlink" title="App生命周期"></a>App生命周期</h2><p><strong>RAIL网络应用生命周期的四大领域</strong>：响应、动画、闲置、加载</p>
+<ol>
+<li>加载即关键路径渲染：需要在1秒内完成</li>
+<li>在加载完进入页面后，页面会出现闲置状态。即用户没有操作，这时候可以处理一些繁杂的任务的机会。以便让用户操作的时候一切都能顺利进行。（50毫秒时间）</li>
+<li>动画12毫秒时间<ul>
+<li>“初始、结束、倒转、播放”（FLIP）技巧；利用浏览器已经生成的内容，通过移动转化简化动画的动作。在退出利用已经产生的动画往后播放。<a href="https://github.com/udacity/devsummit" target="_blank" rel="external">源代码</a><a href="https://speakerdeck.com/paullewis/making-a-silky-smooth-web" target="_blank" rel="external">讲话</a></li>
+</ul>
+</li>
+<li>响应时间：100毫秒</li>
+</ol>
+<h2 id="JavaSctipt"><a href="#JavaSctipt" class="headerlink" title="JavaSctipt"></a>JavaSctipt</h2><ol>
+<li>尽量不要采用微操作去修改代码。因为JavaSctipt实际运行代码的方式和我们的编写方式是不一样的。即，我们不知道浏览器会去怎样理解代码执行出来。所以用替换代码的方式可能往往不奏效。</li>
+<li><p><code>requestAnimationFrame()</code>是制作动画的函数。可以告诉浏览器执行动画的顺序而不必因为突然产生需要处理的脚本而导致渲染管道的重新设置。<br> 尽管JQ扔使用<code>setTimeout（）</code>来实现动画。<code>setTimeout()</code>在执行的时候不会关注管道渲染。如果需要执行重复任务，或者等待一段时间的时候可用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function animate()&#123;</div><div class="line">  //Do something</div><div class="line">  requestAnimationFrame(animate);//执行下一个动画</div><div class="line">&#125;</div><div class="line">requestAnimationFrame(animate);//执行第一个动画</div></pre></td></tr></table></figure>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="external">Web Work</a><br><a href="https://www.html5rocks.com/en/tutorials/workers/basics/" target="_blank" rel="external">basic of Web Work</a></li>
+<li><a href="https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/" target="_blank" rel="external">编写高效且节省内存的JavaSctipt</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management" target="_blank" rel="external">内存管理</a></li>
+<li><a href="http://buildnewgames.com/garbage-collector-friendly-code/" target="_blank" rel="external">Build New Games 上的高性能垃圾收集器友好代码</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="样式和布局"><a href="#样式和布局" class="headerlink" title="样式和布局"></a>样式和布局</h2><ol>
+<li><a href="https://www.sitepoint.com/bem-smacss-advice-from-developers/" target="_blank" rel="external">Block Element Modifier</a><a href="https://en.bem.info/methodology/key-concepts/" target="_blank" rel="external">methodologyKey concepts</a></li>
+</ol>
+<ol>
+<li><p>这里是我用来替换 <code>document.querySelectorAll</code> 的辅助函数。它会创建 DOM 节点数组，我认为这很有用，因为<code>forEach()</code> 等数组方法非常实用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function getDomNodeArray(selector) &#123;</div><div class="line">  // get the elements as a DOM collection</div><div class="line">  var elemCollection = document.querySelectorAll(selector);</div><div class="line"></div><div class="line">  // coerce the DOM collection into an array</div><div class="line">  var elemArray = Array.prototype.slice.apply(elemCollection);</div><div class="line"></div><div class="line">  return elemArray;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var divs = getDomNodeArray(&apos;div&apos;);</div></pre></td></tr></table></figure>
+<p>强制同步布局是影响性能的重要原因。<a href="http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html" target="_blank" rel="external">影响布局的CSS元素</a></p>
+</li>
+</ol>
+<h2 id="合成和绘制"><a href="#合成和绘制" class="headerlink" title="合成和绘制"></a>合成和绘制</h2><h3 id="创建一个新图层"><a href="#创建一个新图层" class="headerlink" title="创建一个新图层"></a>创建一个新图层</h3><ol>
+<li><code>will change:transform;</code>可以给浏览器一个暗示，我们即将在某个时间点更改元素transform。暗示浏览器新建一个图层。但是浏览器会自己决定是否要创建。</li>
+<li><code>transform:translateZ(0)</code>：强制浏览器新建一个图层。</li>
+<li>创建图层可以明显优化那些只需要移动而不需要修改样式的元素。利用新建的图层，只需要经过合成这一步即可完成。</li>
+<li>可以为背景创建图层</li>
+<li>在Chrome开发者工具按<code>ESC</code>调出面板添加<code>render</code>打开Paint 和 Layout</li>
+</ol>
+<h2 id="未完成或待研究项目"><a href="#未完成或待研究项目" class="headerlink" title="未完成或待研究项目"></a>未完成或待研究项目</h2><ol>
+<li>二维码应用<ul>
+<li>克隆版本库qrcode</li>
+<li>安装 npm</li>
+<li>安装 Gulp</li>
+<li>在二维码应用目录中运行 npm install</li>
+<li>通过 gulp serve 构建并运行</li>
+</ul>
+</li>
+<li>pizza</li>
+<li>new aggreator</li>
+<li>web worker demo — 对图片进行修改</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/性能优化/" rel="tag"># 性能优化</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/18/技术/html+css/html-Note/" rel="next" title="HTML&&CSS学习笔记">
+                <i class="fa fa-chevron-left"></i> HTML&&CSS学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/01/技术/Git/Git&GitHub/" rel="prev" title="Git&GitHub Notes">
+                Git&GitHub Notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网站性能优化"><span class="nav-number">1.</span> <span class="nav-text">网站性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键渲染路径"><span class="nav-number">1.1.</span> <span class="nav-text">关键渲染路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM的产生"><span class="nav-number">1.1.1.</span> <span class="nav-text">DOM的产生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSSOM的产生"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSSOM的产生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Render-Tree"><span class="nav-number">1.1.3.</span> <span class="nav-text">Render Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layout"><span class="nav-number">1.1.4.</span> <span class="nav-text">Layout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Paint"><span class="nav-number">1.1.5.</span> <span class="nav-text">Paint</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化关键渲染路径"><span class="nav-number">1.2.</span> <span class="nav-text">优化关键渲染路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优化DOM"><span class="nav-number">1.2.1.</span> <span class="nav-text">优化DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化CSS"><span class="nav-number">1.2.2.</span> <span class="nav-text">优化CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化JavaSctipt"><span class="nav-number">1.2.3.</span> <span class="nav-text">优化JavaSctipt</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器渲染优化"><span class="nav-number">2.</span> <span class="nav-text">浏览器渲染优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#App生命周期"><span class="nav-number">2.1.</span> <span class="nav-text">App生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaSctipt"><span class="nav-number">2.2.</span> <span class="nav-text">JavaSctipt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式和布局"><span class="nav-number">2.3.</span> <span class="nav-text">样式和布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合成和绘制"><span class="nav-number">2.4.</span> <span class="nav-text">合成和绘制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个新图层"><span class="nav-number">2.4.1.</span> <span class="nav-text">创建一个新图层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完成或待研究项目"><span class="nav-number">2.5.</span> <span class="nav-text">未完成或待研究项目</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

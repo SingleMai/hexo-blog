@@ -1,0 +1,966 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="jq,bootstrap," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="想想自己最近做的项目或多或少都在使用bootstrap,但是自己对bootstrap很多知识还是有漏洞的，不全面。于是，趁着今天稍有空闲。迅速过了一遍入门篇的视频，整理笔记如下。">
+<meta name="keywords" content="jq,bootstrap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bootstrap入门">
+<meta property="og:url" content="SingleMai.github.io/2017/05/16/技术/html+css/bootstrap入门/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="想想自己最近做的项目或多或少都在使用bootstrap,但是自己对bootstrap很多知识还是有漏洞的，不全面。于是，趁着今天稍有空闲。迅速过了一遍入门篇的视频，整理笔记如下。">
+<meta property="og:updated_time" content="2017-05-16T14:45:47.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bootstrap入门">
+<meta name="twitter:description" content="想想自己最近做的项目或多或少都在使用bootstrap,但是自己对bootstrap很多知识还是有漏洞的，不全面。于是，趁着今天稍有空闲。迅速过了一遍入门篇的视频，整理笔记如下。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/05/16/技术/html+css/bootstrap入门/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> bootstrap入门 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/05/16/技术/html+css/bootstrap入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                bootstrap入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T21:48:21+08:00">
+                2017-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html-css/" itemprop="url" rel="index">
+                    <span itemprop="name">html+css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/16/技术/html+css/bootstrap入门/" class="leancloud_visitors" data-flag-title="bootstrap入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>想想自己最近做的项目或多或少都在使用bootstrap,但是自己对bootstrap很多知识还是有漏洞的，不全面。于是，趁着今天稍有空闲。迅速过了一遍入门篇的视频，整理笔记如下。<br><a id="more"></a><br>bootstrap是基于JQuery的，所以使用bootstarp的时候要注意先引入JQuery（并且注意版本问题）。<strong>Jetstrap</strong> 是基于bootstrap的开发工具，现在还没用，但是记录备用吧。</p>
+<h2 id="入门知识"><a href="#入门知识" class="headerlink" title="入门知识"></a>入门知识</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>bootstrap对h1-h6的标签样式都进行了重写。可以直接使用标签，也可以在class类里面使用<code>.h1</code>来实现标题效果。另外，副标题的标签是small，class是<code>.small</code></p>
+<h3 id="排版"><a href="#排版" class="headerlink" title="排版"></a>排版</h3><p><code>.text-left</code>、<code>.text-right</code>、<code>.text-center</code>来定位文字的位置<br><code>&lt;mark&gt;、&lt;del&gt;、&lt;ins&gt;、&lt;u&gt;、&lt;strong&gt;</code> 等一系列文本标签<br><code>.text-lowercase</code>、<code>.text-upercase</code>、<code>.text-capitalize</code>定义字母大小写的类。</p>
+<h3 id="表格-table"><a href="#表格-table" class="headerlink" title="表格 table"></a>表格 table</h3><p>带边框表格：<code>.table-bordered</code><br>带条纹表格：<code>.table-striped</code><br>悬停变色：<code>.table-hover</code><br>紧凑表格：<code>.table-condensed</code></p>
+<h3 id="表单-form"><a href="#表单-form" class="headerlink" title="表单 form"></a>表单 form</h3><p><code>.form-control</code>定义表单<br><code>.form-group</code>表单组件化（一个input)<br><code>.form-inline</code> 水平排列<br><code>placeholder</code>输入框提示信息<br><code>.input-large</code>大输入框<br><code>.input-sm</code>小输入框<br><code>.control-label</code>控制输入框的样式</p>
+<ul>
+<li><code>.has-success</code></li>
+<li><code>.has-warning</code></li>
+<li><code>.has-info</code></li>
+<li><code>.has-error</code></li>
+</ul>
+<h3 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h3><p><code>.btn</code> 定义按钮<br><code>.btn-default</code> 按钮默认样式<br><code>.btn-success</code> 绿色按钮样式（成功）<br><code>.btn-primary</code><br><code>.btn-info</code><br><code>.btn-warning</code><br><code>.btn-danger</code><br><code>.btn-link</code> 将按钮变成a标签样式<br><code>.btn-lg/sm</code>控制大小<br><code>.active</code>按下状态<br><code>·disabled = &#39;disabled&#39;</code> 禁用状态<br><code>.btn-block</code> 占满父元素的按钮<br><code>.btn-class</code> 添加在a标签中，可是使a标签展示按钮效果</p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p><code>.img-rounded</code> 圆角<br><code>.img-circle</code> 圆形<br><code>.img-thumbnail</code>带边框的圆角图形</p>
+<h3 id="辅助类"><a href="#辅助类" class="headerlink" title="辅助类"></a>辅助类</h3><ol>
+<li>文本颜色</li>
+<li>背景颜色</li>
+<li>状态设置</li>
+<li>三角符号</li>
+</ol>
+<h2 id="渐进——响应式、栅格、图标"><a href="#渐进——响应式、栅格、图标" class="headerlink" title="渐进——响应式、栅格、图标"></a>渐进——响应式、栅格、图标</h2><h3 id="响应式开发"><a href="#响应式开发" class="headerlink" title="响应式开发"></a>响应式开发</h3><p>meta标签中的viewport——<code>width/height/user-scalable(能否伸缩)/initial-scale=1(默认打开大小)/maximum-scale=1/minimum-scale=1</code></p>
+<p>手机端开发问题：在苹果手机网页显示的线条边框会更粗如何解决。</p>
+<ul>
+<li>利用js来判断手机屏幕是不是视网膜屏（isRetina)如果是true，则将initial-scale设置为0.5，再动态插入meta标签来实现两者兼容。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var metaElement = doc.createElement(&apos;meta&apos;);</div><div class="line">var scale = isRetina?0.5:1;</div><div class="line">// 继续设置其他值插入html</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>响应式特点：</p>
+<ol>
+<li>视野开阔，信息量丰富</li>
+<li>排版新颖随意、设计师发挥空间大</li>
+<li>适用PC和手机端</li>
+</ol>
+<p>响应式开发主要是利用<code>@media screen and (min-width:* px) and (max-width:*px){}</code>来设置。而bootstrap也是基于此进行设置封装在类当中。</p>
+<h3 id="栅格化："><a href="#栅格化：" class="headerlink" title="栅格化："></a>栅格化：</h3><p><code>.col-lg-12</code> 超大屏  &gt;=1200<br><code>.col-md-12</code> 正常屏幕 &gt;= 992<br><code>.col-sm-12</code> 小屏幕  &gt;= 768<br><code>.col-xs-12</code> 超小屏幕 &lt;768<br><code>.col-lg-offset-3</code> 重置偏移，向右侧偏移，增加左侧的边距。</p>
+<h3 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h3><ol>
+<li>px 基于屏幕分辨率的单位</li>
+<li>em<ul>
+<li>1em = 16px（不完全）在各色系统和浏览器表现不同</li>
+<li>em会继承父级元素的字体代销</li>
+</ul>
+</li>
+<li>rem<ul>
+<li>继承根级元素字体大小</li>
+<li>所以可以设置<code>html{font-size:62.5%}</code>这样可以使得10px = 1rem.</li>
+</ul>
+</li>
+</ol>
+<h3 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@font-size&#123;</div><div class="line">  font-family:&apos;&apos;</div><div class="line">  src:url(&apos;/url&apos;) format(&apos;&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>图标库：glyphicon、阿里图标</p>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>怪异属性：</p>
+<ol>
+<li>role 盲文浏览器</li>
+<li>aria-label 读屏软件</li>
+<li>tabIndex 焦点移动</li>
+<li>data- 自定义属性，实现数据传输</li>
+</ol>
+<h3 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h3><ol>
+<li><code>.dropdown</code>控制组件下拉</li>
+<li><code>.dropdown-menu-right</code>下拉向右对齐</li>
+<li><code>.divider</code>分割线<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;dropdown&quot;&gt;</div><div class="line">  &lt;button class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;</div><div class="line">    &lt;ul class dropdown-menu&gt;</div><div class="line">      &lt;li&gt;&lt;/li&gt;</div><div class="line">      &lt;li&gt;&lt;/li&gt;</div><div class="line">      &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">  &lt;/button&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="控件组"><a href="#控件组" class="headerlink" title="控件组"></a>控件组</h3><p><code>.input-group</code> 表示控件组<br><code>.input-group-addon</code> 可放置额外内容及图标<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;input-group&quot;&gt;</div><div class="line">  &lt;span calss=&quot;input-group-addon&quot;&gt;$&lt;/span&gt;</div><div class="line">  &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h3><p><code>.nav</code> 无序列表<br><code>.nav-tabs</code> 可切换导航<br><code>.nav-pills</code> 胶囊导航<br><code>.nav-justified/stacked</code> 垂直导航<br>使用<code>.active</code>表示选择状态的导航条</p>
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><p><code>.pagination</code> 在父级元素添加表示分页<br><code>.pager</code> 放置翻页区域<br><code>.previous</code> 链接左对齐<br><code>.next</code> 链接右对齐<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;pager&quot;&gt;&lt;/ul&gt;</div><div class="line">&lt;ul class=&quot;pagination&quot;&gt;</div><div class="line">  &lt;li&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h3><p><code>.progress</code> 表示进度条<br>添加状态类来改变颜色<br><code>.progress-bar-stripped</code> 渐变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;progress&quot;&gt;</div><div class="line">  &lt;div class=&quot;progress-bar progress-bar-success progress-bar-stripped&quot; sytle=&quot;width:60%&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p><code>.list-group</code> 列表组<br><code>.badge</code> 状态组<br><code>.active</code> 选中<br><code>.disabled</code> 禁选<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;list-group&quot;&gt;</div><div class="line">  &lt;li class=&quot;list-group-item&quot;&gt;</div><div class="line">    &lt;span&gt;&lt;/span&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="面板"><a href="#面板" class="headerlink" title="面板"></a>面板</h3><p><code>.panel</code> 面板<br><code>.panel-body</code> 面板内容<br><code>.panel-footer</code> 注脚<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;panel panel-default&quot;&gt;</div><div class="line">  &lt;div class=&quot;panel-heading&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;panel-body&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;panel-footer&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="插件引用-弹窗（modal"><a href="#插件引用-弹窗（modal" class="headerlink" title="插件引用 弹窗（modal)"></a>插件引用 弹窗（modal)</h3><p><code>data-toggle=modal</code>//使用弹窗<br>‘data-target=”#signupModal”‘指向弹出的弹窗id<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//jade</div><div class="line">p.navbar-text.navbar-right</div><div class="line">  a.navbar-link(href=&quot;#&quot;,data-toggle=&quot;modal&quot;,data-target=&quot;#signupModal&quot;) 注册</div><div class="line">  span &amp;nbsp;|&amp;nbsp;</div><div class="line">  a.navbar-link(href=&quot;#&quot;,data-toggle=&quot;modal&quot;,data-target=&quot;#signinModal&quot;) 登录</div><div class="line"></div><div class="line">#signupModal.modal.fade</div><div class="line">.modal-dialog</div><div class="line">.modal-content</div><div class="line">form(method=&quot;POST&quot;,action=&quot;/user/signup&quot;)</div><div class="line">  .modal-header 注册</div><div class="line">  .modal-body</div><div class="line">    .form-group</div><div class="line">      label(for=&quot;signupName&quot;) 用户名</div><div class="line">      input#signupName.form-control(name=&quot;user[name]&quot;,type=&quot;text&quot;)</div><div class="line">    .form-group</div><div class="line">      label(for=&quot;signupPassword&quot;) 密码</div><div class="line">      input#signupPassword.form-control(name=&quot;user[password]&quot;,type=&quot;text&quot;)</div><div class="line">    .modal-footer</div><div class="line">      button.btn.btn-default(type=&quot;button&quot;,data-dismiss=&quot;modal&quot;) 关闭</div><div class="line">      button.btn.btn-success(type=&quot;sumbit&quot;) 提交</div><div class="line"></div><div class="line">#signinModal.modal.fade</div><div class="line">.modal-dialog</div><div class="line">.modal-content</div><div class="line">form(method=&quot;POST&quot;,action=&quot;/user/signin&quot;)</div><div class="line">  .modal-header 登录</div><div class="line">  .modal-body</div><div class="line">    .form-group</div><div class="line">      label(for=&quot;signinName&quot;) 用户名</div><div class="line">      input#signinName.form-control(name=&quot;user[name]&quot;,type=&quot;text&quot;)</div><div class="line">    .form-group</div><div class="line">      label(for=&quot;signupPassword&quot;) 密码</div><div class="line">      input#signinPassword.form-control(name=&quot;user[password]&quot;,type=&quot;text&quot;)</div><div class="line">    .modal-footer</div><div class="line">      button.btn.btn-default(type=&quot;button&quot;,data-dismiss=&quot;modal&quot;) 关闭</div><div class="line">      button.btn.btn-success(type=&quot;sumbit&quot;) 提交</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jq/" rel="tag"># jq</a>
+          
+            <a href="/tags/bootstrap/" rel="tag"># bootstrap</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/20/技术/node.js/解决回调地狱/" rel="next" title="解决回调地狱">
+                <i class="fa fa-chevron-left"></i> 解决回调地狱
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/16/技术/node.js/验证码模块/" rel="prev" title="captchapng验证码模块">
+                captchapng验证码模块 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门知识"><span class="nav-number">1.</span> <span class="nav-text">入门知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标题"><span class="nav-number">1.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排版"><span class="nav-number">1.2.</span> <span class="nav-text">排版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格-table"><span class="nav-number">1.3.</span> <span class="nav-text">表格 table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单-form"><span class="nav-number">1.4.</span> <span class="nav-text">表单 form</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按钮"><span class="nav-number">1.5.</span> <span class="nav-text">按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片"><span class="nav-number">1.6.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助类"><span class="nav-number">1.7.</span> <span class="nav-text">辅助类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐进——响应式、栅格、图标"><span class="nav-number">2.</span> <span class="nav-text">渐进——响应式、栅格、图标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式开发"><span class="nav-number">2.1.</span> <span class="nav-text">响应式开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栅格化："><span class="nav-number">2.2.</span> <span class="nav-text">栅格化：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单位"><span class="nav-number">2.3.</span> <span class="nav-text">单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体图标"><span class="nav-number">2.4.</span> <span class="nav-text">字体图标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件"><span class="nav-number">3.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下拉菜单"><span class="nav-number">3.1.</span> <span class="nav-text">下拉菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控件组"><span class="nav-number">3.2.</span> <span class="nav-text">控件组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导航"><span class="nav-number">3.3.</span> <span class="nav-text">导航</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页"><span class="nav-number">3.4.</span> <span class="nav-text">分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进度条"><span class="nav-number">3.5.</span> <span class="nav-text">进度条</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">3.6.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面板"><span class="nav-number">3.7.</span> <span class="nav-text">面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件引用-弹窗（modal"><span class="nav-number">3.8.</span> <span class="nav-text">插件引用 弹窗（modal)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

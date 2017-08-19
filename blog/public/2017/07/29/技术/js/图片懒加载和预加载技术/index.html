@@ -1,0 +1,911 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="图片懒加载和预加载技术，从名字上就可以看出它们是一对干同一行却不同研究方向的兄弟。之前学的时候大致了解了一遍，后来太久没运用上，就忘了….于是又花了时间去补回来。干脆记录一下好了~">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图片懒加载和预加载技术">
+<meta property="og:url" content="SingleMai.github.io/2017/07/29/技术/js/图片懒加载和预加载技术/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="图片懒加载和预加载技术，从名字上就可以看出它们是一对干同一行却不同研究方向的兄弟。之前学的时候大致了解了一遍，后来太久没运用上，就忘了….于是又花了时间去补回来。干脆记录一下好了~">
+<meta property="og:updated_time" content="2017-08-10T13:48:20.889Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图片懒加载和预加载技术">
+<meta name="twitter:description" content="图片懒加载和预加载技术，从名字上就可以看出它们是一对干同一行却不同研究方向的兄弟。之前学的时候大致了解了一遍，后来太久没运用上，就忘了….于是又花了时间去补回来。干脆记录一下好了~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/07/29/技术/js/图片懒加载和预加载技术/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 图片懒加载和预加载技术 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/07/29/技术/js/图片懒加载和预加载技术/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                图片懒加载和预加载技术
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T16:06:43+08:00">
+                2017-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/29/技术/js/图片懒加载和预加载技术/" class="leancloud_visitors" data-flag-title="图片懒加载和预加载技术">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>图片懒加载和预加载技术，从名字上就可以看出它们是一对干同一行却不同研究方向的兄弟。之前学的时候大致了解了一遍，后来太久没运用上，就忘了….于是又花了时间去补回来。干脆记录一下好了~<br><a id="more"></a></p>
+<h2 id="概念的解析"><a href="#概念的解析" class="headerlink" title="概念的解析"></a>概念的解析</h2><p><strong>懒加载也叫延迟加载</strong>：顾名思义，只有图片要用到的时候它才去加载，懒到要死，绝不提前搞事情。</p>
+<p><strong>预加载</strong>：顾名思义，我猜到你以后要用这张图片，干脆先给你加载出来，省事又省心。</p>
+<p><strong>两者的本质</strong>：就是拖延症与未雨绸缪的对决啦。懒加载可以缓解服务器的压力，预加载会增加服务器的压力。</p>
+<p>那就很奇怪了。为什么，两个完全相反的概念都可以被运用呢？很简单，场景复杂嘛。</p>
+<ul>
+<li>假如有一个页面，有几千张的图片（百度搜图），为了<strong>提高用户体验</strong>只加载个百来张就展示给用户看，避免卡顿。</li>
+<li>假如又有一个页面，用户在看漫画。漫画的浏览速度是很快的，一页又一页，这时候明明看到高潮了，按下一页的时候页面却卡住了，是不是让你很不爽？没错，于是为了<strong>提高用户体验</strong>又必须提前加载这些图片。</li>
+</ul>
+<p>于是你就懂了，任何前端技术，不是为了方便开发，加快开发速度。就是为了提高用户体验，用户怎么爽怎么来。好了，搞清楚这些东西我们就可以开始捣鼓啦。</p>
+<h2 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>关于懒加载，通过上面的场景描述，你肯定就发现了要怎么处理这个玩意了。</p>
+<p>首先，必须要监听用户的某项操作，当用户滚动到底部，或者说点击某个位置的时候，便跑去告诉浏览器<strong>用户爸爸要看图片啦，赶紧去搞过来。</strong>————</p>
+<p>其次，那放图片的位置咋办呢？<strong>随便搞个东西先填住那个洞，到时候狸猫换太子就好了</strong>。狸猫就是我们常说的占位符图片。而太子则一般是利用自定义属性<code>data-img</code>来存放。然后当用户触发时间后，就将<code>data-img</code>放到<code>src</code>里面去。</p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>hmm，看时间写个demo吧</p>
+<h2 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h2><p>预加载技术其实就是大多是利用了<code>new Image()</code>这个对象来实现提前加载，本质上只要有<code>src</code>属性的标签也都是可以实现的。由于<code>Image</code>对象有<code>onload</code>方法可以判断是否加载完调用回调函数进行自定义操作，所以更加讨喜。</p>
+<p>同样的，还是那个问题，图片还没搞到手，我咋知道宽高，怎么给它设置呢。在之前一篇文章中<a href="https://singlemai.github.io/2017/05/31/%E6%8A%80%E6%9C%AF/js/%E6%A0%B9%E6%8D%AE%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E7%9C%9F%E5%AE%9E%E5%A4%A7%E5%B0%8F/" target="_blank" rel="external">根据图片路径获取图片大小</a>就有提到，我们只需要抓取图片的文件头，浏览器就可以知道它的宽高。<strong>(方法是用记时器轮循宽高变化)。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let img = new Image();</div><div class="line">img.src = path;// 设置图片路径</div><div class="line">let width = img.width;</div><div class="line">let height = img.height;</div></pre></td></tr></table></figure></p>
+<p>原理介绍完了，但是还有小问题要处理。假如图片已经存在浏览器的缓存中，那么它并不会触发<code>onload</code>事件，这时候我们需要监听<code>img.complete</code>这个属性来判断是否存在缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function loadImage(url,callback) &#123;</div><div class="line">    var img = new Image();</div><div class="line"></div><div class="line">    img.src = url;</div><div class="line"></div><div class="line">    if(img.complete) &#123;  // 如果图片已经存在于浏览器缓存，直接调用回调函数</div><div class="line"></div><div class="line">        callback.call(img);</div><div class="line">        return; // 直接返回，不用再处理onload事件</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    img.onload = function()&#123;</div><div class="line">        img.onload = null;</div><div class="line">        callback.call(img); // 调用回调函数， .call()这个方法就是那个设置this的方法呀</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h3><p>嘻嘻，不是我自己写的啦。多看看别人的源码，可以发现人家在处理细节的地方做得真的很好。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">var imgReady = (function()&#123;</div><div class="line">    var list = [],</div><div class="line">        intervalId = null;</div><div class="line"></div><div class="line">    // 用来执行队列</div><div class="line">    var queue = function()&#123;</div><div class="line"></div><div class="line">        for(var i = 0; i &lt; list.length; i++)&#123;</div><div class="line">            list[i].end ? list.splice(i--,1) : list[i]();</div><div class="line">        &#125;</div><div class="line">        !list.length &amp;&amp; stop();</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    // 停止所有定时器队列</div><div class="line">    var stop = function()&#123;</div><div class="line">        clearInterval(intervalId);</div><div class="line">        intervalId = null;</div><div class="line">    &#125;</div><div class="line">    return function(url, ready, error) &#123;</div><div class="line">        var onready = &#123;&#125;,</div><div class="line">            width,</div><div class="line">            height,</div><div class="line">            newWidth,</div><div class="line">            newHeight,</div><div class="line">            img = new Image();</div><div class="line">        img.src = url;</div><div class="line"></div><div class="line">        // 如果图片被缓存，则直接返回缓存数据</div><div class="line">        if(img.complete) &#123;</div><div class="line">            ready.call(img);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        width = img.width;</div><div class="line">        height = img.height;</div><div class="line"></div><div class="line">        // 加载错误后的事件</div><div class="line">        img.onerror = function () &#123;</div><div class="line">            error &amp;&amp; error.call(img);</div><div class="line">            onready.end = true;</div><div class="line">            img = img.onload = img.onerror = null;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        // 图片尺寸就绪</div><div class="line">        var onready = function() &#123;</div><div class="line">            newWidth = img.width;</div><div class="line">            newHeight = img.height;</div><div class="line">            if (newWidth !== width || newHeight !== height ||</div><div class="line">                // 如果图片已经在其他地方加载可使用面积检测</div><div class="line">                newWidth * newHeight &gt; 1024</div><div class="line">            ) &#123;</div><div class="line">                ready.call(img);</div><div class="line">                onready.end = true;</div><div class="line">            &#125;;</div><div class="line">        &#125;;</div><div class="line">        onready();</div><div class="line">        // 完全加载完毕的事件</div><div class="line">        img.onload = function () &#123;</div><div class="line">            // onload在定时器时间差范围内可能比onready快</div><div class="line">            // 这里进行检查并保证onready优先执行</div><div class="line">            !onready.end &amp;&amp; onready();</div><div class="line">            // IE gif动画会循环执行onload，置空onload即可</div><div class="line">            img = img.onload = img.onerror = null;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line"></div><div class="line">        // 加入队列中定期执行</div><div class="line">        if (!onready.end) &#123;</div><div class="line">            list.push(onready);</div><div class="line">            // 无论何时只允许出现一个定时器，减少浏览器性能损耗</div><div class="line">            if (intervalId === null) &#123;</div><div class="line">                intervalId = setInterval(queue, 40);</div><div class="line">            &#125;;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p>调用方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">imgReady(&apos;http://img01.taobaocdn.com/imgextra/i1/397746073/T2BDE8Xb0bXXXXXXXX-397746073.jpg&apos;,function()&#123;</div><div class="line">　　alert(&apos;width:&apos; + this.width + &apos;height:&apos; + this.height);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="有一个遗留问题"><a href="#有一个遗留问题" class="headerlink" title="有一个遗留问题"></a>有一个遗留问题</h2><p>最近在开发中，发现如果用<code>input</code>图片，然后动态设置loading图像，好像会有明显的卡顿。没找到解决方法。先mark下来吧。暂时的做法是监听<code>input.onchange</code>事件，然后用css3进行设置，尽可能减少延迟。</p>
+<h2 id="在一篇文章中提到，将input设置接受的图片对象。越详细越好，可以避免一些不必要的文件后缀查询。"><a href="#在一篇文章中提到，将input设置接受的图片对象。越详细越好，可以避免一些不必要的文件后缀查询。" class="headerlink" title="在一篇文章中提到，将input设置接受的图片对象。越详细越好，可以避免一些不必要的文件后缀查询。"></a>在一篇文章中提到，将<code>input</code>设置接受的图片对象。越详细越好，可以避免一些不必要的文件后缀查询。</h2><h2 id="缩略图"><a href="#缩略图" class="headerlink" title="缩略图"></a>缩略图</h2><p>补充自8月<br>今天突然想起来以前的一个网站的效果。利用的也是懒加载技术，但是从用户体验上会更好。那就是先加载图片的缩略图，然后在加载完毕时候再替换。（就是懒加载啦）但是为什么要补充呢！！因为这个小技巧还是挺好玩的，而且有个小地方要注意： 缩略图比较难看，为了有更好的用户体验，可以给缩略图加个高斯模糊filter: blur(4px)，图片加载完毕修改img src属性后，再将高斯模糊渐渐过渡到filter: blur(0)，图片就清晰了</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/04/随笔日记/说说舆论/" rel="next" title="说说舆论">
+                <i class="fa fa-chevron-left"></i> 说说舆论
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/27/技术/js/Ajax的实现(ajax与jsonp)/" rel="prev" title="Ajax的实现（ajax与jsonp)">
+                Ajax的实现（ajax与jsonp) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念的解析"><span class="nav-number">1.</span> <span class="nav-text">概念的解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片懒加载"><span class="nav-number">2.</span> <span class="nav-text">图片懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">2.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码"><span class="nav-number">2.2.</span> <span class="nav-text">源码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预加载"><span class="nav-number">3.</span> <span class="nav-text">预加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码-1"><span class="nav-number">3.1.</span> <span class="nav-text">源码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有一个遗留问题"><span class="nav-number">4.</span> <span class="nav-text">有一个遗留问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在一篇文章中提到，将input设置接受的图片对象。越详细越好，可以避免一些不必要的文件后缀查询。"><span class="nav-number">5.</span> <span class="nav-text">在一篇文章中提到，将input设置接受的图片对象。越详细越好，可以避免一些不必要的文件后缀查询。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缩略图"><span class="nav-number">6.</span> <span class="nav-text">缩略图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

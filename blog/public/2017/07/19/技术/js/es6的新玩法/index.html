@@ -1,0 +1,932 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="嘻嘻，就记录一些自己常用的ES6语法。毕竟更新地频繁，而且有些又不常用。所以就当做有条件地学习吧~~">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6的新玩法">
+<meta property="og:url" content="SingleMai.github.io/2017/07/19/技术/js/es6的新玩法/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="嘻嘻，就记录一些自己常用的ES6语法。毕竟更新地频繁，而且有些又不常用。所以就当做有条件地学习吧~~">
+<meta property="og:updated_time" content="2017-07-19T15:37:23.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6的新玩法">
+<meta name="twitter:description" content="嘻嘻，就记录一些自己常用的ES6语法。毕竟更新地频繁，而且有些又不常用。所以就当做有条件地学习吧~~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/07/19/技术/js/es6的新玩法/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> ES6的新玩法 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/07/19/技术/js/es6的新玩法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ES6的新玩法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-19T22:08:06+08:00">
+                2017-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/19/技术/js/es6的新玩法/" class="leancloud_visitors" data-flag-title="ES6的新玩法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>嘻嘻，就记录一些自己常用的ES6语法。毕竟更新地频繁，而且有些又不常用。所以就当做有条件地学习吧~~<br><a id="more"></a></p>
+<h2 id="变量声明const和let"><a href="#变量声明const和let" class="headerlink" title="变量声明const和let"></a>变量声明const和let</h2><p>在ES5，我们不管声明任何变量，用的都是<code>var</code>关键字，但是导致了一个问题，就是无论声明在何处，都会被视为声明在函数的最顶部，也就是常说的<strong>变量提升</strong>。看两个例子感受一下ES6新关键字<code>let</code>带来的好处。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// ES5</div><div class="line">function aa ()&#123;</div><div class="line">    if(bool) &#123;</div><div class="line">        var test = &apos;hello&apos;</div><div class="line">    &#125; else &#123;</div><div class="line">        console.log(test);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//=&gt; 编译后</div><div class="line">function aa()&#123;</div><div class="line">    var test; // 变量提升</div><div class="line">    if(bool) &#123;</div><div class="line">        test = &apos;hello&apos;</div><div class="line">    &#125; else &#123;</div><div class="line">        console.log(test);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>很直观你就能感受到，其实变量提升的设计是为了简化一些工作。然而却带来了一系列不是我们预想的编译结果。例如，当条件满足，我才声明该变量的这种需求就变得难以满足。常常需要借助闭包来实现。但是<code>let</code>关键词出现之后，代码就要求更加规范了。因为</p>
+<p><code>let</code><strong>变量</strong>关键字和<code>const</code><strong>常量</strong>关键字都是块级作用域：</p>
+<ul>
+<li>在一个函数内部</li>
+<li>在一个代码块内部  </li>
+</ul>
+<p>说的明白点，每个<code>{}</code>大括号内的代码块就是<code>let</code>和<code>const</code>的作用域。也就是有些操作，终于不需要闭包操作啦！！栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//ES5</div><div class="line">function aa()&#123;</div><div class="line">    var arry = [];</div><div class="line">    for(var i = 0; i &gt; 10; i++)&#123;</div><div class="line">        arry.push((function (value)&#123;</div><div class="line">            return function ()&#123;</div><div class="line">                console.log(value)</div><div class="line">            &#125;(i))</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//ES6</div><div class="line">function aa()&#123;</div><div class="line">    let arry = [];</div><div class="line">    for(let i = 0; i &lt; 10; i++)&#123;</div><div class="line">        arry.push(function(i)&#123;console.log(i)&#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>很明显，闭包虽然是js的一大特性，但是写起来是真的麻烦。所以能简便这种不明确需要闭包技术的操作，何乐不为。</p>
+<p>至于<code>const</code>关键字，就是常量，一经定义绝对不允许改变。所以当你有一个不想被改变的值的时候，就可以设置为const，这样可以避免重复时候发生的覆盖现象。</p>
+<p>另外，在我遇到的情况下，用<code>var</code>的地方都可以完美地利用<code>const</code> 和 <code>let</code> 来代替。而且，<code>var</code>的提升容易造成问题，所以尽量使用新提供的关键字哦！</p>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>这这这，绝对是最最最最最实用的！！直接贴，这个功能绝对是比农奴解放还要伟大啊喂！</p>
+<p>直接贴出三个用途吧：</p>
+<ol>
+<li>基本的字符串格式化。将表达式嵌入字符串中进行拼接。用${}来界定：最常用了啊</li>
+<li>在ES5时我们通过反斜杠()来做多行字符串或者字符串一行行拼接。ES6反引号(``)直接搞定。页面的渲染，再也不会乱糟糟一大坨了，耶~<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// ES5</div><div class="line">var msg = &quot;Hi \</div><div class="line">man!</div><div class="line">&quot;</div><div class="line"></div><div class="line">// ES6</div><div class="line">const template = `&lt;div&gt;</div><div class="line">    &lt;span&gt;hello world&lt;/span&gt;</div><div class="line">&lt;/div&gt;`</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 1.includes: 判断是否包含然后直接返回布尔值</div><div class="line">let str = &apos;hahay&apos;</div><div class="line">console.log(str.includes(&apos;y&apos;)) // true</div><div class="line">// 2.repeat: 获取字符串重复n次</div><div class="line">let s = &apos;he&apos;</div><div class="line">console.log(s.repeat(3)) // &apos;hehehe&apos;</div><div class="line">//想起自己最近做的一个需求：a = a + a + a 瞬间爱上这个方法</div><div class="line">// 如果你带入小数，调用Math.floor(num)来处理</div></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数默认参数"><a href="#函数默认参数" class="headerlink" title="函数默认参数"></a>函数默认参数</h3><p>以前，我们设置参数默认值是这样设置的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function action(num) &#123;</div><div class="line">    num = num || 200</div><div class="line">    // 当传入num时，num为传入的值，</div><div class="line">    // 当没有传入参数时，num既有了默认值200</div><div class="line">    return num</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但是这种方法是有bug的，也就是说当用户传入0的时候，num = 200;因为0的布尔值就是false。所以嘛，有问题哦！</p>
+<p>ES6为参数提供了默认值，更加语义化，更加容易看到，而且也不需要查看源码就能读到这个值所支持的默认属性。除了丑了点，一开始不习惯，就没啥不好的啦~直接贴语法吧。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function action(num = 200) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>几乎是一提ES6就能想到箭头函数。箭头函数最直观的三个特点——</p>
+<ol>
+<li>不需要function关键字来创建函数。</li>
+<li>省略return关键字</li>
+<li>继承当前上下文的this关键字，这里是一个容易出bug的点。利用箭头函数，不会改变当前的this，不会改变当前的this，不会改变当前的this。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 只有一个参数时，可以省略括号；函数是直接返回时，可以省略return 以及 &#123;&#125;</div><div class="line">// 如此简便，你简直都不敢相信他是一个函数有木有</div><div class="line">let people = name =&gt; &apos;hello&apos; + name</div><div class="line"></div><div class="line">// 一般的写法</div><div class="line">let people = (name, age) =&gt; &#123;</div><div class="line">    const fullName = &apos;h&apos; + name</div><div class="line">    return fullName</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="扩展的对象功能"><a href="#扩展的对象功能" class="headerlink" title="扩展的对象功能"></a>扩展的对象功能</h3><p>构建对象时候的各种简写, 虽然一开始写起来不方便而且还不爽。但是写久了，特别是数量特别多的时候，你就会觉得这个东西越看越可爱啊喂<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;</div><div class="line">    name, // 等同于name: name</div><div class="line">    getName() &#123; // 定义函数的简写方法</div><div class="line">        console.log(&apos;名字&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>ES6对象提供了Object.assign({})这个方法来实现浅复制，就是JQ的那个<code>extend({})</code>啦。</p>
+<h3 id="结构以及展开运算符…"><a href="#结构以及展开运算符…" class="headerlink" title="结构以及展开运算符…"></a>结构以及展开运算符…</h3><p>这个我已经写过啦。跑去看这篇文章吧。<a href="https://singlemai.github.io/2017/06/29/%E6%8A%80%E6%9C%AF/js/ES6%E4%B8%AD%E7%9A%84arguments%E5%AF%B9%E8%B1%A1%E5%92%8Cparamers%E5%AF%B9%E8%B1%A1/" target="_blank" rel="external">ES6中的arguments对象和parameters对象</a></p>
+<p>勉勉强强补写个语法给你看吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">const people = &#123;</div><div class="line">    name: &apos;xixia&apos;,</div><div class="line">    age: 23</div><div class="line">&#125;</div><div class="line">const &#123;name, age&#125; = people</div><div class="line">console.log(name, age); // xixia 23</div><div class="line">//数组</div><div class="line">const color = [&apos;red&apos;, &apos;blue&apos;]</div><div class="line">const [first, second] = color</div><div class="line">console.log(first) //&apos;red&apos;</div><div class="line">console.log(second) //&apos;blue&apos;</div></pre></td></tr></table></figure></p>
+<p>这里看到一个对于Object而言，还可以用于组合新的对象。如果有重复的属性名，右边覆盖左边。其实就是<code>Object.assign({}, first, second)</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">const first = &#123;</div><div class="line">        a: 1,</div><div class="line">        b: 2,</div><div class="line">        c: 6,</div><div class="line">    &#125;</div><div class="line">    const second = &#123;</div><div class="line">        c: 3,</div><div class="line">        d: 4</div><div class="line">    &#125;</div><div class="line">    const total = &#123; ...first, ...second &#125;</div><div class="line">    console.log(total) // &#123; a: 1, b: 2, c: 3, d: 4 &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="import-和-export"><a href="#import-和-export" class="headerlink" title="import 和 export"></a>import 和 export</h2><p>这个概念就是模块化了啦~~直接贴栗子，其实模块化知识没那么简单。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//全部导入</div><div class="line">import people from &apos;./example&apos;</div><div class="line"></div><div class="line">//有一种特殊情况，即允许你将整个模块当作单一对象进行导入</div><div class="line">//该模块的所有导出都会作为对象的属性存在</div><div class="line">import * as example from &quot;./example.js&quot;</div><div class="line"></div><div class="line">//导入部分</div><div class="line">import &#123;name, age&#125; from &apos;./example&apos;</div><div class="line"></div><div class="line">// 导出默认, 有且只有一个默认</div><div class="line">export default App</div><div class="line"></div><div class="line">// 部分导出</div><div class="line">export class App extend Component &#123;&#125;;</div></pre></td></tr></table></figure></p>
+<p>导入的时候有无大括号的区别，找别人的总结啦：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1. 当用export default people导出时，就用 import people 导入（不带大括号）</div><div class="line"></div><div class="line">2. 一个文件里，有且只能有一个export default。但可以有多个export。</div><div class="line"></div><div class="line">3. 当用export name 时，就用import &#123; name &#125;导入（记得带上大括号）</div><div class="line"></div><div class="line">4. 当一个文件里，既有一个export default people, 又有多个export name 或者 export age时，导入就用 import people, &#123; name, age &#125;</div><div class="line"></div><div class="line">5. 当一个文件里出现n多个 export 导出很多模块，导入时除了一个一个导入，也可以用import * as example</div></pre></td></tr></table></figure></p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>说白了就是用同步的方式去写异步代码。避免代码横向发展，进入回调地域。</p>
+<p>咦，这个话题我好像也讨论过了？<a href="https://singlemai.github.io/2017/05/20/%E6%8A%80%E6%9C%AF/node.js/%E8%A7%A3%E5%86%B3%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1/" target="_blank" rel="external">解决回调地狱</a></p>
+<h2 id="Generators-生成器"><a href="#Generators-生成器" class="headerlink" title="Generators 生成器"></a>Generators 生成器</h2><p>嘻嘻 其实也写过。hmm 还是看上面的文章吧</p>
+<p><a href="http://www.jianshu.com/p/287e0bb867ae" target="_blank" rel="external">http://www.jianshu.com/p/287e0bb867ae</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/27/技术/js/Ajax的实现(ajax与jsonp)/" rel="next" title="Ajax的实现（ajax与jsonp)">
+                <i class="fa fa-chevron-left"></i> Ajax的实现（ajax与jsonp)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/18/技术/Chrome配置/" rel="prev" title="Chrome配置（未写）">
+                Chrome配置（未写） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量声明const和let"><span class="nav-number">1.</span> <span class="nav-text">变量声明const和let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板字符串"><span class="nav-number">2.</span> <span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串方法"><span class="nav-number">3.</span> <span class="nav-text">字符串方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">4.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数默认参数"><span class="nav-number">4.1.</span> <span class="nav-text">函数默认参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数"><span class="nav-number">4.2.</span> <span class="nav-text">箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展的对象功能"><span class="nav-number">4.3.</span> <span class="nav-text">扩展的对象功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构以及展开运算符…"><span class="nav-number">4.4.</span> <span class="nav-text">结构以及展开运算符…</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#import-和-export"><span class="nav-number">5.</span> <span class="nav-text">import 和 export</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">6.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generators-生成器"><span class="nav-number">7.</span> <span class="nav-text">Generators 生成器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

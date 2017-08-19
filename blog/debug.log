@@ -1,0 +1,966 @@
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Hexo version: 3.3.1","time":"2017-04-26T13:05:21.942Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Working directory: G:\\hexo-blog\\blog\\","time":"2017-04-26T13:05:21.944Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Config loaded: G:\\hexo-blog\\blog\\_config.yml","time":"2017-04-26T13:05:22.092Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Plugin loaded: hexo-generator-archive","time":"2017-04-26T13:05:22.110Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Plugin loaded: hexo-generator-index","time":"2017-04-26T13:05:22.113Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Plugin loaded: hexo-generator-category","time":"2017-04-26T13:05:22.115Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Plugin loaded: hexo-generator-tag","time":"2017-04-26T13:05:22.117Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Plugin loaded: hexo-renderer-stylus","time":"2017-04-26T13:05:22.119Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Plugin loaded: hexo-renderer-ejs","time":"2017-04-26T13:05:22.123Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Plugin loaded: hexo-renderer-marked","time":"2017-04-26T13:05:22.130Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Plugin loaded: hexo-server","time":"2017-04-26T13:05:22.220Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge-configs.js","time":"2017-04-26T13:05:22.224Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge.js","time":"2017-04-26T13:05:22.227Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\button.js","time":"2017-04-26T13:05:22.228Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\center-quote.js","time":"2017-04-26T13:05:22.228Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\exturl.js","time":"2017-04-26T13:05:22.228Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\full-image.js","time":"2017-04-26T13:05:22.229Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\group-pictures.js","time":"2017-04-26T13:05:22.230Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\note.js","time":"2017-04-26T13:05:22.230Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Loading database.","time":"2017-04-26T13:05:22.239Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":30,"msg":"Start processing","time":"2017-04-26T13:05:22.308Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: _posts/2017-1.md","time":"2017-04-26T13:05:22.397Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: _posts/hello-world.md","time":"2017-04-26T13:05:22.397Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: _posts/2017.md","time":"2017-04-26T13:05:22.397Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Theme config loaded.","time":"2017-04-26T13:05:22.472Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: _config.yml","time":"2017-04-26T13:05:22.473Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/css/main.styl","time":"2017-04-26T13:05:22.479Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/algolia_logo.svg","time":"2017-04-26T13:05:22.479Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/avatar.gif","time":"2017-04-26T13:05:22.479Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/cc-by-nc-nd.svg","time":"2017-04-26T13:05:22.480Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/cc-by-nc-sa.svg","time":"2017-04-26T13:05:22.481Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/cc-by-nc.svg","time":"2017-04-26T13:05:22.481Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/cc-by-nd.svg","time":"2017-04-26T13:05:22.482Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/cc-by.svg","time":"2017-04-26T13:05:22.482Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/cc-by-sa.svg","time":"2017-04-26T13:05:22.482Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/loading.gif","time":"2017-04-26T13:05:22.483Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/placeholder.gif","time":"2017-04-26T13:05:22.486Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/quote-l.svg","time":"2017-04-26T13:05:22.486Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/quote-r.svg","time":"2017-04-26T13:05:22.486Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/searchicon.png","time":"2017-04-26T13:05:22.486Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/images/cc-zero.svg","time":"2017-04-26T13:05:22.487Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_layout.swig","time":"2017-04-26T13:05:22.687Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/category.swig","time":"2017-04-26T13:05:22.688Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/index.swig","time":"2017-04-26T13:05:22.688Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/archive.swig","time":"2017-04-26T13:05:22.688Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/page.swig","time":"2017-04-26T13:05:22.688Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/schedule.swig","time":"2017-04-26T13:05:22.688Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/post.swig","time":"2017-04-26T13:05:22.688Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/tag.swig","time":"2017-04-26T13:05:22.688Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/en.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/default.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/fr-FR.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/ja.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/de.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/id.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/ko.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/pt-BR.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/ru.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/zh-tw.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/zh-hk.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/pt.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: languages/zh-Hans.yml","time":"2017-04-26T13:05:22.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/affix.js","time":"2017-04-26T13:05:22.698Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/algolia-search.js","time":"2017-04-26T13:05:22.698Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/bootstrap.js","time":"2017-04-26T13:05:22.698Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/exturl.js","time":"2017-04-26T13:05:22.699Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/hook-duoshuo.js","time":"2017-04-26T13:05:22.700Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/motion.js","time":"2017-04-26T13:05:22.700Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/post-details.js","time":"2017-04-26T13:05:22.700Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/utils.js","time":"2017-04-26T13:05:22.701Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/scrollspy.js","time":"2017-04-26T13:05:22.702Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.css","time":"2017-04-26T13:05:22.703Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/canvas-nest/canvas-nest.min.js","time":"2017-04-26T13:05:22.703Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fastclick/LICENSE","time":"2017-04-26T13:05:22.705Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fastclick/README.md","time":"2017-04-26T13:05:22.707Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fastclick/bower.json","time":"2017-04-26T13:05:22.707Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/HELP-US-OUT.txt","time":"2017-04-26T13:05:22.708Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/bower.json","time":"2017-04-26T13:05:22.708Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/jquery_lazyload/CONTRIBUTING.md","time":"2017-04-26T13:05:22.708Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/jquery_lazyload/README.md","time":"2017-04-26T13:05:22.708Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/jquery_lazyload/bower.json","time":"2017-04-26T13:05:22.709Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.lazyload.js","time":"2017-04-26T13:05:22.709Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.scrollstop.js","time":"2017-04-26T13:05:22.710Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/three/three-waves.min.js","time":"2017-04-26T13:05:22.710Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/velocity/bower.json","time":"2017-04-26T13:05:22.710Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/velocity/velocity.min.js","time":"2017-04-26T13:05:22.710Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.js","time":"2017-04-26T13:05:22.711Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.min.js","time":"2017-04-26T13:05:22.711Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/jquery/index.js","time":"2017-04-26T13:05:22.726Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_custom/sidebar.swig","time":"2017-04-26T13:05:22.780Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/footer.swig","time":"2017-04-26T13:05:22.780Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/comments.swig","time":"2017-04-26T13:05:22.780Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/head.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_custom/header.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/header.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/page-header.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/pagination.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/search.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_scripts/commons.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_scripts/vendors.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/exturl.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/duoshuo-hot-articles.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/mathjax.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_scripts/boostrap.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/schedule.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_macro/post-copyright.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_macro/post-collapse.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_macro/post.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_macro/reward.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_macro/sidebar.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_macro/wechat-subscriber.swig","time":"2017-04-26T13:05:22.781Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/js/src/schemes/pisces.js","time":"2017-04-26T13:05:22.783Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/blank.gif","time":"2017-04-26T13:05:22.784Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading.gif","time":"2017-04-26T13:05:22.784Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading@2x.gif","time":"2017-04-26T13:05:22.784Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_overlay.png","time":"2017-04-26T13:05:22.785Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite.png","time":"2017-04-26T13:05:22.785Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite@2x.png","time":"2017-04-26T13:05:22.785Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.css","time":"2017-04-26T13:05:22.785Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.js","time":"2017-04-26T13:05:22.786Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.pack.js","time":"2017-04-26T13:05:22.786Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.js","time":"2017-04-26T13:05:22.786Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.min.js","time":"2017-04-26T13:05:22.786Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css","time":"2017-04-26T13:05:22.786Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css.map","time":"2017-04-26T13:05:22.786Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.min.css","time":"2017-04-26T13:05:22.786Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.min.js","time":"2017-04-26T13:05:22.787Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.pack.js","time":"2017-04-26T13:05:22.787Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_scripts/schemes/muse.swig","time":"2017-04-26T13:05:22.790Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_scripts/schemes/mist.swig","time":"2017-04-26T13:05:22.790Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff","time":"2017-04-26T13:05:22.791Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff2","time":"2017-04-26T13:05:22.791Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/velocity/velocity.js","time":"2017-04-26T13:05:22.791Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/head/external-fonts.swig","time":"2017-04-26T13:05:22.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/search/localsearch.swig","time":"2017-04-26T13:05:22.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/head/custom-head.swig","time":"2017-04-26T13:05:22.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/search/tinysou.swig","time":"2017-04-26T13:05:22.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/share/add-this.swig","time":"2017-04-26T13:05:22.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/search/swiftype.swig","time":"2017-04-26T13:05:22.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/share/baidushare.swig","time":"2017-04-26T13:05:22.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/share/jiathis.swig","time":"2017-04-26T13:05:22.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_partials/share/duoshuo_share.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_scripts/pages/post-details.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/application-insights.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/baidu-analytics.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_scripts/schemes/pisces.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/busuanzi-counter.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/cnzz-analytics.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/facebook-sdk.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/index.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/google-analytics.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-analytics.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/vkontakte-api.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-mta.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/analytics/lean-analytics.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/comments/changyan.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/comments/disqus.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/comments/duoshuo.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/comments/gentie.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/comments/hypercomments.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/comments/index.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/comments/livere.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/comments/youyan.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/search/index.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/search/localsearch.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/search/tinysou.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/seo/baidu-push.swig","time":"2017-04-26T13:05:22.816Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/fancybox_buttons.png","time":"2017-04-26T13:05:22.820Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.js","time":"2017-04-26T13:05:22.820Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-media.js","time":"2017-04-26T13:05:22.821Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.css","time":"2017-04-26T13:05:22.821Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.css","time":"2017-04-26T13:05:22.821Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.js","time":"2017-04-26T13:05:22.821Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/FontAwesome.otf","time":"2017-04-26T13:05:22.821Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.eot","time":"2017-04-26T13:05:22.821Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.ttf","time":"2017-04-26T13:05:22.821Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/assets.swig","time":"2017-04-26T13:05:22.828Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/dom.swig","time":"2017-04-26T13:05:22.828Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.js","time":"2017-04-26T13:05:22.828Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/three/three.min.js","time":"2017-04-26T13:05:22.831Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.svg","time":"2017-04-26T13:05:22.832Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Generator: page","time":"2017-04-26T13:05:22.986Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Generator: post","time":"2017-04-26T13:05:22.986Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Generator: archive","time":"2017-04-26T13:05:22.986Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Generator: index","time":"2017-04-26T13:05:22.986Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Generator: category","time":"2017-04-26T13:05:22.986Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Generator: tag","time":"2017-04-26T13:05:22.987Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Generator: asset","time":"2017-04-26T13:05:22.988Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":30,"msg":"Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.","time":"2017-04-26T13:05:22.996Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Database saved","time":"2017-04-26T13:05:23.006Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":20,"msg":"Rendering index: index.html","time":"2017-04-26T13:05:33.389Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":50,"msg":"Theme config load failed.","time":"2017-04-26T13:06:57.167Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2616,"level":50,"err":{"message":"duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^","name":"YAMLException","stack":"YAMLException: duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^\n    at generateError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:162:10)\n    at throwError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:168:9)\n    at storeMappingPair (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:307:7)\n    at readBlockMapping (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1070:9)\n    at composeNode (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1331:12)\n    at readDocument (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1493:3)\n    at loadDocuments (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1549:5)\n    at Object.load (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1566:19)\n    at Hexo.yamlHelper (G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\plugins\\renderer\\yaml.js:7:15)\n    at Hexo.tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Hexo.<anonymous> (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\method.js:15:34)\n    at G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\hexo\\render.js:61:21\n    at tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Promise._settlePromiseFromHandler (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:512:31)\n    at Promise._settlePromise (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:569:18)\n    at Promise._settlePromise0 (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:614:10)\n    at Promise._settlePromises (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:693:18)\n    at Async._drainQueue (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:133:16)\n    at Async._drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:143:10)\n    at Immediate.Async.drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:17:14)\n    at runCallback (timers.js:649:20)\n    at tryOnImmediate (timers.js:622:5)"},"msg":"Process failed: _config.yml","time":"2017-04-26T13:06:57.171Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Hexo version: 3.3.1","time":"2017-04-26T13:07:51.938Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Working directory: G:\\hexo-blog\\blog\\","time":"2017-04-26T13:07:51.940Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Config loaded: G:\\hexo-blog\\blog\\_config.yml","time":"2017-04-26T13:07:52.100Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Plugin loaded: hexo-generator-index","time":"2017-04-26T13:07:52.118Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Plugin loaded: hexo-generator-category","time":"2017-04-26T13:07:52.120Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Plugin loaded: hexo-generator-archive","time":"2017-04-26T13:07:52.123Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Plugin loaded: hexo-generator-tag","time":"2017-04-26T13:07:52.125Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Plugin loaded: hexo-renderer-ejs","time":"2017-04-26T13:07:52.129Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Plugin loaded: hexo-server","time":"2017-04-26T13:07:52.221Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Plugin loaded: hexo-renderer-marked","time":"2017-04-26T13:07:52.227Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\center-quote.js","time":"2017-04-26T13:07:52.229Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\button.js","time":"2017-04-26T13:07:52.230Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge-configs.js","time":"2017-04-26T13:07:52.233Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge.js","time":"2017-04-26T13:07:52.237Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\exturl.js","time":"2017-04-26T13:07:52.238Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\full-image.js","time":"2017-04-26T13:07:52.239Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\group-pictures.js","time":"2017-04-26T13:07:52.240Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\note.js","time":"2017-04-26T13:07:52.240Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Plugin loaded: hexo-renderer-stylus","time":"2017-04-26T13:07:52.242Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Loading database.","time":"2017-04-26T13:07:52.252Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":30,"msg":"Start processing","time":"2017-04-26T13:07:52.337Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: _posts/2017-1.md","time":"2017-04-26T13:07:52.416Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: _posts/2017.md","time":"2017-04-26T13:07:52.416Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: _posts/hello-world.md","time":"2017-04-26T13:07:52.416Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":50,"msg":"Theme config load failed.","time":"2017-04-26T13:07:52.503Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":50,"err":{"message":"duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^","name":"YAMLException","stack":"YAMLException: duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^\n    at generateError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:162:10)\n    at throwError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:168:9)\n    at storeMappingPair (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:307:7)\n    at readBlockMapping (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1070:9)\n    at composeNode (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1331:12)\n    at readDocument (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1493:3)\n    at loadDocuments (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1549:5)\n    at Object.load (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1566:19)\n    at Hexo.yamlHelper (G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\plugins\\renderer\\yaml.js:7:15)\n    at Hexo.tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Hexo.<anonymous> (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\method.js:15:34)\n    at G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\hexo\\render.js:61:21\n    at tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Promise._settlePromiseFromHandler (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:512:31)\n    at Promise._settlePromise (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:569:18)\n    at Promise._settlePromise0 (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:614:10)\n    at Promise._settlePromises (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:693:18)\n    at Async._drainQueue (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:133:16)\n    at Async._drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:143:10)\n    at Immediate.Async.drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:17:14)\n    at runCallback (timers.js:649:20)\n    at tryOnImmediate (timers.js:622:5)"},"msg":"Process failed: _config.yml","time":"2017-04-26T13:07:52.507Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/css/main.styl","time":"2017-04-26T13:07:52.507Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/algolia_logo.svg","time":"2017-04-26T13:07:52.508Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/avatar.gif","time":"2017-04-26T13:07:52.508Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/cc-by-nc-nd.svg","time":"2017-04-26T13:07:52.508Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/cc-by-nc-sa.svg","time":"2017-04-26T13:07:52.508Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/cc-by-nc.svg","time":"2017-04-26T13:07:52.509Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/cc-by-nd.svg","time":"2017-04-26T13:07:52.509Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/cc-by.svg","time":"2017-04-26T13:07:52.510Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/cc-by-sa.svg","time":"2017-04-26T13:07:52.511Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/loading.gif","time":"2017-04-26T13:07:52.512Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/cc-zero.svg","time":"2017-04-26T13:07:52.512Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/placeholder.gif","time":"2017-04-26T13:07:52.513Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/quote-l.svg","time":"2017-04-26T13:07:52.513Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/quote-r.svg","time":"2017-04-26T13:07:52.513Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/images/searchicon.png","time":"2017-04-26T13:07:52.513Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_layout.swig","time":"2017-04-26T13:07:52.708Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/archive.swig","time":"2017-04-26T13:07:52.708Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/category.swig","time":"2017-04-26T13:07:52.708Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/index.swig","time":"2017-04-26T13:07:52.708Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/page.swig","time":"2017-04-26T13:07:52.709Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/post.swig","time":"2017-04-26T13:07:52.710Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/schedule.swig","time":"2017-04-26T13:07:52.710Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/tag.swig","time":"2017-04-26T13:07:52.710Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/de.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/default.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/fr-FR.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/en.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/id.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/ja.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/ko.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/pt-BR.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/zh-Hans.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/ru.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/zh-hk.yml","time":"2017-04-26T13:07:52.722Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/zh-tw.yml","time":"2017-04-26T13:07:52.723Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: languages/pt.yml","time":"2017-04-26T13:07:52.723Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.css","time":"2017-04-26T13:07:52.723Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/canvas-nest/canvas-nest.min.js","time":"2017-04-26T13:07:52.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fastclick/README.md","time":"2017-04-26T13:07:52.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fastclick/bower.json","time":"2017-04-26T13:07:52.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fastclick/LICENSE","time":"2017-04-26T13:07:52.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/HELP-US-OUT.txt","time":"2017-04-26T13:07:52.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/bower.json","time":"2017-04-26T13:07:52.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/jquery_lazyload/CONTRIBUTING.md","time":"2017-04-26T13:07:52.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/jquery_lazyload/bower.json","time":"2017-04-26T13:07:52.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.lazyload.js","time":"2017-04-26T13:07:52.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.scrollstop.js","time":"2017-04-26T13:07:52.727Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/jquery_lazyload/README.md","time":"2017-04-26T13:07:52.728Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/three/three-waves.min.js","time":"2017-04-26T13:07:52.728Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/velocity/bower.json","time":"2017-04-26T13:07:52.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/velocity/velocity.min.js","time":"2017-04-26T13:07:52.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.js","time":"2017-04-26T13:07:52.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.min.js","time":"2017-04-26T13:07:52.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/affix.js","time":"2017-04-26T13:07:52.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/algolia-search.js","time":"2017-04-26T13:07:52.731Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/exturl.js","time":"2017-04-26T13:07:52.731Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/bootstrap.js","time":"2017-04-26T13:07:52.731Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/post-details.js","time":"2017-04-26T13:07:52.731Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/hook-duoshuo.js","time":"2017-04-26T13:07:52.731Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/motion.js","time":"2017-04-26T13:07:52.731Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/scrollspy.js","time":"2017-04-26T13:07:52.732Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/utils.js","time":"2017-04-26T13:07:52.732Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/jquery/index.js","time":"2017-04-26T13:07:52.738Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_macro/post-copyright.swig","time":"2017-04-26T13:07:52.797Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_custom/sidebar.swig","time":"2017-04-26T13:07:52.797Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_macro/post-collapse.swig","time":"2017-04-26T13:07:52.798Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_custom/header.swig","time":"2017-04-26T13:07:52.798Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_macro/reward.swig","time":"2017-04-26T13:07:52.798Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_macro/post.swig","time":"2017-04-26T13:07:52.798Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_macro/wechat-subscriber.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_macro/sidebar.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/comments.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/footer.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/header.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/head.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/pagination.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/page-header.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_scripts/boostrap.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/search.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_scripts/commons.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_scripts/vendors.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/duoshuo-hot-articles.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/mathjax.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/exturl.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/schedule.swig","time":"2017-04-26T13:07:52.799Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/blank.gif","time":"2017-04-26T13:07:52.806Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading@2x.gif","time":"2017-04-26T13:07:52.806Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading.gif","time":"2017-04-26T13:07:52.806Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_overlay.png","time":"2017-04-26T13:07:52.807Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite@2x.png","time":"2017-04-26T13:07:52.807Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite.png","time":"2017-04-26T13:07:52.807Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.css","time":"2017-04-26T13:07:52.807Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.js","time":"2017-04-26T13:07:52.807Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.pack.js","time":"2017-04-26T13:07:52.807Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.js","time":"2017-04-26T13:07:52.808Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.min.js","time":"2017-04-26T13:07:52.808Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.min.css","time":"2017-04-26T13:07:52.809Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css","time":"2017-04-26T13:07:52.810Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css.map","time":"2017-04-26T13:07:52.810Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.min.js","time":"2017-04-26T13:07:52.810Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.pack.js","time":"2017-04-26T13:07:52.810Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/js/src/schemes/pisces.js","time":"2017-04-26T13:07:52.811Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_scripts/schemes/mist.swig","time":"2017-04-26T13:07:52.814Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_scripts/schemes/muse.swig","time":"2017-04-26T13:07:52.814Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff","time":"2017-04-26T13:07:52.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff2","time":"2017-04-26T13:07:52.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/velocity/velocity.js","time":"2017-04-26T13:07:52.815Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/head/external-fonts.swig","time":"2017-04-26T13:07:52.840Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/head/custom-head.swig","time":"2017-04-26T13:07:52.840Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/search/localsearch.swig","time":"2017-04-26T13:07:52.840Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/search/swiftype.swig","time":"2017-04-26T13:07:52.840Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/search/tinysou.swig","time":"2017-04-26T13:07:52.840Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/share/add-this.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/share/baidushare.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/share/duoshuo_share.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_partials/share/jiathis.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_scripts/pages/post-details.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_scripts/schemes/pisces.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/baidu-analytics.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/application-insights.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/cnzz-analytics.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/facebook-sdk.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/busuanzi-counter.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/index.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/google-analytics.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/lean-analytics.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-mta.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-analytics.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/comments/disqus.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/comments/changyan.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/comments/duoshuo.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/comments/hypercomments.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/comments/gentie.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/comments/index.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/comments/livere.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/comments/youyan.swig","time":"2017-04-26T13:07:52.841Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/search/localsearch.swig","time":"2017-04-26T13:07:52.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/search/index.swig","time":"2017-04-26T13:07:52.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/search/tinysou.swig","time":"2017-04-26T13:07:52.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/seo/baidu-push.swig","time":"2017-04-26T13:07:52.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/analytics/vkontakte-api.swig","time":"2017-04-26T13:07:52.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/fancybox_buttons.png","time":"2017-04-26T13:07:52.845Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.css","time":"2017-04-26T13:07:52.846Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.js","time":"2017-04-26T13:07:52.846Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-media.js","time":"2017-04-26T13:07:52.847Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.css","time":"2017-04-26T13:07:52.847Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.js","time":"2017-04-26T13:07:52.847Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.eot","time":"2017-04-26T13:07:52.847Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/FontAwesome.otf","time":"2017-04-26T13:07:52.848Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.ttf","time":"2017-04-26T13:07:52.848Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/dom.swig","time":"2017-04-26T13:07:52.852Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/assets.swig","time":"2017-04-26T13:07:52.853Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.js","time":"2017-04-26T13:07:52.853Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/three/three.min.js","time":"2017-04-26T13:07:52.858Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.svg","time":"2017-04-26T13:07:52.859Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Generator: page","time":"2017-04-26T13:07:53.037Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Generator: post","time":"2017-04-26T13:07:53.037Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Generator: index","time":"2017-04-26T13:07:53.037Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Generator: category","time":"2017-04-26T13:07:53.037Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Generator: archive","time":"2017-04-26T13:07:53.037Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Generator: tag","time":"2017-04-26T13:07:53.038Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Generator: asset","time":"2017-04-26T13:07:53.039Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":30,"msg":"Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.","time":"2017-04-26T13:07:53.049Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Database saved","time":"2017-04-26T13:07:53.063Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Rendering index: index.html","time":"2017-04-26T13:08:00.694Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":20,"msg":"Rendering index: index.html","time":"2017-04-26T13:08:05.015Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":50,"msg":"Theme config load failed.","time":"2017-04-26T13:09:27.838Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":2528,"level":50,"err":{"message":"duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^","name":"YAMLException","stack":"YAMLException: duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^\n    at generateError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:162:10)\n    at throwError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:168:9)\n    at storeMappingPair (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:307:7)\n    at readBlockMapping (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1070:9)\n    at composeNode (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1331:12)\n    at readDocument (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1493:3)\n    at loadDocuments (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1549:5)\n    at Object.load (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1566:19)\n    at Hexo.yamlHelper (G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\plugins\\renderer\\yaml.js:7:15)\n    at Hexo.tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Hexo.<anonymous> (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\method.js:15:34)\n    at G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\hexo\\render.js:61:21\n    at tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Promise._settlePromiseFromHandler (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:512:31)\n    at Promise._settlePromise (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:569:18)\n    at Promise._settlePromise0 (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:614:10)\n    at Promise._settlePromises (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:693:18)\n    at Async._drainQueue (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:133:16)\n    at Async._drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:143:10)\n    at Immediate.Async.drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:17:14)\n    at runCallback (timers.js:649:20)\n    at tryOnImmediate (timers.js:622:5)"},"msg":"Process failed: _config.yml","time":"2017-04-26T13:09:27.839Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Hexo version: 3.3.1","time":"2017-04-26T13:09:32.755Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Working directory: G:\\hexo-blog\\blog\\","time":"2017-04-26T13:09:32.757Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Config loaded: G:\\hexo-blog\\blog\\_config.yml","time":"2017-04-26T13:09:32.896Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Plugin loaded: hexo-generator-archive","time":"2017-04-26T13:09:32.917Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Plugin loaded: hexo-generator-category","time":"2017-04-26T13:09:32.920Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Plugin loaded: hexo-generator-index","time":"2017-04-26T13:09:32.923Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Plugin loaded: hexo-generator-tag","time":"2017-04-26T13:09:32.925Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Plugin loaded: hexo-renderer-ejs","time":"2017-04-26T13:09:32.933Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Plugin loaded: hexo-renderer-stylus","time":"2017-04-26T13:09:32.936Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Plugin loaded: hexo-renderer-marked","time":"2017-04-26T13:09:32.943Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Plugin loaded: hexo-server","time":"2017-04-26T13:09:33.040Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge-configs.js","time":"2017-04-26T13:09:33.044Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\button.js","time":"2017-04-26T13:09:33.044Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\center-quote.js","time":"2017-04-26T13:09:33.044Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge.js","time":"2017-04-26T13:09:33.048Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\exturl.js","time":"2017-04-26T13:09:33.050Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\full-image.js","time":"2017-04-26T13:09:33.051Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\group-pictures.js","time":"2017-04-26T13:09:33.052Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\note.js","time":"2017-04-26T13:09:33.052Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Loading database.","time":"2017-04-26T13:09:33.071Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":30,"msg":"Start processing","time":"2017-04-26T13:09:33.155Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: _posts/2017-1.md","time":"2017-04-26T13:09:33.241Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: _posts/2017.md","time":"2017-04-26T13:09:33.241Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: _posts/hello-world.md","time":"2017-04-26T13:09:33.241Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":50,"msg":"Theme config load failed.","time":"2017-04-26T13:09:33.307Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":50,"err":{"message":"duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^","name":"YAMLException","stack":"YAMLException: duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^\n    at generateError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:162:10)\n    at throwError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:168:9)\n    at storeMappingPair (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:307:7)\n    at readBlockMapping (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1070:9)\n    at composeNode (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1331:12)\n    at readDocument (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1493:3)\n    at loadDocuments (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1549:5)\n    at Object.load (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1566:19)\n    at Hexo.yamlHelper (G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\plugins\\renderer\\yaml.js:7:15)\n    at Hexo.tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Hexo.<anonymous> (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\method.js:15:34)\n    at G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\hexo\\render.js:61:21\n    at tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Promise._settlePromiseFromHandler (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:512:31)\n    at Promise._settlePromise (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:569:18)\n    at Promise._settlePromise0 (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:614:10)\n    at Promise._settlePromises (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:693:18)\n    at Async._drainQueue (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:133:16)\n    at Async._drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:143:10)\n    at Immediate.Async.drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:17:14)\n    at runCallback (timers.js:649:20)\n    at tryOnImmediate (timers.js:622:5)"},"msg":"Process failed: _config.yml","time":"2017-04-26T13:09:33.308Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/css/main.styl","time":"2017-04-26T13:09:33.328Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/algolia_logo.svg","time":"2017-04-26T13:09:33.329Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/avatar.gif","time":"2017-04-26T13:09:33.329Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/cc-by-nc-nd.svg","time":"2017-04-26T13:09:33.330Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/cc-by-nc-sa.svg","time":"2017-04-26T13:09:33.332Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/cc-by-nc.svg","time":"2017-04-26T13:09:33.332Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/cc-by-nd.svg","time":"2017-04-26T13:09:33.333Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/cc-by-sa.svg","time":"2017-04-26T13:09:33.334Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/cc-by.svg","time":"2017-04-26T13:09:33.334Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/placeholder.gif","time":"2017-04-26T13:09:33.335Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/loading.gif","time":"2017-04-26T13:09:33.335Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/quote-l.svg","time":"2017-04-26T13:09:33.335Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/cc-zero.svg","time":"2017-04-26T13:09:33.335Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/searchicon.png","time":"2017-04-26T13:09:33.336Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/images/quote-r.svg","time":"2017-04-26T13:09:33.336Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_layout.swig","time":"2017-04-26T13:09:33.527Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/archive.swig","time":"2017-04-26T13:09:33.528Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/category.swig","time":"2017-04-26T13:09:33.528Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/index.swig","time":"2017-04-26T13:09:33.528Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/page.swig","time":"2017-04-26T13:09:33.528Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/post.swig","time":"2017-04-26T13:09:33.528Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/schedule.swig","time":"2017-04-26T13:09:33.528Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/tag.swig","time":"2017-04-26T13:09:33.528Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/id.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/de.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/fr-FR.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/default.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/ko.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/pt-BR.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/ja.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/en.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/pt.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/zh-Hans.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/ru.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/zh-hk.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: languages/zh-tw.yml","time":"2017-04-26T13:09:33.538Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/algolia-search.js","time":"2017-04-26T13:09:33.553Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/affix.js","time":"2017-04-26T13:09:33.553Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/exturl.js","time":"2017-04-26T13:09:33.553Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/hook-duoshuo.js","time":"2017-04-26T13:09:33.554Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/motion.js","time":"2017-04-26T13:09:33.554Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/post-details.js","time":"2017-04-26T13:09:33.554Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/scrollspy.js","time":"2017-04-26T13:09:33.554Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/utils.js","time":"2017-04-26T13:09:33.554Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/bootstrap.js","time":"2017-04-26T13:09:33.554Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.css","time":"2017-04-26T13:09:33.554Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/canvas-nest/canvas-nest.min.js","time":"2017-04-26T13:09:33.555Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fastclick/LICENSE","time":"2017-04-26T13:09:33.556Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fastclick/README.md","time":"2017-04-26T13:09:33.557Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fastclick/bower.json","time":"2017-04-26T13:09:33.557Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/bower.json","time":"2017-04-26T13:09:33.558Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/HELP-US-OUT.txt","time":"2017-04-26T13:09:33.559Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/jquery_lazyload/README.md","time":"2017-04-26T13:09:33.559Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/jquery_lazyload/CONTRIBUTING.md","time":"2017-04-26T13:09:33.559Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/jquery_lazyload/bower.json","time":"2017-04-26T13:09:33.559Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.lazyload.js","time":"2017-04-26T13:09:33.559Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.scrollstop.js","time":"2017-04-26T13:09:33.559Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/three/three-waves.min.js","time":"2017-04-26T13:09:33.559Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/velocity/bower.json","time":"2017-04-26T13:09:33.559Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/velocity/velocity.min.js","time":"2017-04-26T13:09:33.560Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.js","time":"2017-04-26T13:09:33.560Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.min.js","time":"2017-04-26T13:09:33.560Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_custom/header.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_custom/sidebar.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_macro/post-collapse.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_macro/post-copyright.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_macro/post.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_macro/sidebar.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/comments.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/footer.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/head.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/page-header.swig","time":"2017-04-26T13:09:33.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/header.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/pagination.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/search.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_scripts/boostrap.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_scripts/commons.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_scripts/vendors.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/duoshuo-hot-articles.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/exturl.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/schedule.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/mathjax.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_macro/wechat-subscriber.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_macro/reward.swig","time":"2017-04-26T13:09:33.626Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/jquery/index.js","time":"2017-04-26T13:09:33.628Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_scripts/schemes/muse.swig","time":"2017-04-26T13:09:33.636Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_scripts/schemes/mist.swig","time":"2017-04-26T13:09:33.636Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/js/src/schemes/pisces.js","time":"2017-04-26T13:09:33.640Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/blank.gif","time":"2017-04-26T13:09:33.640Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading.gif","time":"2017-04-26T13:09:33.641Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading@2x.gif","time":"2017-04-26T13:09:33.641Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_overlay.png","time":"2017-04-26T13:09:33.641Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite.png","time":"2017-04-26T13:09:33.641Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite@2x.png","time":"2017-04-26T13:09:33.641Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.css","time":"2017-04-26T13:09:33.641Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.js","time":"2017-04-26T13:09:33.641Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.pack.js","time":"2017-04-26T13:09:33.641Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.js","time":"2017-04-26T13:09:33.641Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.min.js","time":"2017-04-26T13:09:33.642Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css","time":"2017-04-26T13:09:33.643Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.min.css","time":"2017-04-26T13:09:33.643Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css.map","time":"2017-04-26T13:09:33.643Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.min.js","time":"2017-04-26T13:09:33.643Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.pack.js","time":"2017-04-26T13:09:33.643Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/search/localsearch.swig","time":"2017-04-26T13:09:33.668Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/head/custom-head.swig","time":"2017-04-26T13:09:33.668Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/search/swiftype.swig","time":"2017-04-26T13:09:33.668Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/search/tinysou.swig","time":"2017-04-26T13:09:33.668Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/share/add-this.swig","time":"2017-04-26T13:09:33.668Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/share/baidushare.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/share/duoshuo_share.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/share/jiathis.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_scripts/pages/post-details.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/application-insights.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/cnzz-analytics.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/busuanzi-counter.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_scripts/schemes/pisces.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/google-analytics.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/facebook-sdk.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/index.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-analytics.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-mta.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/lean-analytics.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/comments/changyan.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/vkontakte-api.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/comments/disqus.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/analytics/baidu-analytics.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/comments/gentie.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/comments/duoshuo.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/comments/index.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/comments/livere.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/comments/hypercomments.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/comments/youyan.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/search/localsearch.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/search/index.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/seo/baidu-push.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/search/tinysou.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_partials/head/external-fonts.swig","time":"2017-04-26T13:09:33.669Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff","time":"2017-04-26T13:09:33.670Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff2","time":"2017-04-26T13:09:33.670Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/velocity/velocity.js","time":"2017-04-26T13:09:33.670Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/fancybox_buttons.png","time":"2017-04-26T13:09:33.674Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.css","time":"2017-04-26T13:09:33.675Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.js","time":"2017-04-26T13:09:33.675Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-media.js","time":"2017-04-26T13:09:33.676Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.css","time":"2017-04-26T13:09:33.676Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.js","time":"2017-04-26T13:09:33.677Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/FontAwesome.otf","time":"2017-04-26T13:09:33.677Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.ttf","time":"2017-04-26T13:09:33.677Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.eot","time":"2017-04-26T13:09:33.677Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/dom.swig","time":"2017-04-26T13:09:33.680Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/assets.swig","time":"2017-04-26T13:09:33.680Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.js","time":"2017-04-26T13:09:33.682Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/three/three.min.js","time":"2017-04-26T13:09:33.684Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.svg","time":"2017-04-26T13:09:33.686Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Generator: page","time":"2017-04-26T13:09:33.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Generator: post","time":"2017-04-26T13:09:33.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Generator: archive","time":"2017-04-26T13:09:33.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Generator: category","time":"2017-04-26T13:09:33.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Generator: index","time":"2017-04-26T13:09:33.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Generator: tag","time":"2017-04-26T13:09:33.842Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Generator: asset","time":"2017-04-26T13:09:33.843Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":30,"msg":"Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.","time":"2017-04-26T13:09:33.850Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Database saved","time":"2017-04-26T13:09:33.861Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Rendering index: index.html","time":"2017-04-26T13:09:35.154Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":10016,"level":20,"msg":"Rendering index: index.html","time":"2017-04-26T13:09:39.935Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Hexo version: 3.3.1","time":"2017-04-26T13:09:44.865Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Working directory: G:\\hexo-blog\\blog\\","time":"2017-04-26T13:09:44.867Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Config loaded: G:\\hexo-blog\\blog\\_config.yml","time":"2017-04-26T13:09:45.007Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Plugin loaded: hexo-generator-archive","time":"2017-04-26T13:09:45.026Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Plugin loaded: hexo-generator-category","time":"2017-04-26T13:09:45.028Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Plugin loaded: hexo-generator-index","time":"2017-04-26T13:09:45.032Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Plugin loaded: hexo-renderer-ejs","time":"2017-04-26T13:09:45.036Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Plugin loaded: hexo-generator-tag","time":"2017-04-26T13:09:45.038Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Plugin loaded: hexo-renderer-stylus","time":"2017-04-26T13:09:45.039Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Plugin loaded: hexo-renderer-marked","time":"2017-04-26T13:09:45.047Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Plugin loaded: hexo-server","time":"2017-04-26T13:09:45.134Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge.js","time":"2017-04-26T13:09:45.137Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge-configs.js","time":"2017-04-26T13:09:45.140Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\button.js","time":"2017-04-26T13:09:45.141Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\center-quote.js","time":"2017-04-26T13:09:45.141Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\exturl.js","time":"2017-04-26T13:09:45.142Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\full-image.js","time":"2017-04-26T13:09:45.142Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\group-pictures.js","time":"2017-04-26T13:09:45.143Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\note.js","time":"2017-04-26T13:09:45.143Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Loading database.","time":"2017-04-26T13:09:45.153Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":30,"msg":"Start processing","time":"2017-04-26T13:09:45.229Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: _posts/2017-1.md","time":"2017-04-26T13:09:45.313Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: _posts/2017.md","time":"2017-04-26T13:09:45.314Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: _posts/hello-world.md","time":"2017-04-26T13:09:45.314Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":50,"msg":"Theme config load failed.","time":"2017-04-26T13:09:45.375Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":50,"err":{"message":"duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^","name":"YAMLException","stack":"YAMLException: duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^\n    at generateError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:162:10)\n    at throwError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:168:9)\n    at storeMappingPair (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:307:7)\n    at readBlockMapping (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1070:9)\n    at composeNode (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1331:12)\n    at readDocument (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1493:3)\n    at loadDocuments (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1549:5)\n    at Object.load (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1566:19)\n    at Hexo.yamlHelper (G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\plugins\\renderer\\yaml.js:7:15)\n    at Hexo.tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Hexo.<anonymous> (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\method.js:15:34)\n    at G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\hexo\\render.js:61:21\n    at tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Promise._settlePromiseFromHandler (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:512:31)\n    at Promise._settlePromise (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:569:18)\n    at Promise._settlePromise0 (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:614:10)\n    at Promise._settlePromises (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:693:18)\n    at Async._drainQueue (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:133:16)\n    at Async._drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:143:10)\n    at Immediate.Async.drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:17:14)\n    at runCallback (timers.js:649:20)\n    at tryOnImmediate (timers.js:622:5)"},"msg":"Process failed: _config.yml","time":"2017-04-26T13:09:45.381Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/css/main.styl","time":"2017-04-26T13:09:45.383Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/algolia_logo.svg","time":"2017-04-26T13:09:45.384Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/avatar.gif","time":"2017-04-26T13:09:45.384Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/cc-by-nc-nd.svg","time":"2017-04-26T13:09:45.385Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/cc-by-nc.svg","time":"2017-04-26T13:09:45.385Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/cc-by-nc-sa.svg","time":"2017-04-26T13:09:45.385Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/cc-by-nd.svg","time":"2017-04-26T13:09:45.386Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/cc-by-sa.svg","time":"2017-04-26T13:09:45.386Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/cc-by.svg","time":"2017-04-26T13:09:45.386Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/cc-zero.svg","time":"2017-04-26T13:09:45.406Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/loading.gif","time":"2017-04-26T13:09:45.407Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/placeholder.gif","time":"2017-04-26T13:09:45.409Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/quote-r.svg","time":"2017-04-26T13:09:45.410Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/quote-l.svg","time":"2017-04-26T13:09:45.412Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/images/searchicon.png","time":"2017-04-26T13:09:45.412Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_layout.swig","time":"2017-04-26T13:09:45.588Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/archive.swig","time":"2017-04-26T13:09:45.588Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/index.swig","time":"2017-04-26T13:09:45.589Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/category.swig","time":"2017-04-26T13:09:45.589Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/page.swig","time":"2017-04-26T13:09:45.589Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/post.swig","time":"2017-04-26T13:09:45.589Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/schedule.swig","time":"2017-04-26T13:09:45.589Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/tag.swig","time":"2017-04-26T13:09:45.589Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/de.yml","time":"2017-04-26T13:09:45.595Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/default.yml","time":"2017-04-26T13:09:45.597Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/en.yml","time":"2017-04-26T13:09:45.597Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/id.yml","time":"2017-04-26T13:09:45.597Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/fr-FR.yml","time":"2017-04-26T13:09:45.597Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/ko.yml","time":"2017-04-26T13:09:45.597Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/pt-BR.yml","time":"2017-04-26T13:09:45.598Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/pt.yml","time":"2017-04-26T13:09:45.598Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/zh-Hans.yml","time":"2017-04-26T13:09:45.598Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/ru.yml","time":"2017-04-26T13:09:45.598Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/zh-hk.yml","time":"2017-04-26T13:09:45.598Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/zh-tw.yml","time":"2017-04-26T13:09:45.598Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: languages/ja.yml","time":"2017-04-26T13:09:45.598Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.css","time":"2017-04-26T13:09:45.612Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/affix.js","time":"2017-04-26T13:09:45.616Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/algolia-search.js","time":"2017-04-26T13:09:45.616Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/exturl.js","time":"2017-04-26T13:09:45.616Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/bootstrap.js","time":"2017-04-26T13:09:45.617Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/hook-duoshuo.js","time":"2017-04-26T13:09:45.617Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/post-details.js","time":"2017-04-26T13:09:45.617Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/motion.js","time":"2017-04-26T13:09:45.617Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/utils.js","time":"2017-04-26T13:09:45.618Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/scrollspy.js","time":"2017-04-26T13:09:45.619Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/canvas-nest/canvas-nest.min.js","time":"2017-04-26T13:09:45.619Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fastclick/LICENSE","time":"2017-04-26T13:09:45.620Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fastclick/README.md","time":"2017-04-26T13:09:45.620Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fastclick/bower.json","time":"2017-04-26T13:09:45.621Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/HELP-US-OUT.txt","time":"2017-04-26T13:09:45.621Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/bower.json","time":"2017-04-26T13:09:45.621Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/jquery_lazyload/CONTRIBUTING.md","time":"2017-04-26T13:09:45.621Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/jquery_lazyload/README.md","time":"2017-04-26T13:09:45.622Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.lazyload.js","time":"2017-04-26T13:09:45.622Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.scrollstop.js","time":"2017-04-26T13:09:45.623Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/three/three-waves.min.js","time":"2017-04-26T13:09:45.623Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/jquery_lazyload/bower.json","time":"2017-04-26T13:09:45.623Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/velocity/bower.json","time":"2017-04-26T13:09:45.623Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.js","time":"2017-04-26T13:09:45.623Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/velocity/velocity.min.js","time":"2017-04-26T13:09:45.623Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.min.js","time":"2017-04-26T13:09:45.624Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_custom/header.swig","time":"2017-04-26T13:09:45.671Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_custom/sidebar.swig","time":"2017-04-26T13:09:45.671Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_macro/post-collapse.swig","time":"2017-04-26T13:09:45.671Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_macro/post.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_macro/post-copyright.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_macro/reward.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_macro/sidebar.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_macro/wechat-subscriber.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/comments.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/footer.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/head.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/header.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/pagination.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/page-header.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/search.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_scripts/vendors.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_scripts/boostrap.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_scripts/commons.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/duoshuo-hot-articles.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/exturl.swig","time":"2017-04-26T13:09:45.672Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/mathjax.swig","time":"2017-04-26T13:09:45.673Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/schedule.swig","time":"2017-04-26T13:09:45.673Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/jquery/index.js","time":"2017-04-26T13:09:45.675Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_scripts/schemes/muse.swig","time":"2017-04-26T13:09:45.687Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_scripts/schemes/mist.swig","time":"2017-04-26T13:09:45.687Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/js/src/schemes/pisces.js","time":"2017-04-26T13:09:45.689Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.js","time":"2017-04-26T13:09:45.689Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.min.js","time":"2017-04-26T13:09:45.689Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/blank.gif","time":"2017-04-26T13:09:45.689Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_overlay.png","time":"2017-04-26T13:09:45.689Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading.gif","time":"2017-04-26T13:09:45.689Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite.png","time":"2017-04-26T13:09:45.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading@2x.gif","time":"2017-04-26T13:09:45.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite@2x.png","time":"2017-04-26T13:09:45.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.css","time":"2017-04-26T13:09:45.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.js","time":"2017-04-26T13:09:45.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.pack.js","time":"2017-04-26T13:09:45.692Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css","time":"2017-04-26T13:09:45.692Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css.map","time":"2017-04-26T13:09:45.692Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.min.css","time":"2017-04-26T13:09:45.692Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.min.js","time":"2017-04-26T13:09:45.693Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.pack.js","time":"2017-04-26T13:09:45.693Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/head/custom-head.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/search/localsearch.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/head/external-fonts.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/search/tinysou.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/search/swiftype.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/share/baidushare.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/share/add-this.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/share/duoshuo_share.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_partials/share/jiathis.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_scripts/pages/post-details.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_scripts/schemes/pisces.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/application-insights.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/baidu-analytics.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/busuanzi-counter.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/cnzz-analytics.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/facebook-sdk.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/google-analytics.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/lean-analytics.swig","time":"2017-04-26T13:09:45.715Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-analytics.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/index.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/vkontakte-api.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-mta.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/comments/changyan.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/comments/duoshuo.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/comments/gentie.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/comments/disqus.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/comments/hypercomments.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/comments/livere.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/comments/index.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/comments/youyan.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/search/localsearch.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/search/index.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/seo/baidu-push.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/search/tinysou.swig","time":"2017-04-26T13:09:45.716Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff","time":"2017-04-26T13:09:45.721Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff2","time":"2017-04-26T13:09:45.723Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/velocity/velocity.js","time":"2017-04-26T13:09:45.723Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.css","time":"2017-04-26T13:09:45.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/fancybox_buttons.png","time":"2017-04-26T13:09:45.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.js","time":"2017-04-26T13:09:45.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-media.js","time":"2017-04-26T13:09:45.726Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.css","time":"2017-04-26T13:09:45.726Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.js","time":"2017-04-26T13:09:45.726Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/FontAwesome.otf","time":"2017-04-26T13:09:45.726Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.eot","time":"2017-04-26T13:09:45.726Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.ttf","time":"2017-04-26T13:09:45.726Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/assets.swig","time":"2017-04-26T13:09:45.729Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/dom.swig","time":"2017-04-26T13:09:45.729Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.js","time":"2017-04-26T13:09:45.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/three/three.min.js","time":"2017-04-26T13:09:45.732Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.svg","time":"2017-04-26T13:09:45.734Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Generator: page","time":"2017-04-26T13:09:45.885Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Generator: post","time":"2017-04-26T13:09:45.885Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Generator: archive","time":"2017-04-26T13:09:45.885Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Generator: category","time":"2017-04-26T13:09:45.885Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Generator: index","time":"2017-04-26T13:09:45.886Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Generator: tag","time":"2017-04-26T13:09:45.886Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Generator: asset","time":"2017-04-26T13:09:45.887Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":30,"msg":"Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.","time":"2017-04-26T13:09:45.894Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Database saved","time":"2017-04-26T13:09:45.905Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Rendering index: index.html","time":"2017-04-26T13:09:47.850Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":20,"msg":"Rendering index: index.html","time":"2017-04-26T13:09:48.645Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":50,"msg":"Theme config load failed.","time":"2017-04-26T13:09:57.121Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":50,"err":{"message":"duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^","name":"YAMLException","stack":"YAMLException: duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^\n    at generateError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:162:10)\n    at throwError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:168:9)\n    at storeMappingPair (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:307:7)\n    at readBlockMapping (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1070:9)\n    at composeNode (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1331:12)\n    at readDocument (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1493:3)\n    at loadDocuments (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1549:5)\n    at Object.load (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1566:19)\n    at Hexo.yamlHelper (G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\plugins\\renderer\\yaml.js:7:15)\n    at Hexo.tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Hexo.<anonymous> (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\method.js:15:34)\n    at G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\hexo\\render.js:61:21\n    at tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Promise._settlePromiseFromHandler (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:512:31)\n    at Promise._settlePromise (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:569:18)\n    at Promise._settlePromise0 (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:614:10)\n    at Promise._settlePromises (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:693:18)\n    at Async._drainQueue (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:133:16)\n    at Async._drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:143:10)\n    at Immediate.Async.drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:17:14)\n    at runCallback (timers.js:649:20)\n    at tryOnImmediate (timers.js:622:5)"},"msg":"Process failed: _config.yml","time":"2017-04-26T13:09:57.122Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":50,"msg":"Theme config load failed.","time":"2017-04-26T13:10:05.339Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9420,"level":50,"err":{"message":"duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^","name":"YAMLException","stack":"YAMLException: duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^\n    at generateError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:162:10)\n    at throwError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:168:9)\n    at storeMappingPair (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:307:7)\n    at readBlockMapping (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1070:9)\n    at composeNode (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1331:12)\n    at readDocument (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1493:3)\n    at loadDocuments (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1549:5)\n    at Object.load (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1566:19)\n    at Hexo.yamlHelper (G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\plugins\\renderer\\yaml.js:7:15)\n    at Hexo.tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Hexo.<anonymous> (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\method.js:15:34)\n    at G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\hexo\\render.js:61:21\n    at tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Promise._settlePromiseFromHandler (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:512:31)\n    at Promise._settlePromise (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:569:18)\n    at Promise._settlePromise0 (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:614:10)\n    at Promise._settlePromises (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:693:18)\n    at Async._drainQueue (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:133:16)\n    at Async._drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:143:10)\n    at Immediate.Async.drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:17:14)\n    at runCallback (timers.js:649:20)\n    at tryOnImmediate (timers.js:622:5)"},"msg":"Process failed: _config.yml","time":"2017-04-26T13:10:05.342Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Hexo version: 3.3.1","time":"2017-04-26T13:10:09.782Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Working directory: G:\\hexo-blog\\blog\\","time":"2017-04-26T13:10:09.785Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Config loaded: G:\\hexo-blog\\blog\\_config.yml","time":"2017-04-26T13:10:09.928Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Plugin loaded: hexo-generator-category","time":"2017-04-26T13:10:09.943Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Plugin loaded: hexo-generator-index","time":"2017-04-26T13:10:09.946Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Plugin loaded: hexo-renderer-ejs","time":"2017-04-26T13:10:09.950Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Plugin loaded: hexo-renderer-stylus","time":"2017-04-26T13:10:09.952Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Plugin loaded: hexo-generator-tag","time":"2017-04-26T13:10:09.954Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Plugin loaded: hexo-renderer-marked","time":"2017-04-26T13:10:09.959Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Plugin loaded: hexo-server","time":"2017-04-26T13:10:10.053Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge-configs.js","time":"2017-04-26T13:10:10.058Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\button.js","time":"2017-04-26T13:10:10.059Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Script loaded: themes\\next\\scripts\\merge.js","time":"2017-04-26T13:10:10.062Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\center-quote.js","time":"2017-04-26T13:10:10.062Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\full-image.js","time":"2017-04-26T13:10:10.062Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Plugin loaded: hexo-generator-archive","time":"2017-04-26T13:10:10.065Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\group-pictures.js","time":"2017-04-26T13:10:10.066Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\note.js","time":"2017-04-26T13:10:10.067Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Script loaded: themes\\next\\scripts\\tags\\exturl.js","time":"2017-04-26T13:10:10.067Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Loading database.","time":"2017-04-26T13:10:10.076Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":30,"msg":"Start processing","time":"2017-04-26T13:10:10.151Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: _posts/2017-1.md","time":"2017-04-26T13:10:10.256Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: _posts/2017.md","time":"2017-04-26T13:10:10.256Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: _posts/hello-world.md","time":"2017-04-26T13:10:10.256Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":50,"msg":"Theme config load failed.","time":"2017-04-26T13:10:10.358Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":50,"err":{"message":"duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^","name":"YAMLException","stack":"YAMLException: duplicated mapping key at line 75, column 1:\n    scheme: Mist\n    ^\n    at generateError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:162:10)\n    at throwError (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:168:9)\n    at storeMappingPair (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:307:7)\n    at readBlockMapping (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1070:9)\n    at composeNode (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1331:12)\n    at readDocument (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1493:3)\n    at loadDocuments (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1549:5)\n    at Object.load (G:\\hexo-blog\\blog\\node_modules\\js-yaml\\lib\\js-yaml\\loader.js:1566:19)\n    at Hexo.yamlHelper (G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\plugins\\renderer\\yaml.js:7:15)\n    at Hexo.tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Hexo.<anonymous> (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\method.js:15:34)\n    at G:\\hexo-blog\\blog\\node_modules\\hexo\\lib\\hexo\\render.js:61:21\n    at tryCatcher (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Promise._settlePromiseFromHandler (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:512:31)\n    at Promise._settlePromise (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:569:18)\n    at Promise._settlePromise0 (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:614:10)\n    at Promise._settlePromises (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\promise.js:693:18)\n    at Async._drainQueue (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:133:16)\n    at Async._drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:143:10)\n    at Immediate.Async.drainQueues (G:\\hexo-blog\\blog\\node_modules\\bluebird\\js\\release\\async.js:17:14)\n    at runCallback (timers.js:649:20)\n    at tryOnImmediate (timers.js:622:5)"},"msg":"Process failed: _config.yml","time":"2017-04-26T13:10:10.367Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/css/main.styl","time":"2017-04-26T13:10:10.367Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/algolia_logo.svg","time":"2017-04-26T13:10:10.368Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/avatar.gif","time":"2017-04-26T13:10:10.368Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/cc-by-nc-nd.svg","time":"2017-04-26T13:10:10.368Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/cc-by-nc-sa.svg","time":"2017-04-26T13:10:10.370Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/cc-by-nc.svg","time":"2017-04-26T13:10:10.370Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/cc-by-nd.svg","time":"2017-04-26T13:10:10.371Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/cc-by.svg","time":"2017-04-26T13:10:10.373Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/cc-zero.svg","time":"2017-04-26T13:10:10.374Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/loading.gif","time":"2017-04-26T13:10:10.375Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/cc-by-sa.svg","time":"2017-04-26T13:10:10.375Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/quote-l.svg","time":"2017-04-26T13:10:10.376Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/placeholder.gif","time":"2017-04-26T13:10:10.376Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/quote-r.svg","time":"2017-04-26T13:10:10.376Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/images/searchicon.png","time":"2017-04-26T13:10:10.376Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_layout.swig","time":"2017-04-26T13:10:10.557Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/archive.swig","time":"2017-04-26T13:10:10.558Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/category.swig","time":"2017-04-26T13:10:10.558Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/index.swig","time":"2017-04-26T13:10:10.558Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/page.swig","time":"2017-04-26T13:10:10.558Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/schedule.swig","time":"2017-04-26T13:10:10.558Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/default.yml","time":"2017-04-26T13:10:10.566Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/de.yml","time":"2017-04-26T13:10:10.566Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/en.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/fr-FR.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/id.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/ja.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/pt-BR.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/ko.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/pt.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/ru.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/zh-hk.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/zh-Hans.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: languages/zh-tw.yml","time":"2017-04-26T13:10:10.567Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/affix.js","time":"2017-04-26T13:10:10.568Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/algolia-search.js","time":"2017-04-26T13:10:10.568Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/bootstrap.js","time":"2017-04-26T13:10:10.569Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/exturl.js","time":"2017-04-26T13:10:10.569Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/hook-duoshuo.js","time":"2017-04-26T13:10:10.569Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/motion.js","time":"2017-04-26T13:10:10.571Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/post-details.js","time":"2017-04-26T13:10:10.571Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/scrollspy.js","time":"2017-04-26T13:10:10.572Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/utils.js","time":"2017-04-26T13:10:10.572Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.css","time":"2017-04-26T13:10:10.572Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/canvas-nest/canvas-nest.min.js","time":"2017-04-26T13:10:10.574Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fastclick/LICENSE","time":"2017-04-26T13:10:10.574Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fastclick/README.md","time":"2017-04-26T13:10:10.574Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fastclick/bower.json","time":"2017-04-26T13:10:10.574Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/HELP-US-OUT.txt","time":"2017-04-26T13:10:10.577Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/bower.json","time":"2017-04-26T13:10:10.577Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/jquery_lazyload/CONTRIBUTING.md","time":"2017-04-26T13:10:10.577Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/jquery_lazyload/README.md","time":"2017-04-26T13:10:10.577Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/jquery_lazyload/bower.json","time":"2017-04-26T13:10:10.578Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.lazyload.js","time":"2017-04-26T13:10:10.578Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/jquery_lazyload/jquery.scrollstop.js","time":"2017-04-26T13:10:10.578Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/three/three-waves.min.js","time":"2017-04-26T13:10:10.578Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/velocity/bower.json","time":"2017-04-26T13:10:10.578Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/velocity/velocity.min.js","time":"2017-04-26T13:10:10.578Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.js","time":"2017-04-26T13:10:10.578Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/velocity/velocity.ui.min.js","time":"2017-04-26T13:10:10.578Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/post.swig","time":"2017-04-26T13:10:10.627Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/tag.swig","time":"2017-04-26T13:10:10.628Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/jquery/index.js","time":"2017-04-26T13:10:10.628Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_custom/header.swig","time":"2017-04-26T13:10:10.681Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_custom/sidebar.swig","time":"2017-04-26T13:10:10.681Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_macro/post-collapse.swig","time":"2017-04-26T13:10:10.681Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_macro/post-copyright.swig","time":"2017-04-26T13:10:10.682Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_macro/reward.swig","time":"2017-04-26T13:10:10.682Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_macro/post.swig","time":"2017-04-26T13:10:10.682Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_macro/sidebar.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/footer.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_macro/wechat-subscriber.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/comments.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/head.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/header.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/pagination.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/page-header.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/search.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_scripts/boostrap.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_scripts/commons.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_scripts/vendors.swig","time":"2017-04-26T13:10:10.683Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/exturl.swig","time":"2017-04-26T13:10:10.684Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/schedule.swig","time":"2017-04-26T13:10:10.684Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/duoshuo-hot-articles.swig","time":"2017-04-26T13:10:10.684Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/mathjax.swig","time":"2017-04-26T13:10:10.684Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/js/src/schemes/pisces.js","time":"2017-04-26T13:10:10.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/blank.gif","time":"2017-04-26T13:10:10.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading.gif","time":"2017-04-26T13:10:10.690Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_loading@2x.gif","time":"2017-04-26T13:10:10.691Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_overlay.png","time":"2017-04-26T13:10:10.691Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite.png","time":"2017-04-26T13:10:10.691Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/fancybox_sprite@2x.png","time":"2017-04-26T13:10:10.691Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.css","time":"2017-04-26T13:10:10.691Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.js","time":"2017-04-26T13:10:10.691Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/jquery.fancybox.pack.js","time":"2017-04-26T13:10:10.691Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.js","time":"2017-04-26T13:10:10.691Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fastclick/lib/fastclick.min.js","time":"2017-04-26T13:10:10.693Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css","time":"2017-04-26T13:10:10.693Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.css.map","time":"2017-04-26T13:10:10.694Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/css/font-awesome.min.css","time":"2017-04-26T13:10:10.694Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.min.js","time":"2017-04-26T13:10:10.694Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/ua-parser-js/dist/ua-parser.pack.js","time":"2017-04-26T13:10:10.694Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_scripts/schemes/muse.swig","time":"2017-04-26T13:10:10.698Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_scripts/schemes/mist.swig","time":"2017-04-26T13:10:10.698Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff","time":"2017-04-26T13:10:10.699Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.woff2","time":"2017-04-26T13:10:10.699Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/velocity/velocity.js","time":"2017-04-26T13:10:10.699Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/head/external-fonts.swig","time":"2017-04-26T13:10:10.723Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/search/tinysou.swig","time":"2017-04-26T13:10:10.723Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/search/localsearch.swig","time":"2017-04-26T13:10:10.723Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/head/custom-head.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/share/add-this.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/search/swiftype.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/share/baidushare.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/share/jiathis.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_partials/share/duoshuo_share.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_scripts/pages/post-details.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_scripts/schemes/pisces.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/application-insights.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/baidu-analytics.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/facebook-sdk.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/busuanzi-counter.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/google-analytics.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/cnzz-analytics.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/index.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-analytics.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/lean-analytics.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/vkontakte-api.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/analytics/tencent-mta.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/comments/disqus.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/comments/changyan.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/comments/gentie.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/comments/duoshuo.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/comments/hypercomments.swig","time":"2017-04-26T13:10:10.724Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/comments/index.swig","time":"2017-04-26T13:10:10.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/comments/livere.swig","time":"2017-04-26T13:10:10.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/comments/youyan.swig","time":"2017-04-26T13:10:10.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/search/index.swig","time":"2017-04-26T13:10:10.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/search/localsearch.swig","time":"2017-04-26T13:10:10.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/search/tinysou.swig","time":"2017-04-26T13:10:10.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/seo/baidu-push.swig","time":"2017-04-26T13:10:10.725Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/fancybox_buttons.png","time":"2017-04-26T13:10:10.728Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.css","time":"2017-04-26T13:10:10.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-buttons.js","time":"2017-04-26T13:10:10.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-media.js","time":"2017-04-26T13:10:10.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.js","time":"2017-04-26T13:10:10.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/fancybox/source/helpers/jquery.fancybox-thumbs.css","time":"2017-04-26T13:10:10.730Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/FontAwesome.otf","time":"2017-04-26T13:10:10.731Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.eot","time":"2017-04-26T13:10:10.731Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.ttf","time":"2017-04-26T13:10:10.731Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/dom.swig","time":"2017-04-26T13:10:10.738Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: layout/_third-party/search/algolia-search/assets.swig","time":"2017-04-26T13:10:10.738Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/algolia-instant-search/instantsearch.min.js","time":"2017-04-26T13:10:10.738Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/three/three.min.js","time":"2017-04-26T13:10:10.740Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Processed: source/lib/font-awesome/fonts/fontawesome-webfont.svg","time":"2017-04-26T13:10:10.741Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Generator: page","time":"2017-04-26T13:10:10.897Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Generator: post","time":"2017-04-26T13:10:10.897Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Generator: category","time":"2017-04-26T13:10:10.897Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Generator: index","time":"2017-04-26T13:10:10.897Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Generator: tag","time":"2017-04-26T13:10:10.897Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Generator: archive","time":"2017-04-26T13:10:10.897Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Generator: asset","time":"2017-04-26T13:10:10.899Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":30,"msg":"Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.","time":"2017-04-26T13:10:10.906Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Database saved","time":"2017-04-26T13:10:10.917Z","v":0}
+{"name":"hexo","hostname":"msi-PC","pid":9320,"level":20,"msg":"Rendering index: index.html","time":"2017-04-26T13:10:12.031Z","v":0}

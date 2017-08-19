@@ -1,0 +1,969 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,dom," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="每次面试或者和同学交流都会提到，原生js写DOM操作的重要性。虽然JQuery已经封装好了你所需要的一切。既然如此，为了熟悉js的操作，也是以后面试的需求。整理和记忆一下原生js操作DOM吧！文章内容代码参考：【第910期】No JQuery! 原生JavaScript操作DOM">
+<meta name="keywords" content="js,dom">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NO JQUERY，原生js操作DOM">
+<meta property="og:url" content="SingleMai.github.io/2017/05/15/技术/js/NOJQUERY/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="每次面试或者和同学交流都会提到，原生js写DOM操作的重要性。虽然JQuery已经封装好了你所需要的一切。既然如此，为了熟悉js的操作，也是以后面试的需求。整理和记忆一下原生js操作DOM吧！文章内容代码参考：【第910期】No JQuery! 原生JavaScript操作DOM">
+<meta property="og:updated_time" content="2017-06-03T14:01:56.532Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NO JQUERY，原生js操作DOM">
+<meta name="twitter:description" content="每次面试或者和同学交流都会提到，原生js写DOM操作的重要性。虽然JQuery已经封装好了你所需要的一切。既然如此，为了熟悉js的操作，也是以后面试的需求。整理和记忆一下原生js操作DOM吧！文章内容代码参考：【第910期】No JQuery! 原生JavaScript操作DOM">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/05/15/技术/js/NOJQUERY/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> NO JQUERY，原生js操作DOM | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/05/15/技术/js/NOJQUERY/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NO JQUERY，原生js操作DOM
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T22:44:29+08:00">
+                2017-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/15/技术/js/NOJQUERY/" class="leancloud_visitors" data-flag-title="NO JQUERY，原生js操作DOM">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>每次面试或者和同学交流都会提到，原生js写DOM操作的重要性。虽然JQuery已经封装好了你所需要的一切。既然如此，为了熟悉js的操作，也是以后面试的需求。整理和记忆一下原生js操作DOM吧！<br>文章内容代码参考：<a href="http://mp.weixin.qq.com/s/XBOVVDrG727iv8zK174nDw" target="_blank" rel="external">【第910期】No JQuery! 原生JavaScript操作DOM</a><br><a id="more"></a></p>
+<h2 id="DOM操作：查找DOM"><a href="#DOM操作：查找DOM" class="headerlink" title="DOM操作：查找DOM"></a>DOM操作：查找DOM</h2><p>使用<code>.querySelector()</code>方法来查询DOM。需要传入任意的CSS选择器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const myElement = document.querySelector(&apos;#foo &gt; div.bar&apos;);</div></pre></td></tr></table></figure></p>
+<p>这行代码返回第一个匹配元素（深度优先）。相反，我们可以检查一个元素是否匹配一个选择器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myElement.matches(&apos;div.bar&apos;) === true</div></pre></td></tr></table></figure></p>
+<p>如果我们想要获取所有的匹配元素，可以用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var myElement = document.querySlectorAll(&apos;.bar&apos;);</div></pre></td></tr></table></figure></p>
+<p>如果我们已经得到了一个父类的引用，我们只查找它的子元素。那么可以这样使用提高性能：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var myChildElement = myElement.querySelector(&apos;input[type=&apos;submit&apos;]&apos;);</div></pre></td></tr></table></figure></p>
+<p><code>.querySelector()</code>缺点：</p>
+<ul>
+<li>不是实时的，如果动态地添加一个匹配选择器的元素，使用这个方法不能找到该元素</li>
+<li>实时的元素集合不需要知道所有元素信息。而这个方法则会马上搜集所有信息到一个静态列表中，影响性能。</li>
+</ul>
+<p>其他方法:<code>.getElementById</code></p>
+<h2 id="元素列表"><a href="#元素列表" class="headerlink" title="元素列表"></a>元素列表</h2><p>关于<code>.querySelector()</code>有两个大坑。</p>
+<ol>
+<li>不能在结果上调用Node方法从而获得它的元素。</li>
+<li>返回的结果是一个<code>Nodelist</code>，不是数组，不能直接调用数组的方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.from(myElement).forEach(doSomething);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>每个元素都有实时更新的只读属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">myElement.children</div><div class="line">myElement.firstElementchild</div><div class="line">myElement.lastElementchild</div><div class="line">myElement.previousElementsibling</div><div class="line">myElement.nextElementsibling</div></pre></td></tr></table></figure></p>
+<p>因为Element接口继承Node接口，所以有以下属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">myElement.childNodes</div><div class="line">myElement.firstChild</div><div class="line">myElement.lastChild</div><div class="line">myElement.previousSibling</div><div class="line">myElement.nextSibling</div><div class="line">myElement.parentNode</div><div class="line">myElement.parentElement</div></pre></td></tr></table></figure></p>
+<p>前一组属性只可以是元素节点，而后一组属性（除了<code>.parentElement</code>）的值可以是任何节点。比如文本节点。</p>
+<h2 id="修改class和属性"><a href="#修改class和属性" class="headerlink" title="修改class和属性"></a>修改class和属性</h2><p>修改元素的class像下面代码一样简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myElement.classList.add(&apos;foo&apos;);</div><div class="line">myElement.classList.remove(&apos;foo&apos;);</div><div class="line">myElement.classList.toggle(&apos;foo&apos;);</div></pre></td></tr></table></figure></p>
+<p>元素的属性值可以这样得到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var value = myElement.value;</div><div class="line">// 设置属性</div><div class="line">myElement.value = &apos;foo&apos;;</div><div class="line">// 设置多条属性</div><div class="line">Object.assign(myElement,&#123;</div><div class="line">  value:&apos;foo&apos;,</div><div class="line">  id:&apos;bar&apos;</div><div class="line">  &#125;)</div><div class="line">// 移除属性</div><div class="line">myElement.value = null</div></pre></td></tr></table></figure></p>
+<p>注意还有<code>.getAttribute()</code>,<code>.setAttribute()</code>和<code>.removeAttribute()</code>这三个方法。这些方法直接修改元素的HTML属性（与DOM属性相对），因而会导致<strong>浏览器重新渲染</strong>所以会比只修改DOM属性代价更高。</p>
+<p>作为一个小的原则，除非你真的想对HTML“持久化”那些改变，你就只用上面的方法修改与DOM属性不相关的HTML属性（比如colspan)(比如当克隆一个元素或者修改它的父元素的.innerHTML的时候想保持这些改变,参考第三部分).</p>
+<h2 id="添加CSS样式"><a href="#添加CSS样式" class="headerlink" title="添加CSS样式"></a>添加CSS样式</h2><p>添加CSS样式可以像其他属性一样设置，需要注意的是在Js中要写成驼峰式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myElement.style.marginLeft = &apos;2em&apos;</div></pre></td></tr></table></figure></p>
+<p>如果我们想获得CSS规则的值，我们也可以通过<code>.style</code>属性。然而， 它只能拿到我们明确设置过的样式。想要拿到计算后的样式值，我们要用<code>window.getComputedStyle()</code>.他可以拿到这个元素并返回一个CSSStyleDeclaration。这个返回值包括了这个元素和继承自父元素的全部样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.getComputedStyle(myElement).getPropertyValue(&apos;margin-left&apos;)</div></pre></td></tr></table></figure></p>
+<h2 id="修改DOM"><a href="#修改DOM" class="headerlink" title="修改DOM"></a>修改DOM</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 把element1作为element2的最后一个子元素插入</div><div class="line">element1.appendChild(element2);</div><div class="line">// element3之前，插入element2作为element1的子元素</div><div class="line">element1.insertBefore(element2,element3);</div></pre></td></tr></table></figure>
+<p>如果我们不想移动元素，而是插入一个拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myElementClone = myElement.cloneNode();</div><div class="line">myParentElement.appendChild(myElementClone);</div></pre></td></tr></table></figure></p>
+<p><code>.cloneNode()</code>可以传入一个布尔值，<code>true</code>表示深拷贝，会拷贝它的子元素。</p>
+<p>创建元素节点或文本节点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var myElement = document.createElement(&apos;div&apos;);</div><div class="line">var myElement = document.createTextNode(&apos;some text&apos;);</div></pre></td></tr></table></figure></p>
+<p>然后我们可以像上面展示的代码那样插入创建的元素。如果我们想删除一个元素，我们不能直接删除，而要采用从它的父元素删除子元素的办法来实现，像这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myParentElement.removeChild(myElement);</div></pre></td></tr></table></figure></p>
+<p>这给了我们一个优雅的解决办法，也就是通过它的父元素间接删除一个元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myElement.parentNode.remove(myElement);</div></pre></td></tr></table></figure></p>
+<h2 id="元素属性"><a href="#元素属性" class="headerlink" title="元素属性"></a>元素属性</h2><p>每个元素都有<code>.innerHTML</code>和<code>.textContent</code>（还有<code>.innerText</code>和<code>.textContent</code>类似，但有重要的区别）它们分别表示HTML内容和纯文本内容。是可写属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">myElement.innerHTML = &quot;&lt;div&gt;&lt;span&gt;new content&lt;/span&gt;&lt;/div&gt;&quot;</div><div class="line">myElement.innerHTML = null</div><div class="line">//添加子元素</div><div class="line">myElement.innerHTML += &lt;a href=&quot;&quot;&gt;reading&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p>像上面的代码那样向HTML添加标记是通常是一个不好的注意，因为这样是丢失之前对影响元素的属性做的修改（除非我们把那些修改作为HTML属性而保留下来，参考第二部分）和已经绑定的事件监听。设置<code>.innerHTML</code>可以适合用在需要<strong>完全丢弃原来的而替换成新的标记</strong>的场景，比如服务端渲染。所以添加元素这样做比较好：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const link = document.createElement(&apos;a&apos;)</div><div class="line">const text = document.createTextNode(&apos;continue reading...&apos;)</div><div class="line">const hr = document.createElement(&apos;hr&apos;)</div><div class="line"></div><div class="line">link.href = &apos;foo.html&apos;</div><div class="line">link.appendChild(text)</div><div class="line">myElement.appendChild(link)</div><div class="line">myElement.appendChild(hr)</div></pre></td></tr></table></figure></p>
+<p>但是这个办法会引起<strong>两次浏览器的重新渲染</strong>-每次添加元素都会渲染一次-而用设置.<code>innerHTML</code>的办法的话只会重新渲染一次。我们可以先把所有的节点组合在一个<code>DocumentFragment</code>里，然后把这一个片段添加到DOM里，这样可以解决这个性能问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const fragment = document.createDocumentFragment;</div><div class="line">fragment.appendChild(link);</div><div class="line">fragment.appendChild(text);</div><div class="line">fragment.appendChild(hr);</div><div class="line">myElement.appendChild(fragment);</div></pre></td></tr></table></figure></p>
+<h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p>这应该是最常用的事件监听方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myElement.onclick = function onclick(e)&#123;</div><div class="line">  console.log(&quot;click&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但是这是通常应该避免采用的方法。这里<code>.onclick</code>是一个元素的属性，也就是说你可以修改它，但是你不能用它再绑定其他的监听函数-你只能把新的函数赋给它，覆盖掉旧函数的引用。</p>
+<p>我们可以用更加强大的<code>.addEventListener()</code>方法来尽情地添加各种类型的各种事件的监听器。它接受三个参数：事件类型（比如click），一个无论何时在这个绑定元素上该事件发生都会触发的函数（这个函数会得到一个事件对象传进去作为参数）和一个可选的配置参数，下面会更详细的解释。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">myElement.addEventListener(&apos;click&apos;,function(event)&#123;</div><div class="line">  console.log(&quot;click&quot;);</div><div class="line">  &#125;)</div><div class="line">myElement.addEventListener(&apos;click&apos;,function(event)&#123;</div><div class="line">  console.log(&quot;again&quot;);</div><div class="line">  &#125;)</div></pre></td></tr></table></figure></p>
+<p>在监听函数内部，<code>event.target</code>指向这个事件触发的元素（<code>this</code>也是，当然除非你用的是箭头函数。译者注：如果监听函数是箭头函数，里面的<code>this</code>指向的是<code>window</code>对象，如果是普通的<code>function</code>函数，里面的<code>this</code>指向的跟<code>event.target</code>相同，都是该元素本身）。因此你可以轻松的拿到它的属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const myForm = document.forms[0]</div><div class="line">const myInputElements = myForm.querySelectorAll(&apos;input&apos;)</div><div class="line"></div><div class="line">Array.from(myInputElements).forEach(el =&gt; &#123;</div><div class="line">  el.addEventListener(&apos;change&apos;, function (event) &#123;</div><div class="line">    console.log(event.target.value)</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h2><p>注意在监听函数内部总是可以拿到<code>event</code>，但是当需要的时候明确地传入这个参数是一个好的实践（当然参数名称可以随意设置）（译者注：即使没有明确地给监听函数传入任何参数，在内部仍然可以拿到原生event对象，变量名就是event）。先不详细解释Event接口，一个特别需要注意的方法是<code>.preventDefault()</code>。它可以用来阻止浏览器的默认行为，比如跳转链接。另一个常见的应用场景是当前端的表单校验失败的时候，可以根据判断条件阻止表单提交。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">myForm.addEventListener(&apos;submit&apos;,function(event)&#123;</div><div class="line">  if (somenthing wrong)&#123;</div><div class="line">    event.preventDefault();</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>另一个重要的事件方法是<code>.stopPropagation()</code>，它可以阻止事件冒泡。也就是说在一个子元素上绑定了阻止事件冒泡的点击事件监听函数，而在它的某一个父元素上也监听了点击事件，在子元素上触发的点击事件，不会触发它的这个父元素的点击事件监听函数-否则，父子元素都会触发。</p>
+<p>现在我们看一下<code>.addEventListener()</code>的可选的配置对象这个第三个参数，它可以有以下的布尔属性（它们的默认值都是<code>false</code>）：</p>
+<ul>
+<li><strong>capture</strong>: 这个事件会先在父元素触发，然后再向下传递给它的子元素</li>
+<li><strong>once</strong>: 这个属性表示这个事件只会被触发一次</li>
+<li><strong>passive</strong>:  它的意思是<code>event.preventDefault()</code>会被忽略</li>
+</ul>
+<p>事件监听可以用<code>.removeEventListener()</code>方法删除。它接受事件类型和回调函数的引用两个参数；例如，<code>once</code>选项也可以像这样实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">myElement.addEventListener(&apos;change&apos;, function listener (event) &#123;</div><div class="line">  console.log(event.type + &apos; got triggered on &apos; + this)</div><div class="line">  this.removeEventListener(&apos;change&apos;, listener)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2><p>另一个有用的模式是事件委托：假如我们有一个表单，并且想给它的每一个<code>input</code>元素绑定一个<code>change</code>事件的监听函数。一种方法是上面已经介绍过的那样用<code>myForm.querySelectorAll(&#39;input&#39;)</code>取到所有的<code>input</code>元素，然后再通过遍历绑定事件。然而，我们其实只需要给表单本身绑定这个事件监听函数，然后检查<code>event.target</code>是否是<code>input</code>元素就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">myForm.addEventListener(&apos;change&apos;, function (event) &#123;</div><div class="line">  const target = event.target</div><div class="line">  if (target.matches(&apos;input&apos;)) &#123;</div><div class="line">    console.log(target.value)</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>用这种模式的另一个优势就是它对<strong>动态插入的子元素同样有效</strong>，而不需要给每一个绑定新的监听函数。</p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p><code>window.requestAnimationFrame()</code>它接受一个回调函数作为参数。这个回调函数会接收到当前的时间戳作为参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">const start = window.performance.now()</div><div class="line">const duration = 2000</div><div class="line"></div><div class="line">window.requestAnimationFrame(function fadeIn (now)) &#123;</div><div class="line">  const progress = now - start</div><div class="line">  myElement.style.opacity = progress / duration</div><div class="line"></div><div class="line">  if (progress &lt; duration) &#123;</div><div class="line">    window.requestAnimationFrame(fadeIn)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="写你自己的帮助函数"><a href="#写你自己的帮助函数" class="headerlink" title="写你自己的帮助函数"></a>写你自己的帮助函数</h2><p>确实，与jQuery简洁的链式的$(‘.foo’).css({color: ‘red’})表达式相比，总是要遍历元素去做什么可能是非常的繁琐。所以为什么我们不像下面这样写我们自己的快捷的方法呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">const $ = function $ (selector, context = document) &#123;</div><div class="line">const elements = Array.from(context.querySelectorAll(selector))</div><div class="line"></div><div class="line">  return &#123;</div><div class="line">    elements,</div><div class="line"></div><div class="line">    html (newHtml) &#123;</div><div class="line">      this.elements.forEach(element =&gt; &#123;</div><div class="line">        element.innerHTML = newHtml</div><div class="line">      &#125;)</div><div class="line"></div><div class="line">      return this</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    css (newCss) &#123;</div><div class="line">      this.elements.forEach(element =&gt; &#123;</div><div class="line">        Object.assign(element.style, newCss)</div><div class="line">      &#125;)</div><div class="line"></div><div class="line">      return this</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    on (event, handler, options) &#123;</div><div class="line">      this.elements.forEach(element =&gt; &#123;</div><div class="line">        element.addEventListener(event, handler, options)</div><div class="line">      &#125;)</div><div class="line"></div><div class="line">      return this</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // etc.</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因此我们有了一个没有向下兼容负担的只有我们需要的方法的超简洁的DOM库。尽管通常在元素的原型链上已经有了那些方法。这里有一个gist（更加详细深入一些），它展示了一些实现这些帮助函数的办法。我们还可以这样保持简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">const $ = (selector, context = document) =&gt; context.querySelector(selector)</div><div class="line">const $$ = (selector, context = document) =&gt; context.querySelectorAll(selector)</div><div class="line"></div><div class="line">const html = (nodeList, newHtml) =&gt; &#123;</div><div class="line">  Array.from(nodeList).forEach(element =&gt; &#123;</div><div class="line">    element.innerHTML = newHtml</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// And so on...</div></pre></td></tr></table></figure></p>
+<h2 id="AJAX实现"><a href="#AJAX实现" class="headerlink" title="AJAX实现"></a>AJAX实现</h2><p>AJAX相比JQuery实现要复杂得多，但是更容易体现出和服务器交互的过程。<br>大致的步骤是：</p>
+<ol>
+<li>创建一个新的HTML请求<code>new XMLHttpRequest/window.ActiveXObject</code></li>
+<li>设置请求类型和地址:<code>xmlhttp.open(&#39;POST&#39;,&#39;/url&#39;,true)</code>;</li>
+<li>发出请求:<code>xmlhttp.send(postData)</code>;</li>
+<li>添加监听函数：<code>xmlhttp.onreadystatechange = function(){}</code><ol>
+<li><code>xmlhttp.status</code>返回的请求头</li>
+<li><code>xmlhttp.responseText</code>返回的数据</li>
+</ol>
+</li>
+<li>在node.js服务器端<ol>
+<li><code>req.on(&#39;data&#39;,function(data){})</code>来获取数据。</li>
+<li><code>res.json({})</code>来返回数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var xmlhttp;</div><div class="line">if(window.XMLHttpRequest)&#123;</div><div class="line">    xmlhttp = new XMLHttpRequest();</div><div class="line">&#125;else if(window.ActiveXObject)&#123;</div><div class="line">    xmlhttp = new window.ActiveXObject();</div><div class="line">&#125;else&#123;alert(&quot;请升级至最新版本的浏览器&quot;);&#125;</div><div class="line">if(xmlhttp !=null)&#123;</div><div class="line">    var postData = &#123;&quot;name&quot;: this.value&#125;;</div><div class="line">    postData = (function(obj)&#123; // 转成post需要的字符串.</div><div class="line">        var str = &quot;&quot;;</div><div class="line">        for(var prop in obj)&#123;</div><div class="line">            str += prop + &quot;=&quot; + obj[prop] +&quot;&amp;&quot;;</div><div class="line">        &#125;</div><div class="line">        return str;</div><div class="line">    &#125;)(postData);</div><div class="line">    xmlhttp.open(&quot;POST&quot;,&quot;/url&quot;,true);</div><div class="line">    xmlhttp.send(postData);</div><div class="line">    xmlhttp.onreadystatechange=function()&#123;</div><div class="line">        if(xmlhttp.readyState==4&amp;&amp;xmlhttp.status==200)&#123;</div><div class="line">          //如果返回的是200，则成功后操作</div><div class="line">          //获得返回json信息</div><div class="line">          var obj = JSON.parse(xmlhttp.responseText);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="DEOMO"><a href="#DEOMO" class="headerlink" title="DEOMO"></a>DEOMO</h2><p><a href="http://codepen.io/SitePoint/pen/aJaggB/" target="_blank" rel="external">灯箱效果</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/dom/" rel="tag"># dom</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/16/技术/node.js/验证码模块/" rel="next" title="captchapng验证码模块">
+                <i class="fa fa-chevron-left"></i> captchapng验证码模块
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/02/观后感/《完美陌生人》观后感/" rel="prev" title="《完美陌生人》观后感（半转半写）">
+                《完美陌生人》观后感（半转半写） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM操作：查找DOM"><span class="nav-number">1.</span> <span class="nav-text">DOM操作：查找DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素列表"><span class="nav-number">2.</span> <span class="nav-text">元素列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改class和属性"><span class="nav-number">3.</span> <span class="nav-text">修改class和属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加CSS样式"><span class="nav-number">4.</span> <span class="nav-text">添加CSS样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改DOM"><span class="nav-number">5.</span> <span class="nav-text">修改DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素属性"><span class="nav-number">6.</span> <span class="nav-text">元素属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件监听"><span class="nav-number">7.</span> <span class="nav-text">事件监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阻止默认行为"><span class="nav-number">8.</span> <span class="nav-text">阻止默认行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件委托"><span class="nav-number">9.</span> <span class="nav-text">事件委托</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画"><span class="nav-number">10.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写你自己的帮助函数"><span class="nav-number">11.</span> <span class="nav-text">写你自己的帮助函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX实现"><span class="nav-number">12.</span> <span class="nav-text">AJAX实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEOMO"><span class="nav-number">13.</span> <span class="nav-text">DEOMO</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

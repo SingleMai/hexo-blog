@@ -1,0 +1,1085 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="JavaScriptjs入门知识汇总">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript入门">
+<meta property="og:url" content="SingleMai.github.io/2017/02/20/技术/js/JavaScript/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="JavaScriptjs入门知识汇总">
+<meta property="og:updated_time" content="2017-04-29T09:27:30.152Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript入门">
+<meta name="twitter:description" content="JavaScriptjs入门知识汇总">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/02/20/技术/js/JavaScript/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> JavaScript入门 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/02/20/技术/js/JavaScript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-20T16:32:44+08:00">
+                2017-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/20/技术/js/JavaScript/" class="leancloud_visitors" data-flag-title="JavaScript入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>js入门知识汇总<br><a id="more"></a><br><!-- toc orderedList:0 depthFrom:1 depthTo:6 --></p>
+<ul>
+<li><a href="#javascript">JavaScript</a><ul>
+<li><a href="#入门知识">入门知识</a></li>
+<li><a href="#面向对象的javascript">面向对象的JavaScript</a><ul>
+<li><a href="#作用域">作用域</a><ul>
+<li><a href="#词法作用域">词法作用域</a></li>
+<li><a href="#执行环境内存中的作用域结构">执行环境（内存中的作用域结构）</a></li>
+</ul>
+</li>
+<li><a href="#闭包">闭包</a></li>
+<li><a href="#this关键字"><code>this</code>关键字</a></li>
+<li><a href="#原型链">原型链</a></li>
+<li><a href="#对象修饰模式">对象修饰模式</a></li>
+<li><a href="#函数类">函数类</a></li>
+<li><a href="#原型类">原型类</a></li>
+<li><a href="#伪类">伪类</a></li>
+<li><a href="#超类和子类">超类和子类</a></li>
+<li><a href="#伪类子类">伪类子类</a></li>
+</ul>
+</li>
+<li><a href="#jquery">JQuery</a></li>
+<li><a href="#css-canvas">CSS canvas</a></li>
+<li><a href="#用css-canvas-实现无声电影晕影">用CSS canvas 实现无声电影晕影</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2 id="入门知识"><a href="#入门知识" class="headerlink" title="入门知识"></a>入门知识</h2><ul>
+<li>值类型：数值、布尔值、null、undefined  引用类型：对象、数组、函数。</li>
+<li>数据类型及定义：<code>var demo = num/string/boolean/[arry]</code></li>
+<li>另外两种数据类型：<code>null</code> &amp;&amp; <code>underfined</code><ul>
+<li><code>null</code>是没有值的数据类型——没有意义或者完全为空的值；<code>var x = null</code></li>
+<li><code>underfined</code>是没有赋值的数据类型——没有值，连表示空的值也没有；<code>var x;</code></li>
+</ul>
+</li>
+<li>表示<code>false</code>的值:<ul>
+<li><code>&quot;&quot;</code></li>
+<li><code>false</code></li>
+<li><code>underfined</code></li>
+<li><code>null</code></li>
+<li><code>NAN</code>——not a number,即数字运算时出现错误，没有产生有效的数字。</li>
+</ul>
+</li>
+<li>两种数据比较方式：<ul>
+<li>隐式类型转换：== 和 != （自动转换成相应的数据类型进行比较）</li>
+<li>绝对相等：=== 和 !== （不进行数据类型转换）</li>
+</ul>
+</li>
+<li>条件语句<br>-<code>if (/* this expression is true */) {// run this code} else {// run this code}</code></li>
+<li>逻辑运算符：与<code>&amp;&amp;</code> 或<code>||</code> 非 <code>!</code></li>
+<li>三元运算符： <code>conditional ? (if condition is true) : (if condition is false)</code></li>
+<li><p>Switch语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var tier = &quot;nsfw deck&quot;;</div><div class="line">var output = &quot;You’ll receive &quot;</div><div class="line"></div><div class="line">switch (tier) &#123;</div><div class="line">  case &quot;deck of legends&quot;:</div><div class="line">    output += &quot;a custom card, &quot;;</div><div class="line">  case &quot;collector&apos;s deck&quot;:</div><div class="line">    output += &quot;a signed version of the Exploding Kittens deck, &quot;;</div><div class="line">  //default：表示的是如果都不符合则运行。（如果前者符合项没有break;语句那么也会传递执行）</div><div class="line">  default:</div><div class="line">    output += &quot;one copy of the Exploding Kittens card game.&quot;;</div><div class="line">&#125;</div><div class="line">console.log(output);</div></pre></td></tr></table></figure>
+</li>
+<li><p>循环——<code>While</code>与<code>For</code></p>
+</li>
+<li><p>函数——<code>function reheatPizza(numSlices) {// code that figures out reheat settings!}</code></p>
+<ul>
+<li>函数的内嵌<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// function declaration that takes in two arguments: a function for displaying</div><div class="line">// a message, along with a name of a movie</div><div class="line">function movies(messageFunction, name) &#123;</div><div class="line">  messageFunction(name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// call the movies function, pass in the function and name of movie</div><div class="line">movies(function displayFavorite(movieName) &#123;</div><div class="line">  console.log(&quot;My favorite movie is &quot; + movieName);</div><div class="line">&#125;, &quot;Finding Nemo&quot;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>提升</p>
+<ul>
+<li>JavaScript 会将函数声明和变量声明提升到当前作用域的顶部。</li>
+<li>变量赋值不会提升。</li>
+<li>在脚本的顶部声明函数和变量，这样语法和行为就会相互保持一致。</li>
+</ul>
+</li>
+<li>作用域<ul>
+<li>如果标识符在全局作用域内声明，则可以到处访问。</li>
+<li>如果标识符在函数作用域内声明，则可以在所声明的函数内访问（甚至可以在函数中声明的函数内访问）。</li>
+<li>尝试访问标识符时，JavaScript 引擎将首先查看当前函数。如果没找到任何内容，则继续查看上一级外部函数，看看能否找到该标识符。将继续这么寻找，直到到达全局作用域。</li>
+<li>全局作用域不是很好的做法，可能会导致糟糕的变量名称，产生冲突的变量名称和很乱的代码。</li>
+<li>对象<ul>
+<li>对于对象中的数据定义是JSON，可以运用<a href="http://jsonlint.com/" target="_blank" rel="external">JSON检验</a>来检验格式的正确。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var myObj = &#123;</div><div class="line">  color: &quot;orange&quot;,</div><div class="line">  //数组</div><div class="line">  shape: [&quot;sphere&quot;],</div><div class="line">  //内嵌对象</div><div class="line">  type: &#123;</div><div class="line">    type : &quot;sphere&quot;</div><div class="line">    &#125;,</div><div class="line">  eat: function() &#123; return &quot;yummy&quot; &#125;</div><div class="line">&#125;;</div><div class="line">myObj.eat(); // method</div><div class="line">myObj.color; // property</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向对象的JavaScript"><a href="#面向对象的JavaScript" class="headerlink" title="面向对象的JavaScript"></a>面向对象的JavaScript</h2><h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ul>
+<li>在某些环境中，全局作用域可以被多个不同文件共享；<h4 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h4></li>
+<li>每一个<code>function</code>都会创建一个词法作用域。（循环控制语句并不会创建作用域）</li>
+<li>如果使用了未经定义的参数，该属性将自动生成在全局作用域当中。<h4 id="执行环境（内存中的作用域结构）"><a href="#执行环境（内存中的作用域结构）" class="headerlink" title="执行环境（内存中的作用域结构）"></a>执行环境（内存中的作用域结构）</h4></li>
+<li>在代码运行时才被创建，而不是在代码键入时（词法作用域）。——每一次运行，都会创建一个作用域；</li>
+<li>（如果没有保存函数使用权限）每一次运行函数，都会创建一个新的作用域；（当函数被使用时才创建）<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3></li>
+<li>每个函数可以访问包含它的作用域中的所有变量。闭包就是在外部作用域都返回之后，仍可以访问任意函数。</li>
+<li>三种方法：<ul>
+<li>将函数传入setTimeout</li>
+<li>通过外部函数来返回内部函数</li>
+<li>将内部函数保存为某个全局变量；一般都是用对象；如果是数组，然后在内部使用<code>.push</code>存入函数；</li>
+<li>使用闭包可以重复使用已经生成过的内存作用域。内存作用域会重新指向闭包所指向的作用域。</li>
+<li>重构代码的机会：每当一个函数的输入参数为静态时，也就是每次调用函数，该函数没有使用新值。<h3 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a><code>this</code>关键字</h3></li>
+</ul>
+</li>
+<li><code>this</code>参数和普通参数的区别<ul>
+<li><code>this</code>参数没办法命名</li>
+<li>绑定参数的方式和绑定普通参数的方式不同<ul>
+<li><code>obj.fn(3,4)</code>在这个例子中<code>this</code>绑定的就是obj<ul>
+<li><code>fn(3,4)</code>当使用函数时，前面没有<code>.</code>，<code>this</code>自动指向全局作用域。从而有可能使某些参数出现<code>underfined</code></li>
+<li><code>fn.call(r,a,b)</code>使用<code>.call</code>我们可以重写默认的全局对象绑定.<code>r</code>就是<code>this</code></li>
+<li><code>r.method.call(y,a,b)</code>.这种情况<code>y</code>就是<code>this</code></li>
+<li><code>setTimeout(r.method,1000)</code>,<code>this</code>仍是指向global。因为<code>method</code>函数调用在<code>setTimeout</code>内部并没有<code>.method</code>的标识</li>
+<li><code>setTimeout(function(){r.method(g,b)},1000)</code>这个调用方式，可以使<code>this</code>绑定<code>r</code></li>
+<li><code>new r.method(g,b)</code>中<code>this</code>的指向不再绑定<code>r</code>,而是绑定<code>new</code>产生的对象</li>
+</ul>
+</li>
+<li><code>this</code>不等于函数对象</li>
+<li>不等于函数实例</li>
+<li>不等于对象中的属性</li>
+<li>不等于对象中产生的内存作用域；</li>
+<li>不等于函数参数组成的产生内存作用域的对象；<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>构造原型链：<code>var rose = Object.create(gold);//gold是原型链的上游</code></li>
+<li>当在<code>rose</code>中查找不到想要的参数时，会到<code>gold</code>处查找。如果在当前对象找到了，则原型链不产生作用。</li>
+<li>原型链和一次性复制的区别：查找时，原型链能够保证时刻更新数据；而一次性复制则后续操作，两对象完全独立。</li>
+<li>对象原型是所有类型的顶端原型链。在对象原型中的大量方法例如<code>.toString()</code>与<code>this</code>结合，就实现了对<code>toString()</code>的调用。</li>
+<li><code>.constructor（）</code>是调用了对象原型中的方法–可以返回传入参数的类型。</li>
+</ul>
+<h3 id="对象修饰模式"><a href="#对象修饰模式" class="headerlink" title="对象修饰模式"></a>对象修饰模式</h3><ul>
+<li>将大量的重复代码放入到一个构造函数中。（修饰器中）</li>
+<li>装饰器有点类似类中的方法。将一个对象传入后，进行属性的修改。</li>
+</ul>
+<h3 id="函数类"><a href="#函数类" class="headerlink" title="函数类"></a>函数类</h3><ul>
+<li>函数类也就是一个构造器。其中函数代表的是构造函数，利用某类的构造函数得到的对象就是实例。将实例赋值则称为实例化。</li>
+<li>使用<code>car.method = function(){}</code>甚至可以为函数添加一个属性。本质上函数和对象几乎一致。在函数上添加属性（另一个函数）可以将函数封装在某个函数当中隐蔽起来。避免全局作用域有过多的对象属性；使用的是<code>extend</code>方法（自己实现），将一个函数中的属性全部复制到另一个函数中。</li>
+</ul>
+<h3 id="原型类"><a href="#原型类" class="headerlink" title="原型类"></a>原型类</h3><ul>
+<li>是类的另一种实现方式。与函数类不同，原型类不需要将类的所有方法都复制到一个实例当中，而是采用原型链的方法对类方法进行移植。</li>
+<li><code>var obj = Object.create(Car.methods);</code></li>
+<li>在函数产生的时候，会自动产生一个方法容器对象<code>key.prototype</code>.我们把我们的函数方法链接到当中。<code>.prototype.（method）</code>值得一提的是prototype这个属性是语言本身提供用来装载方法的。实际对内存没多大区别。是一个免费提供存储的容器，并不包含任何附加的特殊特性。</li>
+<li>每个<code>.prototype</code>拥有一个<code>.constructor</code>属性。这可以让我们判断哪个构造函数创建了哪个对象。也就是<code>Car.prototype.constructor</code>会找到<code>Car本身</code></li>
+<li>运算符<code>instanceof</code>的使用：<code>amy instanceof Car</code>可以用来判断右侧运算对象的<code>.prototype</code>是否存在在左侧运算对象的原型链中。此运算符只对类适用，所有非类，也就是不是通过构造方法得到的对象都会委托查找到<code>Object.prototype</code>.</li>
+<li>一个实例化的对象委托查找会绑定到<code>key.prototype</code>上；但是<code>Car</code>类并不会委托查找到<code>Car.prototype</code>.在这里<code>Car</code>是一个函数对象，当它运行时，它会将由它产生的实例委托查找到<code>Car.prototype</code><h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var Car = function(loc)&#123;</div><div class="line">  var obj = Object.create.(Car.prototype);</div><div class="line">  ...</div><div class="line">  return obj;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>观察以上构造类的代码。可以看出每构造一个类，第一行以及最后一行代码都是重复的。为了减少这些输入，JavaScript提供了关键字<code>new</code>来自动生成这两行代码。也就是在实例化对象的时候输入<code>var ben = new Car(1)</code>那么<code>Car</code>不需要输入这两行代码由语言自动插入生成。这样的类称为伪类。</li>
+<li>伪类版本只是在原型模式上为了语法方便所加的薄薄一层。事实上，这两种模式的主要区别是JavaScript引擎已经实现性能优化的数目，并且这些优化是针对伪类模式的。</li>
+</ol>
+<h3 id="超类和子类"><a href="#超类和子类" class="headerlink" title="超类和子类"></a>超类和子类</h3><ol>
+<li>超类和子类，也就是父类和子类。类似于Java中子类继承父类属性方法。不同的是没有<code>extend</code>关键字，且父类本身是一个完整的类。子类继承父类的时候在构造方法中定义<code>var obj = Car(obj)</code></li>
+</ol>
+<h3 id="伪类子类"><a href="#伪类子类" class="headerlink" title="伪类子类"></a>伪类子类</h3><ol>
+<li>构建伪子类<ol>
+<li>伪子类的定义<code>var Van = function(loc){Car.call(this,loc)}</code>目的是将<code>Van</code>的实例化对象绑定到<code>Car</code>对象上</li>
+<li>子类原型委托（使得能调用父类方法）:<code>Van.prototype = Object.create(Car.prototype)</code>;使用<code>Van.prototype = new Car();</code>能够取得和上述语句的同样效果。不同的是这条语句会将<code>Car()</code>运行一遍，造成不必要的资源浪费。</li>
+<li>添加<code>.constructor</code>属性：<code>Van.prototype.constructor = Van ;</code><h2 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h2></li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>引用<code>JQuery</code>到页面中:<code>&lt;script src = &#39;//code.jquery.com/jquery-1.11.1.min.js&#39;&gt;&lt;/script&gt;</code></li>
+<li><code>$</code>等于<code>jQuery</code>，是调用<code>jQuery</code>的简写符号</li>
+<li><code>$(&quot;#main/.main/h1&quot;)</code>选择器</li>
+<li><p>DOM选择的方法：</p>
+<ul>
+<li><code>.parent()</code> 向上搜索1层的父类元素</li>
+<li><code>.parents()</code> 向上搜索所有的父类</li>
+<li><code>.children()</code> 向下搜索1层的子类</li>
+<li><code>.find()</code> 向下搜索所有的子类</li>
+<li><code>.siblings(&#39;h1&#39;)</code> 搜索兄弟类–在括号内内嵌搜索器，会更精确找到想找的元素</li>
+<li>事件处理<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$( &apos;article&apos; ).on( &apos;click&apos;, function( evt ) &#123;</div><div class="line">    console.log( evt );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>更多方法文档应该查询技术文档。</p>
+<h2 id="CSS-canvas"><a href="#CSS-canvas" class="headerlink" title="CSS canvas"></a>CSS canvas</h2></li>
+</ul>
+<ol>
+<li>html:<code>&lt;canvas id= &quot;c&quot; width=&quot;200&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;</code></li>
+<li>js:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var c = docunment.querySelector(&quot;#c&quot;);</div><div class="line">var ctx = c.getContext(&quot;2d&quot;);</div><div class="line">var image = new Image();</div><div class="line">image.onload = function()&#123;</div><div class="line">  console.log(&quot;Loader image&quot;);</div><div class="line">  //do something</div><div class="line">  ctx.drawImage(image,0,0,c.width,c.height);</div><div class="line">  //画的图片，图片开始的x、y坐标，图片宽高；</div><div class="line">&#125;</div><div class="line">image.src = &quot;#&quot;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="用CSS-canvas-实现无声电影晕影"><a href="#用CSS-canvas-实现无声电影晕影" class="headerlink" title="用CSS canvas 实现无声电影晕影"></a>用CSS canvas 实现无声电影晕影</h2><p>无声电影晕影<br>如果你目前无法跟上这些链接中的所有代码，别担心！试着从高层次看待它们，不要过多地担心语法。</p>
+<p>Tanner Helland 在<a href="http://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/" target="_blank" rel="external">伪代码和视觉基础知识</a>中概括了大量用于计算灰度的不同算法。 Mozilla 具有关于如何执行<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Manipulating_video_using_canvas" target="_blank" rel="external">绿屏效果</a>的出色教程。</p>
+<p>下面列出了我们未在代码中创建的视觉效果和资源：</p>
+<p>Attributions<br>City Background<br>Title: What Happened on Twenty-Third Street, New York City (1901)<br>Director: Edwin S. Porter<br>Production Company: Edwin S. Porter<br>Sponsor: Edison Mfg. Co.<br><a href="https://archive.org/details/What_Happened_1901" target="_blank" rel="external">https://archive.org/details/What_Happened_1901</a></p>
+<p>Train Background<br>Title: Freight Train (1898)<br>Producer: The Edison Manufacturing Co. and Thomas A. Edison, Inc.<br><a href="https://archive.org/details/EdisonMotionPicturesCollectionPartOne1891-1898" target="_blank" rel="external">https://archive.org/details/EdisonMotionPicturesCollectionPartOne1891-1898</a><br><a href="https://archive.org/download/EdisonMotionPicturesCollectionPartOne1891-1898/1898Freight_train.mpg" target="_blank" rel="external">https://archive.org/download/EdisonMotionPicturesCollectionPartOne1891-1898/1898Freight_train.mpg</a></p>
+<p>Music<br>Title: Old Fasioned Auto Piano.wav<br>Producer: Razzvio<br><a href="http://www.freesound.org/people/Razzvio/sounds/79572/" target="_blank" rel="external">http://www.freesound.org/people/Razzvio/sounds/79572/</a></p>
+<p>Title Card Design<br>Name: Silent Movie The End Title Card HD<br>Creator: Farrin N. Abbott / CopyCatFilms</p>
+<p>滤镜和效果<br>Night Vision Scope</p>
+<p>Creator: Andrew Kramer / Video Copilot <a href="http://www.videocopilot.net/blog/2012/11/new-tutorial-simulated-scopes/" target="_blank" rel="external">http://www.videocopilot.net/blog/2012/11/new-tutorial-simulated-scopes/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/01/随笔日记/反思笔记/" rel="next" title="反思笔记">
+                <i class="fa fa-chevron-left"></i> 反思笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/18/读书笔记/《树上的男爵》读书笔记/" rel="prev" title="《树上的男爵》读书笔记">
+                《树上的男爵》读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门知识"><span class="nav-number">1.1.</span> <span class="nav-text">入门知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象的JavaScript"><span class="nav-number">1.2.</span> <span class="nav-text">面向对象的JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.2.1.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#词法作用域"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">词法作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行环境（内存中的作用域结构）"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">执行环境（内存中的作用域结构）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">1.2.2.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this关键字"><span class="nav-number">1.2.3.</span> <span class="nav-text">this关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">1.2.4.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象修饰模式"><span class="nav-number">1.2.5.</span> <span class="nav-text">对象修饰模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数类"><span class="nav-number">1.2.6.</span> <span class="nav-text">函数类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型类"><span class="nav-number">1.2.7.</span> <span class="nav-text">原型类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类"><span class="nav-number">1.2.8.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超类和子类"><span class="nav-number">1.2.9.</span> <span class="nav-text">超类和子类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类子类"><span class="nav-number">1.2.10.</span> <span class="nav-text">伪类子类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery"><span class="nav-number">1.3.</span> <span class="nav-text">JQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-canvas"><span class="nav-number">1.4.</span> <span class="nav-text">CSS canvas</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用CSS-canvas-实现无声电影晕影"><span class="nav-number">1.5.</span> <span class="nav-text">用CSS canvas 实现无声电影晕影</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

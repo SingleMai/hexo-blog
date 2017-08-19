@@ -1,0 +1,911 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="细数js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="细数JS系列之日期对象。">
+<meta name="keywords" content="细数js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="细数js之Date对象">
+<meta property="og:url" content="SingleMai.github.io/2017/08/05/技术/js/细数js值Date对象/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="细数JS系列之日期对象。">
+<meta property="og:updated_time" content="2017-08-15T13:52:58.026Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="细数js之Date对象">
+<meta name="twitter:description" content="细数JS系列之日期对象。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/08/05/技术/js/细数js值Date对象/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 细数js之Date对象 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/08/05/技术/js/细数js值Date对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                细数js之Date对象
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-05T14:43:03+08:00">
+                2017-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/08/05/技术/js/细数js值Date对象/" class="leancloud_visitors" data-flag-title="细数js之Date对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>细数JS系列之日期对象。<br><a id="more"></a><br>日期对象很简单，需要掌握的知识点比较少。</p>
+<h3 id="首先，创建一个当前日期"><a href="#首先，创建一个当前日期" class="headerlink" title="首先，创建一个当前日期"></a>首先，创建一个当前日期</h3><p>只要不传任何参数，就可以创建一个当前日期了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var nowDate = new Date();</div></pre></td></tr></table></figure></p>
+<h3 id="第二，创建指定日期"><a href="#第二，创建指定日期" class="headerlink" title="第二，创建指定日期"></a>第二，创建指定日期</h3><p>这个已经是用得比较少了吧。除了<code>Date.UTC()</code>方法可以传入参数外，还可以使用<code>Date.parse()</code>传入字符串，但是个人感觉<code>UTC</code>（格林威治时间）更好用吧，所以这里只介绍一种。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// GMT时间 2017年8月5日15时20分13秒</div><div class="line">// 这个方法年月是必传的，其他参数如果没有则默认天数为1天，其它时间均为0</div><div class="line">var date = new Date(Date.UTC(2017, 7, 5, 15, 20, 13));</div></pre></td></tr></table></figure></p>
+<h3 id="第三，计算时间差"><a href="#第三，计算时间差" class="headerlink" title="第三，计算时间差"></a>第三，计算时间差</h3><p>这里用到了ES5的<code>Date.now()</code>方法来创建当前日期。（因为这个方法返回的是毫秒数，可以很方便用于加减。当然，又是可爱的<strong>ie9以下版本不支持</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 取得开始时间</div><div class="line">let start = Date.now();</div><div class="line">// 调用函数</div><div class="line">doSomeThing();</div><div class="line">// 取得结束时间</div><div class="line">let stop = Data.now(),</div><div class="line">    result = stop - start;</div></pre></td></tr></table></figure></p>
+<p>所以有别的实现方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 取得开始时间</div><div class="line">let start = +new Date();</div><div class="line">// 调用函数</div><div class="line">doSomeThing();</div><div class="line">// 取得结束时间</div><div class="line">let stop = +new Data,</div><div class="line">    result = stop - start;</div></pre></td></tr></table></figure></p>
+<h3 id="比较日期"><a href="#比较日期" class="headerlink" title="比较日期"></a>比较日期</h3><p>和数值比较一样，直接比较即可。内部会调用<code>.valueOf()</code>方法返回毫秒数进行对比。</p>
+<h3 id="获取Date对象的日期时间"><a href="#获取Date对象的日期时间" class="headerlink" title="获取Date对象的日期时间"></a>获取<code>Date</code>对象的日期时间</h3><h4 id="getTime-和-setTime"><a href="#getTime-和-setTime" class="headerlink" title=".getTime()和.setTime()"></a><code>.getTime()</code>和<code>.setTime()</code></h4><p>用好描述表示的日期。</p>
+<h4 id="getFullYear-和-setFullYear"><a href="#getFullYear-和-setFullYear" class="headerlink" title=".getFullYear() 和 .setFullYear()"></a><code>.getFullYear()</code> 和 <code>.setFullYear()</code></h4><p>获取以及设置年份，传入的年份必须是4位数</p>
+<h4 id="getMonth-和-setMonth"><a href="#getMonth-和-setMonth" class="headerlink" title=".getMonth() 和 .setMonth()"></a><code>.getMonth()</code> 和 <code>.setMonth()</code></h4><p>日期的月份，其中0表示1月，11表示十二月。设置日期的月份,如果超过11则增加年份</p>
+<h4 id="getDate-和-setDate"><a href="#getDate-和-setDate" class="headerlink" title=".getDate()和.setDate()"></a><code>.getDate()</code>和<code>.setDate()</code></h4><p>获取月份中的天数，传入1~31，如果超过该月应有的天数，则增加月份</p>
+<h4 id="getDay-和-setDay"><a href="#getDay-和-setDay" class="headerlink" title=".getDay() 和 .setDay()"></a><code>.getDay()</code> 和 <code>.setDay()</code></h4><p>获取日期中的星期几，其中0表示星期日，6表示星期六</p>
+<h4 id="getHours和-setHours"><a href="#getHours和-setHours" class="headerlink" title=".getHours和.setHours()"></a><code>.getHours</code>和<code>.setHours()</code></h4><p>获取日期中的小时数，传入0~23，传入值超过23则增加天数</p>
+<h4 id="getMinutes-和-setMinutes"><a href="#getMinutes-和-setMinutes" class="headerlink" title=".getMinutes 和 .setMinutes"></a><code>.getMinutes</code> 和 <code>.setMinutes</code></h4><p>获取分钟，0~59</p>
+<h3 id="getSeconds-和-setSeconds"><a href="#getSeconds-和-setSeconds" class="headerlink" title=".getSeconds()和.setSeconds()"></a><code>.getSeconds()</code>和<code>.setSeconds()</code></h3><p>依旧是0~59</p>
+<h3 id="getTimezoneOffset"><a href="#getTimezoneOffset" class="headerlink" title="getTimezoneOffset()"></a><code>getTimezoneOffset()</code></h3><p>该方法可返回格林威治时间和本地时间之间的时差，以分钟为单位。实际上，该函数告诉我们运行 JavaScript 代码的时区，以及指定的时间是否是夏令时。返回之所以以分钟计，而不是以小时计，原因是某些国家所占有的时区甚至不到一个小时的间隔。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var d = new Date();</div><div class="line">console.log(d.getTimezoneOffset()); //-480（东八区，8*60）</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/细数js/" rel="tag"># 细数js</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/06/技术/浅谈SEO/" rel="next" title="浅谈SEO">
+                <i class="fa fa-chevron-left"></i> 浅谈SEO
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/04/技术/js/细数js之数组/" rel="prev" title="细数JS之数组">
+                细数JS之数组 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先，创建一个当前日期"><span class="nav-number">1.</span> <span class="nav-text">首先，创建一个当前日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二，创建指定日期"><span class="nav-number">2.</span> <span class="nav-text">第二，创建指定日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三，计算时间差"><span class="nav-number">3.</span> <span class="nav-text">第三，计算时间差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较日期"><span class="nav-number">4.</span> <span class="nav-text">比较日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Date对象的日期时间"><span class="nav-number">5.</span> <span class="nav-text">获取Date对象的日期时间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#getTime-和-setTime"><span class="nav-number">5.1.</span> <span class="nav-text">.getTime()和.setTime()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getFullYear-和-setFullYear"><span class="nav-number">5.2.</span> <span class="nav-text">.getFullYear() 和 .setFullYear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getMonth-和-setMonth"><span class="nav-number">5.3.</span> <span class="nav-text">.getMonth() 和 .setMonth()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getDate-和-setDate"><span class="nav-number">5.4.</span> <span class="nav-text">.getDate()和.setDate()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getDay-和-setDay"><span class="nav-number">5.5.</span> <span class="nav-text">.getDay() 和 .setDay()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getHours和-setHours"><span class="nav-number">5.6.</span> <span class="nav-text">.getHours和.setHours()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getMinutes-和-setMinutes"><span class="nav-number">5.7.</span> <span class="nav-text">.getMinutes 和 .setMinutes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getSeconds-和-setSeconds"><span class="nav-number">6.</span> <span class="nav-text">.getSeconds()和.setSeconds()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getTimezoneOffset"><span class="nav-number">7.</span> <span class="nav-text">getTimezoneOffset()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

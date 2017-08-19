@@ -1,0 +1,912 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="轮播图的各种实现方式，没有最好的方式，只有更加适用的方式。这里写了超多代码，然而，让文章变得好臃肿好卡。所以可能会考虑删减，只留核心以及原理逻辑">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="循环轮播图的各种实现">
+<meta property="og:url" content="SingleMai.github.io/2017/08/14/技术/html+css/循环轮播图的各种实现/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="轮播图的各种实现方式，没有最好的方式，只有更加适用的方式。这里写了超多代码，然而，让文章变得好臃肿好卡。所以可能会考虑删减，只留核心以及原理逻辑">
+<meta property="og:updated_time" content="2017-08-16T14:38:08.334Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="循环轮播图的各种实现">
+<meta name="twitter:description" content="轮播图的各种实现方式，没有最好的方式，只有更加适用的方式。这里写了超多代码，然而，让文章变得好臃肿好卡。所以可能会考虑删减，只留核心以及原理逻辑">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/08/14/技术/html+css/循环轮播图的各种实现/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 循环轮播图的各种实现 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/08/14/技术/html+css/循环轮播图的各种实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                循环轮播图的各种实现
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T23:37:42+08:00">
+                2017-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html-css/" itemprop="url" rel="index">
+                    <span itemprop="name">html+css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/08/14/技术/html+css/循环轮播图的各种实现/" class="leancloud_visitors" data-flag-title="循环轮播图的各种实现">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>轮播图的各种实现方式，没有最好的方式，只有更加适用的方式。这里写了超多代码，然而，让文章变得好臃肿好卡。所以可能会考虑删减，只留核心以及原理逻辑<br><a id="more"></a></p>
+<h2 id="轮播图的原理"><a href="#轮播图的原理" class="headerlink" title="轮播图的原理"></a>轮播图的原理</h2><p>虽然轮播图的实现方式有很多种，但是其实究其原理都是一样的。</p>
+<p>首先，外部的用来约束轮播图的大小（当然也可以让内部容器撑开），最重要的是设置<code>overflow:hidden</code>来隐藏子容器超出部分。</p>
+<p>其次，子容器放置所有轮播图的区块。一块的大小和父容器的大小一致，如果需要横向轮播则需要将其定位到横向。（<code>float:left</code>再配合<code>width:300%(代表三张轮播图)</code>或者<code>position:absolute;left:100%;</code>以备随时滚动过来。</p>
+<p>最后，通过改变子容器的位置<code>margin-left</code>或者<code>left</code>等定位属性，将需要展示的轮播内容移动到父容器的展示位置即可。</p>
+<p>再多加点修饰：利用一个全局的常量来记录当前的轮播位置，就可以很轻松地实现到dots点的展示啦。然后添加点击事件，滑动事件，定时器什么的，一个功能丰富的轮播图就出来了。</p>
+<p>稍微棘手的就是临界值时候，无限轮播的实现稍微麻烦。以及点击切换如果结合动画容易造成动画错位。</p>
+<p>然后就来介绍各种轮播图的实现原理，以及分析一下优劣。当然一下见解不过是我自己手撸了这么多个之后自己的感悟吧。这里不会太多说代码部分，代码部分放在最后哦</p>
+<h2 id="利用前后辅助图实现循环轮播"><a href="#利用前后辅助图实现循环轮播" class="headerlink" title="利用前后辅助图实现循环轮播"></a>利用前后辅助图实现循环轮播</h2><p>前后多加一张辅助图 可以实现。这个方法是最初的轮播图实现，大部分功能都能完美实现，唯一缺点就是前后多加了一张图，代码结构上并不好看。实现方式就是margin-left一直负负负负负直到到达末尾后重置为0</p>
+<ul>
+<li>无限循环滚动</li>
+<li>点击index滚到固定位置</li>
+<li>dots点的正确显示</li>
+</ul>
+<p>不加辅助图则会出现变形，有相关功能的取舍。例如没有辅助图则左右循环的时候最后一张回到第一章会有将内容全部回滚的动画样式。</p>
+<ol>
+<li>不加辅助图 左右循环滚动   但是从最后一张滚到第一张的时候是从右滚到左</li>
+<li>突然发现如果只有3个是可以点击的嘻嘻嘻 毕竟只关乎前后移动，不会出现需要滑动两次的情况</li>
+</ol>
+<h2 id="利用绝对定位实现"><a href="#利用绝对定位实现" class="headerlink" title="利用绝对定位实现"></a>利用绝对定位实现</h2><p>原理就是将当前项设置为left：0，前一项设置为-100%；其他所有都设置为100%；然后结合<code>animate</code>函数进行动画操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div></pre></td><td class="code"><pre><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    window.onload = function () &#123;</div><div class="line">      var className = &apos;.box-father&apos;;</div><div class="line">      var picNum = 5;</div><div class="line"></div><div class="line">      var _index = -1;</div><div class="line">      var _pre = picNum - 1;</div><div class="line">      var _next = _index + 1;</div><div class="line"></div><div class="line">      var $boxFather = document.querySelectorAll(className)[0];</div><div class="line">      var $boxUl = document.querySelectorAll(className + &apos;&gt; .box&apos;)[0];</div><div class="line">      var $boxLi = $boxUl.children;</div><div class="line">      var $preBtn = document.querySelectorAll(className + &apos;&gt; .pre&apos;)[0];</div><div class="line">      var $nextBtn = document.querySelectorAll(className + &apos;&gt; .next&apos;)[0];</div><div class="line">      next();</div><div class="line">      function next() &#123;</div><div class="line">        _index = (_index + 1) % picNum;</div><div class="line">        _pre = _index - 1;</div><div class="line">        if (_pre &lt; 0) &#123;</div><div class="line">          _pre = picNum - 1;</div><div class="line">        &#125;</div><div class="line">        _next = (_index + 1) % picNum;</div><div class="line"></div><div class="line">        $boxLi[_index].style.zIndex = &apos;3&apos;;</div><div class="line">        $boxLi[_index].style.backgroundColor = &apos;rgba(54, 21, 21, 1)&apos;;</div><div class="line">        $($boxLi[_index]).animate(&#123;</div><div class="line">          left: &apos;0&apos;</div><div class="line">        &#125;, 400);</div><div class="line"></div><div class="line">        $boxLi[_next].style.zIndex = &apos;2&apos;;</div><div class="line">        $boxLi[_next].style.backgroundColor = &apos;rgba(0,0,0,0.6)&apos;;</div><div class="line">        $($boxLi[_next]).animate(&#123;</div><div class="line">          left: &apos;100%&apos;</div><div class="line">        &#125;, 400);</div><div class="line"></div><div class="line">        $boxLi[_pre].style.zIndex = &apos;2&apos;;</div><div class="line">        $boxLi[_pre].style.backgroundColor = &apos;rgba(0,0,0,0.6)&apos;;</div><div class="line">        $($boxLi[_pre]).animate(&#123;</div><div class="line">          left: &apos;-100%&apos;</div><div class="line">        &#125;, 400);</div><div class="line"></div><div class="line">        for (var i = 0; i &lt; $boxLi.length; i++) &#123;</div><div class="line">          if (_index != i &amp;&amp; _pre != i &amp;&amp; _next != i) &#123;</div><div class="line">            $boxLi[i].style.index = &apos;1&apos;;</div><div class="line">            $boxLi[i].style.left = &apos;100%&apos;;</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">      function pre() &#123;</div><div class="line">        _index = _index - 1;</div><div class="line">        if (_index &lt; 0) &#123;</div><div class="line">          _index = picNum - 1;</div><div class="line">        &#125;</div><div class="line">        _pre = _index - 1;</div><div class="line">        if (_pre &lt; 0) &#123;</div><div class="line">          _pre = picNum - 1;</div><div class="line">        &#125;</div><div class="line">        _next = (_index + 1) % picNum;</div><div class="line"></div><div class="line">        $boxLi[_index].style.zIndex = &apos;3&apos;;</div><div class="line">        $boxLi[_index].style.backgroundColor = &apos;rgba(54, 21, 21, 1)&apos;;</div><div class="line">        $($boxLi[_index]).animate(&#123;</div><div class="line">          left: &apos;0&apos;</div><div class="line">        &#125;, 400);</div><div class="line"></div><div class="line">        $boxLi[_next].style.zIndex = &apos;2&apos;;</div><div class="line">        $boxLi[_next].style.backgroundColor = &apos;rgba(0,0,0,0.6)&apos;;</div><div class="line">        $($boxLi[_next]).animate(&#123;</div><div class="line">          left: &apos;100%&apos;</div><div class="line">        &#125;, 400);</div><div class="line"></div><div class="line">        $boxLi[_pre].style.zIndex = &apos;2&apos;;</div><div class="line">        $boxLi[_pre].style.backgroundColor = &apos;rgba(0,0,0,0.6)&apos;;</div><div class="line">        $boxLi[_pre].style.left = &apos;-100%&apos;;</div><div class="line"></div><div class="line">        for (var i = 0; i &lt; $boxLi.length; i++) &#123;</div><div class="line">          if (_index != i &amp;&amp; _pre != i &amp;&amp; _next != i) &#123;</div><div class="line">            $boxLi[i].style.index = &apos;1&apos;;</div><div class="line">            $boxLi[i].style.left = &apos;100%&apos;;</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      $preBtn.addEventListener(&apos;click&apos;, function () &#123;</div><div class="line"></div><div class="line">        console.log(`pre:$&#123;_pre&#125;;now:$&#123;_index&#125;next:$&#123;_next&#125;`);</div><div class="line">        pre();</div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      $nextBtn.addEventListener(&apos;click&apos;, function () &#123;</div><div class="line"></div><div class="line">        console.log(`pre:$&#123;_pre&#125;;now:$&#123;_index&#125;next:$&#123;_next&#125;`);</div><div class="line">        next();</div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      $(&apos;.btn&apos;).on(&apos;click&apos;, &apos;li&apos;, function () &#123;</div><div class="line">        var preIndex = _index;</div><div class="line">        var nowIndex = $(this).text() - 1;</div><div class="line">        var time = preIndex - nowIndex;</div><div class="line">        _index = nowIndex;</div><div class="line">        // 等于0直接返回</div><div class="line">        _next = (_index + 1) % picNum;</div><div class="line">        _pre = _index - 1;</div><div class="line">        console.log(_pre);</div><div class="line">        if (_pre &lt; 0) &#123;</div><div class="line">          _pre = picNum - 1;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (time === 0) &#123;</div><div class="line">          return</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (time &lt; 0) &#123;</div><div class="line">          // 目标在右边的位置</div><div class="line">          // 需要 100设为0 当前设为-100后</div><div class="line"></div><div class="line">          $boxLi[preIndex].style.zIndex = &apos;2&apos;;</div><div class="line">          $boxLi[preIndex].style.backgroundColor = &apos;rgba(0,0,0,0.6)&apos;;</div><div class="line">          $($boxLi[preIndex]).animate(&#123;</div><div class="line">            left: &apos;-100%&apos;</div><div class="line">          &#125;, 400, function()&#123;</div><div class="line">            $boxLi[preIndex].style.left = &apos;100%&apos;;</div><div class="line">            $boxLi[_pre].style.left = &apos;-100%&apos;;</div><div class="line"></div><div class="line">          &#125;);</div><div class="line"></div><div class="line">          $boxLi[_index].style.left = &apos;100%&apos;;</div><div class="line">          $boxLi[_index].style.zIndex = &apos;3&apos;;</div><div class="line">          $boxLi[_index].style.backgroundColor = &apos;rgba(54, 21, 21, 1)&apos;;</div><div class="line">          $($boxLi[_index]).animate(&#123;</div><div class="line">            left: &apos;0&apos;</div><div class="line">          &#125;, 400);</div><div class="line"></div><div class="line"></div><div class="line">          $boxLi[_next].style.left = &apos;100%&apos;;</div><div class="line">          $boxLi[_next].style.zIndex = &apos;2&apos;;</div><div class="line">          $boxLi[_next].style.backgroundColor = &apos;rgba(54, 21, 21, 1)&apos;;</div><div class="line">          $($boxLi[_next]).animate(&#123;</div><div class="line">            left: &apos;100%&apos;</div><div class="line">          &#125;, 400);</div><div class="line"></div><div class="line">          console.log(`preIndex:$&#123;preIndex&#125;,_pre:$&#123;_pre&#125; `);</div><div class="line">        &#125; else &#123;</div><div class="line">          // 目标在左边的位置</div><div class="line">          // 需要 -100 设为0 当前设为100</div><div class="line">          $boxLi[preIndex].style.zIndex = &apos;2&apos;;</div><div class="line">          $boxLi[preIndex].style.backgroundColor = &apos;rgba(0,0,0,0.6)&apos;;</div><div class="line">          $($boxLi[preIndex]).animate(&#123;</div><div class="line">            left: &apos;100%&apos;</div><div class="line">          &#125;, 400);</div><div class="line"></div><div class="line">          $boxLi[nowIndex].style.left = &apos;-100%&apos;;</div><div class="line">          $boxLi[nowIndex].style.zIndex = &apos;3&apos;;</div><div class="line">          $boxLi[nowIndex].style.backgroundColor = &apos;rgba(54, 21, 21, 1)&apos;;</div><div class="line">          $($boxLi[nowIndex]).animate(&#123;</div><div class="line">            left: &apos;0&apos;</div><div class="line">          &#125;, 400);</div><div class="line"></div><div class="line">          _next = (_index + 1) % picNum;</div><div class="line"></div><div class="line">          $boxLi[_next].style.left = &apos;100%&apos;;</div><div class="line">          $boxLi[_next].style.zIndex = &apos;2&apos;;</div><div class="line">          $boxLi[_next].style.backgroundColor = &apos;rgba(54, 21, 21, 1)&apos;;</div><div class="line">          $($boxLi[_next]).animate(&#123;</div><div class="line">            left: &apos;100%&apos;</div><div class="line">          &#125;, 400);</div><div class="line"></div><div class="line"></div><div class="line">          $boxLi[_pre].style.left = &apos;-100%&apos;;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">  &lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>左右滑动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div></pre></td><td class="code"><pre><div class="line">  function swiper(className, picNum, animateTime, hasDots) &#123;</div><div class="line">    var picNum = picNum;</div><div class="line">    var animateTime = animateTime;</div><div class="line">    var className = className;</div><div class="line">    var hasDots = hasDots || false;</div><div class="line">    var $swiperBox = document.querySelector(className + &apos; &gt; .swiper-box&apos;);</div><div class="line"></div><div class="line">    var _time;</div><div class="line">    var _firstX;</div><div class="line">    var _index = 0;</div><div class="line">    var _swiperMarginLeft = 0;</div><div class="line"></div><div class="line">    var $swiperInside = $swiperBox.children[0];</div><div class="line">    var $img = $swiperInside.children[0];</div><div class="line">    var $btnPre = document.querySelector(className + &apos;&gt; .swiper-btn-pre&apos;);</div><div class="line">    var $btnNext = document.querySelector(className + &apos;&gt; .swiper-btn-next&apos;);</div><div class="line">    var $dotsUl = document.querySelector(className + &apos;&gt; .dots-ul&apos;);</div><div class="line">    var imgWidth = parseInt(window.getComputedStyle($img).getPropertyValue(&apos;width&apos;));</div><div class="line"></div><div class="line">    _time = setTime();</div><div class="line"></div><div class="line">    function next() &#123;</div><div class="line">      clearTimeout(_time);</div><div class="line">      _swiperMarginLeft -= imgWidth;</div><div class="line">      if (-_swiperMarginLeft &gt;= picNum * imgWidth) &#123;</div><div class="line">        _swiperMarginLeft = 0;</div><div class="line">      &#125;</div><div class="line">      $swiperInside.style.marginLeft = _swiperMarginLeft + &apos;px&apos;;</div><div class="line">      _index = (_index + 1) % picNum;</div><div class="line">      if(hasDots)&#123;</div><div class="line">        changeDots();</div><div class="line">      &#125;</div><div class="line">      _time = setTime();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function pre() &#123;</div><div class="line">      clearTimeout(_time);</div><div class="line">      _swiperMarginLeft += imgWidth;</div><div class="line">      if (_swiperMarginLeft &gt; 0) &#123;</div><div class="line">        _swiperMarginLeft = -(picNum-1) * imgWidth;</div><div class="line">      &#125;</div><div class="line">      $swiperInside.style.marginLeft = _swiperMarginLeft + &apos;px&apos;;</div><div class="line">      if (_index === 0)&#123;</div><div class="line">        _index = picNum;</div><div class="line">      &#125;</div><div class="line">      _index = (_index - 1) % picNum;</div><div class="line">      if(hasDots)&#123;</div><div class="line">        changeDots();</div><div class="line">      &#125;</div><div class="line">      _time = setTime();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function setTime() &#123;</div><div class="line">      return setTimeout(function() &#123;</div><div class="line">        next();</div><div class="line">      &#125;, animateTime)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 变换dot的class</div><div class="line">    function changeDots()&#123;</div><div class="line">      var $dots = $dotsUl.children;</div><div class="line">      for(var i = 0; i &lt; $dots.length; i++) &#123;</div><div class="line">        $dots[i].setAttribute(&apos;class&apos;, &apos;dots&apos;);</div><div class="line">        if (_index === i) &#123;</div><div class="line">          $dots[i].setAttribute(&apos;class&apos;, &apos;dots on&apos;);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 监听点击时间</div><div class="line">    $btnPre.addEventListener(&apos;click&apos;, function() &#123;</div><div class="line">      pre();</div><div class="line">    &#125;);</div><div class="line">    $btnNext.addEventListener(&apos;click&apos;, function() &#123;</div><div class="line">      next();</div><div class="line">    &#125;);</div><div class="line">    // 绑定在父级上</div><div class="line">    if(hasDots)&#123;</div><div class="line">      $dotsUl.addEventListener(&apos;click&apos;, function(e)&#123;</div><div class="line">        var target = e.target;</div><div class="line">        var dots = $dotsUl.children;</div><div class="line">        for (var i = 0; i &lt; dots.length; i++) &#123;</div><div class="line">          if(target === dots[i]) &#123;</div><div class="line">            _index = i - 1;</div><div class="line">            _swiperMarginLeft = -imgWidth * _index;</div><div class="line">            next();</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">    // 监听拖动事件</div><div class="line">    $swiperBox.addEventListener(&apos;touchstart&apos;, function(e)&#123;</div><div class="line">      clearTimeout(_time);</div><div class="line">      _firstX = e.touches[0].clientX;</div><div class="line">      // $swiperBox.addEventListener(&apos;touchmove&apos;, dragAnimation);</div><div class="line">      $swiperBox.addEventListener(&apos;touchend&apos;, draggable);</div><div class="line">    &#125;)</div><div class="line">    // 滑动动画</div><div class="line">    // function dragAnimation(e) &#123;</div><div class="line">    //   var moveX = e.touches[0].clientX - _firstX;</div><div class="line">    //   $swiperInside.style.marginLeft = _swiperMarginLeft + moveX + &apos;px&apos;;</div><div class="line">    // &#125;</div><div class="line"></div><div class="line">    // 滑动方法封装</div><div class="line">    function draggable(event) &#123;</div><div class="line">        var _secondX = event.changedTouches[0].clientX;</div><div class="line">        var windowWidth = document.body.clientWidth;</div><div class="line">        if (_secondX - _firstX &gt; windowWidth / 2)&#123;</div><div class="line">          pre();</div><div class="line">        &#125; else if (_firstX - _secondX &gt; windowWidth / 2) &#123;</div><div class="line">          next();</div><div class="line">        &#125; else &#123;</div><div class="line">          $swiperInside.style.marginLeft = _swiperMarginLeft + &apos;px&apos;;</div><div class="line">          _time = setTime();</div><div class="line">        &#125;</div><div class="line">        $swiperBox.removeEventListener(&apos;touchend&apos;, draggable);</div><div class="line">        // $swiperBox.removeEventListener(&apos;touchend&apos;, dragAnimation);</div><div class="line">    &#125;</div><div class="line">    // 监听resize事件</div><div class="line">    window.addEventListener(&apos;resize&apos;, function()&#123;</div><div class="line">      clearTimeout(_time);</div><div class="line">      _firstX;</div><div class="line">      _index = 0;</div><div class="line">      _swiperMarginLeft = 0;</div><div class="line">      $swiperInside.style.marginLeft = _swiperMarginLeft;</div><div class="line">      setTimeout(function()&#123;</div><div class="line">        imgWidth = parseInt(window.getComputedStyle($img).getPropertyValue(&apos;width&apos;));</div><div class="line">        _time = setTime();</div><div class="line">      &#125;, 20);</div><div class="line">    &#125;, false);</div><div class="line">  &#125;</div><div class="line">`</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/14/技术/html+css/精灵图/" rel="next" title="精灵图">
+                <i class="fa fa-chevron-left"></i> 精灵图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/10/技术/html+css/CSS的权重问题/" rel="prev" title="CSS的权重问题">
+                CSS的权重问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#轮播图的原理"><span class="nav-number">1.</span> <span class="nav-text">轮播图的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用前后辅助图实现循环轮播"><span class="nav-number">2.</span> <span class="nav-text">利用前后辅助图实现循环轮播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用绝对定位实现"><span class="nav-number">3.</span> <span class="nav-text">利用绝对定位实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

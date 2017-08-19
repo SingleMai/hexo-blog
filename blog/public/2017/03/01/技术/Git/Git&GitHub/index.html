@@ -1,0 +1,973 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="使用git时候记录下来的命令指南">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git&GitHub Notes">
+<meta property="og:url" content="SingleMai.github.io/2017/03/01/技术/Git/Git&GitHub/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="使用git时候记录下来的命令指南">
+<meta property="og:updated_time" content="2017-08-10T13:51:17.825Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git&GitHub Notes">
+<meta name="twitter:description" content="使用git时候记录下来的命令指南">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/03/01/技术/Git/Git&GitHub/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> Git&GitHub Notes | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/03/01/技术/Git/Git&GitHub/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git&GitHub Notes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T10:32:44+08:00">
+                2017-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/03/01/技术/Git/Git&GitHub/" class="leancloud_visitors" data-flag-title="Git&GitHub Notes">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>使用git时候记录下来的命令指南<br><a id="more"></a></p>
+<h2 id="git-配置"><a href="#git-配置" class="headerlink" title="git 配置"></a>git 配置</h2><ol>
+<li>git config –global color.ui auto ##获得彩色输出</li>
+<li>启动编辑器命令：<ol>
+<li>git config –global core.editor “‘C://..sublime_text.exe’ -n -w”</li>
+<li>git config –global push.default upstream</li>
+<li>git config –global merge.conflictstyle diff3</li>
+<li>alias sub1=”url”</li>
+<li>git config –global core.autocrlf true ##将autocrlf全局属性设置</li>
+</ol>
+</li>
+<li>git config –system core.longpaths true。</li>
+</ol>
+<hr>
+<h2 id="git-init初始化版本库"><a href="#git-init初始化版本库" class="headerlink" title="git init初始化版本库"></a>git init初始化版本库</h2><hr>
+<h2 id="git-diff-比较版本区别"><a href="#git-diff-比较版本区别" class="headerlink" title="git diff 比较版本区别"></a>git diff 比较版本区别</h2><ol>
+<li>git diff SHA1 SHA2 ##比较两个版本的差异</li>
+<li>git diff  ##查看尚未暂存的文件更新了哪些部分（working tree ＆ index）</li>
+<li>git diff HEAD ##显示working tree 和 HEAD版本的区别</li>
+<li>git diff –staged ##显示index 和HEAD 的区别</li>
+<li>git diff topic…master##显示topic 和 master 分别开发以来，master分支上的变化</li>
+<li>git diff –stat ##显示简单的diff结果</li>
+<li>git diff HEAD^ HEAD ##显示上次commit和上上次commit</li>
+<li>git diff –u ##可以在diff结果中显示上下文信息。</li>
+</ol>
+<hr>
+<h2 id="git-commit-提交版本"><a href="#git-commit-提交版本" class="headerlink" title="git commit 提交版本"></a>git commit 提交版本</h2><ol>
+<li>git commit –m “message” ##提交版本</li>
+<li>git commit –a –m “message”  ## -a选项可只将所有被修改或者已删除的且已经被git管理的文档提交倒仓库中。</li>
+<li>git commit –amend ##对于已经修改提交过的注释进行修改</li>
+</ol>
+<hr>
+<h2 id="git-add-与-git-reset"><a href="#git-add-与-git-reset" class="headerlink" title="git add 与 git reset"></a>git add 与 git reset</h2><ol>
+<li>git add除了能够判断出当前目录（包括其子目录）所有被修改或者已删除的文档，还能判断用户所添加的新文档，并将其信息追加到索引中。</li>
+<li>git reset 可以删除不想添加到暂存区的文件</li>
+</ol>
+<hr>
+<h2 id="git-log-查看提交记录"><a href="#git-log-查看提交记录" class="headerlink" title="git log 查看提交记录"></a>git log 查看提交记录</h2><hr>
+<h2 id="git-clone-克隆"><a href="#git-clone-克隆" class="headerlink" title="git clone 克隆"></a>git clone 克隆</h2><hr>
+<h2 id="git-checkout-检出代码的旧版本"><a href="#git-checkout-检出代码的旧版本" class="headerlink" title="git checkout 检出代码的旧版本"></a>git checkout 检出代码的旧版本</h2><ol>
+<li>git checkout ‘ID’</li>
+<li>git checkout master ##离开“分离的HEAD”状态</li>
+</ol>
+<hr>
+<h2 id="git-branch-创建分支"><a href="#git-branch-创建分支" class="headerlink" title="git branch 创建分支"></a>git branch 创建分支</h2><hr>
+<h2 id="git-merge-合并操作"><a href="#git-merge-合并操作" class="headerlink" title="git merge 合并操作"></a>git merge 合并操作</h2><ol>
+<li>git merge branch1 branch2 ##将branch2合并到branch1中去</li>
+<li>git merge –abort ##将文件恢复到你开始合并之前的状态</li>
+</ol>
+<hr>
+<h2 id="git-show-将提交与所在分支进行对"><a href="#git-show-将提交与所在分支进行对" class="headerlink" title="git show 将提交与所在分支进行对"></a>git show 将提交与所在分支进行对</h2><hr>
+<h2 id="git-status查看被修改的文件"><a href="#git-status查看被修改的文件" class="headerlink" title="git status查看被修改的文件"></a>git status查看被修改的文件</h2><hr>
+<h2 id="git-remote-远程操纵库"><a href="#git-remote-远程操纵库" class="headerlink" title="git remote 远程操纵库"></a>git remote 远程操纵库</h2><ol>
+<li>git remote 不带参数，列出已经存在的远程分支</li>
+<li>git remote -v | –verbose 列出详细信息，在每一个名字后面列出其远程url</li>
+<li>git remote add [name] url    ##添加一个远程仓库</li>
+</ol>
+<hr>
+<h2 id="git-fetch-将远程代码库的最新提交复制到本地"><a href="#git-fetch-将远程代码库的最新提交复制到本地" class="headerlink" title="git fetch 将远程代码库的最新提交复制到本地"></a>git fetch 将远程代码库的最新提交复制到本地</h2><ol>
+<li>git fetch origin ##更新本地副本</li>
+<li>git pull 等价于 git fetch + git merge.</li>
+</ol>
+<hr>
+<h2 id="git-pull-git-push-拉取与推送"><a href="#git-pull-git-push-拉取与推送" class="headerlink" title="git pull git push 拉取与推送"></a>git pull git push 拉取与推送</h2><ol>
+<li>git push origin (master/other branch)</li>
+</ol>
+<hr>
+<h2 id="git-reset-–hard-强制回滚到版本"><a href="#git-reset-–hard-强制回滚到版本" class="headerlink" title="git reset –hard 强制回滚到版本"></a>git reset –hard 强制回滚到版本</h2><ol>
+<li>配合<code>git push --force</code>可以强制删除已经commit的内容。但是期间提交的东西都会消失。</li>
+</ol>
+<h2 id="git-stash-和-git-stash-pop-不commit的情况下pull"><a href="#git-stash-和-git-stash-pop-不commit的情况下pull" class="headerlink" title="git stash 和 git stash pop 不commit的情况下pull"></a>git stash 和 git stash pop 不commit的情况下pull</h2><p>git stash 可用来暂存当前正在进行的工作， 比如想pull 最新代码， 又不想加新commit， 或者另外一种情况，为了fix 一个紧急的bug,  先stash, 使返回到自己上一个commit, 改完bug之后再stash pop, 继续原来的工作。<br>基础命令：<br><code>$git stash</code><br><code>$do some work</code><br><code>$git stash pop</code><br><code>git stash save &quot;work in progress for foo feature&quot;</code><br>当你多次使用’git stash’命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，</p>
+<p><code>’git stash list’</code>命令可以将当前的Git栈信息打印出来，你只需要将找到对应的版本号，例如使用<code>’git stash apply stash@{1}’</code>就可以将你指定版本号为stash@{1}的工作取出来，当你将所有的栈都应用回来的时候，可以使用’<code>git stash clear’</code>来将栈清空。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git stash          # save uncommitted changes</div><div class="line"># pull, edit, etc.</div><div class="line">git stash list     # list stashed changes in this git</div><div class="line">git show stash@&#123;0&#125; # see the last stash</div><div class="line">git stash pop      # apply last stash and remove it from the list</div><div class="line"></div><div class="line">git stash --help   # for more info</div></pre></td></tr></table></figure></p>
+<h2 id="在新电脑使用git"><a href="#在新电脑使用git" class="headerlink" title="在新电脑使用git"></a>在新电脑使用git</h2><p>在新电脑上使用git</p>
+<p>设置Git的 name和email<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;singlemai&quot;</div><div class="line">git config --global user.email &quot;422107224@qq.com&quot;</div></pre></td></tr></table></figure></p>
+<p>生成SSH密钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">查看是否已经有了ssh密钥: cd ~/.ssh</div><div class="line">如果没有密钥则不会有此文件夹，有则备份删除</div><div class="line">生成密钥：</div><div class="line">ssh-keygen -t rsa -C &quot;422107224@qq.com&quot;</div><div class="line">按3个回车，密码为空。</div><div class="line">最后得到了两个文件： id_rsa和 id_rsa.pub</div></pre></td></tr></table></figure></p>
+<p>添加密钥到ssh: ssh-add 文件名，需要之前输入密码。</p>
+<p>在github上添加ssh密钥，这要添加的是 id_rsa.pub 里面的公钥<br>打开github设置，添加新的公钥就可以啦~~</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/15/技术/性能优化/Web-performance/" rel="next" title="网站性能优化">
+                <i class="fa fa-chevron-left"></i> 网站性能优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/01/随笔日记/反思笔记/" rel="prev" title="反思笔记">
+                反思笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-配置"><span class="nav-number">1.</span> <span class="nav-text">git 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-init初始化版本库"><span class="nav-number">2.</span> <span class="nav-text">git init初始化版本库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-diff-比较版本区别"><span class="nav-number">3.</span> <span class="nav-text">git diff 比较版本区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-commit-提交版本"><span class="nav-number">4.</span> <span class="nav-text">git commit 提交版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-add-与-git-reset"><span class="nav-number">5.</span> <span class="nav-text">git add 与 git reset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-log-查看提交记录"><span class="nav-number">6.</span> <span class="nav-text">git log 查看提交记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone-克隆"><span class="nav-number">7.</span> <span class="nav-text">git clone 克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-checkout-检出代码的旧版本"><span class="nav-number">8.</span> <span class="nav-text">git checkout 检出代码的旧版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-branch-创建分支"><span class="nav-number">9.</span> <span class="nav-text">git branch 创建分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-merge-合并操作"><span class="nav-number">10.</span> <span class="nav-text">git merge 合并操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-show-将提交与所在分支进行对"><span class="nav-number">11.</span> <span class="nav-text">git show 将提交与所在分支进行对</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-status查看被修改的文件"><span class="nav-number">12.</span> <span class="nav-text">git status查看被修改的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-remote-远程操纵库"><span class="nav-number">13.</span> <span class="nav-text">git remote 远程操纵库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-fetch-将远程代码库的最新提交复制到本地"><span class="nav-number">14.</span> <span class="nav-text">git fetch 将远程代码库的最新提交复制到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-pull-git-push-拉取与推送"><span class="nav-number">15.</span> <span class="nav-text">git pull git push 拉取与推送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-reset-–hard-强制回滚到版本"><span class="nav-number">16.</span> <span class="nav-text">git reset –hard 强制回滚到版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-stash-和-git-stash-pop-不commit的情况下pull"><span class="nav-number">17.</span> <span class="nav-text">git stash 和 git stash pop 不commit的情况下pull</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在新电脑使用git"><span class="nav-number">18.</span> <span class="nav-text">在新电脑使用git</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

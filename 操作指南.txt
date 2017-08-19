@@ -1,0 +1,9 @@
+1.输入创建文章命令，生成一个md文件(/blog/source/_posts/)
+	$ hexo new "hello"
+2.提交内容，上传
+	$ hexo clean
+	$ hexo d -g
+3. <!--more--> 注释READMORE
+4. 本地预览
+	$ hexo s
+	localhost:4000/
