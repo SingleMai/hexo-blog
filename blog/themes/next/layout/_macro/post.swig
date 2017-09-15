@@ -248,9 +248,7 @@
       </header>
     {% endif %}
 
-
     <div class="post-body" itemprop="articleBody">
-
       {# Gallery support #}
       {% if post.photos and post.photos.length %}
         <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
@@ -308,6 +306,8 @@
           {% endif %}
         {% endif %}
       {% else %}
+        <!-- 文章详情 -->
+        {{ console.log(post.permalink) }}
         {{ post.content }}
       {% endif  %}
     </div>

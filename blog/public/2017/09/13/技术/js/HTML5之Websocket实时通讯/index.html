@@ -1,0 +1,917 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="想起来要学这个是因为在之后想要学习一波直播技术的实现，其中弹幕就用到了这个功能。那我们一起来看一下吧~~">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5之Websocket实时通讯">
+<meta property="og:url" content="SingleMai.github.io/2017/09/13/技术/js/HTML5之Websocket实时通讯/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="想起来要学这个是因为在之后想要学习一波直播技术的实现，其中弹幕就用到了这个功能。那我们一起来看一下吧~~">
+<meta property="og:updated_time" content="2017-09-13T12:06:01.254Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5之Websocket实时通讯">
+<meta name="twitter:description" content="想起来要学这个是因为在之后想要学习一波直播技术的实现，其中弹幕就用到了这个功能。那我们一起来看一下吧~~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/09/13/技术/js/HTML5之Websocket实时通讯/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> HTML5之Websocket实时通讯 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/09/13/技术/js/HTML5之Websocket实时通讯/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5之Websocket实时通讯
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T20:03:06+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/13/技术/js/HTML5之Websocket实时通讯/" class="leancloud_visitors" data-flag-title="HTML5之Websocket实时通讯">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>想起来要学这个是因为在之后想要学习一波直播技术的实现，其中弹幕就用到了这个功能。那我们一起来看一下吧~~<br><a id="more"></a></p>
+<h2 id="WebSocket是什么"><a href="#WebSocket是什么" class="headerlink" title="WebSocket是什么"></a>WebSocket是什么</h2><p>WebSocket 是一种自然的全双工、双向、单套接字连接。使用WebSocket，你的HTTP 请求变成打开WebSocket 连接（WebSocket 或者WebSocket over TLS（TransportLayer Security，传输层安全性，原称“SSL”））的单一请求，并且重用从客户端到服务器以及服务器到客户端的同一连接。</p>
+<p>这一堆定义一看就头晕，所以还是按照习惯地来简单地理解一下：WebSocket是一个HTML5新增协议，用来保持客户端和服务器的长时间同时（不断开），同时实现服务器向客户端推送信息。</p>
+<p>先有大概这个认识，然后我们慢慢解决一些误区</p>
+<h3 id="WebSocket与HTTP"><a href="#WebSocket与HTTP" class="headerlink" title="WebSocket与HTTP"></a>WebSocket与HTTP</h3><p>是HTML5捣鼓出来的一个协议。用于解决HTTP无状态，不支持久连接的情况，但是与HTTP没有关系。</p>
+<p>HTTP依旧是<code>1.1</code>和<code>1.0</code>两个，没有变化。之所以扯到HTTP是为了兼容浏览器的握手规范，所以可以把他理解为HTTP协议上的一个补充。（其实两者的层级不一样）</p>
+<h3 id="WebSocket咋整"><a href="#WebSocket咋整" class="headerlink" title="WebSocket咋整"></a>WebSocket咋整</h3><p>首先，Websocket是基于HTTP协议，（借用HTTP的协议来完成一部分握手），所以我们就从握手开始讲。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">GET /chat HTTP/1.1</div><div class="line">Host: server.example.com</div><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div><div class="line">Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==</div><div class="line">Sec-WebSocket-Protocol: chat, superchat</div><div class="line">Sec-WebSocket-Version: 13</div><div class="line">Origin: http://example.com</div></pre></td></tr></table></figure></p>
+<p>看习惯请求的应该就能发现，这里多了一些东西。一个一个来~~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div></pre></td></tr></table></figure></p>
+<p>这两行就是Websocket的核心，它告诉服务器，我需要的是Websocket，你去喊那个负责Websocket的小姐姐过来，不要喊HTTP那家伙来啦。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==</div><div class="line">Sec-WebSocket-Protocol: chat, superchat</div><div class="line">Sec-WebSocket-Version: 13</div></pre></td></tr></table></figure></p>
+<p>至于这里，<code>Sec-WebSocket-key</code>是一个base64编码的值，是由浏览器随机生成的，告诉服务器：泥煤，不要忽悠我哦，我要验明正身，看你是不是websocket小妞妞。</p>
+<p>之后，<code>Sec-WebSocket-Protocol</code>是一个用户自定义的字符串，用于区别同一URL下，不同的服务所需要的协议。简单来说：指明要哪个服务套餐。</p>
+<p>最后<code>Sec-WebSocket-Version</code>则是告诉服务器，我要用第几号版本，也就是几号小妞妞来服务。</p>
+<p>服务器看到这个请求之后就会识趣地去找websocket小妞妞过来，然后告诉你，这个请求已经被接受了，websocket小姐姐马上就来服务你了~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 101 Switching Protocols</div><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div><div class="line">Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=</div><div class="line">Sec-WebSocket-Protocol: chat</div></pre></td></tr></table></figure></p>
+<p>这里，HTTP就有点像个老鸨一样，告诉你，我已经转化协议啦。websocket已经到咯~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div></pre></td></tr></table></figure></p>
+<p>然后的事情都是websocket的事儿了~~</p>
+<h2 id="为什么要用Websocket"><a href="#为什么要用Websocket" class="headerlink" title="为什么要用Websocket"></a>为什么要用Websocket</h2><h3 id="long-poll-和-ajax轮询-为啥我觉得不行"><a href="#long-poll-和-ajax轮询-为啥我觉得不行" class="headerlink" title="long poll 和 ajax轮询 为啥我觉得不行"></a><code>long poll</code> 和 <code>ajax轮询</code> 为啥我觉得不行</h3><p>在<code>websocket</code>没有来之前，遇到这种问题咋办呢？这里就介绍两种已经被淘汰状态的技术</p>
+<h4 id="Ajax轮询"><a href="#Ajax轮询" class="headerlink" title="Ajax轮询"></a>Ajax轮询</h4><p>ajax轮询原理十分简单，让客户端每隔几秒就跑去问一次服务器，有没有新进展。这就有点像，服务器就是炒菜的大厨，客户端就是端菜的小哥哥。<br>场景再现：<br>端菜小哥： 老大，你的菜炒好了吗<br>服务器： 没呢，你等下再来。<br>端菜小哥： 老大，你的菜现在炒好了吗<br>服务器： 没呢，你等下再来。<br>端菜小哥： 老大，你的菜还没炒好了吗<br>服务器： 尼玛，还问，你以为烫青菜啊？那么快，等下再来<br>端菜小哥： 老大，你的菜炒好了吧？<br>服务器： 两分钟前就炒好了，在那，去端走吧~</p>
+<p>没错，这里狠心地把端菜小哥赖以生存的叮铃收起来了，而且小哥要到处端茶递水不允许他在厨房逗留。于是你就发现…端菜小哥马上就不玩辞职了</p>
+<h4 id="long-poll"><a href="#long-poll" class="headerlink" title="long poll"></a><code>long poll</code></h4><p><code>long poll</code>其实原理上跟<code>ajax轮询</code>差不多，都是采用轮询的方式，但是采用的是阻塞模型。也就是说，客户端发起连接后，如果没有消息，就不返回Response给客户端，一直等到有消息才返回。客户端拿到返回后马上再建立连接。</p>
+<p>同样是刚刚的小餐馆，老板娘觉得这种搞不行啊，伙计都跑了，上菜又慢。所以就把端菜小哥的任务细化了，他只需要端菜，不需要搞茶水了。<br>场景再现：<br>端菜小哥： 老大，你菜炒好了吗<br>服务器： 没，你在厨房门口站着等吧，哪都别去了<br>…于是端菜小哥就在厨房门口（服务器）发呆发愣数手指…<br>… 继续数手指…<br>..继续数..<br>服务器： 菜炒好啦，去上菜。<br>端菜小哥终于有事做了，拿着菜就跑去上菜，菜刚上完，跑回来厨房<br>端菜小哥： 老大，下一道菜好了没？<br>服务器： 站一边数手指去..等我通知</p>
+<p>这样，问题是解决。但是老板娘却不开心了，毕竟她招了一个数手指的端菜小哥过来，白白浪费一个HTTP链接请求。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>于是，很容易看到上面两种情景都十分不行。HTTP的两个缺点——被动性。<code>ajax轮询</code>需要服务器有很快的处理速度和资源，假设有10个端菜小哥同时去问服务器拿菜，那服务器需要疯狂回答他们。（速度）<code>long poll</code>需要很高的并发能力，也就是接待客户的能力。（厨房足够的位置给小哥站着等）。所以两种方式都有可能出发<code>503 server unavailable（你拨的用户忙，请稍后再拨）</code></p>
+<p>于是两种方法，一种需要高速的处理速度，一种需要高并发能力。还有一个问题，HTTP的无状态性，服务器健忘，因为接待的人实在太多，所以你一走开，他就忘了你的东西。所以当你第二次去问服务器不能问：上次问你那道菜煮好没。而是要问“10号桌那道炒青菜可以了吗”</p>
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>于是，老板娘为了解决这个问题，弄来了一个叮铃。端菜小哥把叮铃放在厨房窗口，让服务器有信息的时候就按铃，其余时间，他都去负责端水。于是乎，就解决了资源消耗方面的问题。这中间是怎么解决的呢?</p>
+<p>其实我们所用的程序是需要经过两层代理的，即HTTP协议到Handler（node服务器）。代入场景就是，客户端（端菜小哥）、叮铃（websocket）、服务器（厨房炒菜大叔），没有叮铃的时候，HTTP小哥跑过来问。大家都知道声音传播速度很快，一下子就跑到厨房里了。但是厨房大叔炒菜要时间，所以当点菜的人多起来的时候，就会卡了很多单子。</p>
+<p>引入叮铃这个工具后，小哥就可以省去跑过来问这段时间。当服务器把菜炒好了，直接按铃。同时，websocket可以让一直知道你的信息（在铃前放置排队的单子），那你就不用每次跑去都要问具体哪道菜可以了没。</p>
+<h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用~"></a>怎么用~</h2><p>这里使用起来并不十分复杂。有点值得一提的是，这里数据传输只允许用buffer和string，以为着传对象不可行。一开始，我居然懵了。后来发现自己傻逼了，明明只要在传之前<code>JSON.stringify()</code>然后再另一边解析回来就好了。。。。硬是自己没转过弯。 其余都是事件驱动型的操作啦，相信看源码你就能懂。</p>
+<p>这里构建的是一个聊天室,当然由于时间不够，而且而是不要太复杂，避免demo的初衷，这里没有做过多的优化，只是简单粗暴实现了。关于客户端连地址那块地方需要根据自己的路径进行修改（为了和宿友通信，没有用<code>localhost</code></p>
+<h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">var ws = require(&quot;nodejs-websocket&quot;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">let users = [];</div><div class="line"></div><div class="line">console.log(&quot;开始建立连接...&quot;);</div><div class="line">const server = ws.createServer(function(conn)&#123;</div><div class="line">  conn.on(&quot;text&quot;, function (str) &#123;</div><div class="line">    console.log(&quot;收到的信息为:&quot; + str);</div><div class="line">    // 创建新用户操作</div><div class="line">    if(isAddName(str)) &#123;</div><div class="line">      const name = str.slice(5, str.length);</div><div class="line">      // 检测是否重名，用户创建是否成功</div><div class="line">      if (isRepeatName(name)) &#123;</div><div class="line">        conn.sendText(&apos;登入失败，用户名已存在...&apos;);</div><div class="line">      &#125; else &#123;</div><div class="line">        users.push(&#123;</div><div class="line">          name,</div><div class="line">          connection: conn</div><div class="line">        &#125;);</div><div class="line">        sendTextToUser(`$&#123;name&#125; 加入聊天室`);</div><div class="line">      &#125;</div><div class="line">    &#125; else &#123;</div><div class="line">      sendTextToUser(str);</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">  conn.on(&quot;close&quot;, function () &#123;</div><div class="line">    // 用户关闭页面的时候将信息清除</div><div class="line">    for (let i = 0; i &lt; users.length; i++) &#123;</div><div class="line">      if (conn === users[i].connection)</div><div class="line">        users.splice(i, 1);</div><div class="line">    &#125;</div><div class="line">    console.log(&quot;关闭连接&quot;)</div><div class="line">  &#125;);</div><div class="line">  conn.on(&quot;error&quot;, function (code, reason) &#123;</div><div class="line">    console.log(&quot;异常关闭&quot;);</div><div class="line">  &#125;);</div><div class="line">&#125;).listen(8001);</div><div class="line">console.log(&quot;WebSocket建立完毕&quot;);</div><div class="line"></div><div class="line">function isAddName(str) &#123;</div><div class="line">  return str.includes(&apos;name:&apos;);</div><div class="line">&#125;</div><div class="line">function isRepeatName(oriName)&#123;</div><div class="line">  for (let i = 0 ; i &lt; users.length; i++) &#123;</div><div class="line">    if (users[i].name === oriName)</div><div class="line">      return true</div><div class="line">  &#125;</div><div class="line">  return false;</div><div class="line">&#125;</div><div class="line">function sendTextToUser(str)&#123;</div><div class="line">  for(let i = 0; i &lt; users.length; i++) &#123;</div><div class="line">    users[i].connection.sendText(str);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        h1&#123;margin: 0;&#125;</div><div class="line">        .chat-room&#123;</div><div class="line">          position: relative;</div><div class="line">          left: 50%;</div><div class="line">          margin-left: -450px;</div><div class="line">          width: 900px;</div><div class="line">          height: 600px;</div><div class="line">          background: pink;</div><div class="line">          overflow: hidden;</div><div class="line">        &#125;</div><div class="line">        .header&#123;</div><div class="line">          display: flex;</div><div class="line">          align-items: baseline;</div><div class="line">          justify-content: space-between;</div><div class="line">          box-sizing: border-box;</div><div class="line">          padding: 0 40px;</div><div class="line">          width: 100%;</div><div class="line">          height: 80px;</div><div class="line">          line-height: 80px;</div><div class="line">          border-bottom: 2px solid grey;</div><div class="line">        &#125;</div><div class="line">        .chat-romm .msg&#123;</div><div class="line">          height: 30px;</div><div class="line">        &#125;</div><div class="line">        #name&#123;</div><div class="line">          height: 25px;</div><div class="line">          text-indent: 1em;</div><div class="line">        &#125;</div><div class="line">        .msg .btn-commit&#123;</div><div class="line">          display: inline-block;</div><div class="line">          width: 60px;</div><div class="line">          height: 100%;</div><div class="line">          line-height: 30px;</div><div class="line">          text-align: center;</div><div class="line">          border-radius: 10px;</div><div class="line">          color: #fff;</div><div class="line">          background: #0997F7;</div><div class="line">          text-decoration: none;</div><div class="line">        &#125;</div><div class="line">        .msg .btn-commit:hover&#123;</div><div class="line">          background: #199EF8;</div><div class="line">          transform: scale(1.05);</div><div class="line">        &#125;</div><div class="line">        .msg .btn-exit&#123;</div><div class="line">          background: #F07676;</div><div class="line">        &#125;</div><div class="line">        .msg .btn-exit:hover&#123;</div><div class="line">          background: #EB4848;</div><div class="line">        &#125;</div><div class="line">        .chat-content&#123;</div><div class="line">          float:left;</div><div class="line">          width: 75%;</div><div class="line">          height: calc(100% - 80px);</div><div class="line">          box-sizing: border-box;</div><div class="line">          border-right: 2px solid grey;</div><div class="line">        &#125;</div><div class="line">        .chat-content .msg-content&#123;</div><div class="line">          width: 100%;</div><div class="line">          height: 75%;</div><div class="line">          box-sizing: border-box;</div><div class="line">          border-bottom: 2px solid grey;</div><div class="line">          overflow-y: auto;</div><div class="line">        &#125;</div><div class="line">        .chat-area&#123;</div><div class="line">          width: 100%;</div><div class="line">          height: 25%;</div><div class="line">        &#125;</div><div class="line">        .msg-list&#123;</div><div class="line">          list-style: none;</div><div class="line">          font-size: 18px;</div><div class="line">        &#125;</div><div class="line">        #chatting&#123;</div><div class="line">          width: 100%;</div><div class="line">          height: 70%;</div><div class="line">          font-size: 22px;</div><div class="line">          box-sizing: border-box;</div><div class="line">          padding: 5px;</div><div class="line">          background: none;</div><div class="line">          outline: none;</div><div class="line">          border: none;</div><div class="line">          resize: none;</div><div class="line">        &#125;</div><div class="line">        .edit-area&#123;</div><div class="line">          display: flex;</div><div class="line">          justify-content: flex-end;</div><div class="line">          height: calc(100% - 70% - 5px);</div><div class="line">        &#125;</div><div class="line">        .btn-send&#123;</div><div class="line">          display: inline-block;</div><div class="line">          margin-right: 10px;</div><div class="line">          width: 60px;</div><div class="line">          height: 95%;</div><div class="line">          text-align: center;</div><div class="line">          line-height: 34px;</div><div class="line">          text-decoration: none;</div><div class="line">          color: #fff;</div><div class="line">          background: #0997F7;</div><div class="line">        &#125;</div><div class="line">        .chat-users&#123;</div><div class="line">          float: left;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=&quot;chat-room&quot;&gt;</div><div class="line">  &lt;div class=&quot;header&quot;&gt;</div><div class="line">    &lt;h1 class=&quot;title&quot;&gt;嘻嘻啊的聊天室&lt;/h1&gt;</div><div class="line">    &lt;div class=&quot;msg&quot;&gt;</div><div class="line">      &lt;input id=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;请输入你的名字...&quot;&gt;</div><div class="line">      &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-commit&quot;&gt;确认&lt;/a&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div class=&quot;chat-content&quot;&gt;</div><div class="line">    &lt;div class=&quot;msg-content&quot;&gt;</div><div class="line">      &lt;ul class=&quot;msg-list&quot;&gt;</div><div class="line">        &lt;!-- &lt;li class=&quot;msg-item&quot;&gt;</div><div class="line">          &lt;p class=&quot;msg-time&quot;&gt;2017-9-13&lt;/p&gt;</div><div class="line">          &lt;p class=&quot;content&quot;&gt;谁谁谁：尼玛&lt;/p&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">        &lt;li class=&quot;msg-item&quot;&gt;</div><div class="line">          &lt;p class=&quot;msg-time&quot;&gt;2017-9-13&lt;/p&gt;</div><div class="line">          &lt;p class=&quot;content&quot;&gt;谁谁谁：尼玛&lt;/p&gt;</div><div class="line">        &lt;/li&gt; --&gt;</div><div class="line">      &lt;/ul&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;chat-area&quot;&gt;</div><div class="line">      &lt;textarea id=&quot;chatting&quot; placeholder=&quot;请输入内容...&quot;&gt;&lt;/textarea&gt;</div><div class="line">      &lt;div class=&quot;edit-area&quot;&gt;</div><div class="line">        &lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-send&quot;&gt;发送&lt;/a&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div class=&quot;chat-users&quot;&gt;</div><div class="line">    &lt;ul class=&quot;users-list&quot;&gt;</div><div class="line">      &lt;!-- &lt;li class=&quot;user-item&quot;&gt;嘻嘻啊&lt;/li&gt; --&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">    function getNowFormatDate() &#123;</div><div class="line">        var date = new Date();</div><div class="line">        var seperator1 = &quot;-&quot;;</div><div class="line">        var seperator2 = &quot;:&quot;;</div><div class="line">        var month = date.getMonth() + 1;</div><div class="line">        var strDate = date.getDate();</div><div class="line">        if (month &gt;= 1 &amp;&amp; month &lt;= 9) &#123;</div><div class="line">            month = &quot;0&quot; + month;</div><div class="line">        &#125;</div><div class="line">        if (strDate &gt;= 0 &amp;&amp; strDate &lt;= 9) &#123;</div><div class="line">            strDate = &quot;0&quot; + strDate;</div><div class="line">        &#125;</div><div class="line">        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate</div><div class="line">                + &quot; &quot; + date.getHours() + seperator2 + date.getMinutes()</div><div class="line">                + seperator2 + date.getSeconds();</div><div class="line">        return currentdate;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // var mess = document.getElementById(&quot;mess&quot;);</div><div class="line">    // var content = document.getElementById(&quot;content&quot;);</div><div class="line">    if(window.WebSocket)&#123;</div><div class="line">        var ws = new WebSocket(&apos;ws://172.29.121.40:8001&apos;);</div><div class="line"></div><div class="line">        ws.onopen = function(e)&#123;</div><div class="line">            console.log(&quot;连接服务器成功&quot;);</div><div class="line">            // ws.send(&quot;name:singlemai&quot;);</div><div class="line">        &#125;</div><div class="line">        ws.onclose = function(e)&#123;</div><div class="line">            console.log(&quot;服务器关闭&quot;);</div><div class="line">        &#125;</div><div class="line">        ws.onerror = function()&#123;</div><div class="line">            alert(&quot;连接出错&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ws.onmessage = function(e)&#123;</div><div class="line">          var li = document.createElement(&apos;li&apos;);</div><div class="line">          li.innerText = e.data;</div><div class="line">          li.classList.add(&apos;msg-item&apos;);</div><div class="line">          msgList.appendChild(li);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 进入聊天室</div><div class="line">    // 初始获得选择器</div><div class="line">    var btnCommit = document.querySelectorAll(&apos;.btn-commit&apos;)[0];</div><div class="line">    var btnSend = document.querySelectorAll(&apos;.btn-send&apos;)[0];</div><div class="line">    var msgList = document.querySelectorAll(&apos;.msg-list&apos;)[0];</div><div class="line">    var userList = document.querySelectorAll(&apos;.users-list&apos;)[0];</div><div class="line"></div><div class="line"></div><div class="line">    btnCommit.addEventListener(&apos;click&apos;, function()&#123;</div><div class="line">      var name = document.querySelectorAll(&apos;#name&apos;)[0].value;</div><div class="line">      if(name) &#123;</div><div class="line">        ws.send(`name:$&#123;name&#125;`);</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    btnSend.addEventListener(&apos;click&apos;, function() &#123;</div><div class="line">      var name = document.querySelectorAll(&apos;#name&apos;)[0].value;</div><div class="line">      var content = document.querySelectorAll(&apos;#chatting&apos;)[0].value;</div><div class="line">      if (name &amp;&amp; content) &#123;</div><div class="line">        ws.send(`$&#123;getNowFormatDate()&#125;&lt;br&gt;$&#123;name&#125;:$&#123;content&#125;`)</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<hr>
+<p>参考文章：<br><a href="http://lucumr.pocoo.org/2012/9/24/websockets-101/" target="_blank" rel="external">Websockets 101</a><br><a href="http://www.runoob.com/html/html5-websocket.html" target="_blank" rel="external">HTML5 WebSocket</a><br><a href="https://www.npmjs.com/package/nodejs-websocket" target="_blank" rel="external">nodejs-websocket </a><br><a href="http://www.cnblogs.com/axes/p/3586132.html" target="_blank" rel="external">HTML5+NodeJs实现WebSocket即时通讯</a><br><a href="http://www.cnblogs.com/shizhouyu/p/4975409.html" target="_blank" rel="external">学习html5的WebSocket连接</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/12/技术/html+css/CSS3文字的各种炫技/" rel="prev" title="CSS3文字的各种炫技">
+                CSS3文字的各种炫技 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSocket是什么"><span class="nav-number">1.</span> <span class="nav-text">WebSocket是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WebSocket与HTTP"><span class="nav-number">1.1.</span> <span class="nav-text">WebSocket与HTTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebSocket咋整"><span class="nav-number">1.2.</span> <span class="nav-text">WebSocket咋整</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用Websocket"><span class="nav-number">2.</span> <span class="nav-text">为什么要用Websocket</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#long-poll-和-ajax轮询-为啥我觉得不行"><span class="nav-number">2.1.</span> <span class="nav-text">long poll 和 ajax轮询 为啥我觉得不行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax轮询"><span class="nav-number">2.1.1.</span> <span class="nav-text">Ajax轮询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#long-poll"><span class="nav-number">2.1.2.</span> <span class="nav-text">long poll</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决"><span class="nav-number">2.1.4.</span> <span class="nav-text">解决</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么用"><span class="nav-number">3.</span> <span class="nav-text">怎么用~</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器"><span class="nav-number">3.1.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端"><span class="nav-number">3.2.</span> <span class="nav-text">客户端</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

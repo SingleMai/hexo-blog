@@ -390,13 +390,13 @@
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
-
       
       
 
       
+        <!-- 文章详情 -->
+        undefined
         <p>一个简单的节流函数<br><a id="more"></a><br>做开发的时候总会有遇到边界情况的考虑。例如点击发送请求，如果用户频繁点击。轮播图频繁切换都会导致页面或者服务器的不必要压力增加。这时候总是需要去设置定时器，进行节流。<br>虽然懂得怎么实现，但是从来没考虑过封装起来作为一个抽象方法。mooc课的老师给出的思路很棒！记录一下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">export function debounce(func, delay) &#123;</div><div class="line">  let timer</div><div class="line"></div><div class="line">  return function (...args)&#123;</div><div class="line">    if(timer) &#123;</div><div class="line">      clearTimeout(timer)</div><div class="line">    &#125;</div><div class="line">    timer = setTimeout(() =&gt; &#123;</div><div class="line">      func.apply(this, args)</div><div class="line">    &#125;, delay)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
@@ -458,7 +458,6 @@
   </article>
 
 
-
     <div class="post-spread">
       
     </div>
@@ -509,7 +508,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-count">99</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

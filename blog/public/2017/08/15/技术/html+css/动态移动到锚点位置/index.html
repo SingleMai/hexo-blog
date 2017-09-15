@@ -95,7 +95,7 @@
 <meta property="og:url" content="SingleMai.github.io/2017/08/15/技术/html+css/动态移动到锚点位置/index.html">
 <meta property="og:site_name" content="Bryan & Mia">
 <meta property="og:description" content="之前觉得，动态移动到锚点位置是一件挺难实现的事情。要计算需要滚动的距离什么的。而且可能是被自己第一次项目的经验左右了，滚动距离只会取body的距离，自己走进了死胡同。没想到，问了一下迅雷小哥，给了我个超级无敌优雅的实现方式。">
-<meta property="og:updated_time" content="2017-08-16T14:22:17.838Z">
+<meta property="og:updated_time" content="2017-09-11T06:23:59.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态移动到锚点位置">
 <meta name="twitter:description" content="之前觉得，动态移动到锚点位置是一件挺难实现的事情。要计算需要滚动的距离什么的。而且可能是被自己第一次项目的经验左右了，滚动距离只会取body的距离，自己走进了死胡同。没想到，问了一下迅雷小哥，给了我个超级无敌优雅的实现方式。">
@@ -390,18 +390,19 @@
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
-
       
       
 
       
+        <!-- 文章详情 -->
+        undefined
         <p>之前觉得，动态移动到锚点位置是一件挺难实现的事情。要计算需要滚动的距离什么的。而且可能是被自己第一次项目的经验左右了，滚动距离只会取body的距离，自己走进了死胡同。没想到，问了一下迅雷小哥，给了我个超级无敌优雅的实现方式。<br><a id="more"></a></p>
 <p>先上代码再解释！因为只是个我自己没想到的细节问题啊喂。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.html 文件</div><div class="line">&lt;a href=&quot;#pane1&quot;&gt;锚点链接&lt;/a&gt;</div></pre></td></tr></table></figure></p>
 <p>没错，就是锚点的常规写法啊，一点花里胡哨都没有！精髓都在js代码上啦<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.js 代码</div><div class="line">// 抓取被点击的需要锚点跳转的按钮的href属性</div><div class="line">var _href = $(this).attr(&apos;href&apos;);</div><div class="line">// 抓取需要链接过去的位置在页面的高度</div><div class="line">// 这里可以直接用_href的原因是因为我用的是ID记行标识锚点位置</div><div class="line">var _pos = $(_href).offset().top;</div><div class="line">// 运用动画函数，将页面动态滚动到指定位置上</div><div class="line">jQuery(&apos;html,body&apos;).animate(&#123;scrollTop:_pos&#125;,500);</div><div class="line">// 取消浏览器默认行为</div><div class="line">return false;</div></pre></td></tr></table></figure></p>
 <p>没错，就这么简单！（虽然其实实现的效果也很简单）。这里用的是jq进行的操作。但是其实用原生也可以的啦~~<code>animate</code>函数是已经在别处实现过的啦，暂时缺链接。然后高度可以这样获取。</p>
 <p><code>document.body.scrollTop</code></p>
+<h3 id="scrollIntoView"><a href="#scrollIntoView" class="headerlink" title="scrollIntoView()"></a>scrollIntoView()</h3><p>这是html5提供的方法，不过没办法实现动态效果呐，所以只当做mark一下<br>任何HTML元素都可以调用该方法，传入true时，元素会尽可能与视口顶部平齐。传入false，则尽可能全部出现，尽可能与视口底部平齐。</p>
 
       
     </div>
@@ -448,8 +449,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/14/技术/html+css/精灵图/" rel="prev" title="精灵图">
-                精灵图 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/14/技术/html+css/循环轮播图的各种实现/" rel="prev" title="循环轮播图的各种实现">
+                循环轮播图的各种实现 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -460,7 +461,6 @@
       
     </footer>
   </article>
-
 
 
     <div class="post-spread">
@@ -497,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -513,7 +522,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-count">99</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -577,6 +586,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollIntoView"><span class="nav-number">1.</span> <span class="nav-text">scrollIntoView()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -95,7 +95,7 @@
 <meta property="og:url" content="SingleMai.github.io/2017/08/18/技术/js/猜猜我在哪的小游戏原理/index.html">
 <meta property="og:site_name" content="Bryan & Mia">
 <meta property="og:description" content="这次做了个需求，模仿一个简单的“猜猜我在哪”游戏的V端页面。一开始完全一脸懵逼，完全不懂如何去实现。没想到，方法总是有的，只要你敢想。">
-<meta property="og:updated_time" content="2017-08-19T00:51:16.492Z">
+<meta property="og:updated_time" content="2017-08-24T16:17:35.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="猜猜我在哪的小游戏">
 <meta name="twitter:description" content="这次做了个需求，模仿一个简单的“猜猜我在哪”游戏的V端页面。一开始完全一脸懵逼，完全不懂如何去实现。没想到，方法总是有的，只要你敢想。">
@@ -390,21 +390,91 @@
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
-
       
       
 
       
+        <!-- 文章详情 -->
+        undefined
         <p>这次做了个需求，模仿一个简单的“猜猜我在哪”游戏的V端页面。一开始完全一脸懵逼，完全不懂如何去实现。没想到，方法总是有的，只要你敢想。<br><a id="more"></a></p>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .box {
+    position: relative;
+  }
+  .demo-list {
+    position: relative;
+    height: 100px;
+  }
+  .demo-item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: green;
+    list-style: none!important;
+  }
+  .second {
+    left: 110px;
+  }
+  .last {
+    left: 220px;
+  }
+  .btn-click{
+    display: block;
+    text-align: center;
+  }
+</style>
+
 <p>回想当时的思考思路。三个的时候如何可以实现呢？我只需要把每次<strong>随机</strong>一个<code>&lt;li&gt;</code>然后插到最前面，或者插到最后面。应该就可以实现打乱顺序了。————这样打乱顺序的思路就完成了。</p>
 <p>最关键的步骤是如何实现这个移动的动画呢。<code>animate</code>函数，或者<code>transition</code>属性，但是很明显，这个东西动画是需要先后顺序。而且动画移动期间，<code>&lt;li&gt;</code>是不能被绑定事件的。另外，动画也可能需要开始时缩放营造出后退的视觉，然后换位置，最后缩放为原来大小。于是得出结论，<strong>动画效果需要<code>animate</code>来实现</strong></p>
 <p>那动画效果应该如何实现呢？答案已经快呼之欲出了，移动原本的定位属性，将两者进行互换位置。功能不就实现了么？那么很明显，这里的布局需要<code>position:absolute</code>。</p>
 <p>得到这几个关键词后，相信你已经懂得这个东西能怎么去做啦。一开始我以为只能每次都和第一个交换，勉强实现打乱顺序的要求。但是细心一想，其实只要随机两个不重复的数字，然后交换他们的位置不就可以了么。那才是真正意义上的，猜猜我是谁</p>
 <p>小tips：由于位置打乱了，然而dom结构中的顺序是不变的。所以需要注意添加一些类名去确保能抓到正确的位置。（这个tips感觉如果采用两个随机数就不会有用啊）</p>
 <p>很开心，接到需求时候的一脸懵逼，在认真思考后解决了一个看似简单，却好像没那么容易实现的功能。突然想起来，迅雷小哥有一次做demo时候说的一句话：<strong>先别怂，思路很重要</strong></p>
+<p>DEMO:<br>这里的demo还有若干细节问题需要解决。但是为了避免代码太过长，细节部分大家自行完善。</p>
+<div class="box"><ul class="demo-list"><li class="demo-item first on">1</li><li class="demo-item second">2</li><li class="demo-item last">3</li></ul><a href="javascript:void(0)" class="btn-click" target="_blank" rel="external">点击开始</a></div>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">var time = 10; // 换位置的次数</div><div class="line">var now = 0;</div><div class="line">var ranNum;</div><div class="line">var obj = [&apos;first&apos;, &apos;second&apos;, &apos;last&apos;]; //输入li对应的类名</div><div class="line"></div><div class="line">changePos();</div><div class="line">function changePos() &#123;</div><div class="line">  var left;</div><div class="line">  var duration = 1000;</div><div class="line">  if (now &lt; time) &#123;</div><div class="line">    // 取 0 1 2 三个数</div><div class="line">    ranNum = Math.ceil(Math.random() * (2 - -1)) + -1;</div><div class="line">    classN = obj[ranNum];</div><div class="line">    if (!$(&apos;.on&apos;).hasClass(classN)) &#123;</div><div class="line">      now++;</div><div class="line">      var $moveLi = $(&apos;.&apos; + classN);</div><div class="line">      left = $moveLi.css(&apos;left&apos;);</div><div class="line">      $(&apos;.on&apos;).animate(&#123;</div><div class="line">        left: left</div><div class="line">      &#125;, duration).removeClass(&apos;on&apos;);</div><div class="line">      $moveLi.animate(&#123;</div><div class="line">        left: 0</div><div class="line">      &#125;, duration, changePos).addClass(&apos;on&apos;)</div><div class="line">    &#125; else &#123;</div><div class="line">      changePos()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<script>
+  window.onload = function() {
+    var time = 10; // 换位置的次数
+    var now = 0;
+    var ranNum;
+    var obj = ['first', 'second', 'last']; //输入li对应的类名
+
+    $('.btn-click').on('click', function(){
+      now = 0;
+      changePos();
+      })
+
+      function changePos() {
+        var left;
+        var duration = 1000;
+        if (now < time) {
+          // 取 0 1 2 三个数
+          ranNum = Math.ceil(Math.random() * (2 - -1)) + -1;
+          classN = obj[ranNum];
+          if (!$('.on').hasClass(classN)) {
+            now++;
+            var $moveLi = $('.' + classN);
+            left = $moveLi.css('left');
+            $('.on').animate({
+              left: left
+              }, duration).removeClass('on');
+              $moveLi.animate({
+                left: 0
+                }, duration, changePos).addClass('on')
+                } else {
+                  changePos()
+                }
+              }
+            }  
+  }
+</script>
 
       
     </div>
@@ -441,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/19/随笔日记/代码的魅力在于每个人都能发挥他的创作力/" rel="next" title="代码的威力在于每个人都能他的创造力">
-                <i class="fa fa-chevron-left"></i> 代码的威力在于每个人都能他的创造力
+              <a href="/2017/08/19/随笔日记/代码的魅力在于每个人都能发挥他的创作力/" rel="next" title="代码的魅力在于每个人都能发挥他的创作力">
+                <i class="fa fa-chevron-left"></i> 代码的魅力在于每个人都能发挥他的创作力
               </a>
             
           </div>
@@ -463,7 +533,6 @@
       
     </footer>
   </article>
-
 
 
     <div class="post-spread">
@@ -516,7 +585,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-count">99</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

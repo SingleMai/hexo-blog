@@ -88,8 +88,15 @@ myElement.value = null
 myElement.style.marginLeft = '2em'
 ```
 如果我们想获得CSS规则的值，我们也可以通过`.style`属性。然而， 它只能拿到我们明确设置过的样式。想要拿到计算后的样式值，我们要用`window.getComputedStyle()`.他可以拿到这个元素并返回一个CSSStyleDeclaration。这个返回值包括了这个元素和继承自父元素的全部样式。
+
 ```
 window.getComputedStyle(myElement).getPropertyValue('margin-left')
+```
+这里值得一提的是，IE并不支持该方法。在IE中，每个具有style属性的元素还有一个currentStyle属性。所以在IE中要这样操作
+```
+var myDiv = document.getElementById('myDiv')
+var compputedStyle = myDiv.currentStyle
+// width == compputedStyle..width
 ```
 ## 修改DOM
 ```

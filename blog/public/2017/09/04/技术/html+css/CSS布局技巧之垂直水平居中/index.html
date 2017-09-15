@@ -1,0 +1,903 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="还记得我进公司实习的第x天，领导在电梯和我说。页面重构布局，只要学会这几招就能打遍天下了：“垂直水平居中”、“深入理解盒子模型概念”、…还有一个居然忘了。Anyway，现在我们就来看一下花式实现垂直水平居中。">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS布局技巧之垂直水平居中">
+<meta property="og:url" content="SingleMai.github.io/2017/09/04/技术/html+css/CSS布局技巧之垂直水平居中/index.html">
+<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:description" content="还记得我进公司实习的第x天，领导在电梯和我说。页面重构布局，只要学会这几招就能打遍天下了：“垂直水平居中”、“深入理解盒子模型概念”、…还有一个居然忘了。Anyway，现在我们就来看一下花式实现垂直水平居中。">
+<meta property="og:updated_time" content="2017-09-05T06:53:15.952Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS布局技巧之垂直水平居中">
+<meta name="twitter:description" content="还记得我进公司实习的第x天，领导在电梯和我说。页面重构布局，只要学会这几招就能打遍天下了：“垂直水平居中”、“深入理解盒子模型概念”、…还有一个居然忘了。Anyway，现在我们就来看一下花式实现垂直水平居中。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/09/04/技术/html+css/CSS布局技巧之垂直水平居中/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> CSS布局技巧之垂直水平居中 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/09/04/技术/html+css/CSS布局技巧之垂直水平居中/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS布局技巧之垂直水平居中
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-04T23:37:42+08:00">
+                2017-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html-css/" itemprop="url" rel="index">
+                    <span itemprop="name">html+css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/04/技术/html+css/CSS布局技巧之垂直水平居中/" class="leancloud_visitors" data-flag-title="CSS布局技巧之垂直水平居中">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>还记得我进公司实习的第x天，领导在电梯和我说。页面重构布局，只要学会这几招就能打遍天下了：“垂直水平居中”、“深入理解盒子模型概念”、…还有一个居然忘了。Anyway，现在我们就来看一下花式实现垂直水平居中。<br><a id="more"></a></p>
+<h2 id="第一式，margin-0-auto（水平居中）"><a href="#第一式，margin-0-auto（水平居中）" class="headerlink" title="第一式，margin: 0 auto（水平居中）"></a>第一式，<code>margin: 0 auto</code>（水平居中）</h2><p>这招是人手必备的水平居中技巧，适用于正常文档流（不包括浮动和定位）的块状标签居中方法。</p>
+<h3 id="第二式，text-align-center（水平居中）"><a href="#第二式，text-align-center（水平居中）" class="headerlink" title="第二式，text-align:center（水平居中）"></a>第二式，<code>text-align:center</code>（水平居中）</h3><p>这招同样也是人手必备的，适用于正常文档流的行内块状和内联标签</p>
+<h3 id="第三式，display-table-cell（垂直水平居中）"><a href="#第三式，display-table-cell（垂直水平居中）" class="headerlink" title="第三式，display:table-cell（垂直水平居中）"></a>第三式，<code>display:table-cell</code>（垂直水平居中）</h3><p>通过将元素模拟成<code>table</code>标签来运用<code>table</code>所独有的居中和垂直居中效果。注意父元素需要<code>display:table</code>，在子元素<code>display:table-cell;text-align:center;vertical-align:middle;</code></p>
+<h3 id="第四式，适用绝对定位来进行居中（垂直水平居中）"><a href="#第四式，适用绝对定位来进行居中（垂直水平居中）" class="headerlink" title="第四式，适用绝对定位来进行居中（垂直水平居中）"></a>第四式，适用绝对定位来进行居中（垂直水平居中）</h3><p>这一招为了兼容性的话，需要知道元素的宽度或高度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">left: 50%;</div><div class="line">margin-left: -50px</div><div class="line">width: 100px;</div></pre></td></tr></table></figure></p>
+<p>如果你熟悉css3的新属性，那么肯定能够想到。<code>transform:translateX(-50%)</code>这样子可以不考虑元素的宽度高度就能实现绝对居中，但是有兼容性问题。</p>
+<h3 id="第五式，line-height实现单行文本居中（垂直居中）"><a href="#第五式，line-height实现单行文本居中（垂直居中）" class="headerlink" title="第五式，line-height实现单行文本居中（垂直居中）"></a>第五式，<code>line-height</code>实现单行文本居中（垂直居中）</h3><p>只需要将文本的行高设置到和父级容器高度一致即可。</p>
+<h3 id="第六式，同样利用绝对定位实现居中（垂直水平居中）"><a href="#第六式，同样利用绝对定位实现居中（垂直水平居中）" class="headerlink" title="第六式，同样利用绝对定位实现居中（垂直水平居中）"></a>第六式，同样利用绝对定位实现居中（垂直水平居中）</h3><p>有两个缺点：兼容性问题，兼容ie9以上；需要知道元素的宽高。足足有两个缺点，那为什么我们要使用呢？（其实我也不知道，但是多一招总没错）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">  position: relatvie;</div><div class="line">  width: 200px;</div><div class="line">  height: 200px;</div><div class="line">&#125;</div><div class="line">.child&#123;</div><div class="line">  position: absolute;</div><div class="line">  width: 100px; //必须固定</div><div class="line">  height: 100px; //必须固定</div><div class="line">  left: 0; // left 和 right 必须成对出现实现水平居中</div><div class="line">  right: 0;</div><div class="line">  top: 0;</div><div class="line">  bottom: 0;</div><div class="line">  margin: auto; // 必须出现</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="第七式，使用浮动配合相对定位进行水平居中（水平居中）"><a href="#第七式，使用浮动配合相对定位进行水平居中（水平居中）" class="headerlink" title="第七式，使用浮动配合相对定位进行水平居中（水平居中）"></a>第七式，使用浮动配合相对定位进行水平居中（水平居中）</h3><p>此方法是关于浮动元素怎么水平居中的解决方法，并且不需要知道需要居中的元素的宽度。</p>
+<p>浮动居中的原理是：把浮动元素相对定位到父元素宽度50%的地方，但这个时候元素还不是居中的，而是比居中的那个位置多出了自身一半的宽度，这是就需要他里面的子元素再用一个相对定位，把多出的自身一半的宽度拉回来，而因为相对定位正是相对于自身来定位的，所以自身一半的宽度只要把left或right设为50%就可以了。</p>
+<p>这种使用浮动配合相对定位来居中的方法，优点是不用知道要居中的元素的宽度，即使这个宽度是不断变化的也行；缺点是需要一个多余的元素来包裹要居中的元素。而且不能实现垂直居中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.block &#123;</div><div class="line">  width: 500px;</div><div class="line">  height: 500px;</div><div class="line">  background: green;</div><div class="line">&#125;</div><div class="line">.wraper&#123;</div><div class="line">  float: left;</div><div class="line">  position: relative;</div><div class="line">  left: 50%;</div><div class="line">  clear: both;</div><div class="line">&#125;</div><div class="line">.content&#123;</div><div class="line">  position: relative;</div><div class="line">  left: -50%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>变形后，失去兼容性，但是不需要多套一层div。只是不知道和直接用绝对定位的区别。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.block &#123;</div><div class="line">  width: 500px;</div><div class="line">  height: 500px;</div><div class="line">  background: green;</div><div class="line">&#125;</div><div class="line">.content&#123;</div><div class="line">  float: left;</div><div class="line">  position: relative;</div><div class="line">  left: 50%;</div><div class="line">  transform: translateX(-50%);</div><div class="line">  clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="第七式，flex布局（垂直，水平）"><a href="#第七式，flex布局（垂直，水平）" class="headerlink" title="第七式，flex布局（垂直，水平）"></a>第七式，flex布局（垂直，水平）</h3><p>这个除了兼容性，绝对是布局必备。阮一峰大大的两篇博客都写得很好，直接参考着就能学会了。这里不重复说。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/08/技术/js/细数js之闭包/" rel="next" title="细数JS之闭包">
+                <i class="fa fa-chevron-left"></i> 细数JS之闭包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/20/随笔日记/用健身来说学习/" rel="prev" title="用健身来说学习">
+                用健身来说学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一式，margin-0-auto（水平居中）"><span class="nav-number">1.</span> <span class="nav-text">第一式，margin: 0 auto（水平居中）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第二式，text-align-center（水平居中）"><span class="nav-number">1.1.</span> <span class="nav-text">第二式，text-align:center（水平居中）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三式，display-table-cell（垂直水平居中）"><span class="nav-number">1.2.</span> <span class="nav-text">第三式，display:table-cell（垂直水平居中）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四式，适用绝对定位来进行居中（垂直水平居中）"><span class="nav-number">1.3.</span> <span class="nav-text">第四式，适用绝对定位来进行居中（垂直水平居中）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五式，line-height实现单行文本居中（垂直居中）"><span class="nav-number">1.4.</span> <span class="nav-text">第五式，line-height实现单行文本居中（垂直居中）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六式，同样利用绝对定位实现居中（垂直水平居中）"><span class="nav-number">1.5.</span> <span class="nav-text">第六式，同样利用绝对定位实现居中（垂直水平居中）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七式，使用浮动配合相对定位进行水平居中（水平居中）"><span class="nav-number">1.6.</span> <span class="nav-text">第七式，使用浮动配合相对定位进行水平居中（水平居中）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七式，flex布局（垂直，水平）"><span class="nav-number">1.7.</span> <span class="nav-text">第七式，flex布局（垂直，水平）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

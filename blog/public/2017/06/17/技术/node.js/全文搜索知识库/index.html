@@ -390,13 +390,13 @@
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
-
       
       
 
       
+        <!-- 文章详情 -->
+        undefined
         <p>最近在快讯的项目是做一个全文搜索的知识库。本来一开始听到这个要求的时候，头皮有点发麻，因为他要求三层类别层级，然后支持全文搜索。全是我未知的领域。<br><a id="more"></a><br>但是事实证明，压力能给你带来很多意想不到的东西。刚开始接到要求，我第一反应就是谈判，减低要求。奈何和我一组的老哥一直点头说没问题。于是，便开始了这个需求的学习。</p>
 <h2 id="全文搜索"><a href="#全文搜索" class="headerlink" title="全文搜索"></a>全文搜索</h2><p>全文搜索，听起来好像很高大上，很难搞定。但是其实原理只有两个：关联的模糊搜索（高端点可以利用索引）和中文分词。</p>
 <h3 id="关联的模糊搜索以及索引"><a href="#关联的模糊搜索以及索引" class="headerlink" title="关联的模糊搜索以及索引"></a>关联的模糊搜索以及索引</h3><p>索引这个，奈何我自己的数据库知识不是特别扎实，所以看了挺多资料之后也没特别搞懂。今天在具体实现的时候，发现sequelize在官方文档的实例里用到这样一招，让我茅塞顿开。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const result = yield Knowledge.findAll(&#123;</div><div class="line">  where: &#123;</div><div class="line">    $or: &#123;</div><div class="line">      title: &#123;</div><div class="line">        $like: `%$&#123;key[0]&#125;%`,</div><div class="line">      &#125;</div><div class="line">    &#125;,&#123;</div><div class="line">      content: &#123;</div><div class="line">        $like: `%$&#123;key[0]&#125;%`,</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
@@ -471,7 +471,6 @@
   </article>
 
 
-
     <div class="post-spread">
       
     </div>
@@ -531,7 +530,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-count">99</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
