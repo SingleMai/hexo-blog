@@ -93,9 +93,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="NO JQUERY，原生js操作DOM">
 <meta property="og:url" content="SingleMai.github.io/2017/05/15/技术/js/NOJQUERY/index.html">
-<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:site_name" content="Bryan &amp; Mia">
 <meta property="og:description" content="每次面试或者和同学交流都会提到，原生js写DOM操作的重要性。虽然JQuery已经封装好了你所需要的一切。既然如此，为了熟悉js的操作，也是以后面试的需求。整理和记忆一下原生js操作DOM吧！文章内容代码参考：【第910期】No JQuery! 原生JavaScript操作DOM">
-<meta property="og:updated_time" content="2017-06-03T14:01:56.532Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-14T05:33:33.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NO JQUERY，原生js操作DOM">
 <meta name="twitter:description" content="每次面试或者和同学交流都会提到，原生js写DOM操作的重要性。虽然JQuery已经封装好了你所需要的一切。既然如此，为了熟悉js的操作，也是以后面试的需求。整理和记忆一下原生js操作DOM吧！文章内容代码参考：【第910期】No JQuery! 原生JavaScript操作DOM">
@@ -422,7 +423,9 @@
 <p>注意还有<code>.getAttribute()</code>,<code>.setAttribute()</code>和<code>.removeAttribute()</code>这三个方法。这些方法直接修改元素的HTML属性（与DOM属性相对），因而会导致<strong>浏览器重新渲染</strong>所以会比只修改DOM属性代价更高。</p>
 <p>作为一个小的原则，除非你真的想对HTML“持久化”那些改变，你就只用上面的方法修改与DOM属性不相关的HTML属性（比如colspan)(比如当克隆一个元素或者修改它的父元素的.innerHTML的时候想保持这些改变,参考第三部分).</p>
 <h2 id="添加CSS样式"><a href="#添加CSS样式" class="headerlink" title="添加CSS样式"></a>添加CSS样式</h2><p>添加CSS样式可以像其他属性一样设置，需要注意的是在Js中要写成驼峰式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myElement.style.marginLeft = &apos;2em&apos;</div></pre></td></tr></table></figure></p>
-<p>如果我们想获得CSS规则的值，我们也可以通过<code>.style</code>属性。然而， 它只能拿到我们明确设置过的样式。想要拿到计算后的样式值，我们要用<code>window.getComputedStyle()</code>.他可以拿到这个元素并返回一个CSSStyleDeclaration。这个返回值包括了这个元素和继承自父元素的全部样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.getComputedStyle(myElement).getPropertyValue(&apos;margin-left&apos;)</div></pre></td></tr></table></figure></p>
+<p>如果我们想获得CSS规则的值，我们也可以通过<code>.style</code>属性。然而， 它只能拿到我们明确设置过的样式。想要拿到计算后的样式值，我们要用<code>window.getComputedStyle()</code>.他可以拿到这个元素并返回一个CSSStyleDeclaration。这个返回值包括了这个元素和继承自父元素的全部样式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.getComputedStyle(myElement).getPropertyValue(&apos;margin-left&apos;)</div></pre></td></tr></table></figure>
+<p>这里值得一提的是，IE并不支持该方法。在IE中，每个具有style属性的元素还有一个currentStyle属性。所以在IE中要这样操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var myDiv = document.getElementById(&apos;myDiv&apos;)</div><div class="line">var compputedStyle = myDiv.currentStyle</div><div class="line">// width == compputedStyle..width</div></pre></td></tr></table></figure></p>
 <h2 id="修改DOM"><a href="#修改DOM" class="headerlink" title="修改DOM"></a>修改DOM</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 把element1作为element2的最后一个子元素插入</div><div class="line">element1.appendChild(element2);</div><div class="line">// element3之前，插入element2作为element1的子元素</div><div class="line">element1.insertBefore(element2,element3);</div></pre></td></tr></table></figure>
 <p>如果我们不想移动元素，而是插入一个拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myElementClone = myElement.cloneNode();</div><div class="line">myParentElement.appendChild(myElementClone);</div></pre></td></tr></table></figure></p>
 <p><code>.cloneNode()</code>可以传入一个布尔值，<code>true</code>表示深拷贝，会拷贝它的子元素。</p>
@@ -512,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/16/技术/node.js/验证码模块/" rel="next" title="captchapng验证码模块">
-                <i class="fa fa-chevron-left"></i> captchapng验证码模块
+              <a href="/2017/05/02/观后感/《完美陌生人》观后感/" rel="next" title="《完美陌生人》观后感（半转半写）">
+                <i class="fa fa-chevron-left"></i> 《完美陌生人》观后感（半转半写）
               </a>
             
           </div>
@@ -522,8 +525,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/02/观后感/《完美陌生人》观后感/" rel="prev" title="《完美陌生人》观后感（半转半写）">
-                《完美陌生人》观后感（半转半写） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/16/技术/node.js/验证码模块/" rel="prev" title="captchapng验证码模块">
+                captchapng验证码模块 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -595,7 +598,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-count">125</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -606,7 +609,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -617,7 +620,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tag/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

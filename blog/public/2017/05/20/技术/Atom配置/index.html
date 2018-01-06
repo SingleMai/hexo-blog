@@ -93,9 +93,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Atom配置">
 <meta property="og:url" content="SingleMai.github.io/2017/05/20/技术/Atom配置/index.html">
-<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:site_name" content="Bryan &amp; Mia">
 <meta property="og:description" content="Atom是一个很好用的编辑软件，可以让自己添加各种插件来辅助自己写代码。然而，有时候配置多了可能就忘了。所以特意建一个来保存自己的基础信息。（虽然说有插件可以实现转移，不过还是不放心吧。)">
-<meta property="og:updated_time" content="2017-08-05T01:54:39.596Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-08T14:43:49.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Atom配置">
 <meta name="twitter:description" content="Atom是一个很好用的编辑软件，可以让自己添加各种插件来辅助自己写代码。然而，有时候配置多了可能就忘了。所以特意建一个来保存自己的基础信息。（虽然说有插件可以实现转移，不过还是不放心吧。)">
@@ -401,7 +402,9 @@
 <h2 id="keymap的配置"><a href="#keymap的配置" class="headerlink" title="keymap的配置"></a>keymap的配置</h2><p>实现vue中支持emmet，和快捷键打开浏览器(需要先安装<code>open-in-browser</code>)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">./keymap.cson</div><div class="line"></div><div class="line">&apos;atom-text-editor&apos;:</div><div class="line">  &apos;ctrl-F12&apos; : &apos;open-in-browser:open&apos;</div><div class="line"># 让vue文件里面支持emmet语法</div><div class="line">&apos;atom-text-editor[data-grammar~=&quot;vue&quot;]:not([mini])&apos;:</div><div class="line">  &apos;tab&apos;: &apos;emmet:expand-abbreviation-with-tab&apos;</div></pre></td></tr></table></figure></p>
 <h2 id="代码高亮显示"><a href="#代码高亮显示" class="headerlink" title="代码高亮显示"></a>代码高亮显示</h2><p>代码高亮其实很好找，so 不罗列太多。大致名字都是<code>atom-${name}</code>和<code>language-${name}</code></p>
 <p>vue代码高亮：<br>亲测<code>language-vue</code>比<code>language-vue-componment</code>要好用啊。<br>jade高亮：<br><code>atom-jade</code></p>
-<h2 id="辅助插件"><a href="#辅助插件" class="headerlink" title="辅助插件"></a>辅助插件</h2><h3 id="同时修改html开闭合标签atom-double-tag"><a href="#同时修改html开闭合标签atom-double-tag" class="headerlink" title="同时修改html开闭合标签atom-double-tag"></a>同时修改html开闭合标签<code>atom-double-tag</code></h3><h3 id="高亮选择单词highlight-selected"><a href="#高亮选择单词highlight-selected" class="headerlink" title="高亮选择单词highlight selected"></a>高亮选择单词<code>highlight selected</code></h3><p>emmet<br><code>emmet-atom</code><br>颜料<br><code>atom-pignments</code><br><code>color-picker</code><br>缩略图<br><code>minimap</code><br>文件图标<br><code>file-icon</code><br>美化工具插件<br><code>atom-beautify</code><br>这个是美化代码的插件，支持所有主流语言。不过嘛，设置起来有些复杂（主要是英文的原因）然后之前在项目中又可能代码量太大，总是莫名出bug，所以被我闲置了。<br><code>autocomplete-paths</code><br>这个自动引入文件路径提供显示实在太棒！这是我工作之后接触webstorm发现的一个不能太棒的功能。<br><code>autoprefixer</code><br>自动添加css前缀，不错的一个插件，但是考虑到我打算尽可能去使用预编译语言，所以。hmm，只当留个记录吧。然后顺便在这里记录一下我用koala来处理sass文件。<br><code>docblockr</code><br>写注释的插件。hmm，同样是留个记录的东西，因为对我暂时的需求而言，我只需要一个命令。那么其实使用<code>snippt</code>来实现其实也可以，所以暂时还是使用<code>snippt</code>来实现好了。文章后面会提到</p>
+<h2 id="辅助插件"><a href="#辅助插件" class="headerlink" title="辅助插件"></a>辅助插件</h2><h3 id="typescript"><a href="#typescript" class="headerlink" title="typescript"></a>typescript</h3><p><a href="http://blog.csdn.net/qianghaohao/article/details/52331432" target="_blank" rel="external">改变atom的安装，实现apm</a></p>
+<p><a href="https://github.com/TypeStrong/atom-typescript" target="_blank" rel="external">atom- typescript</a> 还附带了很多别的插件。。。。看着提示安装就好了</p>
+<h3 id="同时修改html开闭合标签atom-double-tag"><a href="#同时修改html开闭合标签atom-double-tag" class="headerlink" title="同时修改html开闭合标签atom-double-tag"></a>同时修改html开闭合标签<code>atom-double-tag</code></h3><h3 id="高亮选择单词highlight-selected"><a href="#高亮选择单词highlight-selected" class="headerlink" title="高亮选择单词highlight selected"></a>高亮选择单词<code>highlight selected</code></h3><p>emmet<br><code>emmet-atom</code><br>颜料<br><code>atom-pignments</code><br><code>color-picker</code><br>缩略图<br><code>minimap</code><br>文件图标<br><code>file-icon</code><br>美化工具插件<br><code>atom-beautify</code><br>这个是美化代码的插件，支持所有主流语言。不过嘛，设置起来有些复杂（主要是英文的原因）然后之前在项目中又可能代码量太大，总是莫名出bug，所以被我闲置了。<br><code>autocomplete-paths</code><br>这个自动引入文件路径提供显示实在太棒！这是我工作之后接触webstorm发现的一个不能太棒的功能。<br><code>autoprefixer</code><br>自动添加css前缀，不错的一个插件，但是考虑到我打算尽可能去使用预编译语言，所以。hmm，只当留个记录吧。然后顺便在这里记录一下我用koala来处理sass文件。<br><code>docblockr</code><br>写注释的插件。hmm，同样是留个记录的东西，因为对我暂时的需求而言，我只需要一个命令。那么其实使用<code>snippt</code>来实现其实也可以，所以暂时还是使用<code>snippt</code>来实现好了。文章后面会提到</p>
 <p><code>代码提示 atom-ternjs</code><br>其实很久之前我就下载了这个，但是比较无脑，没认真看官方文档。没留意到他是需要根据每个特定项目进行设置的。也就是要在每个项目里面调出这个插件的设置面板<code>packages =&gt; atom ternjs =&gt; configure project</code> 记得勾选<code>browser</code> 即可享用。不过据说能少用就少用，不然有些代码会忘了=。=</p>
 <h2 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h2><p>集各种功能的markdown编辑插件<br><code>markdown-preview-enhanced</code></p>
 <h2 id="其他小地方的调整"><a href="#其他小地方的调整" class="headerlink" title="其他小地方的调整"></a>其他小地方的调整</h2><p>调出控制面板</p>
@@ -453,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/22/技术/html+css/HTML+CSS制造蜂巢图片/" rel="next" title="HTML+CSS制造蜂巢图片">
-                <i class="fa fa-chevron-left"></i> HTML+CSS制造蜂巢图片
+              <a href="/2017/05/20/技术/node.js/Promise解决回调地狱/" rel="next" title="Promise解决回调地狱">
+                <i class="fa fa-chevron-left"></i> Promise解决回调地狱
               </a>
             
           </div>
@@ -463,8 +466,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/20/技术/node.js/解决回调地狱/" rel="prev" title="解决回调地狱">
-                解决回调地狱 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/22/技术/html+css/HTML+CSS制造蜂巢图片/" rel="prev" title="HTML+CSS制造蜂巢图片">
+                HTML+CSS制造蜂巢图片 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -536,7 +539,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-count">125</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -547,7 +550,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -558,7 +561,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tag/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -610,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#keymap的配置"><span class="nav-number">1.</span> <span class="nav-text">keymap的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码高亮显示"><span class="nav-number">2.</span> <span class="nav-text">代码高亮显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#辅助插件"><span class="nav-number">3.</span> <span class="nav-text">辅助插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同时修改html开闭合标签atom-double-tag"><span class="nav-number">3.1.</span> <span class="nav-text">同时修改html开闭合标签atom-double-tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高亮选择单词highlight-selected"><span class="nav-number">3.2.</span> <span class="nav-text">高亮选择单词highlight selected</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown"><span class="nav-number">4.</span> <span class="nav-text">markdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他小地方的调整"><span class="nav-number">5.</span> <span class="nav-text">其他小地方的调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Snippets的设置"><span class="nav-number">6.</span> <span class="nav-text">Snippets的设置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#keymap的配置"><span class="nav-number">1.</span> <span class="nav-text">keymap的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码高亮显示"><span class="nav-number">2.</span> <span class="nav-text">代码高亮显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#辅助插件"><span class="nav-number">3.</span> <span class="nav-text">辅助插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typescript"><span class="nav-number">3.1.</span> <span class="nav-text">typescript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同时修改html开闭合标签atom-double-tag"><span class="nav-number">3.2.</span> <span class="nav-text">同时修改html开闭合标签atom-double-tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高亮选择单词highlight-selected"><span class="nav-number">3.3.</span> <span class="nav-text">高亮选择单词highlight selected</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown"><span class="nav-number">4.</span> <span class="nav-text">markdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他小地方的调整"><span class="nav-number">5.</span> <span class="nav-text">其他小地方的调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Snippets的设置"><span class="nav-number">6.</span> <span class="nav-text">Snippets的设置</span></a></li></ol></div>
             
 
           </div>

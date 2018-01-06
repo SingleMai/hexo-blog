@@ -89,13 +89,13 @@
 
 
 <meta name="description" content="轮播图的各种实现方式，没有最好的方式，只有更加适用的方式。这里写了超多代码，然而，让文章变得好臃肿好卡。所以可能会考虑删减，只留核心以及原理逻辑">
-<meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="循环轮播图的各种实现">
 <meta property="og:url" content="SingleMai.github.io/2017/08/14/技术/html+css/循环轮播图的各种实现/index.html">
-<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:site_name" content="Bryan &amp; Mia">
 <meta property="og:description" content="轮播图的各种实现方式，没有最好的方式，只有更加适用的方式。这里写了超多代码，然而，让文章变得好臃肿好卡。所以可能会考虑删减，只留核心以及原理逻辑">
-<meta property="og:updated_time" content="2017-08-16T14:38:08.334Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-19T14:05:49.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="循环轮播图的各种实现">
 <meta name="twitter:description" content="轮播图的各种实现方式，没有最好的方式，只有更加适用的方式。这里写了超多代码，然而，让文章变得好臃肿好卡。所以可能会考虑删减，只留核心以及原理逻辑">
@@ -405,6 +405,10 @@
 <p>再多加点修饰：利用一个全局的常量来记录当前的轮播位置，就可以很轻松地实现到dots点的展示啦。然后添加点击事件，滑动事件，定时器什么的，一个功能丰富的轮播图就出来了。</p>
 <p>稍微棘手的就是临界值时候，无限轮播的实现稍微麻烦。以及点击切换如果结合动画容易造成动画错位。</p>
 <p>然后就来介绍各种轮播图的实现原理，以及分析一下优劣。当然一下见解不过是我自己手撸了这么多个之后自己的感悟吧。这里不会太多说代码部分，代码部分放在最后哦</p>
+<h2 id="CSS3特效动画轮播图-更新于2017-10-19"><a href="#CSS3特效动画轮播图-更新于2017-10-19" class="headerlink" title="CSS3特效动画轮播图(更新于2017.10.19)"></a>CSS3特效动画轮播图(更新于2017.10.19)</h2><p>平时的轮播图都是很单调地左滑又滑上滑下滑，稍微再酷一点就顶多是利用<code>transform:scale()</code>来实现变大变小。有幸在腾讯课堂的海棠学院看到了css3动画demo，实现更酷炫的轮播图。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>抛却一切别的东西。在轮播图的图片区，不再是事先放好所有图片进行超出隐藏然后进行位移。轮播图区只有当前的显示图片，那么其他图片怎么来呢？当然是js动态设置啦。为了酷炫的效果，我们使用相对定位，将图片切割成若干个长方形，再结合<code>background-position:</code>设置图片显示的位置。也就是用若干长方形铺满一张图片，并设置<code>transform:translateY(100%)</code>将小长方形放置在画面之外。之后利用<code>setTimeout</code>函数，进行位移。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// div指的是小长方形</div><div class="line">// i 指的是当前个数， 可以理解为  为了实现每个长方形不同步地移入画面</div><div class="line">function move(div, i) &#123;</div><div class="line">  setTimeout(function()&#123;</div><div class="line">    div.style.transform = &apos;translateY(0)&apos;;</div><div class="line">  &#125;, (i+1)*50);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此外，监听最后一个小长方形的动画事件。当动画结束，将所有长方形移除，并且设置图片。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">lastDiv.addEventListener(&apos;transitionend&apos;, function()&#123;</div><div class="line">  $wrapConetent.innerHTML = `&lt;img src=&quot;img/$&#123;imgNum&#125;.jpg&quot;&gt;`;</div><div class="line">  canMove = true; // 用于节流，避免用户在动画结束之前点击</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>这里效果不方便演示啊，很难讲清楚效果是怎么一个效果。大致描述一下， 就是点击切换时，图片被分割成好多长条，然后依照从中间往两边散开的先后顺序进入页面。</p>
 <h2 id="利用前后辅助图实现循环轮播"><a href="#利用前后辅助图实现循环轮播" class="headerlink" title="利用前后辅助图实现循环轮播"></a>利用前后辅助图实现循环轮播</h2><p>前后多加一张辅助图 可以实现。这个方法是最初的轮播图实现，大部分功能都能完美实现，唯一缺点就是前后多加了一张图，代码结构上并不好看。实现方式就是margin-left一直负负负负负直到到达末尾后重置为0</p>
 <ul>
 <li>无限循环滚动</li>
@@ -455,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/15/技术/html+css/动态移动到锚点位置/" rel="next" title="动态移动到锚点位置">
-                <i class="fa fa-chevron-left"></i> 动态移动到锚点位置
+              <a href="/2017/08/14/技术/html+css/精灵图/" rel="next" title="精灵图">
+                <i class="fa fa-chevron-left"></i> 精灵图
               </a>
             
           </div>
@@ -465,8 +469,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/14/技术/html+css/精灵图/" rel="prev" title="精灵图">
-                精灵图 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/15/技术/html+css/动态移动到锚点位置/" rel="prev" title="动态移动到锚点位置">
+                动态移动到锚点位置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -538,7 +542,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-count">125</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -549,7 +553,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -560,7 +564,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tag/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -612,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#轮播图的原理"><span class="nav-number">1.</span> <span class="nav-text">轮播图的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用前后辅助图实现循环轮播"><span class="nav-number">2.</span> <span class="nav-text">利用前后辅助图实现循环轮播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用绝对定位实现"><span class="nav-number">3.</span> <span class="nav-text">利用绝对定位实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#轮播图的原理"><span class="nav-number">1.</span> <span class="nav-text">轮播图的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3特效动画轮播图-更新于2017-10-19"><span class="nav-number">2.</span> <span class="nav-text">CSS3特效动画轮播图(更新于2017.10.19)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">2.1.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用前后辅助图实现循环轮播"><span class="nav-number">3.</span> <span class="nav-text">利用前后辅助图实现循环轮播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用绝对定位实现"><span class="nav-number">4.</span> <span class="nav-text">利用绝对定位实现</span></a></li></ol></div>
             
 
           </div>

@@ -1,0 +1,931 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="哭唧唧，配置了老半天，这坑踩得也太没必要了点。anyway,还是稍微有长见识，mark一下吧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在windows下用nvm管理node">
+<meta property="og:url" content="SingleMai.github.io/2017/10/15/技术/在windows下用nvm管理node/index.html">
+<meta property="og:site_name" content="Bryan &amp; Mia">
+<meta property="og:description" content="哭唧唧，配置了老半天，这坑踩得也太没必要了点。anyway,还是稍微有长见识，mark一下吧">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-15T11:49:40.414Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在windows下用nvm管理node">
+<meta name="twitter:description" content="哭唧唧，配置了老半天，这坑踩得也太没必要了点。anyway,还是稍微有长见识，mark一下吧">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/10/15/技术/在windows下用nvm管理node/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 在windows下用nvm管理node | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/10/15/技术/在windows下用nvm管理node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                在windows下用nvm管理node
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-15T18:34:10+08:00">
+                2017-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具配置/" itemprop="url" rel="index">
+                    <span itemprop="name">工具配置</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/15/技术/在windows下用nvm管理node/" class="leancloud_visitors" data-flag-title="在windows下用nvm管理node">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>哭唧唧，配置了老半天，这坑踩得也太没必要了点。anyway,还是稍微有长见识，mark一下吧<br><a id="more"></a><br>重要事情说三遍！引入新东西先查教程先查源文档！引入新东西先查教程先查源文档！引入新东西先查教程先查源文档！</p>
+<p>其实讲道理，我这个做法是应该直接一波流配完直接搞定的。奈何不知道是不是版本问题。。最新版出了点bug，捣鼓了老久找了个以前的版本才终于过了关。</p>
+<h2 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h2><p>咱们直接先看文档的<a href="https://github.com/coreybutler/nvm-windows" target="_blank" rel="external">]安装提示</a>：</p>
+<blockquote>
+<p>It comes with an installer (and uninstaller), because getting it should be easy. Please note, you need to uninstall any existing versions of node.js before installing NVM for Windows. Also delete any existing nodejs installation directories (e.g., “C:\Program Files\nodejs”) that might remain. NVM’s generated symlink will not overwrite an existing (even empty) installation directory.<br>You should also delete the existing npm install location (e.g. “C:\Users<user>\AppData\Roaming\npm”) so that the nvm install location will be correctly used instead. After install, reinstalling global utilities (e.g. gulp) will have to be done for each installed version of node:</user></p>
+</blockquote>
+<p>全英文？很可怕？那也得看啊，翻译着看呗，不然踩坑踩死你。这里大致的意思就是如果你以前安装过node.js，那么在安装nvm之前必须把它卸载掉。然后它大概根据默认配置让你去找你安装位置。之后，还需要删除掉用npm下载的所有包。反正就是删删删，全删干净。确保之后不会有冲突</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>然后就是直接找最近的版本下载，奈何最近墙太厚翻不过去（其实主要也是自己很少去翻）。所以下载的是源代码然后build跑出来的。不知道是版本没弄好还是怎样，缺了一个文件<code>nvm.exe</code>。所以一直没能成功安装上。之后…就是很烦人地找旧版本了，还是因为墙的原因，下载简直难产。感谢前辈居然贴出百度云链接。<a href="http://pan.baidu.com/s/1qXKQrnQ" target="_blank" rel="external">http://pan.baidu.com/s/1qXKQrnQ</a>. 然后就直接安装就好了。</p>
+<p>如果你读了文档，你就会发现其实直接所有都是默认安装最好。因为在以后更新的时候，你直接抓一个新的包直接重新默认安装一遍就直接OK了。不过要是对文件目录喜欢规划的，也没问题。（这里有一个小坑，是在查版本更迭的时候发现的，百度云的这个版本没有修复文件名带空格和特殊字符的情况，所以默认安装的时候会导致出错（我电脑上默认的位置文件夹名有空格）于是我更换了自己的安装目录就解决啦。</p>
+<h3 id="第二步，安装"><a href="#第二步，安装" class="headerlink" title="第二步，安装"></a>第二步，安装</h3><p>安装完后，在安装目录下应该有如下文件。<br><code>elevate.cmd、elevate.vbs、install.cmd、LICENSE、nvm.exe、settings.txt</code><br>直接打开<code>settings.txt</code><br>这里如果你没有写错应该是这样的.root代表的是你nvm的安装目录，nodejs（听说只能取这个文件名）代表的是安装node的位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root: C:\dev\nvm</div><div class="line">path: C:\dev\nodejs</div></pre></td></tr></table></figure></p>
+<p>为了避免墙阻碍咱们办事，直接给他加上一段镜像.arch代表的是电脑是多少位系统<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">root: C:\dev\nvm</div><div class="line">path: C:\dev\nodejs</div><div class="line">arch: 64</div><div class="line">proxy: none</div><div class="line">node_mirror: http://npm.taobao.org/mirrors/node/</div><div class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</div></pre></td></tr></table></figure></p>
+<h3 id="第三步，配置环境变量（这一步已经自动化了，只是方便查看）"><a href="#第三步，配置环境变量（这一步已经自动化了，只是方便查看）" class="headerlink" title="第三步，配置环境变量（这一步已经自动化了，只是方便查看）"></a>第三步，配置环境变量（这一步已经自动化了，只是方便查看）</h3><p>环境变量的系统变量中，生成两个环境变量：NVM_HOME 和 NVM_SYMLINK 我们开始修改这两个变量名的变量值：NVM_HOME的变量值为：C:\dev\nvm； NVM_SYMLINK的变量值为：C:\dev\nodejs。在Path中也会自动添加上C:\dev\nvm;或者是C:\dev\nodejs，如果有的话，把他们删掉，没有的话更好，我们自己来配置，在Path的最前面输入： ;%NVM_HOME%;%NVM_SYMLINK%;</p>
+<p>然后就可以直接在控制台输入<code>nvm v</code>查看有没成功了。</p>
+<h3 id="第四步，安装最新的nodejs版本"><a href="#第四步，安装最新的nodejs版本" class="headerlink" title="第四步，安装最新的nodejs版本"></a>第四步，安装最新的nodejs版本</h3><p>继续输入命令：<code>nvm install latest</code> 如果网络畅通，我们会看到正在下载的提示，下载完成后 会让你use那个最新的node版本。如果你是第一次下载，在use之前，<code>C:\dev</code>目录下是没有<code>nodejs</code>这个文件夹的，在输入比如： <code>nvm use 5.11.0</code> 之后，你会发现，C:\dev目录下多了一个nodejs文件夹，这个文件夹不是单纯的文件夹，它是一个快捷方式，指向了 C:\dev\nvm 里的 v5.11.0 文件夹。</p>
+<p>同样的咱们可以下载其他版本的nodejs，这样通过命令:<code>nvm use</code> 版本号 比如：<code>nvm use 5.11.0</code>就可以轻松实现版本切换了。</p>
+<blockquote>
+<p>备注： 如果你的电脑系统是32 位的，那么在下载nodejs版本的时候，一定要指明 32 如： nvm install 5.11.0 32 这样在32位的电脑系统中，才可以使用，默认是64位的。</p>
+</blockquote>
+<h3 id="第五步，安装npm"><a href="#第五步，安装npm" class="headerlink" title="第五步，安装npm"></a>第五步，安装npm</h3><p>为了统一起见，我们安装一个全局的npm工具，这个操作很有必要，因为我们需要安装一些全局的其他包，不会因为切换node版本造成原来下载过的包不可用。(重点来啦)</p>
+<ol>
+<li><p>首先我们进入命令模式，输入 <code>npm config set prefix &quot;C:\dev\nvm\npm&quot;</code> 回车，这是在配置npm的全局安装路径，然后在用户文件夹下会生成一个.npmrc的文件，用记事本打开后可以看到如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">prefix=C:\dev\nvm\npm</div></pre></td></tr></table></figure>
+</li>
+<li><p>然后继续在命令中输入： <code>npm install npm -g</code>回车后会发现正在下载npm包，在C:\dev\nvm\npm目录中可以看到下载中的文件，以后我们只要用npm安装包的时候加上 -g 就可以把包安装在我们刚刚配置的全局路径下了。</p>
+</li>
+<li><p>我们为这个npm配置环境变量： 变量名为：<code>NPM_HOME</code>，变量值为 ：<code>C:\dev\nvm\npm</code></p>
+</li>
+<li><p>在Path的最前面添加<code>;%NPM_HOME%</code>，注意了，这个一定要添加在 <code>%NVM_SYMLINK%</code>之前，所以我们直接把它放到Path的最前面</p>
+</li>
+<li><p>最后我们新打开一个命令窗口，输入npm -v ,此时我们使用的就是我们统一下载的npm包了。</p>
+</li>
+<li><p>同样的我们还可以安装cnpm工具，它是中国版的npm镜像库，地址在这里：<a href="https://cnpmjs.org/，也是npm官方的一个拷贝，因为我们和外界有一堵墙隔着，所以用这个国内的比较快，淘宝也弄了一个和npm一样的镜像库，http://npm.taobao.org/，它和官方的npm每隔10分钟同步一次。安装方式：" target="_blank" rel="external">https://cnpmjs.org/，也是npm官方的一个拷贝，因为我们和外界有一堵墙隔着，所以用这个国内的比较快，淘宝也弄了一个和npm一样的镜像库，http://npm.taobao.org/，它和官方的npm每隔10分钟同步一次。安装方式：</a></p>
+<ul>
+<li>npm install -g cnpm –registry=<a href="http://r.cnpmjs.org" target="_blank" rel="external">http://r.cnpmjs.org</a></li>
+<li>或者用淘宝的npm install -g cnpm –registry=<a href="https://registry.npm.taoba.org" target="_blank" rel="external">https://registry.npm.taoba.org</a></li>
+<li>安装好了cnpm后，直接执行cnpm install 包名比如：cnpm install bower -g 就可以了。-g只是为了把包安装在全局路径下。如果不全局安装，也可以在当前目录中安装，不用-g就可以了。</li>
+</ul>
+</li>
+</ol>
+<p>自此，终于可以用了。</p>
+<hr>
+<p>感谢前辈<br><a href="http://blog.csdn.net/tyro_java/article/details/51232458" target="_blank" rel="external">nodejs在windows下的安装配置(使用NVM的方式)</a><br><a href="http://blog.csdn.net/qq_36423639/article/details/70230571" target="_blank" rel="external">window下通过nvm-windows来安装多版本node</a><br><a href="http://www.jianshu.com/p/28bca6529150" target="_blank" rel="external">在windows下用nvm 安装node</a><br><a href="http://blog.csdn.net/hdchangchang/article/details/46623919" target="_blank" rel="external">npm 如何设置镜像站</a><br><a href="https://github.com/coreybutler/nvm-windows" target="_blank" rel="external">nvm-windows</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/14/技术/js/细数js之实现继承/" rel="next" title="细数js之实现继承">
+                <i class="fa fa-chevron-left"></i> 细数js之实现继承
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/16/技术/js/详解CORS跨域资源共享/" rel="prev" title="详解CORS跨域资源共享">
+                详解CORS跨域资源共享 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">125</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装前提"><span class="nav-number">1.</span> <span class="nav-text">安装前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步，安装"><span class="nav-number">2.1.</span> <span class="nav-text">第二步，安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步，配置环境变量（这一步已经自动化了，只是方便查看）"><span class="nav-number">2.2.</span> <span class="nav-text">第三步，配置环境变量（这一步已经自动化了，只是方便查看）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步，安装最新的nodejs版本"><span class="nav-number">2.3.</span> <span class="nav-text">第四步，安装最新的nodejs版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步，安装npm"><span class="nav-number">2.4.</span> <span class="nav-text">第五步，安装npm</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

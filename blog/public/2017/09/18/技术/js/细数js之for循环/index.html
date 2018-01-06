@@ -1,0 +1,941 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="细数js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本来就我个人而言，我也没讲for循环想得那么仔细过。只是偶尔在实践中遇到过这些问题，既然有这种总结性文章，那必须转载起来~！~">
+<meta name="keywords" content="细数js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="细数js之for循环">
+<meta property="og:url" content="SingleMai.github.io/2017/09/18/技术/js/细数js之for循环/index.html">
+<meta property="og:site_name" content="Bryan &amp; Mia">
+<meta property="og:description" content="本来就我个人而言，我也没讲for循环想得那么仔细过。只是偶尔在实践中遇到过这些问题，既然有这种总结性文章，那必须转载起来~！~">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-18T13:15:54.193Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="细数js之for循环">
+<meta name="twitter:description" content="本来就我个人而言，我也没讲for循环想得那么仔细过。只是偶尔在实践中遇到过这些问题，既然有这种总结性文章，那必须转载起来~！~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/09/18/技术/js/细数js之for循环/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 细数js之for循环 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/09/18/技术/js/细数js之for循环/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                细数js之for循环
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T14:43:03+08:00">
+                2017-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/18/技术/js/细数js之for循环/" class="leancloud_visitors" data-flag-title="细数js之for循环">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>本来就我个人而言，我也没讲for循环想得那么仔细过。只是偶尔在实践中遇到过这些问题，既然有这种总结性文章，那必须转载起来~！~<br><a id="more"></a><br>在ES5中，有三种形式的for循环：</p>
+<ol>
+<li>简单的for循环</li>
+<li>for-in循环</li>
+<li>forEach<br>在ES6中，新增加一种：</li>
+<li>for-of循环</li>
+</ol>
+<h2 id="简单for循环"><a href="#简单for循环" class="headerlink" title="简单for循环"></a>简单for循环</h2><p>这个是很常见的写法啦~有个优化的写法。如果数组长度在循环过程中不会改变时，我们应该讲数组长度用变量存储起来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const arr = [1, 2, 3];</div><div class="line">for (for i = 0, len = arr.length; i &lt; len; i++) &#123;</div><div class="line">  console.log(arr[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h2><p>虽然这个方法其实是用来遍历对象的，但是其实也可以用来遍历数组。只是有些特殊情况可以给讨论了~~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const arr = [1, 2, 3];</div><div class="line">let index;</div><div class="line">for(index in arr) &#123;</div><div class="line">  console.log(&apos;arr[&apos; + index + &apos;] = &apos; + arr[index]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>一般情况下，运行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr[0] = 1</div><div class="line">arr[1] = 2</div><div class="line">arr[2] = 3</div></pre></td></tr></table></figure></p>
+<p>但是由于<code>for-in</code>是用来遍历对象的，所以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">const arr = [1, 2, 3];</div><div class="line">arr.name = &quot;hello&quot;</div><div class="line">let index;</div><div class="line">for(index in arr) &#123;</div><div class="line">  console.log(&apos;arr[&apos; + index + &apos;] = &apos; + arr[index]);</div><div class="line">&#125;</div><div class="line">输出结果变成这样</div><div class="line">arr[0] = 1</div><div class="line">arr[1] = 2</div><div class="line">arr[2] = 3</div><div class="line">arr[name] = &apos;hello&apos;</div></pre></td></tr></table></figure></p>
+<p>于是，我们就会发现Array的一个真相</p>
+<h3 id="Array的真相"><a href="#Array的真相" class="headerlink" title="Array的真相"></a>Array的真相</h3><p>Array 在 Javascript 中是一个对象， Array 的索引是属性名。事实上， Javascript 中的 “array” 有些误导性， Javascript 中的 Array 并不像大部分其他语言的数组。<br>首先， <strong>Javascript 中的 Array 在内存上并不连续，其次， Array 的索引并不是指偏移量。</strong><br>实际上， <strong>Array 的索引也不是 Number 类型，而是 String 类型的。</strong> 我们可以正确使用如 arr[0] 的写法的原因是语言可以自动将 Number 类型的 0 转换成 String 类型的 “0” 。<br><strong>所以，在 Javascript 中从来就没有 Array 的索引，而只有类似 “0” 、 “1” 等等的属性。</strong> 有趣的是，每个 Array 对象都有一个 length 的属性，导致其表现地更像其他语言的数组。但为什么在遍历 Array 对象的时候没有输出 length 这一条属性呢？那是因为 <code>for-in</code> 只能遍历“可枚举的属性”， length 属于不可枚举属性，实际上， Array 对象还有许多其他不可枚举的属性。<strong>for-in 不仅仅遍历 array 自身的属性，其还遍历 array 原型链上的所有可枚举的属性。</strong></p>
+<p>这里虽然说了forin的那么多缺点，但是它面对稀疏数组的时候还是很有用的。例如，for-in遍历一个稀疏数组，只会遍历对应的属性。然而用普通for循环实现，则会有很多无必要的浪费。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = [];</div><div class="line">arr[100] = 1;</div><div class="line">arr[200] = 3;</div><div class="line">// 这里for-in只会遍历2次。而普通for循环则会遍历200次</div></pre></td></tr></table></figure></p>
+<h3 id="for-in的性能"><a href="#for-in的性能" class="headerlink" title="for-in的性能"></a>for-in的性能</h3><p>正如上面所说，每次迭代操作会同时搜索实例或者原型属性， for-in 循环的每次迭代都会产生更多开销，因此要比其他循环类型慢，一般速度为其他类型循环的 1/7。因此，除非明确需要迭代一个属性数量未知的对象，否则应避免使用 for-in 循环。如果需要遍历一个数量有限的已知属性列表，使用其他循环会更快，比如下面的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const obj = &#123;</div><div class="line">  &apos;prop1&apos;: &quot;value1&quot;,</div><div class="line">  &apos;prop2&apos;: &apos;value2&apos;</div><div class="line">&#125;</div><div class="line">const props = [&apos;prop1&apos;, &apos;prop2&apos;];</div><div class="line">for (let i = 0; i &lt; props.length; i++) &#123;</div><div class="line">  console.log(obj[props[i]]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，将对象的属性都存入一个数组中，相对于 for-in 查找每一个属性，该代码只关注给定的属性，节省了循环的开销和时间。</p>
+<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const arr = [1,2,3];</div><div class="line">arr.forEach((data) =&gt; &#123;</div><div class="line">    console.log(data);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>需要注意的是，forEach 遍历的范围在第一次调用 callback 前就会确定。调用forEach 后添加到数组中的项不会被 callback 访问到。如果已经存在的值被改变，则传递给 callback 的值是 forEach 遍历到他们那一刻的值。已删除的项不会被遍历到。</p>
+<p>这里的 index 是 Number 类型，并且也不会像 for-in 一样遍历原型链上的属性。</p>
+<p>所以，使用 forEach 时，我们不需要专门地声明 index 和遍历的元素，因为这些都作为回调函数的参数。</p>
+<p>其他有关forEach以及ES5定义更多有关数组的遍历方法在细数js数组中有详细记叙。</p>
+<h2 id="for-of"><a href="#for-of" class="headerlink" title="for-of"></a>for-of</h2><p>直接看用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const arr = [1,2,3];</div><div class="line">for(let data of arr) &#123;</div><div class="line">  console.log(data); // 1 ,2 ,3</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="为什么要引进for-of"><a href="#为什么要引进for-of" class="headerlink" title="为什么要引进for-of"></a>为什么要引进for-of</h2><p>要回答这个问题，我们先来看看ES6之前的 3 种 for 循环有什么缺陷：</p>
+<ul>
+<li>forEach 不能 break 和 return；</li>
+<li>for-in 缺点更加明显，它不仅遍历数组中的元素，还会遍历自定义的属性，甚至原型链上的属性都被访问到。而且，遍历数组元素的顺序可能是随机的。</li>
+</ul>
+<p>因此为了改进，for-of能干什么呢</p>
+<ul>
+<li>跟 forEach 相比，可以正确响应 break, continue, return。</li>
+<li>for-of 循环不仅支持数组，还支持大多数类数组对象，例如 DOM nodelist 对象。</li>
+<li>for-of 循环也支持字符串遍历，它将字符串视为一系列 Unicode 字符来进行遍历。</li>
+<li>for-of 也支持 Map 和 Set （两者均为 ES6 中新增的类型）对象遍历。</li>
+</ul>
+<p>总结一下，for-of 循环有以下几个特征：</p>
+<ul>
+<li>这是最简洁、最直接的遍历数组元素的语法。</li>
+<li>这个方法避开了 for-in 循环的所有缺陷。</li>
+<li>与 forEach 不同的是，它可以正确响应 break、continue 和 return 语句。</li>
+<li>其不仅可以遍历数组，还可以遍历类数组对象和其他可迭代对象。</li>
+</ul>
+<p>但需要注意的是，for-of循环不支持普通对象，但如果你想迭代一个对象的属性，你可以用for-in 循环（这也是它的本职工作）。</p>
+<p>最后要说的是，ES6 引进的另一个方式也能实现遍历数组的值，那就是 Iterator。上个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const arr = [1,2,3];</div><div class="line">const iter = arr[Symbol.iterator]();</div><div class="line"></div><div class="line">iter.next() //&#123;value: &apos;1&apos;, done:false&#125;</div><div class="line">iter.next() //&#123;value: &apos;2&apos;, done:false&#125;</div><div class="line">iter.next() //&#123;value: &apos;3&apos;, done:false&#125;</div><div class="line">iter.next() //&#123;value: &apos;undefined&apos;, done:true&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<p>转载至：<br><a href="https://mp.weixin.qq.com/s/BmSeCZFZrpkCGk_mmCYNAQ" target="_blank" rel="external">【第786期】深入了解 JavaScript 中的 for 循环</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/细数js/" rel="tag"># 细数js</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/18/技术/js/javascript排序算法/" rel="next" title="javascript排序算法">
+                <i class="fa fa-chevron-left"></i> javascript排序算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/20/技术/js/前端常见跨域解决方案/" rel="prev" title="前端常见跨域解决方案">
+                前端常见跨域解决方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">125</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单for循环"><span class="nav-number">1.</span> <span class="nav-text">简单for循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-in"><span class="nav-number">2.</span> <span class="nav-text">for-in</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array的真相"><span class="nav-number">2.1.</span> <span class="nav-text">Array的真相</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-in的性能"><span class="nav-number">2.2.</span> <span class="nav-text">for-in的性能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forEach"><span class="nav-number">3.</span> <span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of"><span class="nav-number">4.</span> <span class="nav-text">for-of</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要引进for-of"><span class="nav-number">5.</span> <span class="nav-text">为什么要引进for-of</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

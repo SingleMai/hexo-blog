@@ -1,0 +1,903 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这将是一篇杂文，汇总自己开发过程中遇到的所有有关vue构建的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue构建遇到的问题">
+<meta property="og:url" content="SingleMai.github.io/2017/11/15/技术/vue/Vue构建遇到的问题/index.html">
+<meta property="og:site_name" content="Bryan &amp; Mia">
+<meta property="og:description" content="这将是一篇杂文，汇总自己开发过程中遇到的所有有关vue构建的问题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-17T14:22:43.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue构建遇到的问题">
+<meta name="twitter:description" content="这将是一篇杂文，汇总自己开发过程中遇到的所有有关vue构建的问题。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/11/15/技术/vue/Vue构建遇到的问题/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> Vue构建遇到的问题 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/11/15/技术/vue/Vue构建遇到的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Vue构建遇到的问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T18:34:10+08:00">
+                2017-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具配置/" itemprop="url" rel="index">
+                    <span itemprop="name">工具配置</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/11/15/技术/vue/Vue构建遇到的问题/" class="leancloud_visitors" data-flag-title="Vue构建遇到的问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>这将是一篇杂文，汇总自己开发过程中遇到的所有有关vue构建的问题。<br><a id="more"></a></p>
+<h2 id="解决Error-ENOENT-no-such-file-or-directory-scandir-‘D-IdeaWork-code-front-jet-node-modules-npmins"><a href="#解决Error-ENOENT-no-such-file-or-directory-scandir-‘D-IdeaWork-code-front-jet-node-modules-npmins" class="headerlink" title="解决Error: ENOENT: no such file or directory, scandir ‘D:\IdeaWork\code-front-jet\node_modules.npmins"></a>解决Error: ENOENT: no such file or directory, scandir ‘D:\IdeaWork\code-front-jet\node_modules.npmins</h2><p>在使用npm安装<code>node-sass</code>的时候，可能会出现如下的报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Error: ENOENT: no such file or directory, scandir &apos;D:\IdeaWork\code-front-jet\node_modules\.npminstall\node-sass\3.7.0\node-sass\vendor&apos;</div><div class="line"></div><div class="line">    at Error (native)</div></pre></td></tr></table></figure></p>
+<p>解决方案是执行以下方法：<br><code>npm rebuild node-sass</code></p>
+<p>当然，我也遇到了不属于<code>node-sass</code>的报错。是另一个奇怪的报错。这时候<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g npm@latest</div></pre></td></tr></table></figure></p>
+<p>更新<code>npm</code>版本就可以了=。= 具体原因不明</p>
+<h2 id="引入ts"><a href="#引入ts" class="headerlink" title="引入ts"></a>引入ts</h2><p><a href="https://ihatetomatoes.net/how-to-remove-experimentaldecorators-warning-in-vscode/" target="_blank" rel="external">How to remove experimentalDecorators warning in VSCode</a><br><a href="https://cn.vuejs.org/v2/guide/typescript.html" target="_blank" rel="external">TypeScript 支持</a><br><a href="https://segmentfault.com/a/1190000011853167#articleHeader5" target="_blank" rel="external">Vue2.5+ Typescript 引入全面指南</a><br><a href="https://github.com/vuejs/vue-class-component" target="_blank" rel="external">vue-class-component</a></p>
+<p>取消掉<code>experimentalDecorators</code>的警告：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// tsconfig.json</div><div class="line">&quot;compilerOptions&quot;: &#123;</div><div class="line">  // 取消掉警告</div><div class="line">  &quot;experimentalDecorators&quot;: true,</div><div class="line">  // 允许引入没有types申明的js文件</div><div class="line">  &quot;allowJS&quot;: true</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="在app-ts文件下会导致new-App-但是判断为未使用"><a href="#在app-ts文件下会导致new-App-但是判断为未使用" class="headerlink" title="在app.ts文件下会导致new App()但是判断为未使用"></a>在app.ts文件下会导致new App()但是判断为未使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// tslint.json</div><div class="line">// 允许定义new 未使用</div><div class="line">&quot;rules&quot;: &#123;</div><div class="line">  &quot;no-unused-expression&quot;: [true, &quot;allow-new&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="解决-Webpack-“Invalid-Host-Header”"><a href="#解决-Webpack-“Invalid-Host-Header”" class="headerlink" title="解决 Webpack “Invalid Host Header”"></a>解决 Webpack “Invalid Host Header”</h3><p>原因具体可以看文章：也就是webpack的安全保护<br><a href="http://blog.csdn.net/salmonellavaccine/article/details/75332654" target="_blank" rel="external">解决 Webpack “Invalid Host Header”</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// webpack.dev.conf.js</div><div class="line">devServer: &#123;</div><div class="line">  // 禁用主机检测</div><div class="line">  disableHostCheck: true,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="vue-ts-vue文件import报错"><a href="#vue-ts-vue文件import报错" class="headerlink" title="vue+ts .vue文件import报错"></a>vue+ts .vue文件import报错</h3><p>只要在src根目录下，新建一个<code>vue-shim.d.ts</code>文件，里面内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 告诉TypeScript `*.vue`后缀的文件可以交给`vue`模块来处理</div><div class="line">declare module &quot;*.vue&quot; &#123;</div><div class="line">    import Vue from &apos;vue&apos;</div><div class="line">    export default Vue</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="如何编写-d-ts文件"><a href="#如何编写-d-ts文件" class="headerlink" title="如何编写.d.ts文件"></a>如何编写.d.ts文件</h3><p><a href="https://segmentfault.com/a/1190000009247663" target="_blank" rel="external">如何编写一个d.ts文件</a></p>
+<h3 id="扩展支持Object-assign"><a href="#扩展支持Object-assign" class="headerlink" title="扩展支持Object.assign"></a>扩展支持Object.assign</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">declare interface ObjectConstructor &#123;</div><div class="line">    assign(target: any, ...sources: any[]): any;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Vue-v-for-报错"><a href="#Vue-v-for-报错" class="headerlink" title="Vue v-for 报错"></a>Vue v-for 报错</h3><p><a href="http://blog.csdn.net/xufangfang99/article/details/77882792" target="_blank" rel="external">vetur插件提示 [vue-language-server] Elements in iteration expect to have ‘v-bind:key’ directives错误的解决办法</a></p>
+<h3 id="引入sass"><a href="#引入sass" class="headerlink" title="引入sass"></a>引入sass</h3><p><a href="https://www.cnblogs.com/rainheader/p/6505366.html" target="_blank" rel="external">如何在vue-cli中引入sass</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/12/技术/node.js/koa入门之文件上传/" rel="next" title="koa入门之文件上传">
+                <i class="fa fa-chevron-left"></i> koa入门之文件上传
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/22/技术/Git/git解决合并冲突/" rel="prev" title="git解决合并冲突">
+                git解决合并冲突 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">125</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决Error-ENOENT-no-such-file-or-directory-scandir-‘D-IdeaWork-code-front-jet-node-modules-npmins"><span class="nav-number">1.</span> <span class="nav-text">解决Error: ENOENT: no such file or directory, scandir ‘D:\IdeaWork\code-front-jet\node_modules.npmins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入ts"><span class="nav-number">2.</span> <span class="nav-text">引入ts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在app-ts文件下会导致new-App-但是判断为未使用"><span class="nav-number">2.1.</span> <span class="nav-text">在app.ts文件下会导致new App()但是判断为未使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决-Webpack-“Invalid-Host-Header”"><span class="nav-number">2.2.</span> <span class="nav-text">解决 Webpack “Invalid Host Header”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-ts-vue文件import报错"><span class="nav-number">2.3.</span> <span class="nav-text">vue+ts .vue文件import报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何编写-d-ts文件"><span class="nav-number">2.4.</span> <span class="nav-text">如何编写.d.ts文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展支持Object-assign"><span class="nav-number">2.5.</span> <span class="nav-text">扩展支持Object.assign</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-v-for-报错"><span class="nav-number">2.6.</span> <span class="nav-text">Vue v-for 报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入sass"><span class="nav-number">2.7.</span> <span class="nav-text">引入sass</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1030 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="今天是刷题天。一是为了准备笔试，二是为了复习遗忘的知识。当然啦，其实是长篇大作，持续收录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端开发面试题 or 笔试题汇总">
+<meta property="og:url" content="SingleMai.github.io/2017/10/11/技术/前端开发面试题/index.html">
+<meta property="og:site_name" content="Bryan &amp; Mia">
+<meta property="og:description" content="今天是刷题天。一是为了准备笔试，二是为了复习遗忘的知识。当然啦，其实是长篇大作，持续收录。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-18T08:09:02.185Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端开发面试题 or 笔试题汇总">
+<meta name="twitter:description" content="今天是刷题天。一是为了准备笔试，二是为了复习遗忘的知识。当然啦，其实是长篇大作，持续收录。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/10/11/技术/前端开发面试题/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 前端开发面试题 or 笔试题汇总 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/10/11/技术/前端开发面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端开发面试题 or 笔试题汇总
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T18:34:10+08:00">
+                2017-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/11/技术/前端开发面试题/" class="leancloud_visitors" data-flag-title="前端开发面试题 or 笔试题汇总">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>今天是刷题天。一是为了准备笔试，二是为了复习遗忘的知识。当然啦，其实是长篇大作，持续收录。<br><a id="more"></a></p>
+<h2 id="1-前面的一点废话"><a href="#1-前面的一点废话" class="headerlink" title="1.前面的一点废话"></a>1.前面的一点废话</h2><p>现在回想一下以前（也就是前几次的笔试面试），都觉得自己思想好幼稚。总是觉得如果有时间去准备笔试面试，还不如多看两眼书多学点知识？？？其实，态度也很重要吧。你去面试一家公司，刷一下笔试题，准备一下知识内容，是对别人的尊重。不必要说自命清高，老子就是会，去到临场发挥一下一些细致问题就不要和我扣细节。态度很重要。</p>
+<p>好了，废话完了。知识觉得以前自己真的听白痴就骂一下自己好了。这里会持续收录各种前端面试题，一方面是总结给自己看（面试前用来刷一刷）；另一方面也是扩展一下自己的知识面，查漏补缺。</p>
+<ul>
+<li>尽可能细致地分类好，以及留一个更新列表吧~~</li>
+</ul>
+<h3 id="更新列表"><a href="#更新列表" class="headerlink" title="更新列表"></a>更新列表</h3><ul>
+<li>2017.10.11 第一次更新</li>
+</ul>
+<h2 id="2-面试题大全"><a href="#2-面试题大全" class="headerlink" title="2. 面试题大全"></a>2. 面试题大全</h2><h3 id="1-HTML相关问题"><a href="#1-HTML相关问题" class="headerlink" title="1. HTML相关问题"></a>1. HTML相关问题</h3><h4 id="1-XHTML-和-HTML-的区别"><a href="#1-XHTML-和-HTML-的区别" class="headerlink" title="1.XHTML 和 HTML 的区别"></a>1.XHTML 和 HTML 的区别</h4><p>html是一种基本的web网页设计语言，而xhtml是基于xml的置标语言。<br>最主要的区别是：</p>
+<ul>
+<li>xhtml元素必须被正确嵌套</li>
+<li>xhtml元素必须被关闭</li>
+<li>标签名必须小写</li>
+<li>xhtml文档必须有根元素<h4 id="2-什么是语义化的HTML"><a href="#2-什么是语义化的HTML" class="headerlink" title="2. 什么是语义化的HTML?"></a>2. 什么是语义化的HTML?</h4><ul>
+<li>直观地认识标签，对于搜索引擎的抓取有好处，用正确的标签做正确的事情！</li>
+<li>html语义化就是让页面的内容结构化，便于浏览器、搜索引擎解析；</li>
+<li>在没有样式css情况下以一种文档格式显示，并且是易于阅读的。搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重，利于SEO</li>
+<li>使阅读源代码的人对于网站更容易将网站分块，便于阅读维护理解。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-常见的浏览器内核有哪些？"><a href="#3-常见的浏览器内核有哪些？" class="headerlink" title="3.常见的浏览器内核有哪些？"></a>3.常见的浏览器内核有哪些？</h4><ul>
+<li>Chrome和safari用的是webkit引擎，前缀：<code>-webkit</code></li>
+<li>firefox使用的Mozilla引擎，前缀:<code>-moz-</code></li>
+<li>IE浏览器内核是trident引擎，前缀：<code>-ms-</code></li>
+<li>Opera浏览器以前是presto引擎，后面改为webkit引擎，前缀：<code>-o-</code></li>
+</ul>
+<h4 id="4-HTML5有哪些新特性、移除了哪些元素"><a href="#4-HTML5有哪些新特性、移除了哪些元素" class="headerlink" title="4.HTML5有哪些新特性、移除了哪些元素."></a>4.HTML5有哪些新特性、移除了哪些元素.</h4><ul>
+<li>绘图canvas</li>
+<li>媒介回放：视频和音频的支持</li>
+<li>Web存储API：本地离线缓存、localStorage存储(长期存在)以及sessionStorage存储（浏览器关闭则删除）；</li>
+<li>IndexedDB API 数据库</li>
+<li>地理位置API</li>
+<li>拖放API</li>
+<li>历史API</li>
+<li>通信API: Ajax level2、postMessage、WebSocket、Web Worker</li>
+<li>表单API</li>
+<li>语义化的标签</li>
+</ul>
+<p>移除了一些纯表现(big/center/font)、对可用性产生负面影响的元素（frame/frameset/noframes）</p>
+<h4 id="5-请描述一下cookies-sessionStorage-localStorage的区别"><a href="#5-请描述一下cookies-sessionStorage-localStorage的区别" class="headerlink" title="5.请描述一下cookies/sessionStorage/localStorage的区别"></a>5.请描述一下cookies/sessionStorage/localStorage的区别</h4><ul>
+<li>cookie在浏览器和服务器间来回传递。 sessionStorage和localStorage不会</li>
+<li>sessionStorage和localStorage的存储空间更大；</li>
+<li>sessionStorage和localStorage有更多丰富易用的接口；</li>
+<li>sessionStorage和localStorage各自独立的存储空间；</li>
+<li>sessionStorage只存在于单个选项卡或窗口中，当窗口被关闭即消失；而localStorage会一直存在</li>
+<li>cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。</li>
+<li>cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递。</li>
+<li>sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。<h6 id="存储大小："><a href="#存储大小：" class="headerlink" title="存储大小："></a>存储大小：</h6></li>
+<li>cookie数据大小不能超过4k。</li>
+<li>sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。<h6 id="有期时间："><a href="#有期时间：" class="headerlink" title="有期时间："></a>有期时间：</h6></li>
+<li>localStorage 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；</li>
+<li>sessionStorage 数据在当前浏览器窗口关闭后自动删除。</li>
+<li>cookie 设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭</li>
+</ul>
+<h4 id="6-如何实现浏览器多个标签页之间的通讯"><a href="#6-如何实现浏览器多个标签页之间的通讯" class="headerlink" title="6.如何实现浏览器多个标签页之间的通讯"></a>6.如何实现浏览器多个标签页之间的通讯</h4><p>跳转到<a href="">跨浏览器tab页的通信解决方案</a></p>
+<h4 id="7-如何在低浏览器支持HTML5新标签"><a href="#7-如何在低浏览器支持HTML5新标签" class="headerlink" title="7.如何在低浏览器支持HTML5新标签"></a>7.如何在低浏览器支持HTML5新标签</h4><p>IE6/IE7/IE8通过<code>document.createElement()</code>方法产生标签，可以利用这一特性让这些浏览器支持。当然还需要添加一些默认的样式。成熟的框架有<code>html5shim</code></p>
+<h4 id="8-HTML5的离线储存怎么使用，工作原理能不能解释一下？"><a href="#8-HTML5的离线储存怎么使用，工作原理能不能解释一下？" class="headerlink" title="8.HTML5的离线储存怎么使用，工作原理能不能解释一下？"></a>8.HTML5的离线储存怎么使用，工作原理能不能解释一下？</h4><p>在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。</p>
+<p>原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。</p>
+<h4 id="9-浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？"><a href="#9-浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？" class="headerlink" title="9. 浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？"></a>9. 浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</h4><p>在线的情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。</p>
+<p>离线的情况下，浏览器就直接使用离线存储的资源。</p>
+<h4 id="10-iframe有哪些缺点？"><a href="#10-iframe有哪些缺点？" class="headerlink" title="10.iframe有哪些缺点？"></a>10.iframe有哪些缺点？</h4><ol>
+<li>iframe会阻塞主页面的Onload事件；</li>
+<li>搜索引擎的检索程序无法解读这种页面，不利于SEO;</li>
+<li>iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。</li>
+<li>使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript动态给iframe添加src属性值，这样可以绕开以上两个问题。</li>
+</ol>
+<h4 id="10-Doctype作用？标准模式与兼容模式各有什么区别"><a href="#10-Doctype作用？标准模式与兼容模式各有什么区别" class="headerlink" title="10. Doctype作用？标准模式与兼容模式各有什么区别?"></a>10. Doctype作用？标准模式与兼容模式各有什么区别?</h4><ol>
+<li>&lt;!DOCTYPE&gt;声明位于位于HTML文档中的第一行，处于<html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。</html></li>
+<li>标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。</li>
+</ol>
+<h3 id="2-CSS相关问题"><a href="#2-CSS相关问题" class="headerlink" title="2.CSS相关问题"></a>2.CSS相关问题</h3><h4 id="1-CSS实现垂直水平居中"><a href="#1-CSS实现垂直水平居中" class="headerlink" title="1.CSS实现垂直水平居中"></a>1.CSS实现垂直水平居中</h4><p>这个在<a href="https://singlemai.github.io/2017/09/04/%E6%8A%80%E6%9C%AF/html+css/CSS%E5%B8%83%E5%B1%80%E6%8A%80%E5%B7%A7%E4%B9%8B%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" target="_blank" rel="external">CSS布局技巧之垂直水平居中</a>已经说过了，不再说。</p>
+<h4 id="2-display有哪些值？说明他们的作用。"><a href="#2-display有哪些值？说明他们的作用。" class="headerlink" title="2.display有哪些值？说明他们的作用。"></a>2.display有哪些值？说明他们的作用。</h4><ul>
+<li>none. 隐藏元素。</li>
+<li>block. 将元素转成块状元素，独占一行.默认宽度为父元素宽度，可设置宽高，换行显示。</li>
+<li>inline. 将元素转成行内元素.默认宽度为内容宽度，不可设置宽高，同行显示。</li>
+<li>inline-block. 将元素转为行内块状元素，默认宽度为内容宽度，可以设置宽高，同行显示。</li>
+<li>table. 此元素会作为块级表格来显示.</li>
+<li>table-cell. 表格格子，需要父元素<code>display:table</code>用于借用table特性实现居中等</li>
+<li>inherit 继承父元素的display</li>
+<li>list-item 象块类型元素一样显示，并添加样式列表标记。</li>
+</ul>
+<h4 id="3-行内元素有哪些-块级元素有哪些-CSS的盒模型-空-void-元素有那些？"><a href="#3-行内元素有哪些-块级元素有哪些-CSS的盒模型-空-void-元素有那些？" class="headerlink" title="3.行内元素有哪些?块级元素有哪些?CSS的盒模型?空(void)元素有那些？"></a>3.行内元素有哪些?块级元素有哪些?CSS的盒模型?空(void)元素有那些？</h4><ul>
+<li>块级元素：div,p,h1,form,ul,li,section;</li>
+<li>行内元素 : span,a,label,input,img,strong,em;</li>
+<li>常见的空元素：<code>&lt;br&gt;&lt;hr&gt; &lt;img&gt; &lt;input&gt; &lt;link&gt;&lt;meta&gt;</code></li>
+<li>CSS盒模型:内容，border ,margin，padding;注意区分出IE的怪异盒模型；<blockquote>
+<p>ie盒模型就是自带box-sizing: border-box;</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="4-CSS引入的方式有哪些-link和-import的区别是"><a href="#4-CSS引入的方式有哪些-link和-import的区别是" class="headerlink" title="4.CSS引入的方式有哪些? link和@import的区别是?"></a>4.CSS引入的方式有哪些? link和@import的区别是?</h4><p>内联、内嵌、link引入、@import<br>区别：</p>
+<ul>
+<li>link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。</li>
+<li>link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。</li>
+<li>link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。</li>
+<li>link支持使用Javascript控制DOM去改变样式；而@import不支持。</li>
+</ul>
+<p>这里@import是公认不好的一种引入方式最好不使用。但是sass/less等预编译器中有这个字段，值得注意的是</p>
+<blockquote>
+<p>预编译器也有一个@import规则，但不同的是，预编译器的@import规则在生成css文件时就把相关文件导入进来。这意味着所有相关的样式被归纳到了同一个css文件中，而无需发起额外的下载请求。另外，所有在被导入文件中定义的变量和混合器（参见2.5节）均可在导入文件中使用。</p>
+</blockquote>
+<h4 id="5-两栏布局以及圣杯布局、双飞翼布局的实现"><a href="#5-两栏布局以及圣杯布局、双飞翼布局的实现" class="headerlink" title="5.两栏布局以及圣杯布局、双飞翼布局的实现"></a>5.两栏布局以及圣杯布局、双飞翼布局的实现</h4><p><a href="https://singlemai.github.io/2017/09/16/%E6%8A%80%E6%9C%AF/html+css/HTML%E7%BB%8F%E5%85%B8%E5%B8%83%E5%B1%80/" target="_blank" rel="external">HTML经典布局</a></p>
+<h4 id="6-CSS隐藏元素的几种方法："><a href="#6-CSS隐藏元素的几种方法：" class="headerlink" title="6.CSS隐藏元素的几种方法："></a>6.CSS隐藏元素的几种方法：</h4><ol>
+<li>Opacity: 元素本身依然占据它自己的位置并对网页的布局起作用</li>
+<li>Visibility: 与opacity不同的是不会影响任何用户交互。此外，在读屏软件也会被隐藏</li>
+<li>display:none。元素就像完全不存在一样</li>
+<li>position: 不会影响布局，元素依旧可以操作。</li>
+</ol>
+<h4 id="7-CSS清除浮动的几种方法（至少两种）"><a href="#7-CSS清除浮动的几种方法（至少两种）" class="headerlink" title="7.CSS清除浮动的几种方法（至少两种）"></a>7.CSS清除浮动的几种方法（至少两种）</h4><ol>
+<li>使用带clear属性的空元素</li>
+<li>使用CSS的overflow属性；(触发BFC)</li>
+<li>使用CSS的:after伪元素；</li>
+<li>使用邻接元素处理；</li>
+</ol>
+<h3 id="3-Javascript相关问题"><a href="#3-Javascript相关问题" class="headerlink" title="3.Javascript相关问题"></a>3.Javascript相关问题</h3><h4 id="1-谈一谈JavaScript作用域链"><a href="#1-谈一谈JavaScript作用域链" class="headerlink" title="1. 谈一谈JavaScript作用域链"></a>1. 谈一谈JavaScript作用域链</h4><p>在<a href="">细数js之闭包</a>里面有详细阐述过。具体概念有全局作用域、执行上下文。</p>
+<h4 id="2-谈一谈JavaScript原型链"><a href="#2-谈一谈JavaScript原型链" class="headerlink" title="2.谈一谈JavaScript原型链"></a>2.谈一谈JavaScript原型链</h4><p>JavaScript中的每个对象都有一个prototype属性，我们称之为原型，而原型的值也是一个对象，因此它也有自己的原型，这样就串联起来了一条原型链，原型链的链头是object,它的prototype比较特殊，值为null。</p>
+<p>原型链的作用是用于对象继承，函数A的原型属性(prototype property)是一个对象，当这个函数被用作构造函数来创建实例时，该函数的原型属性将被作为原型赋值给所有对象实例，比如我们新建一个数组，数组的方法便从数组的原型上继承而来。</p>
+<p>当访问对象的一个属性时, 首先查找对象本身, 找到则返回; 若未找到, 则继续查找其原型对象的属性(如果还找不到实际上还会沿着原型链向上查找, 直至到根). 只要没有被覆盖的话, 对象原型的属性就能在所有的实例中找到，若整个原型链未找到则返回undefined</p>
+<h4 id="3-ajax请求的时候get和post方式的区别"><a href="#3-ajax请求的时候get和post方式的区别" class="headerlink" title="3.ajax请求的时候get和post方式的区别"></a>3.ajax请求的时候get和post方式的区别</h4><p>这个文章有人提出反对<a href="https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw%3D%3D&amp;mid=100000054&amp;idx=1&amp;sn=71f6c214f3833d9ca20b9f7dcd9d33e4" target="_blank" rel="external">99%的人都理解错了HTTP中GET与POST的区别</a>。hmm，因为有疑点所在。所以不在这里总结。</p>
+<ul>
+<li>GET在浏览器回退时是无害的，而POST会再次提交请求。</li>
+<li>GET产生的URL地址可以被Bookmark，而POST不可以。</li>
+<li>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</li>
+<li>GET请求只能进行url编码，而POST支持多种编码方式。</li>
+<li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</li>
+<li>GET请求在URL中传送的参数是有长度限制的，而POST么有。</li>
+<li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</li>
+<li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</li>
+<li>GET参数通过URL传递，POST放在Request body中。</li>
+</ul>
+<h4 id="4-js的同源策略"><a href="#4-js的同源策略" class="headerlink" title="4.js的同源策略"></a>4.js的同源策略</h4><p><a href="https://singlemai.github.io/2017/09/20/%E6%8A%80%E6%9C%AF/js/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" target="_blank" rel="external">前端常见跨域解决方案</a></p>
+<h4 id="5-javascript的typeof返回哪些数据类型"><a href="#5-javascript的typeof返回哪些数据类型" class="headerlink" title="5.javascript的typeof返回哪些数据类型"></a>5.javascript的typeof返回哪些数据类型</h4><p>object/number/function/boolean/undefined/symbol</p>
+<h4 id="6-HTTP的短轮询长轮询、短链接、长链接"><a href="#6-HTTP的短轮询长轮询、短链接、长链接" class="headerlink" title="6.HTTP的短轮询长轮询、短链接、长链接"></a>6.HTTP的短轮询长轮询、短链接、长链接</h4><p><a href="">谈谈HTTP协议中的短轮询、长轮询、长链接和短链接</a></p>
+<h4 id="7-字符串反转"><a href="#7-字符串反转" class="headerlink" title="7.字符串反转"></a>7.字符串反转</h4><p>最简单简洁的方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abcdefg&apos;;</div><div class="line">str.split(&quot;&quot;).reverse().join(&quot;&quot;)</div></pre></td></tr></table></figure></p>
+<p>ES6的实现方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[...str].reverse().join(&apos;&apos;);</div></pre></td></tr></table></figure></p>
+<h4 id="8-数组扁平化"><a href="#8-数组扁平化" class="headerlink" title="8.数组扁平化"></a>8.数组扁平化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function init(value : any) &#123;</div><div class="line">  var arr : Array&lt;any&gt; = [];</div><div class="line">  if (Array.isArray(value)) &#123;</div><div class="line">    value.forEach((val) =&gt; &#123;</div><div class="line">      arr = arr.concat(init(val));</div><div class="line">    &#125;)</div><div class="line">  &#125; else &#123;</div><div class="line">    arr.push(value);</div><div class="line">  &#125;</div><div class="line">  return arr;</div><div class="line">&#125;</div><div class="line">var arr = [1,[1,2,3],[9]];</div><div class="line">console.log(init(arr));</div></pre></td></tr></table></figure>
+<h4 id="9-实现word效果字符串的查找、替换、删除"><a href="#9-实现word效果字符串的查找、替换、删除" class="headerlink" title="9.实现word效果字符串的查找、替换、删除"></a>9.实现word效果字符串的查找、替换、删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">txt.split([查找的字符串]).join([替换的字符串]);</div><div class="line">txt.split([查找的字符串]).join(`&lt;span style=&quot;background:red&quot;&gt;$&#123;查找的字符串&#125;&lt;span&gt;`);</div></pre></td></tr></table></figure>
+<h3 id="3-综合性"><a href="#3-综合性" class="headerlink" title="3.综合性"></a>3.综合性</h3><h4 id="1-请写出前端性能能优化的方式，越多越好"><a href="#1-请写出前端性能能优化的方式，越多越好" class="headerlink" title="1.请写出前端性能能优化的方式，越多越好"></a>1.请写出前端性能能优化的方式，越多越好</h4><ol>
+<li>减少http请求（图片压缩合并）</li>
+<li>减少操作dom</li>
+<li>优化js结构，减少冗余代码</li>
+<li>代码压缩</li>
+<li>缓存设置</li>
+<li>图片延迟加载</li>
+<li>静态资源缓存</li>
+</ol>
+<h4 id="2-一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）"><a href="#2-一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）" class="headerlink" title="2.一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）"></a>2.一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）</h4><ol>
+<li>输入地址</li>
+<li>浏览器查找域名ip地址（浏览器缓存 -&gt; 系统缓存 -&gt; 路由器缓存</li>
+<li>向HTTP服务器发送请求</li>
+<li>服务器的永久重定向响应</li>
+<li>浏览器跟踪重定向地址</li>
+<li>服务器返回处理请求</li>
+<li>服务器返回HTTP响应</li>
+<li>浏览器显示HTML</li>
+<li>开始解析页面，发送请求</li>
+<li>构建DOM树 CSSDOM树、渲染树，绘制页面</li>
+</ol>
+<h4 id="3-web缓存"><a href="#3-web缓存" class="headerlink" title="3.web缓存"></a>3.web缓存</h4><p><a href="https://singlemai.github.io/2017/09/21/%E6%8A%80%E6%9C%AF/js/%E8%B0%88%E4%B8%80%E8%B0%88Web%E7%BC%93%E5%AD%98/" target="_blank" rel="external">谈一谈Web缓存</a></p>
+<h4 id="浏览器的重绘以及回流"><a href="#浏览器的重绘以及回流" class="headerlink" title="浏览器的重绘以及回流"></a>浏览器的重绘以及回流</h4><hr>
+<p>参考文章：<br><a href="http://www.qdfuns.com/notes/24610/01b6dcaafaf78da4a2b79ebcbca9e4b6.html" target="_blank" rel="external">前端面试必知的50道题目汇总</a><br><a href="https://www.zhihu.com/question/19568008" target="_blank" rel="external">如何面试前端工程师</a><br><a href="http://markyun.github.io/2015/Front-end-Developer-Questions/" target="_blank" rel="external">Front End Developer Questions</a><br><a href="http://www.jobui.com/mianshiti/it/web/5066/" target="_blank" rel="external">史上最全前端面试题(含答案)</a><br><a href="http://web.jobbole.com/88041/" target="_blank" rel="external">整理总结的一些前端面试题</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/09/技术/ts/初始typescript/" rel="next" title="初识typescript">
+                <i class="fa fa-chevron-left"></i> 初识typescript
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/11/技术/html+css/跨浏览器tab页的通信解决方案/" rel="prev" title="跨浏览器tab页的通信解决方案">
+                跨浏览器tab页的通信解决方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">125</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-前面的一点废话"><span class="nav-number">1.</span> <span class="nav-text">1.前面的一点废话</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更新列表"><span class="nav-number">1.1.</span> <span class="nav-text">更新列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-面试题大全"><span class="nav-number">2.</span> <span class="nav-text">2. 面试题大全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-HTML相关问题"><span class="nav-number">2.1.</span> <span class="nav-text">1. HTML相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-XHTML-和-HTML-的区别"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.XHTML 和 HTML 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-什么是语义化的HTML"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 什么是语义化的HTML?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-常见的浏览器内核有哪些？"><span class="nav-number">2.1.3.</span> <span class="nav-text">3.常见的浏览器内核有哪些？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-HTML5有哪些新特性、移除了哪些元素"><span class="nav-number">2.1.4.</span> <span class="nav-text">4.HTML5有哪些新特性、移除了哪些元素.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-请描述一下cookies-sessionStorage-localStorage的区别"><span class="nav-number">2.1.5.</span> <span class="nav-text">5.请描述一下cookies/sessionStorage/localStorage的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#存储大小："><span class="nav-number">2.1.5.0.1.</span> <span class="nav-text">存储大小：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#有期时间："><span class="nav-number">2.1.5.0.2.</span> <span class="nav-text">有期时间：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-如何实现浏览器多个标签页之间的通讯"><span class="nav-number">2.1.6.</span> <span class="nav-text">6.如何实现浏览器多个标签页之间的通讯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-如何在低浏览器支持HTML5新标签"><span class="nav-number">2.1.7.</span> <span class="nav-text">7.如何在低浏览器支持HTML5新标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-HTML5的离线储存怎么使用，工作原理能不能解释一下？"><span class="nav-number">2.1.8.</span> <span class="nav-text">8.HTML5的离线储存怎么使用，工作原理能不能解释一下？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？"><span class="nav-number">2.1.9.</span> <span class="nav-text">9. 浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-iframe有哪些缺点？"><span class="nav-number">2.1.10.</span> <span class="nav-text">10.iframe有哪些缺点？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Doctype作用？标准模式与兼容模式各有什么区别"><span class="nav-number">2.1.11.</span> <span class="nav-text">10. Doctype作用？标准模式与兼容模式各有什么区别?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CSS相关问题"><span class="nav-number">2.2.</span> <span class="nav-text">2.CSS相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-CSS实现垂直水平居中"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.CSS实现垂直水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-display有哪些值？说明他们的作用。"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.display有哪些值？说明他们的作用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-行内元素有哪些-块级元素有哪些-CSS的盒模型-空-void-元素有那些？"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.行内元素有哪些?块级元素有哪些?CSS的盒模型?空(void)元素有那些？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-CSS引入的方式有哪些-link和-import的区别是"><span class="nav-number">2.2.4.</span> <span class="nav-text">4.CSS引入的方式有哪些? link和@import的区别是?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-两栏布局以及圣杯布局、双飞翼布局的实现"><span class="nav-number">2.2.5.</span> <span class="nav-text">5.两栏布局以及圣杯布局、双飞翼布局的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-CSS隐藏元素的几种方法："><span class="nav-number">2.2.6.</span> <span class="nav-text">6.CSS隐藏元素的几种方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-CSS清除浮动的几种方法（至少两种）"><span class="nav-number">2.2.7.</span> <span class="nav-text">7.CSS清除浮动的几种方法（至少两种）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Javascript相关问题"><span class="nav-number">2.3.</span> <span class="nav-text">3.Javascript相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-谈一谈JavaScript作用域链"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. 谈一谈JavaScript作用域链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-谈一谈JavaScript原型链"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.谈一谈JavaScript原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ajax请求的时候get和post方式的区别"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.ajax请求的时候get和post方式的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-js的同源策略"><span class="nav-number">2.3.4.</span> <span class="nav-text">4.js的同源策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-javascript的typeof返回哪些数据类型"><span class="nav-number">2.3.5.</span> <span class="nav-text">5.javascript的typeof返回哪些数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-HTTP的短轮询长轮询、短链接、长链接"><span class="nav-number">2.3.6.</span> <span class="nav-text">6.HTTP的短轮询长轮询、短链接、长链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-字符串反转"><span class="nav-number">2.3.7.</span> <span class="nav-text">7.字符串反转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-数组扁平化"><span class="nav-number">2.3.8.</span> <span class="nav-text">8.数组扁平化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-实现word效果字符串的查找、替换、删除"><span class="nav-number">2.3.9.</span> <span class="nav-text">9.实现word效果字符串的查找、替换、删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-综合性"><span class="nav-number">2.4.</span> <span class="nav-text">3.综合性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-请写出前端性能能优化的方式，越多越好"><span class="nav-number">2.4.1.</span> <span class="nav-text">1.请写出前端性能能优化的方式，越多越好</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-web缓存"><span class="nav-number">2.4.3.</span> <span class="nav-text">3.web缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的重绘以及回流"><span class="nav-number">2.4.4.</span> <span class="nav-text">浏览器的重绘以及回流</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

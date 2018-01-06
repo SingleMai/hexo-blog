@@ -27,6 +27,11 @@ jade高亮：
 `atom-jade`
 
 ## 辅助插件
+### typescript
+[改变atom的安装，实现apm](http://blog.csdn.net/qianghaohao/article/details/52331432)
+
+[atom- typescript](https://github.com/TypeStrong/atom-typescript) 还附带了很多别的插件。。。。看着提示安装就好了
+
 ### 同时修改html开闭合标签`atom-double-tag`
 ### 高亮选择单词`highlight selected`
 emmet

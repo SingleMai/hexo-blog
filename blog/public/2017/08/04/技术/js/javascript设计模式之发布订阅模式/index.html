@@ -1,0 +1,921 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript设计模式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="原本没这么快开始挖坑设计模式的233，但是在看vue源码博客的时候遇到了~而且也是之前学过，只是忘了。那么就开始吧！">
+<meta name="keywords" content="javascript设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript设计模式之发布订阅模式">
+<meta property="og:url" content="SingleMai.github.io/2017/08/04/技术/js/javascript设计模式之发布订阅模式/index.html">
+<meta property="og:site_name" content="Bryan &amp; Mia">
+<meta property="og:description" content="原本没这么快开始挖坑设计模式的233，但是在看vue源码博客的时候遇到了~而且也是之前学过，只是忘了。那么就开始吧！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-10T10:18:08.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript设计模式之发布订阅模式">
+<meta name="twitter:description" content="原本没这么快开始挖坑设计模式的233，但是在看vue源码博客的时候遇到了~而且也是之前学过，只是忘了。那么就开始吧！">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2017/08/04/技术/js/javascript设计模式之发布订阅模式/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> javascript设计模式之发布订阅模式 | Bryan & Mia </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bryan & Mia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/08/04/技术/js/javascript设计模式之发布订阅模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bryan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bryan & Mia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                javascript设计模式之发布订阅模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T23:06:43+08:00">
+                2017-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/08/04/技术/js/javascript设计模式之发布订阅模式/" class="leancloud_visitors" data-flag-title="javascript设计模式之发布订阅模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>原本没这么快开始挖坑设计模式的233，但是在看vue源码博客的时候遇到了~而且也是之前学过，只是忘了。那么就开始吧！<br><a id="more"></a><br>发布订阅模式，稍微想一想就知道。其实我们一直有用到这个模式~因为js原生地就需要这个，而且必须用到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$box.addEventListener(&apos;click&apos;, function() &#123;&#125;)</div></pre></td></tr></table></figure></p>
+<p>好处是显而易见的，事件驱动嘛~</p>
+<h2 id="1-怎么做"><a href="#1-怎么做" class="headerlink" title="1.怎么做"></a>1.怎么做</h2><p>那么，怎么定制一个发布订阅模式呢？其实一开始如果没有学习，做起来真的感觉是一头雾水。然而学了之后就恍然大悟，大喊一句”so大斯捏”。没接触的各位，先停一停，自己思考一下怎么能实现这个功能。</p>
+<ul>
+<li>通过一个”订阅”方法，订阅一个事件，在事件触发的时候执行一些操作</li>
+<li>事件触发后发布事件</li>
+<li>事件是一个抽象的概念，把它转换为满足某些条件的情况。（if语句)</li>
+<li>这里是不是有点像回调函数的感觉。满足特定条件就执行回调<br>这样通俗分解的说法，有没有明显一点呢？那我们跟着分解的来。（这里的例子借鉴《JavaScript设计模式与开发实践》）<br>首先，小明来订阅销售楼事件。就和原生调用没啥区别~<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">salesMan.listen(&apos;100米的楼盘开售了&apos;, function(price) &#123;</div><div class="line">  console.log(`$&#123;price&#125;元每平方米`);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>好了，那么既然传递参数，那么我们来考虑一下怎么接受这些参数。既然回调，那么肯定要把传进来的函数先存起来，方便后面回调用。另外每个事件都是各自的函数回调，所以申明的必须是一个对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var salesMan = &#123;&#125;;</div><div class="line">salesMan.clientList = &#123;&#125;;</div><div class="line">salesMan.listen = function(key, fn) &#123;</div><div class="line">  if (!this.clientList[key]) &#123; // 如果还没有订阅过这个事件</div><div class="line">    this.clientList[key] = [];</div><div class="line">  &#125;</div><div class="line">  this.clientList[key].push(fn);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>好了，既然已经订阅了，那么就开始处理发布的东西。也就是回调的执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// balabala 好多条件判断下来 满足了事件触发</div><div class="line">salesMan.trigger(&apos;100米的楼盘开售了&apos;, &apos;100&apos;); //发通告，发布事件出去</div></pre></td></tr></table></figure></p>
+<p>既然把事件发布了，那就肯定是回调开始啦~~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">salesMan.trigger = function(key, ...arg) &#123;</div><div class="line">  var fns = this.clientList[key];</div><div class="line">  // 没有人订阅过，直接返回</div><div class="line">  if (!fns) &#123;</div><div class="line">    return false;</div><div class="line">  &#125;</div><div class="line">  for (let i = 0; i &lt; fns.length; i++) &#123;</div><div class="line">    fns[i].apply(this, arg);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>于是，这样子。一个简易版的发布订阅模型就搞定啦。但是还有很多细节要处理，例如，现在事件是针对一个特定对象的，如果有很多个对象需要监听，那么会耗费很多内存申明重复的逻辑代码，如何写成通用的方式呢。另外，它还污染全局。如何取消订阅捏~如何实现先发布再订阅呢~~</p>
+<h3 id="先发布再订阅"><a href="#先发布再订阅" class="headerlink" title="先发布再订阅"></a>先发布再订阅</h3><p>这里稍微提一下思路吧<del>在当<code>trigger</code>的发布事件时候判断一下是否有人监听着。如果没有则储存起来，在<code>listen</code>触发的时候进行判断然后直接回调</del><br>这是大概思路吧~模仿着应该能做出来哒</p>
+<h2 id="2-发布订阅模式的优缺点"><a href="#2-发布订阅模式的优缺点" class="headerlink" title="2.发布订阅模式的优缺点"></a>2.发布订阅模式的优缺点</h2><h3 id="发布订阅模式的优点："><a href="#发布订阅模式的优点：" class="headerlink" title="发布订阅模式的优点："></a>发布订阅模式的优点：</h3><ul>
+<li>支持简单的广播通信，当对象状态发生改变时，会自动通知已经订阅过的对象。</li>
+<li>发布者与订阅者耦合性降低，发布者只管发布一条消息出去，它不关心这条消息如何被订阅者使用，同时，订阅者只监听发布者的事件名，只要发布者的事件名不变，它不管发布者如何改变；同理卖家（发布者）它只需要将鞋子来货的这件事告诉订阅者(买家)，他不管买家到底买还是不买，还是买其他卖家的。只要鞋子到货了就通知订阅者即可。</li>
+</ul>
+<p>对于第一点，我们日常工作中也经常使用到，比如我们的ajax请求，请求有成功(success)和失败(error)的回调函数，我们可以订阅ajax的success和error事件。我们并不关心对象在异步运行的状态，我们只关心success的时候或者error的时候我们要做点我们自己的事情就可以了~</p>
+<h3 id="发布订阅模式的缺点："><a href="#发布订阅模式的缺点：" class="headerlink" title="发布订阅模式的缺点："></a>发布订阅模式的缺点：</h3><ul>
+<li>创建订阅者需要消耗一定的时间和内存。</li>
+<li>虽然可以弱化对象之间的联系，如果过度使用的话，反而使代码不好理解及代码不好维护等等。</li>
+</ul>
+<h2 id="3-具体实现"><a href="#3-具体实现" class="headerlink" title="3.具体实现"></a>3.具体实现</h2><p>最近在慢慢熟悉TS的编写方式，所以用TS写的哈~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div></pre></td><td class="code"><pre><div class="line">class Observer &#123;</div><div class="line">  constructor(public value : any) &#123;</div><div class="line">    this.walk(value);</div><div class="line">  &#125;</div><div class="line">  walk(obj : any) &#123;</div><div class="line">    var keys = Object.keys(obj);</div><div class="line">    for (let i = 0; i &lt; keys.length; i++) &#123;</div><div class="line">      this.convert(keys[i], obj[keys[i]]);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  convert(key : string, val : any) &#123;</div><div class="line">    defineReactive(this.value, key, val);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function observe (value : any) &#123;</div><div class="line">  if (!value || typeof value !== &apos;object&apos;) &#123;</div><div class="line">    return</div><div class="line">  &#125;</div><div class="line">  return new Observer(value)</div><div class="line">&#125;</div><div class="line"></div><div class="line">function defineReactive(obj : any, key : string, val : any) &#123;</div><div class="line">  var property = Object.getOwnPropertyDescriptor(obj, key);</div><div class="line">  if (property &amp;&amp; property.configurable === false) &#123;</div><div class="line">    return</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  var getter = property &amp;&amp; property.get;</div><div class="line">  var setter = property &amp;&amp; property.set;</div><div class="line"></div><div class="line">  var childOb = observe(val);</div><div class="line">  Object.defineProperty(obj, key, &#123;</div><div class="line">    enumerable: true,</div><div class="line">    configurable: true,</div><div class="line">    get: function reactiveGetter() &#123;</div><div class="line">      var value = getter ? getter.call(obj) : val;</div><div class="line">      console.log(`访问：$&#123;key&#125;`);</div><div class="line">      return value</div><div class="line">    &#125;,</div><div class="line">    set: function reactiveSetter (newVal) &#123;</div><div class="line">      var value = getter? getter.call(obj) : val;</div><div class="line">      if (newVal === value) &#123;</div><div class="line">        return</div><div class="line">      &#125;</div><div class="line">      if (setter) &#123;</div><div class="line">        setter.call(obj, newVal)</div><div class="line">      &#125; else &#123;</div><div class="line">        val = newVal</div><div class="line">      &#125;</div><div class="line">      childOb = observe(newVal)</div><div class="line">      console.log(`更新：$&#123;key&#125; = $&#123;newVal&#125;`)</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">let data = &#123;</div><div class="line">  user: &#123;</div><div class="line">    name: &apos;singlemai&apos;,</div><div class="line">    age: 24</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">observe(data);</div><div class="line">console.log(data)</div><div class="line">data.user.name = &apos;singlemai&apos;;</div><div class="line"></div><div class="line">// var salesOffices = &#123;&#125;;</div><div class="line">// salesOffices.clientList = &#123;&#125;;</div><div class="line">// salesOffices.listen = function(key, fn) &#123;</div><div class="line">//   if (!this.clientList[key]) &#123;</div><div class="line">//     var arr = [];</div><div class="line">//     arr.push(fn);</div><div class="line">//     this.clientList[key] = arr;</div><div class="line">//   &#125; else &#123;</div><div class="line">//     this.clientList[key].push(fn);</div><div class="line">//   &#125;</div><div class="line">// &#125;</div><div class="line">// salesOffices.trigger = function() &#123;</div><div class="line">//   var arr = this.clientList[arguments[0]];</div><div class="line">//   console.log(this.clientList)</div><div class="line">//   console.log(arguments[0])</div><div class="line">//   for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">//     var fn = arr[i];</div><div class="line">//     fn.apply(this, arguments);</div><div class="line">//   &#125;</div><div class="line">// &#125;</div><div class="line">// salesOffices.listen(&apos;abc&apos;, (price, square) =&gt; &#123;</div><div class="line">//   console.log(`price:$&#123;price&#125; square=$&#123;square&#125;`)</div><div class="line">// &#125;)</div><div class="line">// salesOffices.trigger(&apos;abc&apos;,200, 88);</div><div class="line"></div><div class="line">class EventObj &#123;</div><div class="line">  clientList: Array&lt;any&gt;;</div><div class="line"></div><div class="line">  constructor ()&#123;</div><div class="line">    this.clientList = [];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  listen(key : any, fn : any) &#123;</div><div class="line">    if (!this.clientList[key]) &#123;</div><div class="line">        this.clientList[key] = [];</div><div class="line">      &#125;</div><div class="line">      this.clientList[key].push(fn);</div><div class="line">  &#125;</div><div class="line">  trigger(key : any, ...arg: Array&lt;any&gt;) &#123;</div><div class="line">    let arr = this.clientList[key];</div><div class="line">    for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">        var fn = arr[i];</div><div class="line">        fn.apply(this, arg);</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  remove(key : any, fn : any) &#123;</div><div class="line">    const fns = this.clientList[key];</div><div class="line">    if (!fns) &#123;</div><div class="line">      return false;</div><div class="line">    &#125;</div><div class="line">    if (!fn) &#123;</div><div class="line">      fns.length = 0;</div><div class="line">    &#125; else &#123;</div><div class="line">      let newFns = fns.filter((item : any, index : number, arr : Array&lt;any&gt;) =&gt; &#123;</div><div class="line">        return item !== fn</div><div class="line">      &#125;);</div><div class="line">      this.clientList[key] = newFns;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var aa = new EventObj();</div><div class="line">function bb(price : number)&#123;</div><div class="line">  console.log(price);</div><div class="line">&#125;</div><div class="line">aa.listen(&apos;100&apos;, bb);</div><div class="line">aa.listen(&apos;200&apos;, function(price : number)&#123;</div><div class="line">  console.log(price);</div><div class="line">&#125;)</div><div class="line">aa.trigger(&apos;100&apos;, 300);</div><div class="line">aa.trigger(&apos;200&apos;, 350);</div><div class="line">aa.remove(&apos;100&apos;, bb);</div><div class="line">aa.trigger(&apos;100&apos;, 300);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript设计模式/" rel="tag"># javascript设计模式</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/04/技术/js/细数js之数组/" rel="next" title="细数JS之数组">
+                <i class="fa fa-chevron-left"></i> 细数JS之数组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/05/技术/js/细数js之Date对象/" rel="prev" title="细数js之Date对象">
+                细数js之Date对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Bryan" />
+          <p class="site-author-name" itemprop="name">Bryan</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">125</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-怎么做"><span class="nav-number">1.</span> <span class="nav-text">1.怎么做</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先发布再订阅"><span class="nav-number">1.1.</span> <span class="nav-text">先发布再订阅</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-发布订阅模式的优缺点"><span class="nav-number">2.</span> <span class="nav-text">2.发布订阅模式的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发布订阅模式的优点："><span class="nav-number">2.1.</span> <span class="nav-text">发布订阅模式的优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布订阅模式的缺点："><span class="nav-number">2.2.</span> <span class="nav-text">发布订阅模式的缺点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-具体实现"><span class="nav-number">3.</span> <span class="nav-text">3.具体实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bryan</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

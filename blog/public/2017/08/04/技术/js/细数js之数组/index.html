@@ -93,9 +93,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="细数JS之数组">
 <meta property="og:url" content="SingleMai.github.io/2017/08/04/技术/js/细数js之数组/index.html">
-<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:site_name" content="Bryan &amp; Mia">
 <meta property="og:description" content="细数JS之数组，嘻嘻是这系列的第一篇。我一直有的感悟，书可以读上好几遍，每遍都有更多的感悟。特别是编程类的书籍。So，给自己的暑假定了这个任务。废话不多说，开干吧！">
-<meta property="og:updated_time" content="2017-08-04T15:49:00.161Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-29T09:16:21.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="细数JS之数组">
 <meta name="twitter:description" content="细数JS之数组，嘻嘻是这系列的第一篇。我一直有的感悟，书可以读上好几遍，每遍都有更多的感悟。特别是编程类的书籍。So，给自己的暑假定了这个任务。废话不多说，开干吧！">
@@ -436,6 +437,25 @@
 <h2 id="归并方法-reduce-、-reduceRight"><a href="#归并方法-reduce-、-reduceRight" class="headerlink" title="归并方法.reduce()、.reduceRight()"></a>归并方法<code>.reduce()</code>、<code>.reduceRight()</code></h2><p>合并方法，可以用来计算数组的总值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr1 = [1, 2, 3];</div><div class="line">var sum = arr1.reduce(function(first, second)&#123;</div><div class="line">  return first + second;</div><div class="line">&#125;)</div><div class="line">console.log(sum); // 6</div></pre></td></tr></table></figure></p>
 <h2 id="类数组对象"><a href="#类数组对象" class="headerlink" title="类数组对象"></a>类数组对象</h2><p>作为数组的字符串是不可变，只读的！！！</p>
 <h2 id="ES6新特性"><a href="#ES6新特性" class="headerlink" title="ES6新特性"></a>ES6新特性</h2><p>啊啊啊ES6特性实在太多，然后还有ES7 ES8 这个坑。。。慢慢来吧</p>
+<hr>
+<p>补充自2017.9.29 – 看到一篇深入理解数组的文章~这个果断是我完全不知道的唉~又是学习阶段！</p>
+<h2 id="js数组的本质"><a href="#js数组的本质" class="headerlink" title="js数组的本质"></a>js数组的本质</h2><p>js数组的本质是一个Objec生成的特殊对象。所以当使用<code>arr[0]</code>的时候，实际是访问<code>arr</code>这个对象的<code>0</code>的属性，<code>0</code>要求是字符串。我们可以正确使用如 arr[0] 的写法的原因是语言可以自动将 Number 类型的 0 转换成 String 类型的 “0” 。</p>
+<h2 id="数组的进化以及性能"><a href="#数组的进化以及性能" class="headerlink" title="数组的进化以及性能"></a>数组的进化以及性能</h2><p>首先，js数组不是连续的。如果这句话能让你觉得“啊？啊？？”那么你可以继续看了</p>
+<h3 id="为什么说javascript不是真正的数组"><a href="#为什么说javascript不是真正的数组" class="headerlink" title="为什么说javascript不是真正的数组"></a>为什么说javascript不是真正的数组</h3><p>在聊 JavaScript 之前，先讲讲 Array 是什么。</p>
+<p>数组是一串连续的内存位置，用来保存某些值。注意重点，<code>“连续”（continuous，或 contiguous）</code>，这很重要。</p>
+<p>而JavaScript 中的数据是哈希映射，可以使用不同的数据结构来实现，如链表。所以，如果在 JavaScript 中声明一个数组 var arr = new Array(4)，计算机将生成类似下面的结构。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">内存位置1201,指针p =&gt; 内存位置2201,指针p =&gt; 内存位置3240,指针p =&gt; 内存位置4501,指针p</div></pre></td></tr></table></figure>
+<p>如果程序需要读取 arr[2]，则需要从 1201 开始遍历寻址。</p>
+<p>以上就是JavaScript 数组与真实数组的不同之处。显而易见，数学计算比遍历链表快。就长数组而言，情况尤其如此。</p>
+<h3 id="JavaScript数组的进化"><a href="#JavaScript数组的进化" class="headerlink" title="JavaScript数组的进化"></a>JavaScript数组的进化</h3><p>随着JavaScript语言不断地进化，使用人数不断变多。性能要求变得越来越高。于是~</p>
+<p>实际上，现代 JavaScript 引擎是会给数组分配连续内存的 —— 如果数组是同质的（所有元素类型相同）。优秀的程序员总会保证数组同质，以便 JIT（即时编译器）能够使用 c 编译器式的计算方法读取元素。</p>
+<p>不过，一旦你想要在某个同质数组中插入一个其他类型的元素，JIT 将解构整个数组，并按照旧有的方式重新创建。</p>
+<p>因此，如果你的代码写得不太糟，JavaScript Array 对象在幕后依然保持着真正的数组形式，这对现代 JS 开发者来说极为重要。</p>
+<p>此外，数组跟随 ES2015/ES6 有了更多的演进。TC39 决定引入类型化数组（Typed Arrays），于是我们就有了 ArrayBuffer。</p>
+<p>ArrayBuffer 提供一块连续内存供我们随意操作。然而，直接操作内存还是太复杂、偏底层。于是便有了处理 ArrayBuffer 的视图（View）。目前已有一些可用视图，未来还会有更多加入。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var buffer = new ArrayBuffer(8);</div><div class="line">var view   = new Int32Array(buffer);</div><div class="line">view[0] = 100;</div></pre></td></tr></table></figure></p>
+<p>了解更多关于类型化数组（Typed Arrays）的知识，请访问 MDN 文档。</p>
+<hr>
+<p>详情可以参考文章： <a href="http://www.wemlion.com/post/javascript-array-evolution-performance" target="_blank" rel="external">[译] 深入 JavaScript 数组：进化与性能</a></p>
 
       
     </div>
@@ -478,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/05/技术/js/细数js之Date对象/" rel="next" title="细数js之Date对象">
-                <i class="fa fa-chevron-left"></i> 细数js之Date对象
+              <a href="/2017/08/04/随笔日记/说说舆论/" rel="next" title="说说舆论">
+                <i class="fa fa-chevron-left"></i> 说说舆论
               </a>
             
           </div>
@@ -488,8 +508,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/04/随笔日记/说说舆论/" rel="prev" title="说说舆论">
-                说说舆论 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/04/技术/js/javascript设计模式之发布订阅模式/" rel="prev" title="javascript设计模式之发布订阅模式">
+                javascript设计模式之发布订阅模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -561,7 +581,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-count">125</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -572,7 +592,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -583,7 +603,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tag/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -635,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#length属性"><span class="nav-number">1.</span> <span class="nav-text">length属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测数组"><span class="nav-number">2.</span> <span class="nav-text">检测数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组操作"><span class="nav-number">3.</span> <span class="nav-text">数组操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#push-val"><span class="nav-number">3.1.</span> <span class="nav-text">.push(val)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pop-val"><span class="nav-number">3.2.</span> <span class="nav-text">.pop(val)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unshift-val"><span class="nav-number">3.3.</span> <span class="nav-text">.unshift(val)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shift"><span class="nav-number">3.4.</span> <span class="nav-text">.shift()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reverse"><span class="nav-number">3.5.</span> <span class="nav-text">.reverse()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort"><span class="nav-number">3.6.</span> <span class="nav-text">.sort()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并数组-concat-arr2-和拆分数组成字符串-join"><span class="nav-number">3.7.</span> <span class="nav-text">合并数组.concat(arr2) 和拆分数组成字符串.join()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice-获取数组中的某一段数组"><span class="nav-number">3.8.</span> <span class="nav-text">.slice()获取数组中的某一段数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#splice-操作数组最强大方法。"><span class="nav-number">3.9.</span> <span class="nav-text">.splice()操作数组最强大方法。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位置方法indexOf-、lastIndexOf"><span class="nav-number">4.</span> <span class="nav-text">位置方法indexOf()、lastIndexOf()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代方法-every-、-filter-、-forEach-、-map-、-some"><span class="nav-number">5.</span> <span class="nav-text">迭代方法.every()、.filter()、.forEach()、.map()、.some()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#every-方法"><span class="nav-number">5.1.</span> <span class="nav-text">.every() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some"><span class="nav-number">5.2.</span> <span class="nav-text">.some()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">5.3.</span> <span class="nav-text">.filter()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-number">5.4.</span> <span class="nav-text">.forEach()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-方法"><span class="nav-number">5.5.</span> <span class="nav-text">.map()方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并方法-reduce-、-reduceRight"><span class="nav-number">6.</span> <span class="nav-text">归并方法.reduce()、.reduceRight()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类数组对象"><span class="nav-number">7.</span> <span class="nav-text">类数组对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6新特性"><span class="nav-number">8.</span> <span class="nav-text">ES6新特性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#length属性"><span class="nav-number">1.</span> <span class="nav-text">length属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测数组"><span class="nav-number">2.</span> <span class="nav-text">检测数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组操作"><span class="nav-number">3.</span> <span class="nav-text">数组操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#push-val"><span class="nav-number">3.1.</span> <span class="nav-text">.push(val)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pop-val"><span class="nav-number">3.2.</span> <span class="nav-text">.pop(val)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unshift-val"><span class="nav-number">3.3.</span> <span class="nav-text">.unshift(val)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shift"><span class="nav-number">3.4.</span> <span class="nav-text">.shift()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reverse"><span class="nav-number">3.5.</span> <span class="nav-text">.reverse()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort"><span class="nav-number">3.6.</span> <span class="nav-text">.sort()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并数组-concat-arr2-和拆分数组成字符串-join"><span class="nav-number">3.7.</span> <span class="nav-text">合并数组.concat(arr2) 和拆分数组成字符串.join()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice-获取数组中的某一段数组"><span class="nav-number">3.8.</span> <span class="nav-text">.slice()获取数组中的某一段数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#splice-操作数组最强大方法。"><span class="nav-number">3.9.</span> <span class="nav-text">.splice()操作数组最强大方法。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位置方法indexOf-、lastIndexOf"><span class="nav-number">4.</span> <span class="nav-text">位置方法indexOf()、lastIndexOf()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代方法-every-、-filter-、-forEach-、-map-、-some"><span class="nav-number">5.</span> <span class="nav-text">迭代方法.every()、.filter()、.forEach()、.map()、.some()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#every-方法"><span class="nav-number">5.1.</span> <span class="nav-text">.every() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some"><span class="nav-number">5.2.</span> <span class="nav-text">.some()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">5.3.</span> <span class="nav-text">.filter()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-number">5.4.</span> <span class="nav-text">.forEach()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-方法"><span class="nav-number">5.5.</span> <span class="nav-text">.map()方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并方法-reduce-、-reduceRight"><span class="nav-number">6.</span> <span class="nav-text">归并方法.reduce()、.reduceRight()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类数组对象"><span class="nav-number">7.</span> <span class="nav-text">类数组对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6新特性"><span class="nav-number">8.</span> <span class="nav-text">ES6新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js数组的本质"><span class="nav-number">9.</span> <span class="nav-text">js数组的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的进化以及性能"><span class="nav-number">10.</span> <span class="nav-text">数组的进化以及性能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么说javascript不是真正的数组"><span class="nav-number">10.1.</span> <span class="nav-text">为什么说javascript不是真正的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript数组的进化"><span class="nav-number">10.2.</span> <span class="nav-text">JavaScript数组的进化</span></a></li></ol></li></ol></div>
             
 
           </div>

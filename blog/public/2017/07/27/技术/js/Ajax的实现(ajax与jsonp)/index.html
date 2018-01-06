@@ -89,13 +89,13 @@
 
 
 <meta name="description" content="怎么抓取后端的数据？那必须是ajax，谈到ajax就有两个问题需要解决：1. 用何种数据进行交换？ 2. 跨域如何解决。只要稍微有所接触前端，都必须要知道ajax的实现和jsonp。这篇文章就大致理一遍两者的实现原理。">
-<meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ajax的实现（ajax与jsonp)">
 <meta property="og:url" content="SingleMai.github.io/2017/07/27/技术/js/Ajax的实现(ajax与jsonp)/index.html">
-<meta property="og:site_name" content="Bryan & Mia">
+<meta property="og:site_name" content="Bryan &amp; Mia">
 <meta property="og:description" content="怎么抓取后端的数据？那必须是ajax，谈到ajax就有两个问题需要解决：1. 用何种数据进行交换？ 2. 跨域如何解决。只要稍微有所接触前端，都必须要知道ajax的实现和jsonp。这篇文章就大致理一遍两者的实现原理。">
-<meta property="og:updated_time" content="2017-07-27T15:54:47.625Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-20T01:49:41.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax的实现（ajax与jsonp)">
 <meta name="twitter:description" content="怎么抓取后端的数据？那必须是ajax，谈到ajax就有两个问题需要解决：1. 用何种数据进行交换？ 2. 跨域如何解决。只要稍微有所接触前端，都必须要知道ajax的实现和jsonp。这篇文章就大致理一遍两者的实现原理。">
@@ -411,6 +411,7 @@
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>接着背景继续讲。假设现在请求的就是一个js文件，那么如果在里面定义一个自执行函数。那不就相当于实现了<em>请求完成后处理数据</em>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// data.js</div><div class="line">let data = &#123;</div><div class="line">    name: &apos;xixia&apos;,</div><div class="line">    age: &apos;19&apos;</div><div class="line">&#125;;</div><div class="line">(function callback (data) &#123;</div><div class="line">    alert(data.name);</div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
 <p>是不是渐渐有些眉目了，但是这个方法还是有问题。因为回调函数在服务器啊，前端咋整自己的骚操作呢？！很简单，我只要告诉服务器，我这边有一个回调函数，名字叫做‘callback’，我把名字告诉你，然后你返回数据的时候，加上这一句函数执行就好了。于是服务器的代码变成了这样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// data.js</div><div class="line">let data = &#123;</div><div class="line">    name: &apos;xixia&apos;,</div><div class="line">    age: &apos;19&apos;</div><div class="line">&#125;</div><div class="line">callback();</div></pre></td></tr></table></figure></p>
 <p>最后就是在前端定义这个函数就好啦，后端服务器不需要知道你捣鼓了啥，只需要知道前端小兄弟拿到数据之后就想捣鼓这个函数就行。</p>
+<p>但是jsonp有一个缺点：只能实现get一种请求。而且需要后台支持才能进行实现~~更多跨域移步到 — 前端常见跨域解决方案</p>
 <h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><p>逻辑理通了，我们就直接贴原生js开干吧！为什么一定要原生呢？这不是废话吗，别人都封装好了，你哪里可以懂底层原理。这里贴的url地址是直接抓腾讯爸爸的接口，懒得填参数了，直接url里面都是他的参数了，大家都原理就行。填参都是拼接字符串的事。</p>
 <p>后记，试着封装了一个插件。发现有一些需要注意的点：</p>
 <ul>
@@ -476,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/29/技术/js/图片懒加载和预加载技术/" rel="next" title="图片懒加载和预加载技术">
-                <i class="fa fa-chevron-left"></i> 图片懒加载和预加载技术
+              <a href="/2017/07/19/技术/js/es6的新玩法/" rel="next" title="ES6的新玩法">
+                <i class="fa fa-chevron-left"></i> ES6的新玩法
               </a>
             
           </div>
@@ -486,8 +487,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/19/技术/js/es6的新玩法/" rel="prev" title="ES6的新玩法">
-                ES6的新玩法 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/29/技术/js/图片懒加载和预加载技术/" rel="prev" title="图片懒加载和预加载技术">
+                图片懒加载和预加载技术 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -559,7 +560,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-count">125</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -570,7 +571,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -581,7 +582,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tag/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
