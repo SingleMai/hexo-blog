@@ -1,0 +1,874 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这是很久之前为公司做的一个白板服务有关解码问题的总结。情况比较特殊吧，每个模块输出信息可能都没对齐，然后放到node来总结。加上对二进制操作比较粗糙，所以此文纯粹说明一下我的坑，不一定能解决大家的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有关decodeURI与unescape解码问题">
+<meta property="og:url" content="SingleMai.github.io/2018/08/19/技术/js/有关decodeURI与unescape解码问题/index.html">
+<meta property="og:site_name" content="嘻嘻啊的日常">
+<meta property="og:description" content="这是很久之前为公司做的一个白板服务有关解码问题的总结。情况比较特殊吧，每个模块输出信息可能都没对齐，然后放到node来总结。加上对二进制操作比较粗糙，所以此文纯粹说明一下我的坑，不一定能解决大家的问题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-19T02:30:23.866Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有关decodeURI与unescape解码问题">
+<meta name="twitter:description" content="这是很久之前为公司做的一个白板服务有关解码问题的总结。情况比较特殊吧，每个模块输出信息可能都没对齐，然后放到node来总结。加上对二进制操作比较粗糙，所以此文纯粹说明一下我的坑，不一定能解决大家的问题。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2018/08/19/技术/js/有关decodeURI与unescape解码问题/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 有关decodeURI与unescape解码问题 | 嘻嘻啊的日常 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">嘻嘻啊的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2018/08/19/技术/js/有关decodeURI与unescape解码问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Singlemai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嘻嘻啊的日常">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                有关decodeURI与unescape解码问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-19T10:24:59+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/19/技术/js/有关decodeURI与unescape解码问题/" class="leancloud_visitors" data-flag-title="有关decodeURI与unescape解码问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>这是很久之前为公司做的一个白板服务有关解码问题的总结。情况比较特殊吧，每个模块输出信息可能都没对齐，然后放到node来总结。加上对二进制操作比较粗糙，所以此文纯粹说明一下我的坑，不一定能解决大家的问题。<br><a id="more"></a></p>
+<p>在开发过程中,后台发送过来的数据内容被使用URL进行编码.所以前端拿到数据后需要进行遍历转码.一开始使用<code>decodeURI</code>发现,居然报了一个错误:<code>malformed URI sequence , URI不合法</code>.</p>
+<p>当时时间比较紧,加上自身对解码这一块可谓零接触.所以就开始忙乎着复制下一个方法<code>unescape</code>进行解码.一试,哎哟,居然可以.然后这个问题就过了.直到最近发现转完的内容还是有格式错乱的问题.一开始定位为后端的问题,但是大家都把自己拿到的内容进行转码.最终定位到是我前端的问题.这下我就慌了,立马百度一下<code>escape</code>这个方法,发现,卧槽居然是一个老早就被弃用的方法.尖介,可是明明推荐使用的是<code>decodeURIComponent</code>,但是却报错阿喂.查了一圈过来,就发现原来是因为后台进行转码的时候使用的过时的转码方法(同样是被弃用了),于是乎你就懂了</p>
+<p>后台用过时的方法转码 –&gt; 前端用过时的方法<code>unescape</code>解码<br>后台用现在推荐的方法转码 –&gt; 前端用推荐的方法<code>decodeURIComponent</code>解码</p>
+<p>而且还必须一一对应,不然会报错.(这是一个好事情啊,这样就能catch住这个错误,转向另一种解法了)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> util = &#123;&#125;</div><div class="line"></div><div class="line">util.decode_JSON_URI = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">in</span> obj) &#123;</div><div class="line">    <span class="keyword">const</span> value = obj[item];</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span>(value) === <span class="string">'string'</span>) &#123;</div><div class="line">      obj[item] = decodeURIComponentEx(value);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (value <span class="keyword">instanceof</span> <span class="built_in">Object</span>) &#123;</div><div class="line">      obj[item] = util.decode_JSON_URI(obj[item]);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> obj;</div><div class="line">&#125;</div><div class="line"></div><div class="line">exports = <span class="built_in">module</span>.exports = util</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> decodeURIComponentEx = <span class="function"><span class="keyword">function</span> (<span class="params">uriComponent</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!uriComponent) &#123;</div><div class="line">    <span class="keyword">return</span> uriComponent;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> ret;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    ret = <span class="built_in">decodeURIComponent</span>(uriComponent);</div><div class="line">  &#125; <span class="keyword">catch</span> (ex) &#123;</div><div class="line">    ret = <span class="built_in">unescape</span>(uriComponent);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> ret;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>后记，时隔好久好久，又出现了另外一个问题。使用<code>decodeURIComponent</code>解码会导致报错，紧接着使用<code>unescape</code>进行解码就会导致中文格式乱码。</p>
+<p>本来想把锅甩给后端，结果后台拿着他传给我的字段跑到网上的在线转码工具一解码，我勒个去完全没问题。。然后就变成我的锅了。。可是网上找来找去都没搞过这种骚操作的。绝望之余，开始在github上寻求基友的帮助，然而好坑的是几乎每一个所谓的框架里面都是一句</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  ret = <span class="built_in">decodeURIComponent</span>(uriComponent);</div><div class="line">&#125; <span class="keyword">catch</span> (ex) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>尼玛，比我还坑好吗。好歹搞一个<code>unescape</code>啊。。。绝望之余看到一个<code>jquery-url-decode</code>什么的，感觉也没报多大希望，纯属是对jquery大佬的敬畏点了进去。咦，发现他居然是直接对二进制进行修改封装？纳尼？这么强势，直接就复制下来开始刚</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">utf8_decode</span>(<span class="params">utftext</span>) </span>&#123; </div><div class="line">	<span class="keyword">var</span> string = <span class="string">""</span>; </div><div class="line">	<span class="keyword">var</span> i = <span class="number">0</span>; </div><div class="line">	<span class="keyword">var</span> c = <span class="number">0</span>;</div><div class="line">	<span class="keyword">var</span> c2 = <span class="number">0</span>; </div><div class="line"></div><div class="line">	<span class="keyword">while</span> ( i &lt; utftext.length ) &#123; </div><div class="line"></div><div class="line">		c = utftext.charCodeAt(i); </div><div class="line"></div><div class="line">		<span class="keyword">if</span> (c &lt; <span class="number">128</span>) &#123; </div><div class="line">			string += <span class="built_in">String</span>.fromCharCode(c); </div><div class="line">			i++; </div><div class="line">		&#125; </div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>((c &gt; <span class="number">191</span>) &amp;&amp; (c &lt; <span class="number">224</span>)) &#123; </div><div class="line">			c2 = utftext.charCodeAt(i+<span class="number">1</span>); </div><div class="line">			string += <span class="built_in">String</span>.fromCharCode(((c &amp; <span class="number">31</span>) &lt;&lt; <span class="number">6</span>) | (c2 &amp; <span class="number">63</span>)); </div><div class="line">			i += <span class="number">2</span>; </div><div class="line">		&#125; </div><div class="line">		<span class="keyword">else</span> &#123; </div><div class="line">			c2 = utftext.charCodeAt(i+<span class="number">1</span>); </div><div class="line">			c3 = utftext.charCodeAt(i+<span class="number">2</span>); </div><div class="line">			string += <span class="built_in">String</span>.fromCharCode(((c &amp; <span class="number">15</span>) &lt;&lt; <span class="number">12</span>) | ((c2 &amp; <span class="number">63</span>) &lt;&lt; <span class="number">6</span>) | (c3 &amp; <span class="number">63</span>)); </div><div class="line">			i += <span class="number">3</span>; </div><div class="line">		&#125; </div><div class="line"></div><div class="line">	&#125; </div><div class="line"></div><div class="line">	<span class="keyword">return</span> string; </div><div class="line">&#125;</div><div class="line"><span class="comment">// 调用</span></div><div class="line">utf8_decode(<span class="built_in">unescape</span>(a.replace(<span class="regexp">/\+/g</span>, <span class="string">' '</span>)))</div></pre></td></tr></table></figure>
+<p>我了个乖乖，这么强势的操作，必须看一下行不行。一试纳尼居然成功了！之后虽然导致了别的位置乱码，但是好歹把这个问题找出来了。但是由于把这个操作没办法报错，和<code>unescape()</code>没办法区分开到底使用哪一个。所以只能改成这样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  ret = <span class="built_in">decodeURIComponent</span>(uriComponent);</div><div class="line">&#125; <span class="keyword">catch</span> (ex) &#123;</div><div class="line">  ret = utf8_decode(<span class="built_in">unescape</span>(uriComponent.replace(<span class="regexp">/\+/g</span>, <span class="string">' '</span>)))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>嗯，不知道有没Bug呢 暂时就这样呗</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/12/技术/浅谈H5音频处理/" rel="next" title="浅谈H5音频处理">
+                <i class="fa fa-chevron-left"></i> 浅谈H5音频处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Singlemai" />
+          <p class="site-author-name" itemprop="name">Singlemai</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录有关嘻嘻啊的一切</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">133</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Singlemai</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,9 +1,13 @@
-1.ÊäÈë´´½¨ÎÄÕÂÃüÁî£¬Éú³ÉÒ»¸ömdÎÄ¼ş(/blog/source/_posts/)
+1.è¾“å…¥åˆ›å»ºæ–‡ç« å‘½ä»¤ï¼Œç”Ÿæˆä¸€ä¸ªmdæ–‡ä»¶(/blog/source/_posts/)
 	$ hexo new "hello"
-2.Ìá½»ÄÚÈİ£¬ÉÏ´«
+2.æäº¤å†…å®¹ï¼Œä¸Šä¼ 
 	$ hexo clean
 	$ hexo d -g
-3. <!--more--> ×¢ÊÍREADMORE
-4. ±¾µØÔ¤ÀÀ
+3. <!--more--> æ³¨é‡ŠREADMORE
+4. æœ¬åœ°é¢„è§ˆ
 	$ hexo s
 	localhost:4000/
+
+5. fatal: in unpopulated submodule '.deploy_git'
+npm install hexo-deployer-git â€“save
+å¦‚æœè¿˜ä¸è¡Œåˆ™rm -rf .deploy_git åˆ é™¤æ‰åŸæœ‰å†…å®¹å†è¿›è¡Œæäº¤

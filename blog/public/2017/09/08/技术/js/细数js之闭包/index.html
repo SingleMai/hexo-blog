@@ -93,10 +93,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="细数JS之闭包">
 <meta property="og:url" content="SingleMai.github.io/2017/09/08/技术/js/细数js之闭包/index.html">
-<meta property="og:site_name" content="Bryan &amp; Mia">
+<meta property="og:site_name" content="嘻嘻啊的日常">
 <meta property="og:description" content="闭包是一个经常会在各种设计模式里面和高阶教程出现的技术，学习以来总是不断回头重学重理解，好像是理解了？然而别人让我讲述的时候却不太懂如何表达？应该是理解不深刻吧，所以特意搜了好多几篇文章再加上红宝书犀牛书，结合着认真深刻学习一番~~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-08T07:56:38.745Z">
+<meta property="og:updated_time" content="2018-01-06T16:53:51.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="细数JS之闭包">
 <meta name="twitter:description" content="闭包是一个经常会在各种设计模式里面和高阶教程出现的技术，学习以来总是不断回头重学重理解，好像是理解了？然而别人让我讲述的时候却不太懂如何表达？应该是理解不深刻吧，所以特意搜了好多几篇文章再加上红宝书犀牛书，结合着认真深刻学习一番~~">
@@ -135,7 +135,7 @@
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  <title> 细数JS之闭包 | Bryan & Mia </title>
+  <title> 细数JS之闭包 | 嘻嘻啊的日常 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -180,7 +180,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Bryan & Mia</span>
+        <span class="site-title">嘻嘻啊的日常</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -296,13 +296,13 @@
     <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/09/08/技术/js/细数js之闭包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bryan">
+      <meta itemprop="name" content="Singlemai">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bryan & Mia">
+      <meta itemprop="name" content="嘻嘻啊的日常">
     </span>
 
     
@@ -479,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/04/技术/html+css/CSS布局技巧之垂直水平居中/" rel="next" title="CSS布局技巧之垂直水平居中">
-                <i class="fa fa-chevron-left"></i> CSS布局技巧之垂直水平居中
+              <a href="/2017/09/08/技术/js/细数js之立即执行函数表达式（IIFE）/" rel="next" title="细数JS之立即执行函数表达式（IIFE）">
+                <i class="fa fa-chevron-left"></i> 细数JS之立即执行函数表达式（IIFE）
               </a>
             
           </div>
@@ -489,8 +489,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/08/技术/js/细数js之立即执行函数表达式（IIFE）/" rel="prev" title="细数JS之立即执行函数表达式（IIFE）">
-                细数JS之立即执行函数表达式（IIFE） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/11/技术/html+css/CSS3高斯模糊与毛玻璃/" rel="prev" title="CSS3高斯模糊与毛玻璃">
+                CSS3高斯模糊与毛玻璃 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -551,10 +551,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
-               alt="Bryan" />
-          <p class="site-author-name" itemprop="name">Bryan</p>
+               alt="Singlemai" />
+          <p class="site-author-name" itemprop="name">Singlemai</p>
            
-              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+              <p class="site-description motion-element" itemprop="description">记录有关嘻嘻啊的一切</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -562,7 +562,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">125</span>
+                <span class="site-state-item-count">133</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -573,7 +573,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -658,12 +658,12 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Bryan</span>
+  <span class="author" itemprop="copyrightHolder">Singlemai</span>
 </div>
 
 <div>

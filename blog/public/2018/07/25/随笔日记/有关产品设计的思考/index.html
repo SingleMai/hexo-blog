@@ -1,0 +1,905 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="=.=最近一直疲于优化语标平台的用户体验内容，深深感觉到没有产品在场的绝望感。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有关产品设计的思考">
+<meta property="og:url" content="SingleMai.github.io/2018/07/25/随笔日记/有关产品设计的思考/index.html">
+<meta property="og:site_name" content="嘻嘻啊的日常">
+<meta property="og:description" content="=.=最近一直疲于优化语标平台的用户体验内容，深深感觉到没有产品在场的绝望感。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-25T14:24:20.989Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有关产品设计的思考">
+<meta name="twitter:description" content="=.=最近一直疲于优化语标平台的用户体验内容，深深感觉到没有产品在场的绝望感。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2018/07/25/随笔日记/有关产品设计的思考/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 有关产品设计的思考 | 嘻嘻啊的日常 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">嘻嘻啊的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2018/07/25/随笔日记/有关产品设计的思考/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Singlemai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嘻嘻啊的日常">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                有关产品设计的思考
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-25T08:57:25+08:00">
+                2018-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔日记/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔日记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/25/随笔日记/有关产品设计的思考/" class="leancloud_visitors" data-flag-title="有关产品设计的思考">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>=.=最近一直疲于优化语标平台的用户体验内容，深深感觉到没有产品在场的绝望感。<br><a id="more"></a><br>语音标注平台，也就是这差不多几个月来我在公司的主要工作。但是由于其实是一款对内使用的产品（虽然宣传长远发展来看是对外外包平台），再加上公司现在业务发展太快，很多时候分配到业务前线的资源都不足够，那就更别提对于基础架构方面的关注了。自然，整个项目启动之初就只有我和付总进行整个项目的设计探讨，实现的话前后端都是由我独自进行实现。虽然启动之初，稍微花费了点时间去探索各大平台的设计思路，但是由于自己其实在这些平台看到的都是从一个外来的标注人员的角度，更何况很多此类平台对外程度并不大…更加严重地导致你没办法全面地把控这么一个系统要如何设计。</p>
+<p>于是很大程度上都依赖于自己对系统的探索和思考，为了尽可能地避免后期的推倒重来，所以一开始在设计之初就花费了很多时间进行架构流程的设计探索，但是最近随着语音组对标注数据逐渐地扩大要求以及再加上标注组的人员扩张，平台的功能缺乏以及设计缺陷疯狂暴露，于是乎这几周都是忙于添这个功能删那个功能的。趁着有空，想总结一下这次经历的一些所得吧。</p>
+<h3 id="了解需求，剖析"><a href="#了解需求，剖析" class="headerlink" title="了解需求，剖析"></a>了解需求，剖析</h3><p>首先，在接到一个需求任务的时候，千万不要动手实现代码。学会去剖析需求，理解需求，然后反馈探讨再反馈。简单而言，先从大局入手从宏观的角度进行脑海编程，不考虑细节处理，只考虑大体的逻辑架构。对于不清晰的部分，果断上网查是否有已经完成的技术方案可以借鉴参考。例如这次一开始接到标注平台的需求，我第一反应就是算法组的同事低估了这套系统的复杂性。当时提出的要求就是<code>可以标注音频的文本，然后得到正确答案让他们进行模型训练</code>，的确从系统的主要功能来看真的是一个特别简单的甚至谈不上是系统只是个工具。但是加上对标注员的管理，对标注结果的管理（审核、反馈），针对不同标注任务的扩展性…等等考虑之后整个系统的复杂性就蹭蹭往上走…再加上我身为一个实习生，交给我去设计这么一套系统真的没有信心能从开头就设计得好不留下任何坑，以后不欠技术债。但是没办法，既然来任务了就得认真去执行嘛。</p>
+<p>于是第一时间，我就开始上网找是否有已经存在的技术方案，参考了有关接触了解了讯飞标注平台、海天瑞声等标注软件的实现逻辑，从页面的一些功能点显示了解到了整套系统大概的技术实现。但是正如上文所提到从一个使用者的角度来看，其实只是管中窥豹没办法从管理员的角度更别说一个技术人员的角度来思考这个问题。</p>
+<h3 id="及时反馈，多多探索"><a href="#及时反馈，多多探索" class="headerlink" title="及时反馈，多多探索"></a>及时反馈，多多探索</h3><p>由于我和付总都不是一个有设计一套系统经验的人，但是付总身为一个最终的需求方，对最终的数据要求其实是有一定程度上的了解的。所以在设计之初，我拿到一个大体的解决方案之后就找付总对清楚了他的需求从而确保平台最终输出结果是正确的。</p>
+<p>但是很快我就犯了一个严重的错误，不论是我还是付总，其实我们俩都不是一个平台使用者，我只能从页面操作上给予建议设计以及实现。付老师只能知道他需要拿到什么数据，乍一看好像这中间完全没毛病，我来设计系统的操作，然后保证输出的结果符合数据组的要求。但是我强行架空了平台使用方，平台管理维护人员对平台的需求。（这有一点原因是因为数据组的大佬很忙并不是特别有空和我们对接这件事，另外一个重要的原因还是我没有主动去理清楚这个需求导致的），身为平台的管理者他需要什么信息，已经管理过标注团队的领导其实很清晰自己的需求，但是我却忽略了这一点只是单纯地从自己的角度出发来看这个问题，从而埋下了很多雷。比如，当时我认为平台要求数据的准确率应该设置一个阈值，但是数据组那边给出的要求是对于训练模型数据要求正确率能达到100%，于是做了一个近乎白痴的决定“数据标注没有达到100%正确率必须走打回逻辑。”这显然是不合适的。这就是没有及时反馈对接导致的严重错误</p>
+<h3 id="不要害怕设计，试错然后迭代"><a href="#不要害怕设计，试错然后迭代" class="headerlink" title="不要害怕设计，试错然后迭代"></a>不要害怕设计，试错然后迭代</h3><p>诚然，我承认由于自己的疏忽，前期导致系统设计上很多问题。但是其实更多问题是出在项目进行时暴露出来的问题。这一款产品，对于整个市场可能是一块已经被摸索透的领域（但是由于没有有相关经验的产品以及市场上的封闭性）其实开发这么一套系统我们还是一个初学者。这时候不能期盼自己能一步到位，相反要学会将以后此功能能方便移除接入的角度来考虑问题。设计上要尽可能地足够扩展性，拥抱变化快速迭代。当然其实这方面我做的真的不足够的好，很多时候加一个功能都会对前面有兼容性的冲突。</p>
+<p>最后再总结一下语标平台的一些我觉得值得注意的功能点。</p>
+<ol>
+<li>按照时间领取派发以及标注，乍一看所有音频派发到平台上其实是按照一条一条的内容来派发，直观地感受你会认为领取任务应该按照条数领取。但是对于管理者而言，一条音频时间可能会1秒到30秒不等（也有可能是我们语音组这边对音频处理的不同逻辑），这样派发的结果会导致工作量不可预估。</li>
+<li>速度而言，应该减少数据流的链路。设计之初，标注员、审核员、管理员三个角色，标注员负责数据的标注，审核员只负责审核数据是否标注通过，而管理员可以最终把控数据是否标注正确特殊情况下可以进行修改操作，更多情况下标注不正确直接打回到标注员身上。这样的角色设计乍一看职责清晰，有问题必须给到标注员进行反馈修正。如果按照理想的流程，数据流可能就三步走。但是更多情况，数据流可能会在审核员和标注员之间疯狂死循环。这对于急着拿一批数据来使用的平台是显然不合理的。在新的设计上，审核员审核不通过后要求主动修改正确答案，这样虽然加重了审核员的负担，但是却可以减少打回的时间链路然后在审核员层面做出一个比较彻底的质量把控。</li>
+<li>数据统计，字错误率，废弃率等有关语音识别相关的数值要学会去统计衡量数据质量。也就是专有的领域有必要去提供该领域下的知识。</li>
+<li>做好对平台管理者和最终交付方两方面需求的考虑满足。缺乏任何一方都是不合理的。</li>
+<li>明确的优先级需求并督促相关人员务必查阅并给出优先级建议。不要自己擅自决定优先级顺序，结果交付时候有重要功能却没有上线。</li>
+</ol>
+<p>大概这么多吧，其实感悟还有很多，但是emm 可能太久没写文章了，大概总结到一半就有点弄不出东西来了。 就酱，继续加油吧~！</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/01/随笔日记/7月，结束也是开始/" rel="next" title="7月，结束也是开始">
+                <i class="fa fa-chevron-left"></i> 7月，结束也是开始
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/29/随笔日记/来一场《疯狂古典粤游记》/" rel="prev" title="来一场《疯狂古典粤游记》">
+                来一场《疯狂古典粤游记》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Singlemai" />
+          <p class="site-author-name" itemprop="name">Singlemai</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录有关嘻嘻啊的一切</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">133</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#了解需求，剖析"><span class="nav-number">1.</span> <span class="nav-text">了解需求，剖析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#及时反馈，多多探索"><span class="nav-number">2.</span> <span class="nav-text">及时反馈，多多探索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要害怕设计，试错然后迭代"><span class="nav-number">3.</span> <span class="nav-text">不要害怕设计，试错然后迭代</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Singlemai</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

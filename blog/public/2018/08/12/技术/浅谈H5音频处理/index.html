@@ -1,0 +1,1045 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="最近需要做一个实时录音然后根据音频流实时反馈出调用静音分析（VAD）以及语音识别(ASR)接口的功能。于是研究起H5有关这方面的支持。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈H5音频处理">
+<meta property="og:url" content="SingleMai.github.io/2018/08/12/技术/浅谈H5音频处理/index.html">
+<meta property="og:site_name" content="嘻嘻啊的日常">
+<meta property="og:description" content="最近需要做一个实时录音然后根据音频流实时反馈出调用静音分析（VAD）以及语音识别(ASR)接口的功能。于是研究起H5有关这方面的支持。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-19T02:39:08.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈H5音频处理">
+<meta name="twitter:description" content="最近需要做一个实时录音然后根据音频流实时反馈出调用静音分析（VAD）以及语音识别(ASR)接口的功能。于是研究起H5有关这方面的支持。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2018/08/12/技术/浅谈H5音频处理/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 浅谈H5音频处理 | 嘻嘻啊的日常 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">嘻嘻啊的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2018/08/12/技术/浅谈H5音频处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Singlemai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嘻嘻啊的日常">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                浅谈H5音频处理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-12T10:31:10+08:00">
+                2018-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/12/技术/浅谈H5音频处理/" class="leancloud_visitors" data-flag-title="浅谈H5音频处理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>最近需要做一个实时录音然后根据音频流实时反馈出调用静音分析（VAD）以及语音识别(ASR)接口的功能。于是研究起H5有关这方面的支持。<br><a id="more"></a></p>
+<h2 id="H5的Web-Audio-API"><a href="#H5的Web-Audio-API" class="headerlink" title="H5的Web Audio API"></a>H5的Web Audio API</h2><p>首先需要弄清一点，<code>Web Audio API</code>和H5的<code>&lt;audio&gt;</code>完全不是一个体量级的东西，<code>&lt;audio&gt;</code>可以很方便地让你将音频文件丢进去就自带各种花式功能。但是如果直接用<code>Web Auido API</code>进行操作，你甚至可以无中生有地创造声音。<br>这里粗糙地罗列一下它能做什么事情（尽我所能查到的资料）：</p>
+<ol>
+<li>对简单或复杂的声音进行混合；</li>
+<li>精确地控制声音的密度和节奏；</li>
+<li>内置淡入、淡出，颗粒噪点、音调控制等效果；</li>
+<li>灵活的处理在音频流的声道，使它们成为拆分和合并；</li>
+<li>处理从<code>&lt;audio&gt;</code>音频或<code>&lt;video&gt;</code>视频的媒体元素和音频源。</li>
+<li>使用<code>MediaStream的getUserMedia()</code>方法实时处理现场输入的音频，例如变声；</li>
+<li>立体音效，支持多种3D游戏和沉浸式环境。</li>
+<li>利用卷积引擎，创造各种线性音效，例如小/大房间、大教堂、音乐厅、洞穴、隧道、走廊、森林等。尤其适用于创建高质量的房间效果。（就是音乐播放器的那种特效~）</li>
+<li>高效实时的时域和频的分析，配合CSS3或Canvas或WebGL可以做到音乐的可视化支持。</li>
+<li>音频波形算法控制，也就是只要你研究地足够透彻，你把AU搬到web上实现也就阔以的。</li>
+</ol>
+<p>然而，这么多高深地功能，很多前端开发者其实都没有这样地需求去接触。罗列在这里，是为了让自己接到类似需求的时候能准确判断对此类需求能做到什么程度。</p>
+<h2 id="简单生成点声音"><a href="#简单生成点声音" class="headerlink" title="简单生成点声音"></a>简单生成点声音</h2><p>网页一般是无声的，但是当你尝试去给你的点击产生一个声音，对于特殊场景下会让客户耳目一新。这里例子主要参考自<a href="https://www.zhangxinxu.com/wordpress/2017/06/html5-web-audio-api-js-ux-voice/" target="_blank" rel="external">张鑫旭–利用HTML5 Web Audio API给网页交互增加声音</a>给到的例子。我们逐行来分析一下代码来看看如何实现这种效果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>  <span class="built_in">window</span>.AudioContext = <span class="built_in">window</span>.AudioContext || <span class="built_in">window</span>.webkitAudioContext;</div><div class="line"><span class="comment">// 生成一个AudioContext对象</span></div><div class="line"><span class="number">2.</span>  <span class="keyword">var</span> audioCtx = <span class="keyword">new</span> AudioContext();</div><div class="line"><span class="comment">// 创建一个OscillatorNode, 它表示一个周期性波形（振荡），基本上来说创造了一个音调</span></div><div class="line"><span class="number">3.</span>  <span class="keyword">var</span> oscillator = audioCtx.createOscillator();</div><div class="line"> <span class="comment">// 创建一个GainNode,它可以控制音频的总音量</span></div><div class="line"><span class="number">4.</span>  <span class="keyword">var</span> gainNode = audioCtx.createGain();</div><div class="line"><span class="comment">// 把音量，音调和终节点进行关联</span></div><div class="line"><span class="number">5.</span>  oscillator.connect(gainNode);</div><div class="line"><span class="comment">// audioCtx.destination返回AudioDestinationNode对象，表示当前audio context中所有节点的最终节点，一般表示音频渲染设备</span></div><div class="line"><span class="number">6.</span>  gainNode.connect(audioCtx.destination);</div><div class="line"><span class="comment">// 指定音调的类型，其他还有square|triangle|sawtooth</span></div><div class="line"><span class="number">7.</span>  oscillator.type = <span class="string">'sine'</span>;</div><div class="line"><span class="comment">// 设置当前播放声音的频率，也就是最终播放声音的调调</span></div><div class="line"><span class="number">8.</span>  oscillator.frequency.value = <span class="number">196.00</span>;</div><div class="line"><span class="comment">// 当前时间设置音量为0</span></div><div class="line"><span class="number">9.</span>  gainNode.gain.setValueAtTime(<span class="number">0</span>, audioCtx.currentTime);</div><div class="line"> <span class="comment">// 0.01秒后音量为1</span></div><div class="line"><span class="number">10.</span> gainNode.gain.linearRampToValueAtTime(<span class="number">1</span>, audioCtx.currentTime + <span class="number">0.01</span>);</div><div class="line"><span class="comment">// 音调从当前时间开始播放</span></div><div class="line"><span class="number">11.</span> oscillator.start(audioCtx.currentTime);</div><div class="line"><span class="comment">// 1秒内声音慢慢降低，是个不错的停止声音的方法</span></div><div class="line"><span class="number">12.</span> gainNode.gain.exponentialRampToValueAtTime(<span class="number">0.001</span>, audioCtx.currentTime + <span class="number">1</span>);</div><div class="line"><span class="comment">// 1秒后完全停止声音</span></div><div class="line"><span class="number">13.</span> oscillator.stop(audioCtx.currentTime + <span class="number">1</span>);</div></pre></td></tr></table></figure>
+<h3 id="oscillator"><a href="#oscillator" class="headerlink" title="oscillator"></a>oscillator</h3><p>需要了解上面的代码我们需要对音频有一些基础的认识。首先，声音的本质其实就是震动，而震动又务必牵扯到波形，不同的波形会发出不同的声音。然后相同的波形下还会有不一样的震动频率，最终会表现为音调的高低。因此当我们需要生成一个声音的时候，就需要为它设置波形以及对应的音调，所以你可以这么理解<code>oscillator</code>就是一个创造音调的玩意。</p>
+<p>那么给一个音调的创造过程就如下：设置波形–&gt;设置频率</p>
+<h4 id="波形"><a href="#波形" class="headerlink" title="波形"></a>波形</h4><p>波形主要内置了4种波形，对应发出不同的声音。主要有<code>sine</code>(正弦波)、<code>square</code>（方波）、<code>triangle</code>（三角波）以及<code>sawtooth</code>锯齿波。<br>当然如果有需要还可以使用<code>setPeriodicWave</code>自定义波形。</p>
+<h4 id="频率"><a href="#频率" class="headerlink" title="频率"></a>频率</h4><p>频率这玩意很好理解。就是我们生活中接触地“do、re、mi、fa、sol、la、si”.数值越小，越低沉；数值越大，越清脆。</p>
+<h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>这里具体逻辑我也没太清楚，理解为创造出来的声音需要将音调和音量进行关联，然后再将这些声音结点输出到扬声器上。</p>
+<p>剩下的就是淡入淡出的设置以及播放声音的内容。这些部分在张大大的博客中有详细地阐述，该块内容也是参考着它的博文进行二次翻译记录自己一些理解（很粗浅）然后总结罢了。</p>
+<h2 id="玩点录音"><a href="#玩点录音" class="headerlink" title="玩点录音"></a>玩点录音</h2><h3 id="获取到原始的pcm数据"><a href="#获取到原始的pcm数据" class="headerlink" title="获取到原始的pcm数据"></a>获取到原始的pcm数据</h3><p>自己创造声音有点过于高大上，只播声音又显得有点无趣。那么干脆来玩一下录音好了。开启录音很简单，只需要这么简单的一行代码（当然不考虑兼容性咯）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">navigator.mediaDevices.getUserMedia(&#123;<span class="attr">audio</span>: <span class="literal">true</span>, <span class="attr">video</span>: <span class="literal">true</span>&#125;)</div></pre></td></tr></table></figure>
+<p>可以试一下在浏览器控制台输入这段代码， 你就会看到网站想要调用你的摄像头以及麦克风的请求。点击允许后，你的摄像头就会亮灯，开启录音和录屏的状态。</p>
+<blockquote>
+<p>navigator.mediaDevices.getUserMedia(videoObj, (stream) =&gt; {}, errBack) </p>
+</blockquote>
+<p>你应该马上就会问，那么录完的音跑到哪里去了。我们从这个调用这个方法后，看到中间其实是有一个回调函数，让我们拿到麦克风和摄像头产生的数据流的。这时候我们可以调用<code>AudioContext</code>的接口使得音频PCM数据在到达目的地前通过不同的处理节点（增益、压缩等），所以我们需要从这里来入手。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">navigator.mediaDevices.getUserMedia(&#123;<span class="attr">audio</span>: <span class="literal">true</span>&#125;, initRecorder)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">initRecorder</span>(<span class="params">stream</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> AudioContext = <span class="built_in">window</span>.AudioContext</div><div class="line">    <span class="keyword">const</span> audioContext = <span class="keyword">new</span> AudioContext()</div><div class="line">    <span class="comment">// 创建MediaStreamAudioSourceNode对象，给定媒体流（例如，来自navigator.getUserMedia实例），然后可以播放和操作音频。</span></div><div class="line">    <span class="keyword">const</span> audioInput = audioContext.createMediaStreamSource(stream)</div><div class="line">    <span class="comment">// 缓冲区大小为4096，控制着多长时间需触发一次audioprocess事件</span></div><div class="line">    <span class="keyword">const</span> bufferSize = <span class="number">4096</span></div><div class="line">    <span class="comment">// 创建一个javascriptNode,用于使用js直接操作音频数据</span></div><div class="line">    <span class="comment">// 第一个参数表示每一帧缓存的数据大小，可以是256, 512, 1024, 2048, 4096, 8192, 16384,值越小一帧的数据就越小，声音就越短，onaudioprocess 触发就越频繁。4096的数据大小大概是0.085s，就是说每过0.085s就触发一次onaudioprocess，第二，三个参数表示输入帧，和输出帧的通道数。这里表示2通道的输入和输出，当然我也可以采集1，4,5等通道</span></div><div class="line">    <span class="keyword">const</span> recorder = audioContext.createScriptProcessor(bufferSize, <span class="number">1</span>, <span class="number">1</span>)</div><div class="line">    <span class="comment">// 每个满足一个分片的buffer大小就会触发这个回调函数</span></div><div class="line">    recorder.onaudioprocess = recorderProcess</div><div class="line">    <span class="comment">// const monitorGainNode = audioContext.createGain()</span></div><div class="line">    <span class="comment">// 延迟0.01秒输出到扬声器</span></div><div class="line">    <span class="comment">// monitorGainNode.gain.setTargetAtTime(音量, audioContext.currentTime, 0.01)</span></div><div class="line">    <span class="comment">// monitorGainNode.connect(audioContext.destination)</span></div><div class="line">    <span class="comment">// audioInput.connect(monitorGainNode)</span></div><div class="line">    <span class="comment">// const recordingGainNode = audioContext.createGain()</span></div><div class="line">    <span class="comment">// recordingGainNode.gain.setTargetAtTime(音量, audioContext.currentTime, 0.01)</span></div><div class="line">    <span class="comment">// recordingGainNode.connect(audioContext.scriptProcessorNode)</span></div><div class="line">    <span class="comment">// 将音频的数据流输出到这个jsNode对象中</span></div><div class="line">    audioInput.connect(recorder)</div><div class="line">    <span class="comment">// 最后先音频流输出到扬声器。（将录音流原本的输出位置再定回原来的目标地）</span></div><div class="line">    recorder.connect(audioContext.destination)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>做到这一步我们已经能拿到录音数据了，而且还是按照我们预想的样子去得到已经分好片的buffer数据。那么我们终于可以开始愉快地处理我们的录音流了。</p>
+<blockquote>
+<p>补充一下上面代码中注释的两段用来控制录音音量大小以及将录音声音实时反馈到扬声器的两段方法函数。原理相一致，也就是设置一个处理数据的中间件，在录音设备最终走到扬声器（目标地）前进行二进制的控制</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">recorderProcess</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="comment">// 左声道</span></div><div class="line">  <span class="keyword">const</span> left = e.inputBuffer.getChannelData(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意在<code>recorderProcess</code>里面调用了一个<code>getChannelData</code>的方法，可以传入整型，取到对应声道的数据，进行分别处理。由于我们是单声道录制，所以只需要拿到左声道的数据流即可。</p>
+<p>如果这时候你不需要对音频的输出再进行控制，已经可以将这段二进制数据直接用<code>websoket</code>传输到后台去了。</p>
+<h3 id="数据处理与转换"><a href="#数据处理与转换" class="headerlink" title="数据处理与转换"></a>数据处理与转换</h3><p>假如真不凑巧，后台大佬要的数据不是你这玩意的样子，大佬们对音频质量有要求：只接受一个采样率是8khz、位深16的wav文件。很好，那么提取关键字，我们需要先确认我们这段pcm数据是否8khz以及位深16.最后再把这些二进制组合起来转成wav格式。看起来很复杂，没关系，我们一步一步来。</p>
+<h4 id="采样率（sampleRate）和位深度（bitDepth）"><a href="#采样率（sampleRate）和位深度（bitDepth）" class="headerlink" title="采样率（sampleRate）和位深度（bitDepth）"></a>采样率（sampleRate）和位深度（bitDepth）</h4><p>首先，采样率(sampleRate)是什么呢，百度一下。</p>
+<blockquote>
+<p>音频采样率是指录音设备在一秒钟内对声音信号的采样次数，采样频率越高声音的还原就越真实越自然。在当今的主流采集卡上，采样频率一般共分为22.05KHz、44.1KHz、48KHz三个等级，22.05KHz只能达到FM广播的声音品质，44.1KHz则是理论上的CD音质界限，48KHz则更加精确一些。</p>
+</blockquote>
+<p>那么接下来这段代码就可以让你获取到你麦克风采样率是多少。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const AudioContext = window.AudioContext</div><div class="line">const audioContext = new AudioContext()</div><div class="line">// 可读属性</div><div class="line">console.log(audioContext.sampleRate)</div><div class="line">// 44100</div></pre></td></tr></table></figure></p>
+<p>很好，这段输出代表你的录音设备采样率高到44100HZ，那么根据需求，你就需要将自己的音频采样率降低下来了。然而不幸的是，浏览器并不允许去修改录音时的采样率，而且不同电脑设备的表现还不一样。这意味着，你需要在中间node拿到的二进制再进行一次处理。那么怎么去降低自己的采样率呢。根据上面百度的资料，你很容易就能发现，采样率的高低其实只是在一秒内的音频它的数据点有多少个的问题，我们需要把原来一秒内有44100个点的数据流减少成8000个点的数据流。很简单嘛，不是么，不过这个有个小点是需要注意的。</p>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/31818112/downsample-pcm-audio-from-44100-to-8000" target="_blank" rel="external">Downsample PCM audio from 44100 to 8000</a>参考这里的一个回复：<br>Lets take a simple case of downsampling by a factor of 2. (e.g. 44100-&gt;22050). A naive approach would be to just throw away every other sample. But imagine for a second that in the original 44.1kHz file there was a single sine wave present at 20khz. It is well within nyquist (fs/2=22050) for that sample rate. After you throw every other sample away it is still going to be there at 10kHz but now it will be above nyquist (fs/2=11025) and it will alias into your output signal. The final result is that you will have a big fat sine wave sitting at 8975 Hz!<br>In order to avoid this aliasing during downsampling you need to first design a lowpass filter with a cutoff selected according to your decimation ratio. For the example above you would cutoff everything above 11025 first and then decimate.</p>
+</blockquote>
+<p>这里的大概意思就是单纯地抽点是不行的。当然里面内在逻辑还涉及到频率波长什么的，我自然就不太清楚了。有兴趣的朋友可以详细了解一下原因。所幸这里还提供了代码的实现方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">interleave</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> t = e.length;</div><div class="line">   sampleRate += <span class="number">0.0</span>;</div><div class="line">   outputSampleRate += <span class="number">0.0</span>;</div><div class="line">   <span class="keyword">var</span> s = <span class="number">0</span>,</div><div class="line">   o = sampleRate / outputSampleRate,</div><div class="line">   u = <span class="built_in">Math</span>.ceil(t * outputSampleRate / sampleRate),</div><div class="line">   a = <span class="keyword">new</span> <span class="built_in">Float32Array</span>(u);</div><div class="line">   <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; u; i++) &#123;</div><div class="line">     a[i] = e[<span class="built_in">Math</span>.floor(s)];</div><div class="line">     s += o;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> a;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>那么采样率的问题就解决了。剩下还有两个问题。将音频流转为16位深，这里就比较简单了。只要确保你生成的位数足够就行。比如，8位深的音频只需要生成一个<code>Uint8Array</code>，16位深就要生成2个的长度。<code>new Unit8Array(bitDepth / 8)</code></p>
+<h4 id="pcm数据转wav"><a href="#pcm数据转wav" class="headerlink" title="pcm数据转wav"></a>pcm数据转wav</h4><p>好不容易终于走到最后一步了。怎样把<code>pcm</code>数据转为<code>wav</code>数据。本来以为将是一个极其棘手的问题，但是所幸。<code>pcm</code>-&gt;<code>wav</code>的方法非常简单，将<code>wav</code>文件以二进制的方式打开后，去除前44位的字节的头文件信息就是一段<code>pcm</code>数据了。那么我们只需要把录音过程中的所有内容都收集起来，然后插入头文件信息即可。这一步相对于前面来说简直简单太多了。</p>
+<p>但是我们还有一个问题要解决。“javascript如何操作二进制数据”。所以接下来就要介绍这几个玩意了。</p>
+<h5 id="Bolb、ArrayBuffer、Unit8Array、DataView"><a href="#Bolb、ArrayBuffer、Unit8Array、DataView" class="headerlink" title="Bolb、ArrayBuffer、Unit8Array、DataView"></a>Bolb、ArrayBuffer、Unit8Array、DataView</h5><p>经过漫长地查询，看源码看API查资料，我终于集齐了有关这次操作的所有对象，可以召唤神龙了！</p>
+<p>这个几个对象真的是老衲学了这么久都没接触过几个，有些甚至听都没听过。所以一个一个来，而且我也只能提供一些我初略的见解。（欢迎有大佬给我订正，想要具体了解还是更适合单独去搜索）</p>
+<p><code>ArrayBuffer</code>是个啥玩意呢。<code>ArrayBuffer</code>又称类型化数组。类型化数组，我记得在一篇详解数组的文章有看到，但是由于用处不多后面就给忘了。大致的意思就是js的数组对象，其实并不是像其他面向对象语言的实现方式一样，内存不连续而且类型不可控严重影响性能。（但是各大浏览器引擎都有做优化，所以实际编码不需要考虑）。而<code>ArrayBuffer</code>则是专门放0和1组成的二进制数据，所以当你在捕获到pcm数据的时候，将它打印到控制台上会看到这是个<code>ArrayBuffer</code>类型的数组，就是因为这段是二进制数据。</p>
+<p>而<code>ArrayBuffer</code>对象并没有提供任何读写内存的方法，而是允许在其上方建立“视图”，从而插入与读取内存中的数据。那么视图又是啥呢？？</p>
+<table>
+<thead>
+<tr>
+<th>视图类型</th>
+<th>数据类型</th>
+<th>占用位数</th>
+<th>占用字节</th>
+<th>有无符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Int8Array</td>
+<td>整数</td>
+<td>8</td>
+<td>1</td>
+<td>有</td>
+</tr>
+<tr>
+<td>Uint8Array</td>
+<td>整数</td>
+<td>8</td>
+<td>1</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Uint8ClampedArray</td>
+<td>整数</td>
+<td>8</td>
+<td>1</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Int16Array</td>
+<td>整数</td>
+<td>16</td>
+<td>2</td>
+<td>有</td>
+</tr>
+<tr>
+<td>Uint16Array</td>
+<td>整数</td>
+<td>16</td>
+<td>2</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Int32Array</td>
+<td>整数</td>
+<td>32</td>
+<td>4</td>
+<td>有</td>
+</tr>
+<tr>
+<td>Uint32Array</td>
+<td>整数</td>
+<td>32</td>
+<td>4</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Float32Array</td>
+<td>整数</td>
+<td>32</td>
+<td>4</td>
+<td>\</td>
+</tr>
+<tr>
+<td>Float64Array</td>
+<td>浮点数</td>
+<td>64</td>
+<td>8</td>
+<td>\</td>
+</tr>
+</tbody>
+</table>
+<p>这对于一个计算机基础极差的大兄弟来说简直是噩梦。这么多玩意，我得怎么搞。又怎么选择，啊咧要崩溃了。但是要操作二进制呀，求助源码库是一个最简单的做法。在源码里面就发现这个玩意了。</p>
+<p><code>DataView</code>视图。为了解决各种硬件设备、数据传输等对默认字节序的设定不一而导致解码时候会发生的混乱问题，<code>javascript</code>提供了<code>DataView</code>类型的视图来让开发者在对内存进行读写时手动设定字节序的类型。于是<code>.wav</code>的文件头就要这么写。具体想知道怎么写还是得百度出来<code>.wav</code>的文件头信息字节具体如何分配</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> view = <span class="keyword">new</span> <span class="built_in">DataView</span>(wav.buffer)</div><div class="line"></div><div class="line">view.setUint32(<span class="number">0</span>, <span class="number">1380533830</span>, <span class="literal">false</span>) <span class="comment">// RIFF identifier 'RIFF'</span></div><div class="line">view.setUint32(<span class="number">4</span>, <span class="number">36</span> + dataLength, <span class="literal">true</span>) <span class="comment">// file length minus RIFF identifier length and file description length</span></div><div class="line">view.setUint32(<span class="number">8</span>, <span class="number">1463899717</span>, <span class="literal">false</span>) <span class="comment">// RIFF type 'WAVE'</span></div><div class="line">view.setUint32(<span class="number">12</span>, <span class="number">1718449184</span>, <span class="literal">false</span>) <span class="comment">// format chunk identifier 'fmt '</span></div><div class="line">view.setUint32(<span class="number">16</span>, <span class="number">16</span>, <span class="literal">true</span>) <span class="comment">// format chunk length</span></div><div class="line">view.setUint16(<span class="number">20</span>, <span class="number">1</span>, <span class="literal">true</span>) <span class="comment">// sample format (raw)</span></div><div class="line">view.setUint16(<span class="number">22</span>, <span class="keyword">this</span>.numberOfChannels, <span class="literal">true</span>) <span class="comment">// channel count</span></div><div class="line">view.setUint32(<span class="number">24</span>, <span class="keyword">this</span>.sampleRate, <span class="literal">true</span>) <span class="comment">// sample rate</span></div><div class="line">view.setUint32(<span class="number">28</span>, <span class="keyword">this</span>.sampleRate * <span class="keyword">this</span>.bytesPerSample * <span class="keyword">this</span>.numberOfChannels, <span class="literal">true</span>) <span class="comment">// byte rate (sample rate * block align)</span></div><div class="line">view.setUint16(<span class="number">32</span>, <span class="keyword">this</span>.bytesPerSample * <span class="keyword">this</span>.numberOfChannels, <span class="literal">true</span>) <span class="comment">// block align (channel count * bytes per sample)</span></div><div class="line">view.setUint16(<span class="number">34</span>, <span class="keyword">this</span>.bitDepth, <span class="literal">true</span>) <span class="comment">// bits per sample</span></div><div class="line">view.setUint32(<span class="number">36</span>, <span class="number">1684108385</span>, <span class="literal">false</span>) <span class="comment">// data chunk identifier 'data'</span></div><div class="line">view.setUint32(<span class="number">40</span>, dataLength, <span class="literal">true</span>) <span class="comment">// data chunk length</span></div></pre></td></tr></table></figure>
+<p>上面的内容就是头信息的写法了。最后将数据以<code>unit8Array</code>的格式写入一个wav二进制数据就有了。我们还需要的就是将它转成文件对象。</p>
+<p><code>Blob</code>你可能没听过，但是<code>File</code>你肯定听过，因为经常需要form表单传文件嘛。那么你这么理解,<code>Blob</code>是一种<code>JavaScript</code>的对象类型。<code>HTML5</code>的文件操作对象，<code>file</code>对象就是<code>Blob</code>的一个分支或说一个子集。</p>
+<p>也就是为啥<code>File</code>对象能进行文件分割上传，就是利用了<code>Blob</code>操作二进制数据的方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Bolb(wavData, &#123; <span class="attr">type</span>: <span class="string">'audio/wav'</span> &#125;)</div></pre></td></tr></table></figure>
+<h3 id="验证效果"><a href="#验证效果" class="headerlink" title="验证效果"></a>验证效果</h3><p>上面的代码都是二进制操作，是不是特别没信息。那就验证一下吧！把生成的<code>blob</code>对象，这样操作：<code>const url = URL.createObjectURL(blob)</code>然后把它丢到<code>&lt;a&gt;</code>标签里面来下载这个文件。命令行工具：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ file test.wav</div><div class="line"><span class="function">test.wav: <span class="title">RIFF</span> (<span class="title">little</span>-<span class="title">endian</span>) <span class="title">data</span>, <span class="title">WAVE</span> <span class="title">audio</span>, <span class="title">Microsoft</span> <span class="title">PCM</span>, 16 <span class="title">bit</span>, <span class="title">mono</span> 8000 <span class="title">Hz</span></span></div></pre></td></tr></table></figure>
+<p>完全符合效果。nice，剩下的问题就是回到实时处理pcm数据的问题了。</p>
+<h3 id="传输arrayBuffer"><a href="#传输arrayBuffer" class="headerlink" title="传输arrayBuffer"></a>传输arrayBuffer</h3><p>文件我们会传，但是二进制buffer数组要怎么传递呢？只有当你使用<code>blob</code>生成后的对象才能作为文件对象使用。但是当我们还是pcm数据段的时候怎么来作为一个文件传递过去呢。</p>
+<p>这里只稍微列举一下自己的尝试，不一定是个正确的使用方法。这里使用的是<code>websocket</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// client</span></div><div class="line"><span class="keyword">const</span> formData = <span class="keyword">new</span> FormData()</div><div class="line">formData.append(blob, <span class="keyword">new</span> Blob(arrayBuffer))</div><div class="line"></div><div class="line"><span class="comment">// server</span></div><div class="line"><span class="built_in">console</span>.log(ctx.args[<span class="number">0</span>]) <span class="comment">// ArrayBuffer&lt;xx,xxx&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="做点小优化"><a href="#做点小优化" class="headerlink" title="做点小优化"></a>做点小优化</h3><p><code>Web Worker</code>了解一下，由于涉及到文件的转码操作。所以很耗费性能，这时候是时候掏出<code>web Worker</code>来深度优化这玩意。</p>
+<p>有关这个的内容，其实看起来很高深但是很简单，<code>worker</code>就相当于一个处理源数据的方法，然后交互方式是用事件监听。</p>
+<p>这里仅仅记录几个坑，就不详细介绍：</p>
+<ol>
+<li>web worker必须起服务来实现。单纯html文件时不能打开worker的。worker必须要传一个<code>.js</code>文件路径，且保证同源策略。</li>
+<li>不要向worker去传递函数，否则会错误。而且浏览器还不暴露这个错误。排查了好久的说</li>
+<li>worker必须传入一个js的路径。在vue下，只能把它丢在static文件去引用了喵。</li>
+</ol>
+<h3 id="这里还有些小问题没解决"><a href="#这里还有些小问题没解决" class="headerlink" title="这里还有些小问题没解决"></a>这里还有些小问题没解决</h3><ol>
+<li>如何实时地绘制出录音的音量。首先音量可以取得到的buffer里面的大小作为分贝参考。但是具体实现方式还不太懂，或者说没有简便的实现方式吧。</li>
+<li>前端收到一个buffer的时候想要实时播放如何做到，现在做的方式其实是最后才嵌回去。做了一个小实验，没成功。（直接把录音转化好的内容转回ArrayBuffer但是失败了）。感觉如果有后端来传递数据应该可以实现。</li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">audioContext.decodeAudioData(play_queue[index_play], <span class="function"><span class="keyword">function</span>(<span class="params">buffer</span>) </span>&#123;<span class="comment">//解码成pcm流</span></div><div class="line">            <span class="keyword">var</span> audioBufferSouceNode = audioContext.createBufferSource();</div><div class="line">            audioBufferSouceNode.buffer = buffer;</div><div class="line">            audioBufferSouceNode.connect(audioContext.destination);</div><div class="line">            audioBufferSouceNode.start(<span class="number">0</span>);</div><div class="line">        &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"failed to decode the file"</span>);</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>如何实时地计算到现在音频的录制实现。因为是数据流没办法转成音频对象导致没能拿到这些方法来获取。现在比较粗暴的方法就是通过字节长度 采样率 位数来计算  但是感觉计算量比较大 不属于一个好的实现方式？</p>
+</li>
+<li>改变音调和声音位置的api没能成功调用起来。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> filterNode = audioContext.createBiquadFilter();</div><div class="line"><span class="comment">// ...</span></div><div class="line">source.connect(filterNode);</div><div class="line">filterNode.connect(source.destination);</div><div class="line"></div><div class="line"><span class="keyword">const</span> updateFrequency = <span class="function"><span class="params">frequency</span> =&gt;</span> filterNode.frequency.value = frequency;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> rangeX = <span class="built_in">document</span>.querySelector(<span class="string">'input[name="rangeX"]'</span>);</div><div class="line"><span class="keyword">const</span> source = audioContext.createBufferSource();</div><div class="line"><span class="keyword">const</span> pannerNode = audioContext.createPanner();</div><div class="line"></div><div class="line">source.connect(pannerNode);</div><div class="line">pannerNode.connect(source.destination);</div><div class="line"></div><div class="line">rangeX.addEventListener(<span class="string">'input'</span>, () =&gt; pannerNode.setPosition(rangeX.value, <span class="number">0</span>, <span class="number">0</span>));</div></pre></td></tr></table></figure>
+<h3 id="node端切割音频文件"><a href="#node端切割音频文件" class="headerlink" title="node端切割音频文件"></a>node端切割音频文件</h3><p>这里补充一点小小知识点。node端并没有特别好的处理音频的库。查询了很久之后发现一个调用机器环境<code>ffmpeg</code>来辅助处理的库。用起来起码是没问题的，而且非常全面。（毕竟接触音频多的人应该都懂这个玩意）这里粗糙mark一下自己之前用到的api。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> command = ffmpeg(filePath)</div><div class="line">  <span class="comment">// .seekInput(60.0) // 开始切割的时间</span></div><div class="line">  .seekInput(<span class="number">7.875</span>) <span class="comment">// 开始切割的时间，延迟7秒？为啥</span></div><div class="line">  .duration(<span class="number">4.125</span>) <span class="comment">// 需要切割的音频时长</span></div><div class="line">  .save(path.join(__dirname, <span class="string">'../../../app/public/test-1.wav'</span>))</div><div class="line">  .on(<span class="string">'end'</span>, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'finish'</span>)</div><div class="line">  &#125;)</div><div class="line">  .run()</div></pre></td></tr></table></figure>
+<p>最后，感谢付总、涂老师耐心地和我讲解有关音频的种种问题。感谢前端组各位大佬在我不懂的内容即使自己也没有过多接触但是还是耐心和我探讨问题。</p>
+<hr>
+<p>参考文章：这里列出的文章都是我查找资料时看到的不错的文章。和上面的内容不一定强烈相关，建议对音频感兴趣的朋友完全可以自己看看</p>
+<p><a href="https://gist.github.com/jerrybendy/4edb552f8414dd86e3989e9315a81adc" target="_blank" rel="external">一个使用 HTML5 录音的例子</a></p>
+<p><a href="https://www.html5rocks.com/en/tutorials/webaudio/intro/" target="_blank" rel="external">Getting Started with Web Audio API</a></p>
+<p><a href="https://addpipe.com/blog/using-recorder-js-to-capture-wav-audio-in-your-html5-web-site/" target="_blank" rel="external">Using Recorder.js to capture WAV audio in HTML5 and upload it to your server or download locally</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1057820" target="_blank" rel="external">HTML5录音控件</a></p>
+<p><a href="https://github.com/chris-rudmin/opus-recorder" target="_blank" rel="external">chris-rudmin/opus-recorder</a></p>
+<p><a href="https://subvisual.co/blog/posts/39-tutorial-html-audio-capture-streaming-to-node-js-no-browser-extensions/" target="_blank" rel="external">Tutorial: HTML Audio Capture streaming to Node.js (no browser extensions)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26536898" target="_blank" rel="external">[前端教程]HTML5制作好玩的麦克风音量检测器（Web Audio API）</a></p>
+<p><a href="https://stackoverflow.com/questions/31818112/downsample-pcm-audio-from-44100-to-8000" target="_blank" rel="external">Downsample PCM audio from 44100 to 8000</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView" target="_blank" rel="external">DataView</a><br><a href="https://www.html5rocks.com/en/tutorials/webgl/typed_arrays/" target="_blank" rel="external">Typed Arrays: Binary Data in the Browser</a><br><a href="https://thehub.musiciansfriend.com/tech-tips/sample-rate-and-bit-depth-an-introduction-to-sampling" target="_blank" rel="external">Tech Tip: Sample Rate and Bit Depth—An Introduction to Sampling</a><br><a href="https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String" target="_blank" rel="external">How to convert ArrayBuffer to and from String</a><br><a href="http://www.alloyteam.com/2012/05/%E7%94%A8html5-audio-api%E5%BC%80%E5%8F%91%E6%B8%B8%E6%88%8F%E7%9A%843d%E9%9F%B3%E6%95%88%E5%92%8C%E6%B7%B7%E9%9F%B3/" target="_blank" rel="external">用html5-audio-api开发游戏的3d音效和混音</a><br><a href="https://www.zhangxinxu.com/wordpress/2013/10/understand-domstring-document-formdata-blob-file-arraybuffer/" target="_blank" rel="external">理解DOMString、Document、FormData、Blob、File、ArrayBuffer数据类型</a><br><a href="https://juejin.im/post/599e35f5f265da246c4a1910" target="_blank" rel="external">深入浅出 Web Audio Api</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/07/有关快速入眠法/" rel="next" title="有关快速入眠法">
+                <i class="fa fa-chevron-left"></i> 有关快速入眠法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/19/技术/js/有关decodeURI与unescape解码问题/" rel="prev" title="有关decodeURI与unescape解码问题">
+                有关decodeURI与unescape解码问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Singlemai" />
+          <p class="site-author-name" itemprop="name">Singlemai</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录有关嘻嘻啊的一切</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">133</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#H5的Web-Audio-API"><span class="nav-number">1.</span> <span class="nav-text">H5的Web Audio API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单生成点声音"><span class="nav-number">2.</span> <span class="nav-text">简单生成点声音</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#oscillator"><span class="nav-number">2.1.</span> <span class="nav-text">oscillator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#波形"><span class="nav-number">2.1.1.</span> <span class="nav-text">波形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#频率"><span class="nav-number">2.1.2.</span> <span class="nav-text">频率</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#connect"><span class="nav-number">2.2.</span> <span class="nav-text">connect</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#玩点录音"><span class="nav-number">3.</span> <span class="nav-text">玩点录音</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取到原始的pcm数据"><span class="nav-number">3.1.</span> <span class="nav-text">获取到原始的pcm数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据处理与转换"><span class="nav-number">3.2.</span> <span class="nav-text">数据处理与转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#采样率（sampleRate）和位深度（bitDepth）"><span class="nav-number">3.2.1.</span> <span class="nav-text">采样率（sampleRate）和位深度（bitDepth）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pcm数据转wav"><span class="nav-number">3.2.2.</span> <span class="nav-text">pcm数据转wav</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bolb、ArrayBuffer、Unit8Array、DataView"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Bolb、ArrayBuffer、Unit8Array、DataView</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证效果"><span class="nav-number">3.3.</span> <span class="nav-text">验证效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输arrayBuffer"><span class="nav-number">3.4.</span> <span class="nav-text">传输arrayBuffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做点小优化"><span class="nav-number">3.5.</span> <span class="nav-text">做点小优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里还有些小问题没解决"><span class="nav-number">3.6.</span> <span class="nav-text">这里还有些小问题没解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node端切割音频文件"><span class="nav-number">3.7.</span> <span class="nav-text">node端切割音频文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Singlemai</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

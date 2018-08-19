@@ -92,10 +92,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="图片懒加载和预加载技术">
 <meta property="og:url" content="SingleMai.github.io/2017/07/29/技术/js/图片懒加载和预加载技术/index.html">
-<meta property="og:site_name" content="Bryan &amp; Mia">
+<meta property="og:site_name" content="嘻嘻啊的日常">
 <meta property="og:description" content="图片懒加载和预加载技术，从名字上就可以看出它们是一对干同一行却不同研究方向的兄弟。之前学的时候大致了解了一遍，后来太久没运用上，就忘了….于是又花了时间去补回来。干脆记录一下好了~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-10T13:48:20.889Z">
+<meta property="og:updated_time" content="2018-05-11T09:06:29.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片懒加载和预加载技术">
 <meta name="twitter:description" content="图片懒加载和预加载技术，从名字上就可以看出它们是一对干同一行却不同研究方向的兄弟。之前学的时候大致了解了一遍，后来太久没运用上，就忘了….于是又花了时间去补回来。干脆记录一下好了~">
@@ -134,7 +134,7 @@
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  <title> 图片懒加载和预加载技术 | Bryan & Mia </title>
+  <title> 图片懒加载和预加载技术 | 嘻嘻啊的日常 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -179,7 +179,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Bryan & Mia</span>
+        <span class="site-title">嘻嘻啊的日常</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -295,13 +295,13 @@
     <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2017/07/29/技术/js/图片懒加载和预加载技术/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bryan">
+      <meta itemprop="name" content="Singlemai">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bryan & Mia">
+      <meta itemprop="name" content="嘻嘻啊的日常">
     </span>
 
     
@@ -412,6 +412,8 @@
 <p>其次，那放图片的位置咋办呢？<strong>随便搞个东西先填住那个洞，到时候狸猫换太子就好了</strong>。狸猫就是我们常说的占位符图片。而太子则一般是利用自定义属性<code>data-img</code>来存放。然后当用户触发时间后，就将<code>data-img</code>放到<code>src</code>里面去。</p>
 <h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>hmm，看时间写个demo吧</p>
 <h2 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h2><p>预加载技术其实就是大多是利用了<code>new Image()</code>这个对象来实现提前加载，本质上只要有<code>src</code>属性的标签也都是可以实现的。由于<code>Image</code>对象有<code>onload</code>方法可以判断是否加载完调用回调函数进行自定义操作，所以更加讨喜。</p>
+<hr>
+<p>18年5.11日跑回来订正..之前学的时候错的有点天真就是认为预加载利用的是动态插标签，预先得到内容。。。但其实这绕了个大弯，明明就是一个ajax获取资源就行了。至于图片能获取到宽高所以利用<code>Image</code>对象才会更加方便罢了。</p>
 <p>同样的，还是那个问题，图片还没搞到手，我咋知道宽高，怎么给它设置呢。在之前一篇文章中<a href="https://singlemai.github.io/2017/05/31/%E6%8A%80%E6%9C%AF/js/%E6%A0%B9%E6%8D%AE%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E7%9C%9F%E5%AE%9E%E5%A4%A7%E5%B0%8F/" target="_blank" rel="external">根据图片路径获取图片大小</a>就有提到，我们只需要抓取图片的文件头，浏览器就可以知道它的宽高。<strong>(方法是用记时器轮循宽高变化)。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let img = new Image();</div><div class="line">img.src = path;// 设置图片路径</div><div class="line">let width = img.width;</div><div class="line">let height = img.height;</div></pre></td></tr></table></figure></p>
 <p>原理介绍完了，但是还有小问题要处理。假如图片已经存在浏览器的缓存中，那么它并不会触发<code>onload</code>事件，这时候我们需要监听<code>img.complete</code>这个属性来判断是否存在缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function loadImage(url,callback) &#123;</div><div class="line">    var img = new Image();</div><div class="line"></div><div class="line">    img.src = url;</div><div class="line"></div><div class="line">    if(img.complete) &#123;  // 如果图片已经存在于浏览器缓存，直接调用回调函数</div><div class="line"></div><div class="line">        callback.call(img);</div><div class="line">        return; // 直接返回，不用再处理onload事件</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    img.onload = function()&#123;</div><div class="line">        img.onload = null;</div><div class="line">        callback.call(img); // 调用回调函数， .call()这个方法就是那个设置this的方法呀</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h3><p>嘻嘻，不是我自己写的啦。多看看别人的源码，可以发现人家在处理细节的地方做得真的很好。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">var imgReady = (function()&#123;</div><div class="line">    var list = [],</div><div class="line">        intervalId = null;</div><div class="line"></div><div class="line">    // 用来执行队列</div><div class="line">    var queue = function()&#123;</div><div class="line"></div><div class="line">        for(var i = 0; i &lt; list.length; i++)&#123;</div><div class="line">            list[i].end ? list.splice(i--,1) : list[i]();</div><div class="line">        &#125;</div><div class="line">        !list.length &amp;&amp; stop();</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    // 停止所有定时器队列</div><div class="line">    var stop = function()&#123;</div><div class="line">        clearInterval(intervalId);</div><div class="line">        intervalId = null;</div><div class="line">    &#125;</div><div class="line">    return function(url, ready, error) &#123;</div><div class="line">        var onready = &#123;&#125;,</div><div class="line">            width,</div><div class="line">            height,</div><div class="line">            newWidth,</div><div class="line">            newHeight,</div><div class="line">            img = new Image();</div><div class="line">        img.src = url;</div><div class="line"></div><div class="line">        // 如果图片被缓存，则直接返回缓存数据</div><div class="line">        if(img.complete) &#123;</div><div class="line">            ready.call(img);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        width = img.width;</div><div class="line">        height = img.height;</div><div class="line"></div><div class="line">        // 加载错误后的事件</div><div class="line">        img.onerror = function () &#123;</div><div class="line">            error &amp;&amp; error.call(img);</div><div class="line">            onready.end = true;</div><div class="line">            img = img.onload = img.onerror = null;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        // 图片尺寸就绪</div><div class="line">        var onready = function() &#123;</div><div class="line">            newWidth = img.width;</div><div class="line">            newHeight = img.height;</div><div class="line">            if (newWidth !== width || newHeight !== height ||</div><div class="line">                // 如果图片已经在其他地方加载可使用面积检测</div><div class="line">                newWidth * newHeight &gt; 1024</div><div class="line">            ) &#123;</div><div class="line">                ready.call(img);</div><div class="line">                onready.end = true;</div><div class="line">            &#125;;</div><div class="line">        &#125;;</div><div class="line">        onready();</div><div class="line">        // 完全加载完毕的事件</div><div class="line">        img.onload = function () &#123;</div><div class="line">            // onload在定时器时间差范围内可能比onready快</div><div class="line">            // 这里进行检查并保证onready优先执行</div><div class="line">            !onready.end &amp;&amp; onready();</div><div class="line">            // IE gif动画会循环执行onload，置空onload即可</div><div class="line">            img = img.onload = img.onerror = null;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line"></div><div class="line">        // 加入队列中定期执行</div><div class="line">        if (!onready.end) &#123;</div><div class="line">            list.push(onready);</div><div class="line">            // 无论何时只允许出现一个定时器，减少浏览器性能损耗</div><div class="line">            if (intervalId === null) &#123;</div><div class="line">                intervalId = setInterval(queue, 40);</div><div class="line">            &#125;;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
@@ -526,10 +528,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
-               alt="Bryan" />
-          <p class="site-author-name" itemprop="name">Bryan</p>
+               alt="Singlemai" />
+          <p class="site-author-name" itemprop="name">Singlemai</p>
            
-              <p class="site-description motion-element" itemprop="description">记录人生，和老婆秀秀恩爱</p>
+              <p class="site-description motion-element" itemprop="description">记录有关嘻嘻啊的一切</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -537,7 +539,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">125</span>
+                <span class="site-state-item-count">133</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -548,7 +550,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -633,12 +635,12 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Bryan</span>
+  <span class="author" itemprop="copyrightHolder">Singlemai</span>
 </div>
 
 <div>

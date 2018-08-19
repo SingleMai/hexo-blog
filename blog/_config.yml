@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Bryan & Mia
+title: 嘻嘻啊的日常
 subtitle:
-description: 记录人生，和老婆秀秀恩爱
-author: Bryan
+description: 记录有关嘻嘻啊的一切
+author: Singlemai
 language: zh-CN
 timezone:
 
@@ -34,7 +34,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:

@@ -1,0 +1,932 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="msvalidate.01" content="AB456E888A92CCC1848C7687BCDAA626" />
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在刚开始学前端的时候，udacity有一门教如何写README的课程，那时候吧懵懂无知，就稍微学学便过去了。其实也没留下什么具体印象，有的只是磨炼了一下写markdown的手法。然后慢慢地开始走进了频繁使用github管理，有大量频繁的项目。不过感觉在公司中，大家在代码规范这一块尚且处于一个起步阶段，很多内容大家都是没有进行规范化管理，emm感觉长久而言，对自己不是一件好事吧。so,今天在掘金上看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何写一个通用的README规范">
+<meta property="og:url" content="SingleMai.github.io/2018/04/01/技术/如何写一个通用的README规范/index.html">
+<meta property="og:site_name" content="嘻嘻啊的日常">
+<meta property="og:description" content="在刚开始学前端的时候，udacity有一门教如何写README的课程，那时候吧懵懂无知，就稍微学学便过去了。其实也没留下什么具体印象，有的只是磨炼了一下写markdown的手法。然后慢慢地开始走进了频繁使用github管理，有大量频繁的项目。不过感觉在公司中，大家在代码规范这一块尚且处于一个起步阶段，很多内容大家都是没有进行规范化管理，emm感觉长久而言，对自己不是一件好事吧。so,今天在掘金上看">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-01T02:32:38.314Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何写一个通用的README规范">
+<meta name="twitter:description" content="在刚开始学前端的时候，udacity有一门教如何写README的课程，那时候吧懵懂无知，就稍微学学便过去了。其实也没留下什么具体印象，有的只是磨炼了一下写markdown的手法。然后慢慢地开始走进了频繁使用github管理，有大量频繁的项目。不过感觉在公司中，大家在代码规范这一块尚且处于一个起步阶段，很多内容大家都是没有进行规范化管理，emm感觉长久而言，对自己不是一件好事吧。so,今天在掘金上看">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="SingleMai.github.io/2018/04/01/技术/如何写一个通用的README规范/"/>
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <title> 如何写一个通用的README规范 | 嘻嘻啊的日常 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63404910";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">嘻嘻啊的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="SingleMai.github.io/2018/04/01/技术/如何写一个通用的README规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Singlemai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嘻嘻啊的日常">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何写一个通用的README规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-01T10:31:10+08:00">
+                2018-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/格式规范/" itemprop="url" rel="index">
+                    <span itemprop="name">格式规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/01/技术/如何写一个通用的README规范/" class="leancloud_visitors" data-flag-title="如何写一个通用的README规范">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+
+      
+        <!-- 文章详情 -->
+        undefined
+        <p>在刚开始学前端的时候，udacity有一门教如何写README的课程，那时候吧懵懂无知，就稍微学学便过去了。其实也没留下什么具体印象，有的只是磨炼了一下写<code>markdown</code>的手法。然后慢慢地开始走进了频繁使用<code>github</code>管理，有大量频繁的项目。不过感觉在公司中，大家在代码规范这一块尚且处于一个起步阶段，很多内容大家都是没有进行规范化管理，emm感觉长久而言，对自己不是一件好事吧。<br>so,今天在<code>掘金</code>上看到鹅厂的老大哥发布了<a href="https://juejin.im/post/5aaa06e4f265da237b21cf63?utm_source=gold_browser_extension" target="_blank" rel="external">如何写一个通用的README规范</a>毫无疑问必须进行膜拜一把，也算是摘录在自己的blog中呗。<br><a id="more"></a></p>
+<h2 id="那么一份规范的README需要有什么内容呢？"><a href="#那么一份规范的README需要有什么内容呢？" class="headerlink" title="那么一份规范的README需要有什么内容呢？"></a>那么一份规范的README需要有什么内容呢？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. 项目描述</div><div class="line">2. 如何运行</div><div class="line">3. 业务介绍</div><div class="line">4. 项目备注</div></pre></td></tr></table></figure>
+<p>每一项都有哪些作用？</p>
+<h3 id="项目描述"><a href="#项目描述" class="headerlink" title="项目描述"></a>项目描述</h3><p>需要说明我们的项目名，项目功能简述，代码仓库地址。 这一块感觉像一个更像总起摘要的东西。</p>
+<h3 id="如何运行"><a href="#如何运行" class="headerlink" title="如何运行"></a>如何运行</h3><h4 id="开发环境配置"><a href="#开发环境配置" class="headerlink" title="开发环境配置"></a><strong>开发环境配置</strong></h4><p>一般是我们需要的一些运行环境配置。根据经验主要填上<code>node版本</code>/<code>框架版本</code>(往往有存在定版存在)。</p>
+<h4 id="开发-amp-发布命令"><a href="#开发-amp-发布命令" class="headerlink" title="开发&amp;发布命令"></a><strong>开发&amp;发布</strong>命令</h4><p>这里应该需要分两块进行描述。本地开发的命令，以及构建发布的命令。</p>
+<ol>
+<li>开发命令。这个如果是你自己起的项目，那么可能真的没有太大意义。但是对于一个刚接手项目的小伙子，他便十分需要这块的描述。想当初我刚接手的项目，真的你别说虽有脚手架存在，但是一些依赖的不同等原因。你要把一个项目跑起来真的有莫名其妙的坑存在。例如我新接手的项目，公司使用了<code>sqlite3-online</code>模块，这个模块<code>npm i</code>后居然要修改文件名把<code>sqlite3-online</code>修改成<code>sqlite3</code>才能跑起来。=。=懵懂无知的我，一直根据报错提示以为是我本地环境的问题，最后我导师提了一句我才知道。。。。这明显是给后人挖了个巨大的坑哇…还有一些项目因为没有README的存在，所以到现在我还不知道怎么把它在本地环境跑起来，为什么跑起来会报错。而唯一知道的人已经离职了=。=</li>
+<li>构建发布的命令。这个命令不用我说，当你的代码被部署人员拿出去部署的时候你就会知道了。因为别人没有学过你这个玩意，你乍一看这不是多简单的事吗？然而实际上，你需要手把手教导，细致到他只需要无脑复制你给他的命令，他就能把项目启动起来。无需任何过多知识含量。这同样意味着，你的代码对于端口/有必要弄成全局配置的东西，请统统全局配出来，不要让你的部署小哥去看你的代码。而且这些内容也必须把注释写得清清楚楚。被坑完你就懂了233</li>
+<li><h4 id="代理配置"><a href="#代理配置" class="headerlink" title="代理配置"></a>代理配置</h4>如果我们的项目在本地开发时需要用到一些代理工具，例如fiddler或whistle等，我们需要列出代理的配置项。最好是直接导出一个代理配置的文件，放在项目下。emm,没有做过不清楚，嘿嘿。</li>
+</ol>
+<h4 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h4><p>如果我们有用到一些发布平台，最好贴上项目的发布模块和发布单，减少我们发布的时间成本。</p>
+<h4 id="错误告警及监控"><a href="#错误告警及监控" class="headerlink" title="错误告警及监控"></a><strong>错误告警及监控</strong></h4><p>相信我们平常都会对线上的项目部署错误告警和监控日志的服务，方便我们及时排查现网问题，这里我们可以加入项目的一些监控属性ID。这个我没有太理解监控属性ID的意思，emm而且一般而言，部署人员发现哪里跑不通了都直接打你电话问你了，其实吧。写在文档里，可能更多是一个规范化的做法？不过也能算是不给后人挖坑的做法。<br>另外对于后台服务异常，我更倾向于建议在log日志中将每一次请求的发包回包都进行打印。不为什么，就因为当后台出错，部署人员打到电话给你的时候，你可以让他直接进log日志，“你看，我包发出去了对吧？看到没，包没回包，回包格式不对。你去怼后台吧”。因为这种情况我也是被坑了多次了，后台服务挂了，导致前端不正常，然后你负责第一个定位问题。如果一开始没有进行这么方便的操作，往往你都需要和部署人员说“部署哥哥，进一下我的代码加一点打印语句吧。”然后捣鼓个老半天才终于发现不是自己的问题。<br>不过吧，这里可能会导致日志文件的增加。因为像我写过的项目，一分钟可能就有一个请求，至少两个打印语句了。那样增量还是挺大的不是=。= 但是这个小技巧真的提高定位bug的速度，再也不用担心明明自己没出问题，却在帮忙定位人家的问题。</p>
+<h4 id="接口api"><a href="#接口api" class="headerlink" title="接口api"></a><strong>接口api</strong></h4><p>这里我们需要贴入项目中拉去的后台接口地址以及描述，还有我们的接口负责人，当后台服务异常，可以直接联系到后台同学。这里一直都有写，不过鹅肠老铁没列出规范的格式方法呀。<br>这里有时候列出所有api的确会很繁琐，有一些简单的我也觉得不是特别有紧迫。但是对与和后台交互的那部分！！请务必列出来！！因为你开发完了，以后如果遇到重构什么的，这个接口不是你自己写的，别人或者自己改起来真的超级麻烦。<br>想当初我就是通过自己模拟着前端的请求，再结合的代码，逐步把旧代码里面和后台的接口理了出来。。。。这个艰辛的日子呐。</p>
+<h4 id="数据上报。"><a href="#数据上报。" class="headerlink" title="数据上报。"></a>数据上报。</h4><p>我们在平常项目里都有加入一些数据上报，给产品同学统计业务数据用，这里我们最好阐述下都有哪些数据的上报。如果上报出问题，产品妹子找过来，我们不至于是一脸懵逼。<br>这一块可能主要在于我没有接触这种类型的吧。我暂时开发过的内容都是属于辅助后台的应用页。</p>
+<h3 id="业务介绍"><a href="#业务介绍" class="headerlink" title="业务介绍"></a>业务介绍</h3><p>对于前端来说，我们一个项目可能不止一个页面，那么我们需要给出以下信息：</p>
+<ol>
+<li><strong>业务入口及渠道链接</strong>即我们整个项目的入口页面，或者比较重要的页面地址。一般入口页面，我们可能会在多个渠道进行投放，那么需要列出所有的渠道链接</li>
+<li><strong>各页面及描述</strong>列出我们项目内的所有页面信息，比如下面这样：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">页面目录</th>
+<th style="text-align:center">页面描述</th>
+<th style="text-align:center">页面链接</th>
+<th style="text-align:center">参数描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">index</td>
+<td style="text-align:center">首页</td>
+<td style="text-align:center"><a href="https://now.qq.com" target="_blank" rel="external">https://now.qq.com</a></td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>项目中需要告诉其他开发者一些关键信息，比如我们页面打包构建，需要注意哪些问题等等，这些信息虽然不是必须的，但是可以帮助其他开发者降低开发的风险成本。有关这块我比较倾向于写在和构建命令一起。当然如果有别的细节也可以在这里详细说出，例如代码哪里的修改会牵扯到另一个地方的代码，修改时候要注意之类的=。=（感觉如果写出这种注释是不是就意味着本来这个结构的代码就很糟糕了）</li>
+</ol>
+<h3 id="最后可以写一些todoList吧"><a href="#最后可以写一些todoList吧" class="headerlink" title="最后可以写一些todoList吧"></a>最后可以写一些todoList吧</h3><p>有时候业务比较忙，可能这套代码还有一些你觉得不够尽善尽美的地方完全可以再这个位置记录下来。一来，以后有时间你可以倒推回来修改。二来，给接受的新人一个修改的方向。（你告诉他这个地方有需要修改，他才敢改呀。不然。。。谁敢乱动哦）</p>
+<p>还有一个可以记录的就是..一些不太正常的操作，你觉得有必要提出以下警醒后人的操作。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/31/随笔日记/2017年年度总结/" rel="next" title="2017年年度总结">
+                <i class="fa fa-chevron-left"></i> 2017年年度总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/01/随笔日记/7月，结束也是开始/" rel="prev" title="7月，结束也是开始">
+                7月，结束也是开始 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Singlemai" />
+          <p class="site-author-name" itemprop="name">Singlemai</p>
+           
+              <p class="site-description motion-element" itemprop="description">记录有关嘻嘻啊的一切</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">133</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tag/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SingleMai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#那么一份规范的README需要有什么内容呢？"><span class="nav-number">1.</span> <span class="nav-text">那么一份规范的README需要有什么内容呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目描述"><span class="nav-number">1.1.</span> <span class="nav-text">项目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何运行"><span class="nav-number">1.2.</span> <span class="nav-text">如何运行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开发环境配置"><span class="nav-number">1.2.1.</span> <span class="nav-text">开发环境配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开发-amp-发布命令"><span class="nav-number">1.2.2.</span> <span class="nav-text">开发&发布命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代理配置"><span class="nav-number">1.2.3.</span> <span class="nav-text">代理配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布"><span class="nav-number">1.2.4.</span> <span class="nav-text">发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误告警及监控"><span class="nav-number">1.2.5.</span> <span class="nav-text">错误告警及监控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口api"><span class="nav-number">1.2.6.</span> <span class="nav-text">接口api</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据上报。"><span class="nav-number">1.2.7.</span> <span class="nav-text">数据上报。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务介绍"><span class="nav-number">1.3.</span> <span class="nav-text">业务介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后可以写一些todoList吧"><span class="nav-number">1.4.</span> <span class="nav-text">最后可以写一些todoList吧</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Singlemai</span>
+</div>
+
+<div>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;
+  </span>
+  <span id="busuanzi_container_site_uv">
+    |&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Wa5xGxBSSrAdS5D0vseHGUjp-gzGzoHsz", "LFyAsHJY8hiThrDvmh3FWxbh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
